@@ -175,8 +175,8 @@ class _PhoneSignInWidgetState extends State<PhoneSignInWidget> {
                           !phoneNumberVal.startsWith('+')) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            content: Text(
-                                'Phone Number is required and has to start with +.'),
+                            content:
+                                Text('Nomor Telepon Harus diawali dengan +62'),
                           ),
                         );
                         return;

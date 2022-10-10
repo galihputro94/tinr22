@@ -6,6 +6,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 
 import 'schema/users_record.dart';
 import 'schema/jadwal_record.dart';
+import 'schema/mata_kuliah_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -15,6 +16,7 @@ export 'schema/serializers.dart';
 
 export 'schema/users_record.dart';
 export 'schema/jadwal_record.dart';
+export 'schema/mata_kuliah_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Stream<List<UsersRecord>> queryUsersRecord({
@@ -94,6 +96,48 @@ Future<FFFirestorePage<JadwalRecord>> queryJadwalRecordPage({
     queryCollectionPage(
       JadwalRecord.collection,
       JadwalRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query MataKuliahRecords (as a Stream and as a Future).
+Stream<List<MataKuliahRecord>> queryMataKuliahRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      MataKuliahRecord.collection,
+      MataKuliahRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<MataKuliahRecord>> queryMataKuliahRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      MataKuliahRecord.collection,
+      MataKuliahRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<MataKuliahRecord>> queryMataKuliahRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      MataKuliahRecord.collection,
+      MataKuliahRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

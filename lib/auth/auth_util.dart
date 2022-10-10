@@ -32,7 +32,8 @@ Future<User?> signInOrCreateAccount(
   } on FirebaseAuthException catch (e) {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Error: ${e.message!}')),
+      SnackBar(
+          content: Text('Error: [error]'.replaceAll('[error]', e.message!))),
     );
     return null;
   }
@@ -69,12 +70,13 @@ Future resetPassword(
   } on FirebaseAuthException catch (e) {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Error: ${e.message!}')),
+      SnackBar(
+          content: Text('Error: [error]'.replaceAll('[error]', e.message!))),
     );
     return null;
   }
   ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text('Password reset email sent')),
+    SnackBar(content: Text('Email untuk mengatur ulang sandi telah terkirim!')),
   );
 }
 
@@ -166,7 +168,7 @@ Future beginPhoneAuth({
     },
     verificationFailed: (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('Error: ${e.message!}'),
+        content: Text('Error: [error]'.replaceAll('[error]', e.message!)),
       ));
     },
     codeSent: (verificationId, _) {

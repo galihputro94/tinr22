@@ -179,7 +179,7 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
                         if (smsCodeVal == null || smsCodeVal.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                              content: Text('Enter SMS verification code.'),
+                              content: Text('Masukan kode verifikasi SMS'),
                             ),
                           );
                           return;

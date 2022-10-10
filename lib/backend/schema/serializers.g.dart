@@ -7,8 +7,8 @@ part of 'serializers.dart';
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
-      ..add(DayNameStruct.serializer)
       ..add(JadwalRecord.serializer)
+      ..add(MataKuliahRecord.serializer)
       ..add(UsersRecord.serializer))
     .build();
 

@@ -132,7 +132,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           try {
                             showUploadMessage(
                               context,
-                              'Uploading file...',
+                              'Mengunggah Berkas...',
                               showLoading: true,
                             );
                             downloadUrls = (await Future.wait(
@@ -151,11 +151,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           if (downloadUrls.length == selectedMedia.length) {
                             setState(
                                 () => uploadedFileUrl = downloadUrls.first);
-                            showUploadMessage(context, 'Success!');
+                            showUploadMessage(context, 'Berhasil!');
                           } else {
                             setState(() {});
                             showUploadMessage(
-                                context, 'Failed to upload media');
+                                context, 'Gagal mengunggah media');
                             return;
                           }
                         }

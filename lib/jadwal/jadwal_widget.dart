@@ -126,7 +126,11 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                   queryBuilder: (jadwalRecord) =>
                                       jadwalRecord.where('hari',
                                           isEqualTo: dateTimeFormat(
-                                              'EEEE', getCurrentTimestamp)),
+                                            'EEEE',
+                                            getCurrentTimestamp,
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
+                                          )),
                                 ),
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
@@ -714,7 +718,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
               child: StreamBuilder<List<JadwalRecord>>(
                 stream: queryJadwalRecord(
                   queryBuilder: (jadwalRecord) =>
-                      jadwalRecord.where('hari', isEqualTo: 'Tuesday'),
+                      jadwalRecord.where('hari', isEqualTo: 'Wednesday'),
                 ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
@@ -844,6 +848,396 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                     0, 4, 0, 0),
                                             child: Text(
                                               jadwalRabuJadwalRecord.jam!,
+                                              textAlign: TextAlign.end,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Overpass',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .background,
+                                                        fontSize: 12,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }),
+                  );
+                },
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 40,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).secondaryText,
+              ),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                        child: Text(
+                          'Kamis',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: 'Overpass',
+                                color: FlutterFlowTheme.of(context).background,
+                                fontSize: 18,
+                              ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+              child: StreamBuilder<List<JadwalRecord>>(
+                stream: queryJadwalRecord(
+                  queryBuilder: (jadwalRecord) =>
+                      jadwalRecord.where('hari', isEqualTo: 'Thursday'),
+                ),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: SpinKitFadingCircle(
+                          color: FlutterFlowTheme.of(context).primaryColor,
+                          size: 50,
+                        ),
+                      ),
+                    );
+                  }
+                  List<JadwalRecord> jadwalKamisJadwalRecordList =
+                      snapshot.data!;
+                  if (jadwalKamisJadwalRecordList.isEmpty) {
+                    return Center(
+                      child: Image.asset(
+                        'assets/images/noTransactions.png',
+                        width: 200,
+                        height: 400,
+                        fit: BoxFit.fitWidth,
+                      ),
+                    );
+                  }
+                  return Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: List.generate(jadwalKamisJadwalRecordList.length,
+                        (jadwalKamisIndex) {
+                      final jadwalKamisJadwalRecord =
+                          jadwalKamisJadwalRecordList[jadwalKamisIndex];
+                      return Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.92,
+                          height: 70,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).darkBG,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 3,
+                                color: Color(0x35000000),
+                                offset: Offset(0, 1),
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              width: 1,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(4, 8, 4, 4),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12, 0, 0, 0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              jadwalKamisJadwalRecord.mk!,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle1
+                                                      .override(
+                                                        fontFamily: 'Overpass',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .background,
+                                                      ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 4, 0, 0),
+                                              child: Text(
+                                                jadwalKamisJadwalRecord.dosen!,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12, 0, 12, 0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            jadwalKamisJadwalRecord.ruang!,
+                                            textAlign: TextAlign.end,
+                                            style: FlutterFlowTheme.of(context)
+                                                .subtitle2
+                                                .override(
+                                                  fontFamily: 'Overpass',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .background,
+                                                ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 4, 0, 0),
+                                            child: Text(
+                                              jadwalKamisJadwalRecord.jam!,
+                                              textAlign: TextAlign.end,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Overpass',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .background,
+                                                        fontSize: 12,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }),
+                  );
+                },
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 40,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).secondaryText,
+              ),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                        child: Text(
+                          'Jumat',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: 'Overpass',
+                                color: FlutterFlowTheme.of(context).background,
+                                fontSize: 18,
+                              ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+              child: StreamBuilder<List<JadwalRecord>>(
+                stream: queryJadwalRecord(
+                  queryBuilder: (jadwalRecord) =>
+                      jadwalRecord.where('hari', isEqualTo: 'Friday'),
+                ),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: SpinKitFadingCircle(
+                          color: FlutterFlowTheme.of(context).primaryColor,
+                          size: 50,
+                        ),
+                      ),
+                    );
+                  }
+                  List<JadwalRecord> jadwalKamisJadwalRecordList =
+                      snapshot.data!;
+                  if (jadwalKamisJadwalRecordList.isEmpty) {
+                    return Center(
+                      child: Image.asset(
+                        'assets/images/noTransactions.png',
+                        width: 200,
+                        height: 400,
+                        fit: BoxFit.fitWidth,
+                      ),
+                    );
+                  }
+                  return Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: List.generate(jadwalKamisJadwalRecordList.length,
+                        (jadwalKamisIndex) {
+                      final jadwalKamisJadwalRecord =
+                          jadwalKamisJadwalRecordList[jadwalKamisIndex];
+                      return Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.92,
+                          height: 70,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).darkBG,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 3,
+                                color: Color(0x35000000),
+                                offset: Offset(0, 1),
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              width: 1,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(4, 8, 4, 4),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12, 0, 0, 0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              jadwalKamisJadwalRecord.mk!,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle1
+                                                      .override(
+                                                        fontFamily: 'Overpass',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .background,
+                                                      ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 4, 0, 0),
+                                              child: Text(
+                                                jadwalKamisJadwalRecord.dosen!,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12, 0, 12, 0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            jadwalKamisJadwalRecord.ruang!,
+                                            textAlign: TextAlign.end,
+                                            style: FlutterFlowTheme.of(context)
+                                                .subtitle2
+                                                .override(
+                                                  fontFamily: 'Overpass',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .background,
+                                                ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 4, 0, 0),
+                                            child: Text(
+                                              jadwalKamisJadwalRecord.jam!,
                                               textAlign: TextAlign.end,
                                               style:
                                                   FlutterFlowTheme.of(context)

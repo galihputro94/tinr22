@@ -115,7 +115,7 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                           try {
                             showUploadMessage(
                               context,
-                              'Uploading file...',
+                              'Mengunggah Berkas...',
                               showLoading: true,
                             );
                             downloadUrls = (await Future.wait(
@@ -134,11 +134,11 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                           if (downloadUrls.length == selectedMedia.length) {
                             setState(
                                 () => uploadedFileUrl = downloadUrls.first);
-                            showUploadMessage(context, 'Success!');
+                            showUploadMessage(context, 'Berhasil!');
                           } else {
                             setState(() {});
                             showUploadMessage(
-                                context, 'Failed to upload media');
+                                context, 'Gagal mengunggah media');
                             return;
                           }
                         }
@@ -353,7 +353,7 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                       await currentUserReference!.update(usersUpdateData);
 
                       context.pushNamed(
-                        'home',
+                        'editProfile',
                         extra: <String, dynamic>{
                           kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,

@@ -243,6 +243,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             fontFamily: 'Overpass',
                             color: Colors.black,
                           ),
+                  locale: FFLocalizations.of(context).languageCode,
                 ),
               ),
             ],
