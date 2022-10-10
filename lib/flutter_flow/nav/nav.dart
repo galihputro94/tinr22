@@ -100,14 +100,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   : ProfilePageWidget(),
             ),
             FFRoute(
-              name: 'changePassword',
-              path: 'changePassword',
-              builder: (context, params) => ChangePasswordWidget(),
-            ),
-            FFRoute(
               name: 'phoneSignIn',
               path: 'phoneSignIn',
               builder: (context, params) => PhoneSignInWidget(),
+            ),
+            FFRoute(
+              name: 'changePassword',
+              path: 'changePassword',
+              builder: (context, params) => ChangePasswordWidget(),
             ),
             FFRoute(
               name: 'home',
@@ -117,14 +117,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   : HomeWidget(),
             ),
             FFRoute(
-              name: 'verifyPhone',
-              path: 'verifyPhone',
-              builder: (context, params) => VerifyPhoneWidget(),
+              name: 'MKPancasila',
+              path: 'mKPancasila',
+              builder: (context, params) => MKPancasilaWidget(),
             ),
             FFRoute(
               name: 'jadwal',
               path: 'jadwal',
               builder: (context, params) => JadwalWidget(),
+            ),
+            FFRoute(
+              name: 'verifyPhone',
+              path: 'verifyPhone',
+              builder: (context, params) => VerifyPhoneWidget(),
             ),
             FFRoute(
               name: 'completProfile',
