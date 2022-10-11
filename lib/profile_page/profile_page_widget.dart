@@ -35,8 +35,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
             child: SizedBox(
               width: 50,
               height: 50,
-              child: SpinKitFadingCircle(
-                color: FlutterFlowTheme.of(context).primaryColor,
+              child: SpinKitDualRing(
+                color: FlutterFlowTheme.of(context).white,
                 size: 50,
               ),
             ),
@@ -347,6 +347,54 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                           ),
                         ),
                       ),
+                    InkWell(
+                      onTap: () async {
+                        await launchURL('https://forms.gle/1J1pPZK67BPBTYMK9');
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(0),
+                          shape: BoxShape.rectangle,
+                          border: Border.all(
+                            width: 2,
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                              child: Text(
+                                'Bug Report',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: FlutterFlowTheme.of(context)
+                                          .background,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(0.9, 0),
+                                child: Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: Color(0xFF95A1AC),
+                                  size: 18,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
                       child: Row(

@@ -1,3 +1,4 @@
+import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -39,7 +40,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
           buttonSize: 54,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.of(context).secondaryText,
+            color: FlutterFlowTheme.of(context).white,
             size: 24,
           ),
           onPressed: () async {
@@ -98,8 +99,8 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                           child: SizedBox(
                             width: 50,
                             height: 50,
-                            child: SpinKitFadingCircle(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                            child: SpinKitDualRing(
+                              color: FlutterFlowTheme.of(context).white,
                               size: 50,
                             ),
                           ),
@@ -153,7 +154,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 8, 0, 0),
                                       child: Text(
-                                        'UserName',
+                                        listViewUsersRecord.displayName!,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -211,17 +212,17 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50,
-                            height: 50,
-                            child: SpinKitFadingCircle(
+                            width: 40,
+                            height: 40,
+                            child: CircularProgressIndicator(
                               color: FlutterFlowTheme.of(context).primaryColor,
-                              size: 50,
                             ),
                           ),
                         );
                       }
-                      List<UsersRecord> listViewUsersRecordList =
-                          snapshot.data!;
+                      List<UsersRecord> listViewUsersRecordList = snapshot.data!
+                          .where((u) => u.uid != currentUserUid)
+                          .toList();
                       return ListView.builder(
                         padding: EdgeInsets.zero,
                         primary: false,

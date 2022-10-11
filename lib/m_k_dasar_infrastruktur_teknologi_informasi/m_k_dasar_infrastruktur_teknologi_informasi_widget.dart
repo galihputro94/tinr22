@@ -201,8 +201,8 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
                     child: SizedBox(
                       width: 50,
                       height: 50,
-                      child: SpinKitFadingCircle(
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                      child: SpinKitDualRing(
+                        color: FlutterFlowTheme.of(context).white,
                         size: 50,
                       ),
                     ),

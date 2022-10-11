@@ -21,19 +21,31 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
   bool isMediaUploading = false;
   String uploadedFileUrl = '';
 
-  TextEditingController? textController;
+  TextEditingController? textController1;
+  TextEditingController? editProfileEmailController;
+  TextEditingController? editProfileNomorController;
+  TextEditingController? editProfileDomisiliController;
+  final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController(text: currentUserDisplayName);
+    editProfileDomisiliController = TextEditingController(
+        text: valueOrDefault(currentUserDocument?.domisili, ''));
+    editProfileEmailController = TextEditingController(text: currentUserEmail);
+    textController1 = TextEditingController(text: currentUserDisplayName);
+    editProfileNomorController =
+        TextEditingController(text: currentPhoneNumber);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    textController?.dispose();
+    editProfileDomisiliController?.dispose();
+    editProfileEmailController?.dispose();
+    textController1?.dispose();
+    editProfileNomorController?.dispose();
     super.dispose();
   }
 
@@ -69,102 +81,175 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
         elevation: 4,
       ),
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).background,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(1, 1, 1, 1),
-                        child: AuthUserStreamWidget(
-                          child: InkWell(
-                            onTap: () async {
-                              final selectedMedia =
-                                  await selectMediaWithSourceBottomSheet(
-                                context: context,
-                                allowPhoto: true,
-                              );
-                              if (selectedMedia != null &&
-                                  selectedMedia.every((m) => validateFileFormat(
-                                      m.storagePath, context))) {
-                                setState(() => isMediaUploading = true);
-                                var downloadUrls = <String>[];
-                                try {
-                                  showUploadMessage(
-                                    context,
-                                    'Mengunggah Berkas...',
-                                    showLoading: true,
-                                  );
-                                  downloadUrls = (await Future.wait(
-                                    selectedMedia.map(
-                                      (m) async => await uploadData(
-                                          m.storagePath, m.bytes),
-                                    ),
-                                  ))
-                                      .where((u) => u != null)
-                                      .map((u) => u!)
-                                      .toList();
-                                } finally {
-                                  ScaffoldMessenger.of(context)
-                                      .hideCurrentSnackBar();
-                                  isMediaUploading = false;
+        child: Form(
+          key: formKey,
+          autovalidateMode: AutovalidateMode.disabled,
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).background,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(1, 1, 1, 1),
+                          child: AuthUserStreamWidget(
+                            child: InkWell(
+                              onTap: () async {
+                                final selectedMedia =
+                                    await selectMediaWithSourceBottomSheet(
+                                  context: context,
+                                  allowPhoto: true,
+                                );
+                                if (selectedMedia != null &&
+                                    selectedMedia.every((m) =>
+                                        validateFileFormat(
+                                            m.storagePath, context))) {
+                                  setState(() => isMediaUploading = true);
+                                  var downloadUrls = <String>[];
+                                  try {
+                                    showUploadMessage(
+                                      context,
+                                      'Mengunggah Berkas...',
+                                      showLoading: true,
+                                    );
+                                    downloadUrls = (await Future.wait(
+                                      selectedMedia.map(
+                                        (m) async => await uploadData(
+                                            m.storagePath, m.bytes),
+                                      ),
+                                    ))
+                                        .where((u) => u != null)
+                                        .map((u) => u!)
+                                        .toList();
+                                  } finally {
+                                    ScaffoldMessenger.of(context)
+                                        .hideCurrentSnackBar();
+                                    isMediaUploading = false;
+                                  }
+                                  if (downloadUrls.length ==
+                                      selectedMedia.length) {
+                                    setState(() =>
+                                        uploadedFileUrl = downloadUrls.first);
+                                    showUploadMessage(context, 'Berhasil!');
+                                  } else {
+                                    setState(() {});
+                                    showUploadMessage(
+                                        context, 'Gagal mengunggah media');
+                                    return;
+                                  }
                                 }
-                                if (downloadUrls.length ==
-                                    selectedMedia.length) {
-                                  setState(() =>
-                                      uploadedFileUrl = downloadUrls.first);
-                                  showUploadMessage(context, 'Berhasil!');
-                                } else {
-                                  setState(() {});
-                                  showUploadMessage(
-                                      context, 'Gagal mengunggah media');
-                                  return;
-                                }
-                              }
-                            },
-                            child: Container(
-                              width: 90,
-                              height: 90,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                              ),
-                              child: Image.network(
-                                valueOrDefault<String>(
-                                  currentUserPhoto,
-                                  'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
+                              },
+                              child: Container(
+                                width: 90,
+                                height: 90,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
                                 ),
-                                fit: BoxFit.cover,
+                                child: Image.network(
+                                  valueOrDefault<String>(
+                                    currentUserPhoto,
+                                    'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 16),
-                child: AuthUserStreamWidget(
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                  child: AuthUserStreamWidget(
+                    child: TextFormField(
+                      controller: textController1,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Nama Lengkap',
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.of(context).white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        hintText: 'Your full name...',
+                        hintStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.of(context).white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).white,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).white,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        contentPadding:
+                            EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.of(context).white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),
+                      validator: (val) {
+                        if (val == null || val.isEmpty) {
+                          return 'Nama Lengkap Wajib Diisi';
+                        }
+
+                        return null;
+                      },
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
                   child: TextFormField(
-                    controller: textController,
+                    controller: editProfileEmailController,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Nama Lengkap',
+                      labelText: 'Email',
                       labelStyle:
                           FlutterFlowTheme.of(context).bodyText1.override(
                                 fontFamily: 'Lexend Deca',
@@ -172,7 +257,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
                               ),
-                      hintText: 'Your full name...',
                       hintStyle:
                           FlutterFlowTheme.of(context).bodyText1.override(
                                 fontFamily: 'Lexend Deca',
@@ -217,45 +301,194 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
                         ),
+                    validator: (val) {
+                      if (val == null || val.isEmpty) {
+                        return 'Email Wajib Diisi';
+                      }
+
+                      return null;
+                    },
                   ),
                 ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0, 0.05),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      final usersUpdateData = createUsersRecordData(
-                        displayName: textController!.text,
-                        photoUrl: uploadedFileUrl,
-                      );
-                      await currentUserReference!.update(usersUpdateData);
-                      context.pop();
-                    },
-                    text: 'Simpan',
-                    options: FFButtonOptions(
-                      width: 340,
-                      height: 60,
-                      color: Colors.black,
-                      textStyle:
-                          FlutterFlowTheme.of(context).subtitle2.override(
-                                fontFamily: 'Lexend Deca',
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.normal,
-                              ),
-                      elevation: 2,
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                  child: AuthUserStreamWidget(
+                    child: TextFormField(
+                      controller: editProfileNomorController,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Nomor HP',
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.of(context).white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        hintStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.of(context).white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).white,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).white,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        contentPadding:
+                            EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
                       ),
-                      borderRadius: BorderRadius.circular(8),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.of(context).white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),
+                      validator: (val) {
+                        if (val == null || val.isEmpty) {
+                          return 'Nomor Wajib Diisi';
+                        }
+
+                        return null;
+                      },
                     ),
                   ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                  child: AuthUserStreamWidget(
+                    child: TextFormField(
+                      controller: editProfileDomisiliController,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Domisili',
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.of(context).white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        hintStyle:
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.of(context).white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).white,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).white,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0x00000000),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        contentPadding:
+                            EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: FlutterFlowTheme.of(context).white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),
+                      validator: (val) {
+                        if (val == null || val.isEmpty) {
+                          return 'Domisili Wajib Diisi';
+                        }
+
+                        return null;
+                      },
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0, 0.05),
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        final usersUpdateData = createUsersRecordData(
+                          displayName: textController1!.text,
+                          photoUrl: uploadedFileUrl,
+                          email: editProfileEmailController!.text,
+                          domisili: editProfileDomisiliController!.text,
+                          uid: editProfileNomorController!.text,
+                          phoneNumber: editProfileNomorController!.text,
+                        );
+                        await currentUserReference!.update(usersUpdateData);
+                        context.pop();
+                      },
+                      text: 'Simpan',
+                      options: FFButtonOptions(
+                        width: 340,
+                        height: 60,
+                        color: Colors.black,
+                        textStyle:
+                            FlutterFlowTheme.of(context).subtitle2.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        elevation: 2,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

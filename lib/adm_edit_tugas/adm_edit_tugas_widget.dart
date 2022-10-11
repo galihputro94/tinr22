@@ -35,31 +35,30 @@ class AdmEditTugasWidget extends StatefulWidget {
 class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
   DateTime? datePicked;
   String? mkTugasEditValue;
-  TextEditingController? namaTugasEditController1;
-  TextEditingController? namaTugasEditController2;
+  TextEditingController? namaTugasEditController;
+  TextEditingController? deadlineTugasEditController;
   TextEditingController? linkFieldController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    linkFieldController = TextEditingController(text: widget.ketTugasEdit);
-    namaTugasEditController1 =
-        TextEditingController(text: widget.namaTugasEdit);
-    namaTugasEditController2 = TextEditingController(
+    deadlineTugasEditController = TextEditingController(
         text: dateTimeFormat(
       'MMMEd',
       widget.deadlineTugasEdit,
       locale: FFLocalizations.of(context).languageCode,
     ));
+    namaTugasEditController = TextEditingController(text: widget.namaTugasEdit);
+    linkFieldController = TextEditingController(text: widget.ketTugasEdit);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
+    deadlineTugasEditController?.dispose();
+    namaTugasEditController?.dispose();
     linkFieldController?.dispose();
-    namaTugasEditController1?.dispose();
-    namaTugasEditController2?.dispose();
     super.dispose();
   }
 
@@ -80,7 +79,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
                     child: TextFormField(
-                      controller: namaTugasEditController1,
+                      controller: namaTugasEditController,
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
@@ -163,7 +162,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
                     child: TextFormField(
-                      controller: namaTugasEditController2,
+                      controller: deadlineTugasEditController,
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
@@ -215,7 +214,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                         if (kIsWeb) {
                           final _datePickedDate = await showDatePicker(
                             context: context,
-                            initialDate: getCurrentTimestamp,
+                            initialDate: widget.deadlineTugasEdit!,
                             firstDate: DateTime(1900),
                             lastDate: DateTime(2050),
                           );
@@ -224,8 +223,8 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                           if (_datePickedDate != null) {
                             _datePickedTime = await showTimePicker(
                               context: context,
-                              initialTime:
-                                  TimeOfDay.fromDateTime(getCurrentTimestamp),
+                              initialTime: TimeOfDay.fromDateTime(
+                                  widget.deadlineTugasEdit!),
                             );
                           }
 
@@ -248,7 +247,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                             onConfirm: (date) {
                               setState(() => datePicked = date);
                             },
-                            currentTime: getCurrentTimestamp,
+                            currentTime: widget.deadlineTugasEdit!,
                             minTime: DateTime(0, 0, 0),
                             locale: LocaleType.values.firstWhere(
                               (l) =>
@@ -337,7 +336,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                     child: FFButtonWidget(
                       onPressed: () async {
                         final tugasUpdateData = createTugasRecordData(
-                          namaTugas: namaTugasEditController2!.text,
+                          namaTugas: deadlineTugasEditController!.text,
                           mkTugas: widget.mkTugasEdit,
                           deadline: datePicked,
                           ketTugas: linkFieldController!.text,

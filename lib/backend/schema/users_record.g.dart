@@ -96,6 +96,12 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.indexJabatan;
+    if (value != null) {
+      result
+        ..add('indexJabatan')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -162,6 +168,10 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.pejabat = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'indexJabatan':
+          result.indexJabatan = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -199,6 +209,8 @@ class _$UsersRecord extends UsersRecord {
   @override
   final bool? pejabat;
   @override
+  final int? indexJabatan;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -216,6 +228,7 @@ class _$UsersRecord extends UsersRecord {
       this.role,
       this.jabatan,
       this.pejabat,
+      this.indexJabatan,
       this.ffRef})
       : super._();
 
@@ -241,6 +254,7 @@ class _$UsersRecord extends UsersRecord {
         role == other.role &&
         jabatan == other.jabatan &&
         pejabat == other.pejabat &&
+        indexJabatan == other.indexJabatan &&
         ffRef == other.ffRef;
   }
 
@@ -256,17 +270,19 @@ class _$UsersRecord extends UsersRecord {
                                 $jc(
                                     $jc(
                                         $jc(
-                                            $jc($jc(0, email.hashCode),
-                                                displayName.hashCode),
-                                            photoUrl.hashCode),
-                                        uid.hashCode),
-                                    createdTime.hashCode),
-                                phoneNumber.hashCode),
-                            domisili.hashCode),
-                        gender.hashCode),
-                    role.hashCode),
-                jabatan.hashCode),
-            pejabat.hashCode),
+                                            $jc(
+                                                $jc($jc(0, email.hashCode),
+                                                    displayName.hashCode),
+                                                photoUrl.hashCode),
+                                            uid.hashCode),
+                                        createdTime.hashCode),
+                                    phoneNumber.hashCode),
+                                domisili.hashCode),
+                            gender.hashCode),
+                        role.hashCode),
+                    jabatan.hashCode),
+                pejabat.hashCode),
+            indexJabatan.hashCode),
         ffRef.hashCode));
   }
 
@@ -284,6 +300,7 @@ class _$UsersRecord extends UsersRecord {
           ..add('role', role)
           ..add('jabatan', jabatan)
           ..add('pejabat', pejabat)
+          ..add('indexJabatan', indexJabatan)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -336,6 +353,10 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   bool? get pejabat => _$this._pejabat;
   set pejabat(bool? pejabat) => _$this._pejabat = pejabat;
 
+  int? _indexJabatan;
+  int? get indexJabatan => _$this._indexJabatan;
+  set indexJabatan(int? indexJabatan) => _$this._indexJabatan = indexJabatan;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -358,6 +379,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _role = $v.role;
       _jabatan = $v.jabatan;
       _pejabat = $v.pejabat;
+      _indexJabatan = $v.indexJabatan;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -392,6 +414,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
             role: role,
             jabatan: jabatan,
             pejabat: pejabat,
+            indexJabatan: indexJabatan,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

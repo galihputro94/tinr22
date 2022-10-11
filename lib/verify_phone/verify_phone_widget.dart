@@ -46,7 +46,7 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
           buttonSize: 60,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: Color(0xFF010101),
+            color: FlutterFlowTheme.of(context).white,
             size: 30,
           ),
           onPressed: () async {
@@ -72,7 +72,7 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
                       'Verifikasi Nomor',
                       style: FlutterFlowTheme.of(context).title1.override(
                             fontFamily: 'Overpass',
-                            color: Color(0xFF010101),
+                            color: FlutterFlowTheme.of(context).white,
                           ),
                     ),
                   ],
@@ -91,7 +91,7 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Overpass',
-                                    color: Color(0xFF010101),
+                                    color: FlutterFlowTheme.of(context).white,
                                   ),
                         ),
                       ),
@@ -115,7 +115,7 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
                             labelStyle:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Overpass',
-                                      color: Color(0xFF010101),
+                                      color: FlutterFlowTheme.of(context).white,
                                     ),
                             hintText: '000000',
                             hintStyle:
@@ -126,14 +126,14 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
                                     ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Color(0xFF010101),
+                                color: FlutterFlowTheme.of(context).white,
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Color(0xFF010101),
+                                color: FlutterFlowTheme.of(context).white,
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(8),
@@ -156,7 +156,7 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Overpass',
-                                    color: Color(0xFF010101),
+                                    color: FlutterFlowTheme.of(context).white,
                                   ),
                           keyboardType: TextInputType.number,
                         ),

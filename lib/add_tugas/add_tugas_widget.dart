@@ -72,8 +72,8 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                 color: Colors.white,
                 size: 30,
               ),
-              onPressed: () {
-                print('IconButton pressed ...');
+              onPressed: () async {
+                context.pushNamed('adm_ListTugas');
               },
             ),
           ),

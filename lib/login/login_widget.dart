@@ -75,7 +75,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: FlutterFlowTheme.of(context).black600,
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Padding(
@@ -301,7 +301,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 options: FFButtonOptions(
                                   width: 120,
                                   height: 40,
-                                  color: Colors.black,
+                                  color: FlutterFlowTheme.of(context).black600,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .subtitle2
                                       .override(
@@ -310,7 +310,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                             .secondaryBackground,
                                         fontSize: 12,
                                       ),
-                                  elevation: 4,
+                                  elevation: 0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1,
