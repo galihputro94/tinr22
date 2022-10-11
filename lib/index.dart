@@ -1,8 +1,8 @@
 // Export pages
 export 'login/login_widget.dart' show LoginWidget;
 export 'create_account/create_account_widget.dart' show CreateAccountWidget;
-export 'profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export 'phone_sign_in/phone_sign_in_widget.dart' show PhoneSignInWidget;
+export 'profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export 'edit_profile/edit_profile_widget.dart' show EditProfileWidget;
 export 'change_password/change_password_widget.dart' show ChangePasswordWidget;
 export 'home/home_widget.dart' show HomeWidget;
@@ -29,3 +29,4 @@ export 'adm_init/adm_init_widget.dart' show AdmInitWidget;
 export 'list_mhs/list_mhs_widget.dart' show ListMhsWidget;
 export 'add_tugas/add_tugas_widget.dart' show AddTugasWidget;
 export 'adm_list_tugas/adm_list_tugas_widget.dart' show AdmListTugasWidget;
+export 'adm_edit_tugas/adm_edit_tugas_widget.dart' show AdmEditTugasWidget;

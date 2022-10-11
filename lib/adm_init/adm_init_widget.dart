@@ -187,8 +187,8 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                             .background,
                                         size: 30,
                                       ),
-                                      onPressed: () {
-                                        print('IconButton pressed ...');
+                                      onPressed: () async {
+                                        context.pushNamed('adm_addMateri');
                                       },
                                     ),
                                     Text(
@@ -231,8 +231,19 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                             .background,
                                         size: 30,
                                       ),
-                                      onPressed: () {
-                                        print('IconButton pressed ...');
+                                      onPressed: () async {
+                                        context.pushNamed(
+                                          'adm_ListTugas',
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 600),
+                                            ),
+                                          },
+                                        );
                                       },
                                     ),
                                     Text(

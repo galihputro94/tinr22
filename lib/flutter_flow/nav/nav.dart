@@ -88,16 +88,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => CreateAccountWidget(),
             ),
             FFRoute(
+              name: 'phoneSignIn',
+              path: 'phoneSignIn',
+              builder: (context, params) => PhoneSignInWidget(),
+            ),
+            FFRoute(
               name: 'profilePage',
               path: 'profilePage',
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'profilePage')
                   : ProfilePageWidget(),
-            ),
-            FFRoute(
-              name: 'phoneSignIn',
-              path: 'phoneSignIn',
-              builder: (context, params) => PhoneSignInWidget(),
             ),
             FFRoute(
               name: 'editProfile',
@@ -213,6 +213,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'adm_ListTugas',
               path: 'admListTugas',
               builder: (context, params) => AdmListTugasWidget(),
+            ),
+            FFRoute(
+              name: 'adm_editTugas',
+              path: 'admEditTugas',
+              builder: (context, params) => AdmEditTugasWidget(
+                editTugasRef: params.getParam('editTugasRef',
+                    ParamType.DocumentReference, false, 'tugas'),
+                namaTugasEdit:
+                    params.getParam('namaTugasEdit', ParamType.String),
+                mkTugasEdit: params.getParam('mkTugasEdit', ParamType.String),
+                deadlineTugasEdit:
+                    params.getParam('deadlineTugasEdit', ParamType.DateTime),
+                ketTugasEdit: params.getParam('ketTugasEdit', ParamType.String),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

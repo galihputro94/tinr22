@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../components/adm_hapus_tugas_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_toggle_icon.dart';
@@ -264,7 +265,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
               StreamBuilder<List<TugasRecord>>(
                 stream: queryTugasRecord(
                   queryBuilder: (tugasRecord) => tugasRecord
-                      .where('isActive', isEqualTo: true)
+                      .where('isActive', isEqualTo: false)
                       .orderBy('deadline'),
                 ),
                 builder: (context, snapshot) {
@@ -297,65 +298,144 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                              child: Container(
-                                width: MediaQuery.of(context).size.width,
-                                height: 80,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).darkBG,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      20, 0, 20, 0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Column(
+                              child: InkWell(
+                                onTap: () async {
+                                  context.pushNamed(
+                                    'adm_editTugas',
+                                    queryParams: {
+                                      'editTugasRef': serializeParam(
+                                        listViewTugasRecord.reference,
+                                        ParamType.DocumentReference,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+                                },
+                                onLongPress: () async {
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    context: context,
+                                    builder: (context) {
+                                      return Padding(
+                                        padding:
+                                            MediaQuery.of(context).viewInsets,
+                                        child: AdmHapusTugasWidget(
+                                          indexTgs:
+                                              listViewTugasRecord.reference,
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => setState(() {}));
+                                },
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 80,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context).darkBG,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20, 0, 20, 0),
+                                    child: InkWell(
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'adm_editTugas',
+                                          queryParams: {
+                                            'editTugasRef': serializeParam(
+                                              listViewTugasRecord.reference,
+                                              ParamType.DocumentReference,
+                                            ),
+                                            'namaTugasEdit': serializeParam(
+                                              listViewTugasRecord.namaTugas,
+                                              ParamType.String,
+                                            ),
+                                            'mkTugasEdit': serializeParam(
+                                              listViewTugasRecord.mkTugas,
+                                              ParamType.String,
+                                            ),
+                                            'deadlineTugasEdit': serializeParam(
+                                              listViewTugasRecord.deadline,
+                                              ParamType.DateTime,
+                                            ),
+                                            'ketTugasEdit': serializeParam(
+                                              listViewTugasRecord.ketTugas,
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
+                                      onLongPress: () async {
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          context: context,
+                                          builder: (context) {
+                                            return Padding(
+                                              padding: MediaQuery.of(context)
+                                                  .viewInsets,
+                                              child: AdmHapusTugasWidget(
+                                                indexTgs: listViewTugasRecord
+                                                    .reference,
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => setState(() {}));
+                                      },
+                                      child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                            MainAxisAlignment.spaceBetween,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                            CrossAxisAlignment.center,
                                         children: [
-                                          Text(
-                                            listViewTugasRecord.namaTugas!,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Overpass',
-                                                  color: FlutterFlowTheme.of(
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                listViewTugasRecord.namaTugas!,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyText1
+                                                    .override(
+                                                      fontFamily: 'Overpass',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .white,
+                                                      fontSize: 16,
+                                                    ),
+                                              ),
+                                              Text(
+                                                listViewTugasRecord.mkTugas!,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1,
+                                              ),
+                                              Text(
+                                                listViewTugasRecord.deadline!
+                                                    .toString(),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1,
+                                              ),
+                                            ],
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 10, 0, 10),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'Status',
+                                                  style: FlutterFlowTheme.of(
                                                           context)
-                                                      .white,
-                                                  fontSize: 16,
-                                                ),
-                                          ),
-                                          Text(
-                                            listViewTugasRecord.mkTugas!,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1,
-                                          ),
-                                          Text(
-                                            listViewTugasRecord.deadline!
-                                                .toString(),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1,
-                                          ),
-                                        ],
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 10, 0, 10),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Text(
-                                              'Status',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
                                                       .bodyText1
                                                       .override(
                                                         fontFamily: 'Overpass',
@@ -364,37 +444,40 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                                                                     context)
                                                                 .white,
                                                       ),
-                                            ),
-                                            ToggleIcon(
-                                              onPressed: () async {
-                                                final tugasUpdateData = {
-                                                  'isActive':
-                                                      !listViewTugasRecord
-                                                          .isActive!,
-                                                };
-                                                await listViewTugasRecord
-                                                    .reference
-                                                    .update(tugasUpdateData);
-                                              },
-                                              value:
-                                                  listViewTugasRecord.isActive!,
-                                              onIcon: Icon(
-                                                Icons.check,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
+                                                ),
+                                                ToggleIcon(
+                                                  onPressed: () async {
+                                                    final tugasUpdateData = {
+                                                      'isActive':
+                                                          !listViewTugasRecord
+                                                              .isActive!,
+                                                    };
+                                                    await listViewTugasRecord
+                                                        .reference
+                                                        .update(
+                                                            tugasUpdateData);
+                                                  },
+                                                  value: listViewTugasRecord
+                                                      .isActive!,
+                                                  onIcon: Icon(
+                                                    Icons.check,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
                                                         .primaryColor,
-                                                size: 25,
-                                              ),
-                                              offIcon: Icon(
-                                                Icons.close_outlined,
-                                                color: Color(0xFFFF0000),
-                                                size: 25,
-                                              ),
+                                                    size: 25,
+                                                  ),
+                                                  offIcon: Icon(
+                                                    Icons.close_outlined,
+                                                    color: Color(0xFFFF0000),
+                                                    size: 25,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
+                                    ),
                                   ),
                                 ),
                               ),

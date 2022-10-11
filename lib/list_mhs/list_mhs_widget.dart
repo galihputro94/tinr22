@@ -42,8 +42,10 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
             color: FlutterFlowTheme.of(context).secondaryText,
             size: 24,
           ),
-          onPressed: () {
-            print('IconButton pressed ...');
+          onPressed: () async {
+            context.pushNamed('home');
+
+            context.pushNamed('home');
           },
         ),
         title: Text(

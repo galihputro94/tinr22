@@ -54,6 +54,12 @@ class _$TugasRecordSerializer implements StructuredSerializer<TugasRecord> {
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.indexTugas;
+    if (value != null) {
+      result
+        ..add('indexTugas')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -96,6 +102,10 @@ class _$TugasRecordSerializer implements StructuredSerializer<TugasRecord> {
           result.isActive = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'indexTugas':
+          result.indexTugas = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -121,6 +131,8 @@ class _$TugasRecord extends TugasRecord {
   @override
   final bool? isActive;
   @override
+  final int? indexTugas;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$TugasRecord([void Function(TugasRecordBuilder)? updates]) =>
@@ -132,6 +144,7 @@ class _$TugasRecord extends TugasRecord {
       this.ketTugas,
       this.deadline,
       this.isActive,
+      this.indexTugas,
       this.ffRef})
       : super._();
 
@@ -151,6 +164,7 @@ class _$TugasRecord extends TugasRecord {
         ketTugas == other.ketTugas &&
         deadline == other.deadline &&
         isActive == other.isActive &&
+        indexTugas == other.indexTugas &&
         ffRef == other.ffRef;
   }
 
@@ -159,10 +173,12 @@ class _$TugasRecord extends TugasRecord {
     return $jf($jc(
         $jc(
             $jc(
-                $jc($jc($jc(0, namaTugas.hashCode), mkTugas.hashCode),
-                    ketTugas.hashCode),
-                deadline.hashCode),
-            isActive.hashCode),
+                $jc(
+                    $jc($jc($jc(0, namaTugas.hashCode), mkTugas.hashCode),
+                        ketTugas.hashCode),
+                    deadline.hashCode),
+                isActive.hashCode),
+            indexTugas.hashCode),
         ffRef.hashCode));
   }
 
@@ -174,6 +190,7 @@ class _$TugasRecord extends TugasRecord {
           ..add('ketTugas', ketTugas)
           ..add('deadline', deadline)
           ..add('isActive', isActive)
+          ..add('indexTugas', indexTugas)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -202,6 +219,10 @@ class TugasRecordBuilder implements Builder<TugasRecord, TugasRecordBuilder> {
   bool? get isActive => _$this._isActive;
   set isActive(bool? isActive) => _$this._isActive = isActive;
 
+  int? _indexTugas;
+  int? get indexTugas => _$this._indexTugas;
+  set indexTugas(int? indexTugas) => _$this._indexTugas = indexTugas;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -218,6 +239,7 @@ class TugasRecordBuilder implements Builder<TugasRecord, TugasRecordBuilder> {
       _ketTugas = $v.ketTugas;
       _deadline = $v.deadline;
       _isActive = $v.isActive;
+      _indexTugas = $v.indexTugas;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -246,6 +268,7 @@ class TugasRecordBuilder implements Builder<TugasRecord, TugasRecordBuilder> {
             ketTugas: ketTugas,
             deadline: deadline,
             isActive: isActive,
+            indexTugas: indexTugas,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

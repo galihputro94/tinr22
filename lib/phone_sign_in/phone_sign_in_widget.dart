@@ -46,7 +46,7 @@ class _PhoneSignInWidgetState extends State<PhoneSignInWidget> {
           buttonSize: 60,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: Color(0xFF010101),
+            color: FlutterFlowTheme.of(context).white,
             size: 30,
           ),
           onPressed: () async {
@@ -70,7 +70,7 @@ class _PhoneSignInWidgetState extends State<PhoneSignInWidget> {
                     'Nomor Telepon',
                     style: FlutterFlowTheme.of(context).title1.override(
                           fontFamily: 'Overpass',
-                          color: Color(0xFF010101),
+                          color: FlutterFlowTheme.of(context).white,
                         ),
                   ),
                 ],
@@ -88,7 +88,7 @@ class _PhoneSignInWidgetState extends State<PhoneSignInWidget> {
                         'Masukan Nomor Telepon Di awali dengan +62',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Overpass',
-                              color: Color(0xFF010101),
+                              color: FlutterFlowTheme.of(context).white,
                             ),
                       ),
                     ),
@@ -112,24 +112,24 @@ class _PhoneSignInWidgetState extends State<PhoneSignInWidget> {
                           labelStyle:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Overpass',
-                                    color: Colors.black,
+                                    color: FlutterFlowTheme.of(context).white,
                                   ),
                           hintText: '+628123xxx',
                           hintStyle:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Overpass',
-                                    color: Color(0x9A010101),
+                                    color: FlutterFlowTheme.of(context).white,
                                   ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFF010101),
+                              color: FlutterFlowTheme.of(context).white,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0xFF010101),
+                              color: FlutterFlowTheme.of(context).white,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
@@ -151,7 +151,7 @@ class _PhoneSignInWidgetState extends State<PhoneSignInWidget> {
                         ),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Overpass',
-                              color: Color(0xFF010101),
+                              color: FlutterFlowTheme.of(context).white,
                             ),
                         keyboardType: TextInputType.phone,
                       ),

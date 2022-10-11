@@ -158,7 +158,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                         elevation: 4,
                         child: Container(
                           width: MediaQuery.of(context).size.width,
-                          height: 40,
+                          height: 50,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).primaryText,
                           ),

@@ -202,7 +202,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                           'Fisika',
                           'DITI',
                           'Bahasa Indonesia',
-                          'Kalkullus'
+                          'Kalkulus'
                         ],
                         onChanged: (val) => setState(() => mkfieldValue = val),
                         width: MediaQuery.of(context).size.width,
@@ -240,7 +240,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                         text: 'Simpan',
                         options: FFButtonOptions(
                           width: 130,
-                          height: 40,
+                          height: 50,
                           color: FlutterFlowTheme.of(context).black600,
                           textStyle:
                               FlutterFlowTheme.of(context).subtitle2.override(

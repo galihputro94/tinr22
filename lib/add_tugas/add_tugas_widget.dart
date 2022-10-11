@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../flutter_flow/random_data_util.dart' as random_data;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +22,7 @@ class AddTugasWidget extends StatefulWidget {
 }
 
 class _AddTugasWidgetState extends State<AddTugasWidget> {
-  DateTime? datePicked1;
-  TextEditingController? deadlineController;
-  DateTime? datePicked2;
+  DateTime? datePicked;
   String? mkTugasValue;
   TextEditingController? namaTugasController;
   TextEditingController? linkFieldController;
@@ -32,17 +31,15 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
   @override
   void initState() {
     super.initState();
-    deadlineController = TextEditingController(text: datePicked2?.toString());
-    namaTugasController = TextEditingController();
     linkFieldController = TextEditingController();
+    namaTugasController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    deadlineController?.dispose();
-    namaTugasController?.dispose();
     linkFieldController?.dispose();
+    namaTugasController?.dispose();
     super.dispose();
   }
 
@@ -178,163 +175,74 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                      child: Container(
-                        height: 50,
-                        child: Stack(
-                          children: [
-                            TextFormField(
-                              controller: deadlineController,
-                              onFieldSubmitted: (_) async {
-                                if (kIsWeb) {
-                                  final _datePicked1Date = await showDatePicker(
-                                    context: context,
-                                    initialDate: getCurrentTimestamp,
-                                    firstDate: getCurrentTimestamp,
-                                    lastDate: DateTime(2050),
-                                  );
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          if (kIsWeb) {
+                            final _datePickedDate = await showDatePicker(
+                              context: context,
+                              initialDate: getCurrentTimestamp,
+                              firstDate: DateTime(1900),
+                              lastDate: DateTime(2050),
+                            );
 
-                                  if (_datePicked1Date != null) {
-                                    setState(
-                                      () => datePicked1 = DateTime(
-                                        _datePicked1Date.year,
-                                        _datePicked1Date.month,
-                                        _datePicked1Date.day,
-                                      ),
-                                    );
-                                  }
-                                } else {
-                                  await DatePicker.showDatePicker(
-                                    context,
-                                    showTitleActions: true,
-                                    onConfirm: (date) {
-                                      setState(() => datePicked1 = date);
-                                    },
-                                    currentTime: getCurrentTimestamp,
-                                    minTime: getCurrentTimestamp,
-                                    locale: LocaleType.values.firstWhere(
-                                      (l) =>
-                                          l.name ==
-                                          FFLocalizations.of(context)
-                                              .languageCode,
-                                      orElse: () => LocaleType.en,
-                                    ),
-                                  );
-                                }
+                            TimeOfDay? _datePickedTime;
+                            if (_datePickedDate != null) {
+                              _datePickedTime = await showTimePicker(
+                                context: context,
+                                initialTime:
+                                    TimeOfDay.fromDateTime(getCurrentTimestamp),
+                              );
+                            }
+
+                            if (_datePickedDate != null &&
+                                _datePickedTime != null) {
+                              setState(
+                                () => datePicked = DateTime(
+                                  _datePickedDate.year,
+                                  _datePickedDate.month,
+                                  _datePickedDate.day,
+                                  _datePickedTime!.hour,
+                                  _datePickedTime.minute,
+                                ),
+                              );
+                            }
+                          } else {
+                            await DatePicker.showDateTimePicker(
+                              context,
+                              showTitleActions: true,
+                              onConfirm: (date) {
+                                setState(() => datePicked = date);
                               },
-                              autofocus: true,
-                              readOnly: true,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: 'Deadline',
-                                hintText: 'Deadline Tugas...',
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyText2
-                                    .override(
-                                      fontFamily: 'Overpass',
-                                      color: FlutterFlowTheme.of(context).white,
-                                    ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).white,
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).white,
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
+                              currentTime: getCurrentTimestamp,
+                              minTime: DateTime(0, 0, 0),
+                              locale: LocaleType.values.firstWhere(
+                                (l) =>
+                                    l.name ==
+                                    FFLocalizations.of(context).languageCode,
+                                orElse: () => LocaleType.en,
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
+                            );
+                          }
+                        },
+                        text: 'Deadline Tugas',
+                        icon: FaIcon(
+                          FontAwesomeIcons.calendar,
+                          size: 20,
+                        ),
+                        options: FFButtonOptions(
+                          width: double.infinity,
+                          height: 50,
+                          color: Color(0x00EE8B60),
+                          textStyle:
+                              FlutterFlowTheme.of(context).subtitle2.override(
                                     fontFamily: 'Overpass',
-                                    color: FlutterFlowTheme.of(context).white,
+                                    color: Colors.white,
                                   ),
-                              keyboardType: TextInputType.datetime,
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.9, 0),
-                              child: FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 30,
-                                borderWidth: 1,
-                                buttonSize: 40,
-                                icon: FaIcon(
-                                  FontAwesomeIcons.calendar,
-                                  color: FlutterFlowTheme.of(context).white,
-                                  size: 20,
-                                ),
-                                onPressed: () async {
-                                  if (kIsWeb) {
-                                    final _datePicked2Date =
-                                        await showDatePicker(
-                                      context: context,
-                                      initialDate: getCurrentTimestamp,
-                                      firstDate: DateTime(1900),
-                                      lastDate: DateTime(2050),
-                                    );
-
-                                    TimeOfDay? _datePicked2Time;
-                                    if (_datePicked2Date != null) {
-                                      _datePicked2Time = await showTimePicker(
-                                        context: context,
-                                        initialTime: TimeOfDay.fromDateTime(
-                                            getCurrentTimestamp),
-                                      );
-                                    }
-
-                                    if (_datePicked2Date != null &&
-                                        _datePicked2Time != null) {
-                                      setState(
-                                        () => datePicked2 = DateTime(
-                                          _datePicked2Date.year,
-                                          _datePicked2Date.month,
-                                          _datePicked2Date.day,
-                                          _datePicked2Time!.hour,
-                                          _datePicked2Time.minute,
-                                        ),
-                                      );
-                                    }
-                                  } else {
-                                    await DatePicker.showDateTimePicker(
-                                      context,
-                                      showTitleActions: true,
-                                      onConfirm: (date) {
-                                        setState(() => datePicked2 = date);
-                                      },
-                                      currentTime: getCurrentTimestamp,
-                                      minTime: DateTime(0, 0, 0),
-                                      locale: LocaleType.values.firstWhere(
-                                        (l) =>
-                                            l.name ==
-                                            FFLocalizations.of(context)
-                                                .languageCode,
-                                        orElse: () => LocaleType.en,
-                                      ),
-                                    );
-                                  }
-                                },
-                              ),
-                            ),
-                          ],
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).white,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                     ),
@@ -397,7 +305,9 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                             namaTugas: namaTugasController!.text,
                             mkTugas: mkTugasValue,
                             ketTugas: linkFieldController!.text,
-                            deadline: datePicked2,
+                            isActive: true,
+                            deadline: datePicked,
+                            indexTugas: random_data.randomInteger(1, 9645534),
                           );
                           await TugasRecord.collection
                               .doc()
@@ -407,7 +317,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                         text: 'Simpan',
                         options: FFButtonOptions(
                           width: 130,
-                          height: 40,
+                          height: 50,
                           color: FlutterFlowTheme.of(context).black600,
                           textStyle:
                               FlutterFlowTheme.of(context).subtitle2.override(
