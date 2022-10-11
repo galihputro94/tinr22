@@ -75,6 +75,27 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.role;
+    if (value != null) {
+      result
+        ..add('role')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.jabatan;
+    if (value != null) {
+      result
+        ..add('jabatan')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.pejabat;
+    if (value != null) {
+      result
+        ..add('pejabat')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -129,6 +150,18 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.gender = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'role':
+          result.role = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'jabatan':
+          result.jabatan = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'pejabat':
+          result.pejabat = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -160,6 +193,12 @@ class _$UsersRecord extends UsersRecord {
   @override
   final String? gender;
   @override
+  final String? role;
+  @override
+  final String? jabatan;
+  @override
+  final bool? pejabat;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -174,6 +213,9 @@ class _$UsersRecord extends UsersRecord {
       this.phoneNumber,
       this.domisili,
       this.gender,
+      this.role,
+      this.jabatan,
+      this.pejabat,
       this.ffRef})
       : super._();
 
@@ -196,6 +238,9 @@ class _$UsersRecord extends UsersRecord {
         phoneNumber == other.phoneNumber &&
         domisili == other.domisili &&
         gender == other.gender &&
+        role == other.role &&
+        jabatan == other.jabatan &&
+        pejabat == other.pejabat &&
         ffRef == other.ffRef;
   }
 
@@ -208,14 +253,20 @@ class _$UsersRecord extends UsersRecord {
                     $jc(
                         $jc(
                             $jc(
-                                $jc($jc(0, email.hashCode),
-                                    displayName.hashCode),
-                                photoUrl.hashCode),
-                            uid.hashCode),
-                        createdTime.hashCode),
-                    phoneNumber.hashCode),
-                domisili.hashCode),
-            gender.hashCode),
+                                $jc(
+                                    $jc(
+                                        $jc(
+                                            $jc($jc(0, email.hashCode),
+                                                displayName.hashCode),
+                                            photoUrl.hashCode),
+                                        uid.hashCode),
+                                    createdTime.hashCode),
+                                phoneNumber.hashCode),
+                            domisili.hashCode),
+                        gender.hashCode),
+                    role.hashCode),
+                jabatan.hashCode),
+            pejabat.hashCode),
         ffRef.hashCode));
   }
 
@@ -230,6 +281,9 @@ class _$UsersRecord extends UsersRecord {
           ..add('phoneNumber', phoneNumber)
           ..add('domisili', domisili)
           ..add('gender', gender)
+          ..add('role', role)
+          ..add('jabatan', jabatan)
+          ..add('pejabat', pejabat)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -270,6 +324,18 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   String? get gender => _$this._gender;
   set gender(String? gender) => _$this._gender = gender;
 
+  String? _role;
+  String? get role => _$this._role;
+  set role(String? role) => _$this._role = role;
+
+  String? _jabatan;
+  String? get jabatan => _$this._jabatan;
+  set jabatan(String? jabatan) => _$this._jabatan = jabatan;
+
+  bool? _pejabat;
+  bool? get pejabat => _$this._pejabat;
+  set pejabat(bool? pejabat) => _$this._pejabat = pejabat;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -289,6 +355,9 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _phoneNumber = $v.phoneNumber;
       _domisili = $v.domisili;
       _gender = $v.gender;
+      _role = $v.role;
+      _jabatan = $v.jabatan;
+      _pejabat = $v.pejabat;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -320,6 +389,9 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
             phoneNumber: phoneNumber,
             domisili: domisili,
             gender: gender,
+            role: role,
+            jabatan: jabatan,
+            pejabat: pejabat,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

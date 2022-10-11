@@ -129,7 +129,7 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
             StreamBuilder<List<MateriRecord>>(
               stream: queryMateriRecord(
                 queryBuilder: (materiRecord) =>
-                    materiRecord.where('mk', isEqualTo: 'agama'),
+                    materiRecord.where('mk', isEqualTo: 'Pancasila'),
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.

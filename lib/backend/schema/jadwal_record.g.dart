@@ -62,6 +62,12 @@ class _$JadwalRecordSerializer implements StructuredSerializer<JadwalRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.index;
+    if (value != null) {
+      result
+        ..add('index')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -109,6 +115,10 @@ class _$JadwalRecordSerializer implements StructuredSerializer<JadwalRecord> {
           result.sks = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'index':
+          result.index = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -136,6 +146,8 @@ class _$JadwalRecord extends JadwalRecord {
   @override
   final String? sks;
   @override
+  final int? index;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$JadwalRecord([void Function(JadwalRecordBuilder)? updates]) =>
@@ -148,6 +160,7 @@ class _$JadwalRecord extends JadwalRecord {
       this.ruang,
       this.hari,
       this.sks,
+      this.index,
       this.ffRef})
       : super._();
 
@@ -168,6 +181,7 @@ class _$JadwalRecord extends JadwalRecord {
         ruang == other.ruang &&
         hari == other.hari &&
         sks == other.sks &&
+        index == other.index &&
         ffRef == other.ffRef;
   }
 
@@ -176,10 +190,14 @@ class _$JadwalRecord extends JadwalRecord {
     return $jf($jc(
         $jc(
             $jc(
-                $jc($jc($jc($jc(0, mk.hashCode), dosen.hashCode), jam.hashCode),
-                    ruang.hashCode),
-                hari.hashCode),
-            sks.hashCode),
+                $jc(
+                    $jc(
+                        $jc($jc($jc(0, mk.hashCode), dosen.hashCode),
+                            jam.hashCode),
+                        ruang.hashCode),
+                    hari.hashCode),
+                sks.hashCode),
+            index.hashCode),
         ffRef.hashCode));
   }
 
@@ -192,6 +210,7 @@ class _$JadwalRecord extends JadwalRecord {
           ..add('ruang', ruang)
           ..add('hari', hari)
           ..add('sks', sks)
+          ..add('index', index)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -225,6 +244,10 @@ class JadwalRecordBuilder
   String? get sks => _$this._sks;
   set sks(String? sks) => _$this._sks = sks;
 
+  int? _index;
+  int? get index => _$this._index;
+  set index(int? index) => _$this._index = index;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -242,6 +265,7 @@ class JadwalRecordBuilder
       _ruang = $v.ruang;
       _hari = $v.hari;
       _sks = $v.sks;
+      _index = $v.index;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -271,6 +295,7 @@ class JadwalRecordBuilder
             ruang: ruang,
             hari: hari,
             sks: sks,
+            index: index,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

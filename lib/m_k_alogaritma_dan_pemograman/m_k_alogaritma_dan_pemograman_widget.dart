@@ -191,7 +191,7 @@ class _MKAlogaritmaDanPemogramanWidgetState
             StreamBuilder<List<MateriRecord>>(
               stream: queryMateriRecord(
                 queryBuilder: (materiRecord) =>
-                    materiRecord.where('mk', isEqualTo: 'agama'),
+                    materiRecord.where('mk', isEqualTo: 'Algo dan Pemrograman'),
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.

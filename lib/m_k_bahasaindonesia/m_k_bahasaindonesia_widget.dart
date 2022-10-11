@@ -190,7 +190,7 @@ class _MKBahasaindonesiaWidgetState extends State<MKBahasaindonesiaWidget> {
             StreamBuilder<List<MateriRecord>>(
               stream: queryMateriRecord(
                 queryBuilder: (materiRecord) =>
-                    materiRecord.where('mk', isEqualTo: 'agama'),
+                    materiRecord.where('mk', isEqualTo: 'Bahasa Indonesia'),
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.

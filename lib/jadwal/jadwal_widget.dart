@@ -102,7 +102,12 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 4, 0, 0),
                                         child: Text(
-                                          'Hari ini',
+                                          'Hari ini, ${dateTimeFormat(
+                                            'MMMEd',
+                                            getCurrentTimestamp,
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
+                                          )}',
                                           style: FlutterFlowTheme.of(context)
                                               .title1
                                               .override(
@@ -180,7 +185,9 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    listViewJadwalRecord.mk!,
+                                                    listViewJadwalRecord.mk!
+                                                        .maybeHandleOverflow(
+                                                            maxChars: 20),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyText1
@@ -291,7 +298,8 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                           child: StreamBuilder<List<JadwalRecord>>(
                             stream: queryJadwalRecord(
                               queryBuilder: (jadwalRecord) => jadwalRecord
-                                  .where('hari', isEqualTo: 'Monday'),
+                                  .where('hari', isEqualTo: 'Monday')
+                                  .orderBy('index'),
                             ),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
@@ -515,8 +523,9 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                       child: StreamBuilder<List<JadwalRecord>>(
                         stream: queryJadwalRecord(
-                          queryBuilder: (jadwalRecord) =>
-                              jadwalRecord.where('hari', isEqualTo: 'Tuesday'),
+                          queryBuilder: (jadwalRecord) => jadwalRecord
+                              .where('hari', isEqualTo: 'Tuesday')
+                              .orderBy('index'),
                         ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
@@ -731,7 +740,8 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                       child: StreamBuilder<List<JadwalRecord>>(
                         stream: queryJadwalRecord(
                           queryBuilder: (jadwalRecord) => jadwalRecord
-                              .where('hari', isEqualTo: 'Wednesday'),
+                              .where('hari', isEqualTo: 'Wednesday')
+                              .orderBy('index'),
                         ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
@@ -944,8 +954,9 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                       child: StreamBuilder<List<JadwalRecord>>(
                         stream: queryJadwalRecord(
-                          queryBuilder: (jadwalRecord) =>
-                              jadwalRecord.where('hari', isEqualTo: 'Thursday'),
+                          queryBuilder: (jadwalRecord) => jadwalRecord
+                              .where('hari', isEqualTo: 'Thursday')
+                              .orderBy('index'),
                         ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
@@ -1158,8 +1169,9 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                       child: StreamBuilder<List<JadwalRecord>>(
                         stream: queryJadwalRecord(
-                          queryBuilder: (jadwalRecord) =>
-                              jadwalRecord.where('hari', isEqualTo: 'Friday'),
+                          queryBuilder: (jadwalRecord) => jadwalRecord
+                              .where('hari', isEqualTo: 'Friday')
+                              .orderBy('index'),
                         ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.

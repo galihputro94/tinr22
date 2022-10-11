@@ -23,3 +23,8 @@ export 'm_k_alogaritma_dan_pemograman/m_k_alogaritma_dan_pemograman_widget.dart'
     show MKAlogaritmaDanPemogramanWidget;
 export 'm_k_dasar_infrastruktur_teknologi_informasi/m_k_dasar_infrastruktur_teknologi_informasi_widget.dart'
     show MKDasarInfrastrukturTeknologiInformasiWidget;
+export 'adm_add_materi/adm_add_materi_widget.dart' show AdmAddMateriWidget;
+export 'adm_init/adm_init_widget.dart' show AdmInitWidget;
+export 'list_mhs/list_mhs_widget.dart' show ListMhsWidget;
+export 'add_tugas/add_tugas_widget.dart' show AddTugasWidget;
+export 'adm_list_tugas/adm_list_tugas_widget.dart' show AdmListTugasWidget;

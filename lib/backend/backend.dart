@@ -8,6 +8,7 @@ import 'schema/users_record.dart';
 import 'schema/jadwal_record.dart';
 import 'schema/mata_kuliah_record.dart';
 import 'schema/materi_record.dart';
+import 'schema/tugas_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -19,6 +20,7 @@ export 'schema/users_record.dart';
 export 'schema/jadwal_record.dart';
 export 'schema/mata_kuliah_record.dart';
 export 'schema/materi_record.dart';
+export 'schema/tugas_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Stream<List<UsersRecord>> queryUsersRecord({
@@ -182,6 +184,48 @@ Future<FFFirestorePage<MateriRecord>> queryMateriRecordPage({
     queryCollectionPage(
       MateriRecord.collection,
       MateriRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query TugasRecords (as a Stream and as a Future).
+Stream<List<TugasRecord>> queryTugasRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      TugasRecord.collection,
+      TugasRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<TugasRecord>> queryTugasRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      TugasRecord.collection,
+      TugasRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<TugasRecord>> queryTugasRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      TugasRecord.collection,
+      TugasRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

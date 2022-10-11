@@ -5,6 +5,7 @@ import 'users_record.dart';
 import 'jadwal_record.dart';
 import 'mata_kuliah_record.dart';
 import 'materi_record.dart';
+import 'tugas_record.dart';
 
 import 'index.dart';
 
@@ -20,6 +21,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   JadwalRecord,
   MataKuliahRecord,
   MateriRecord,
+  TugasRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

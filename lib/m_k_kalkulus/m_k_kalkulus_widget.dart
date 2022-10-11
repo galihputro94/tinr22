@@ -189,7 +189,7 @@ class _MKKalkulusWidgetState extends State<MKKalkulusWidget> {
             StreamBuilder<List<MateriRecord>>(
               stream: queryMateriRecord(
                 queryBuilder: (materiRecord) =>
-                    materiRecord.where('mk', isEqualTo: 'agama'),
+                    materiRecord.where('mk', isEqualTo: 'Kalkulus'),
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.

@@ -62,7 +62,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
               },
               child: Icon(
                 Icons.arrow_back_rounded,
-                color: Colors.black,
+                color: FlutterFlowTheme.of(context).white,
                 size: 24,
               ),
             ),
@@ -70,7 +70,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
               'Atur Ulang Sandi',
               style: FlutterFlowTheme.of(context).bodyText1.override(
                     fontFamily: 'Lexend Deca',
-                    color: Color(0xFF010101),
+                    color: FlutterFlowTheme.of(context).white,
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
                   ),
@@ -93,7 +93,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       labelStyle:
                           FlutterFlowTheme.of(context).bodyText1.override(
                                 fontFamily: 'Lexend Deca',
-                                color: Color(0xFF010101),
+                                color: FlutterFlowTheme.of(context).white,
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
                               ),
@@ -101,20 +101,20 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       hintStyle:
                           FlutterFlowTheme.of(context).bodyText1.override(
                                 fontFamily: 'Lexend Deca',
-                                color: Color(0xFF95A1AC),
+                                color: FlutterFlowTheme.of(context).white,
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
                               ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFF010101),
+                          color: FlutterFlowTheme.of(context).white,
                           width: 2,
                         ),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Color(0xFF010101),
+                          color: FlutterFlowTheme.of(context).white,
                           width: 2,
                         ),
                         borderRadius: BorderRadius.circular(8),
@@ -138,7 +138,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Lexend Deca',
-                          color: Color(0xFF010101),
+                          color: FlutterFlowTheme.of(context).white,
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
                         ),
@@ -155,7 +155,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Overpass',
-                                    color: Color(0xFF010101),
+                                    color: FlutterFlowTheme.of(context).white,
                                   ),
                         ),
                       ),

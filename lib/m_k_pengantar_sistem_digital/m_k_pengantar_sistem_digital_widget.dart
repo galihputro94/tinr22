@@ -190,8 +190,8 @@ class _MKPengantarSistemDigitalWidgetState
             ),
             StreamBuilder<List<MateriRecord>>(
               stream: queryMateriRecord(
-                queryBuilder: (materiRecord) =>
-                    materiRecord.where('mk', isEqualTo: 'agama'),
+                queryBuilder: (materiRecord) => materiRecord.where('mk',
+                    isEqualTo: 'Pengantar Sistem Digital'),
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.

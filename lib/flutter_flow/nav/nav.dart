@@ -177,6 +177,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'mKDasarInfrastrukturTeknologiInformasi',
               builder: (context, params) =>
                   MKDasarInfrastrukturTeknologiInformasiWidget(),
+            ),
+            FFRoute(
+              name: 'adm_addMateri',
+              path: 'admAddMateri',
+              builder: (context, params) => AdmAddMateriWidget(),
+            ),
+            FFRoute(
+              name: 'adm_init',
+              path: 'admInit',
+              builder: (context, params) => AdmInitWidget(),
+            ),
+            FFRoute(
+              name: 'listMhs',
+              path: 'listMhs',
+              builder: (context, params) => ListMhsWidget(),
+            ),
+            FFRoute(
+              name: 'add_Tugas',
+              path: 'addTugas',
+              builder: (context, params) => AddTugasWidget(),
+            ),
+            FFRoute(
+              name: 'adm_ListTugas',
+              path: 'admListTugas',
+              builder: (context, params) => AdmListTugasWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

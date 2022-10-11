@@ -58,11 +58,11 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
           },
         ),
         title: Text(
-          'Dasar Infrastruk TI',
+          'Dasar Infrastruktur TI',
           style: FlutterFlowTheme.of(context).title3.override(
                 fontFamily: 'Overpass',
                 color: FlutterFlowTheme.of(context).white,
-                fontSize: 20,
+                fontSize: 18,
               ),
         ),
         actions: [],
@@ -192,7 +192,7 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
             StreamBuilder<List<MateriRecord>>(
               stream: queryMateriRecord(
                 queryBuilder: (materiRecord) =>
-                    materiRecord.where('mk', isEqualTo: 'agama'),
+                    materiRecord.where('mk', isEqualTo: 'DITI'),
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
