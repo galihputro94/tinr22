@@ -95,63 +95,58 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    InkWell(
-                      onTap: () async {
-                        final selectedMedia =
-                            await selectMediaWithSourceBottomSheet(
-                          context: context,
-                          imageQuality: 80,
-                          allowPhoto: true,
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).primaryBackground,
-                          textColor: FlutterFlowTheme.of(context).primaryText,
-                          pickerFontFamily: 'Outfit',
-                        );
-                        if (selectedMedia != null &&
-                            selectedMedia.every((m) =>
-                                validateFileFormat(m.storagePath, context))) {
-                          setState(() => isMediaUploading = true);
-                          var downloadUrls = <String>[];
-                          try {
-                            showUploadMessage(
-                              context,
-                              'Mengunggah Berkas...',
-                              showLoading: true,
+                    Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFDBE2E7),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
+                        child: InkWell(
+                          onTap: () async {
+                            final selectedMedia = await selectMedia(
+                              mediaSource: MediaSource.photoGallery,
+                              multiImage: false,
                             );
-                            downloadUrls = (await Future.wait(
-                              selectedMedia.map(
-                                (m) async =>
-                                    await uploadData(m.storagePath, m.bytes),
-                              ),
-                            ))
-                                .where((u) => u != null)
-                                .map((u) => u!)
-                                .toList();
-                          } finally {
-                            ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                            isMediaUploading = false;
-                          }
-                          if (downloadUrls.length == selectedMedia.length) {
-                            setState(
-                                () => uploadedFileUrl = downloadUrls.first);
-                            showUploadMessage(context, 'Berhasil!');
-                          } else {
-                            setState(() {});
-                            showUploadMessage(
-                                context, 'Gagal mengunggah media');
-                            return;
-                          }
-                        }
-                      },
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFDBE2E7),
-                          shape: BoxShape.circle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
+                            if (selectedMedia != null &&
+                                selectedMedia.every((m) => validateFileFormat(
+                                    m.storagePath, context))) {
+                              setState(() => isMediaUploading = true);
+                              var downloadUrls = <String>[];
+                              try {
+                                showUploadMessage(
+                                  context,
+                                  'Mengunggah Berkas...',
+                                  showLoading: true,
+                                );
+                                downloadUrls = (await Future.wait(
+                                  selectedMedia.map(
+                                    (m) async => await uploadData(
+                                        m.storagePath, m.bytes),
+                                  ),
+                                ))
+                                    .where((u) => u != null)
+                                    .map((u) => u!)
+                                    .toList();
+                              } finally {
+                                ScaffoldMessenger.of(context)
+                                    .hideCurrentSnackBar();
+                                isMediaUploading = false;
+                              }
+                              if (downloadUrls.length == selectedMedia.length) {
+                                setState(
+                                    () => uploadedFileUrl = downloadUrls.first);
+                                showUploadMessage(context, 'Berhasil!');
+                              } else {
+                                setState(() {});
+                                showUploadMessage(
+                                    context, 'Gagal mengunggah media');
+                                return;
+                              }
+                            }
+                          },
                           child: Container(
                             width: 90,
                             height: 90,
@@ -160,7 +155,10 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                               shape: BoxShape.circle,
                             ),
                             child: CachedNetworkImage(
-                              imageUrl: uploadedFileUrl,
+                              imageUrl: valueOrDefault<String>(
+                                uploadedFileUrl,
+                                'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
+                              ),
                               fit: BoxFit.fitWidth,
                             ),
                           ),
@@ -168,6 +166,16 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                       ),
                     ),
                   ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                child: Text(
+                  'Tap foto untuk menggunggah ',
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Overpass',
+                        color: FlutterFlowTheme.of(context).background,
+                      ),
                 ),
               ),
               Padding(
@@ -353,7 +361,7 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                       await currentUserReference!.update(usersUpdateData);
 
                       context.pushNamed(
-                        'editProfile',
+                        'home',
                         extra: <String, dynamic>{
                           kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,

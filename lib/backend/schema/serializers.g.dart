@@ -9,6 +9,7 @@ part of 'serializers.dart';
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(JadwalRecord.serializer)
       ..add(MataKuliahRecord.serializer)
+      ..add(MateriRecord.serializer)
       ..add(UsersRecord.serializer))
     .build();
 

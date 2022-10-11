@@ -987,7 +987,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                 child: Container(
                                   width:
                                       MediaQuery.of(context).size.width * 0.92,
-                                  height: 70,
+                                  height: 80,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).darkBG,
                                     boxShadow: [

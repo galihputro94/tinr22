@@ -7,6 +7,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'schema/users_record.dart';
 import 'schema/jadwal_record.dart';
 import 'schema/mata_kuliah_record.dart';
+import 'schema/materi_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -17,6 +18,7 @@ export 'schema/serializers.dart';
 export 'schema/users_record.dart';
 export 'schema/jadwal_record.dart';
 export 'schema/mata_kuliah_record.dart';
+export 'schema/materi_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Stream<List<UsersRecord>> queryUsersRecord({
@@ -138,6 +140,48 @@ Future<FFFirestorePage<MataKuliahRecord>> queryMataKuliahRecordPage({
     queryCollectionPage(
       MataKuliahRecord.collection,
       MataKuliahRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query MateriRecords (as a Stream and as a Future).
+Stream<List<MateriRecord>> queryMateriRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      MateriRecord.collection,
+      MateriRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<MateriRecord>> queryMateriRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      MateriRecord.collection,
+      MateriRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<MateriRecord>> queryMateriRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      MateriRecord.collection,
+      MateriRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

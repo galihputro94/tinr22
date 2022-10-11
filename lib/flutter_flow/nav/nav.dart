@@ -88,11 +88,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => CreateAccountWidget(),
             ),
             FFRoute(
-              name: 'editProfile',
-              path: 'editProfile',
-              builder: (context, params) => EditProfileWidget(),
-            ),
-            FFRoute(
               name: 'profilePage',
               path: 'profilePage',
               builder: (context, params) => params.isEmpty
@@ -105,6 +100,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => PhoneSignInWidget(),
             ),
             FFRoute(
+              name: 'editProfile',
+              path: 'editProfile',
+              builder: (context, params) => EditProfileWidget(),
+            ),
+            FFRoute(
               name: 'changePassword',
               path: 'changePassword',
               builder: (context, params) => ChangePasswordWidget(),
@@ -112,19 +112,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'home',
               path: 'home',
+              requireAuth: true,
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'home')
                   : HomeWidget(),
-            ),
-            FFRoute(
-              name: 'MKPancasila',
-              path: 'mKPancasila',
-              builder: (context, params) => MKPancasilaWidget(),
-            ),
-            FFRoute(
-              name: 'jadwal',
-              path: 'jadwal',
-              builder: (context, params) => JadwalWidget(),
             ),
             FFRoute(
               name: 'verifyPhone',
@@ -132,9 +123,60 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => VerifyPhoneWidget(),
             ),
             FFRoute(
+              name: 'jadwal',
+              path: 'jadwal',
+              builder: (context, params) => JadwalWidget(),
+            ),
+            FFRoute(
               name: 'completProfile',
               path: 'completProfile',
               builder: (context, params) => CompletProfileWidget(),
+            ),
+            FFRoute(
+              name: 'MKAgama',
+              path: 'mKAgama',
+              builder: (context, params) => MKAgamaWidget(),
+            ),
+            FFRoute(
+              name: 'MKPancasila',
+              path: 'mKPancasila',
+              builder: (context, params) => MKPancasilaWidget(),
+            ),
+            FFRoute(
+              name: 'MKBahasainggris',
+              path: 'mKBahasaInggris',
+              builder: (context, params) => MKBahasainggrisWidget(),
+            ),
+            FFRoute(
+              name: 'MKKalkulus',
+              path: 'mKKalkulus',
+              builder: (context, params) => MKKalkulusWidget(),
+            ),
+            FFRoute(
+              name: 'MKFisika',
+              path: 'mKFisika',
+              builder: (context, params) => MKFisikaWidget(),
+            ),
+            FFRoute(
+              name: 'MKBahasaindonesia',
+              path: 'mKBahasaindonesia',
+              builder: (context, params) => MKBahasaindonesiaWidget(),
+            ),
+            FFRoute(
+              name: 'MKPengantarSistemDigital',
+              path: 'mKPengantarSistemDigital',
+              builder: (context, params) => MKPengantarSistemDigitalWidget(),
+            ),
+            FFRoute(
+              name: 'MKAlogaritmaDanPemograman',
+              path: 'mKAlogaritmaDanPemograman',
+              builder: (context, params) => MKAlogaritmaDanPemogramanWidget(),
+            ),
+            FFRoute(
+              name: 'MKDasarInfrastrukturTeknologiInformasi',
+              path: 'mKDasarInfrastrukturTeknologiInformasi',
+              builder: (context, params) =>
+                  MKDasarInfrastrukturTeknologiInformasiWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

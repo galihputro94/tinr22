@@ -152,6 +152,462 @@ class _HomeWidgetState extends State<HomeWidget> {
                       ),
                     ],
                   ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 35,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                          child: Text(
+                            'Mata Kuliah',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Overpass',
+                                  color:
+                                      FlutterFlowTheme.of(context).background,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
+                        child: Text(
+                          'Pancasila',
+                          textAlign: TextAlign.start,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: 'Overpass',
+                                color: FlutterFlowTheme.of(context).grayLines,
+                                fontSize: 18,
+                              ),
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                          child: FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30,
+                            borderWidth: 1,
+                            buttonSize: 60,
+                            icon: Icon(
+                              Icons.chevron_right,
+                              color: FlutterFlowTheme.of(context).grayLines,
+                              size: 20,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  InkWell(
+                    onTap: () async {
+                      context.pushNamed(
+                        'MKAgama',
+                        extra: <String, dynamic>{
+                          kTransitionInfoKey: TransitionInfo(
+                            hasTransition: true,
+                            transitionType: PageTransitionType.fade,
+                          ),
+                        },
+                      );
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
+                          child: Text(
+                            'Agama',
+                            textAlign: TextAlign.start,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Overpass',
+                                  color: FlutterFlowTheme.of(context).grayLines,
+                                  fontSize: 18,
+                                ),
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                            child: FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 30,
+                              borderWidth: 1,
+                              buttonSize: 60,
+                              icon: Icon(
+                                Icons.chevron_right,
+                                color: FlutterFlowTheme.of(context).grayLines,
+                                size: 20,
+                              ),
+                              onPressed: () {
+                                print('IconButton pressed ...');
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () async {
+                      context.pushNamed(
+                        'MKBahasainggris',
+                        extra: <String, dynamic>{
+                          kTransitionInfoKey: TransitionInfo(
+                            hasTransition: true,
+                            transitionType: PageTransitionType.fade,
+                          ),
+                        },
+                      );
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
+                          child: Text(
+                            'Bahasa Inggris',
+                            textAlign: TextAlign.start,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Overpass',
+                                  color: FlutterFlowTheme.of(context).grayLines,
+                                  fontSize: 18,
+                                ),
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                            child: FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 30,
+                              borderWidth: 1,
+                              buttonSize: 60,
+                              icon: Icon(
+                                Icons.chevron_right,
+                                color: FlutterFlowTheme.of(context).grayLines,
+                                size: 20,
+                              ),
+                              onPressed: () {
+                                print('IconButton pressed ...');
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () async {
+                      context.pushNamed(
+                        'MKKalkulus',
+                        extra: <String, dynamic>{
+                          kTransitionInfoKey: TransitionInfo(
+                            hasTransition: true,
+                            transitionType: PageTransitionType.fade,
+                          ),
+                        },
+                      );
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
+                          child: Text(
+                            'Kalkulus',
+                            textAlign: TextAlign.start,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Overpass',
+                                  color: FlutterFlowTheme.of(context).grayLines,
+                                  fontSize: 18,
+                                ),
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                            child: FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 30,
+                              borderWidth: 1,
+                              buttonSize: 60,
+                              icon: Icon(
+                                Icons.chevron_right,
+                                color: FlutterFlowTheme.of(context).grayLines,
+                                size: 20,
+                              ),
+                              onPressed: () {
+                                print('IconButton pressed ...');
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () async {
+                      context.pushNamed('MKFisika');
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
+                          child: Text(
+                            'Fisika',
+                            textAlign: TextAlign.start,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Overpass',
+                                  color: FlutterFlowTheme.of(context).grayLines,
+                                  fontSize: 18,
+                                ),
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                            child: FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 30,
+                              borderWidth: 1,
+                              buttonSize: 60,
+                              icon: Icon(
+                                Icons.chevron_right,
+                                color: FlutterFlowTheme.of(context).grayLines,
+                                size: 20,
+                              ),
+                              onPressed: () {
+                                print('IconButton pressed ...');
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () async {
+                            context.pushNamed('MKBahasaindonesia');
+                          },
+                          child: Text(
+                            'Bahasa Indonesia',
+                            textAlign: TextAlign.start,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Overpass',
+                                  color: FlutterFlowTheme.of(context).grayLines,
+                                  fontSize: 18,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                          child: FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30,
+                            borderWidth: 1,
+                            buttonSize: 60,
+                            icon: Icon(
+                              Icons.chevron_right,
+                              color: FlutterFlowTheme.of(context).grayLines,
+                              size: 20,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () async {
+                            context.pushNamed('MKPengantarSistemDigital');
+                          },
+                          child: Text(
+                            'Pengantar Sistem Digital',
+                            textAlign: TextAlign.start,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Overpass',
+                                  color: FlutterFlowTheme.of(context).grayLines,
+                                  fontSize: 18,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                          child: FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30,
+                            borderWidth: 1,
+                            buttonSize: 60,
+                            icon: Icon(
+                              Icons.chevron_right,
+                              color: FlutterFlowTheme.of(context).grayLines,
+                              size: 20,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () async {
+                            context.pushNamed('MKAlogaritmaDanPemograman');
+                          },
+                          child: Text(
+                            'Alogaritma Pemograman',
+                            textAlign: TextAlign.start,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Overpass',
+                                  color: FlutterFlowTheme.of(context).grayLines,
+                                  fontSize: 18,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                          child: FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30,
+                            borderWidth: 1,
+                            buttonSize: 60,
+                            icon: Icon(
+                              Icons.chevron_right,
+                              color: FlutterFlowTheme.of(context).grayLines,
+                              size: 20,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () async {
+                            context.pushNamed(
+                                'MKDasarInfrastrukturTeknologiInformasi');
+                          },
+                          child: Text(
+                            'Dasar Infrastruktur\nTeknologi Informasi',
+                            textAlign: TextAlign.start,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Overpass',
+                                  color: FlutterFlowTheme.of(context).grayLines,
+                                  fontSize: 18,
+                                ),
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                          child: FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30,
+                            borderWidth: 1,
+                            buttonSize: 60,
+                            icon: Icon(
+                              Icons.chevron_right,
+                              color: FlutterFlowTheme.of(context).grayLines,
+                              size: 20,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -197,7 +653,6 @@ class _HomeWidgetState extends State<HomeWidget> {
           onTap: () => FocusScope.of(context).unfocus(),
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 width: double.infinity,
@@ -244,6 +699,27 @@ class _HomeWidgetState extends State<HomeWidget> {
                             color: Colors.black,
                           ),
                   locale: FFLocalizations.of(context).languageCode,
+                ),
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                ),
+                child: InkWell(
+                  onTap: () async {},
+                  child: ListView(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

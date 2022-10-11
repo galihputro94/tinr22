@@ -90,19 +90,65 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(1, 1, 1, 1),
                         child: AuthUserStreamWidget(
-                          child: Container(
-                            width: 90,
-                            height: 90,
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                            ),
-                            child: Image.network(
-                              valueOrDefault<String>(
-                                currentUserPhoto,
-                                'https://images.unsplash.com/photo-1596831440741-238efd4619cc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQ1fHxiYXNrZXRiYWxsJTIwcGxheWVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+                          child: InkWell(
+                            onTap: () async {
+                              final selectedMedia =
+                                  await selectMediaWithSourceBottomSheet(
+                                context: context,
+                                allowPhoto: true,
+                              );
+                              if (selectedMedia != null &&
+                                  selectedMedia.every((m) => validateFileFormat(
+                                      m.storagePath, context))) {
+                                setState(() => isMediaUploading = true);
+                                var downloadUrls = <String>[];
+                                try {
+                                  showUploadMessage(
+                                    context,
+                                    'Mengunggah Berkas...',
+                                    showLoading: true,
+                                  );
+                                  downloadUrls = (await Future.wait(
+                                    selectedMedia.map(
+                                      (m) async => await uploadData(
+                                          m.storagePath, m.bytes),
+                                    ),
+                                  ))
+                                      .where((u) => u != null)
+                                      .map((u) => u!)
+                                      .toList();
+                                } finally {
+                                  ScaffoldMessenger.of(context)
+                                      .hideCurrentSnackBar();
+                                  isMediaUploading = false;
+                                }
+                                if (downloadUrls.length ==
+                                    selectedMedia.length) {
+                                  setState(() =>
+                                      uploadedFileUrl = downloadUrls.first);
+                                  showUploadMessage(context, 'Berhasil!');
+                                } else {
+                                  setState(() {});
+                                  showUploadMessage(
+                                      context, 'Gagal mengunggah media');
+                                  return;
+                                }
+                              }
+                            },
+                            child: Container(
+                              width: 90,
+                              height: 90,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
                               ),
-                              fit: BoxFit.cover,
+                              child: Image.network(
+                                valueOrDefault<String>(
+                                  currentUserPhoto,
+                                  'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
+                                ),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
@@ -112,84 +158,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 16),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FFButtonWidget(
-                      onPressed: () async {
-                        final selectedMedia =
-                            await selectMediaWithSourceBottomSheet(
-                          context: context,
-                          allowPhoto: true,
-                        );
-                        if (selectedMedia != null &&
-                            selectedMedia.every((m) =>
-                                validateFileFormat(m.storagePath, context))) {
-                          setState(() => isMediaUploading = true);
-                          var downloadUrls = <String>[];
-                          try {
-                            showUploadMessage(
-                              context,
-                              'Mengunggah Berkas...',
-                              showLoading: true,
-                            );
-                            downloadUrls = (await Future.wait(
-                              selectedMedia.map(
-                                (m) async =>
-                                    await uploadData(m.storagePath, m.bytes),
-                              ),
-                            ))
-                                .where((u) => u != null)
-                                .map((u) => u!)
-                                .toList();
-                          } finally {
-                            ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                            isMediaUploading = false;
-                          }
-                          if (downloadUrls.length == selectedMedia.length) {
-                            setState(
-                                () => uploadedFileUrl = downloadUrls.first);
-                            showUploadMessage(context, 'Berhasil!');
-                          } else {
-                            setState(() {});
-                            showUploadMessage(
-                                context, 'Gagal mengunggah media');
-                            return;
-                          }
-                        }
-
-                        final usersUpdateData = createUsersRecordData(
-                          photoUrl: uploadedFileUrl,
-                        );
-                        await currentUserReference!.update(usersUpdateData);
-                      },
-                      text: 'Ubah Foto',
-                      options: FFButtonOptions(
-                        width: 130,
-                        height: 40,
-                        color: Colors.black,
-                        textStyle:
-                            FlutterFlowTheme.of(context).bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.of(context).grayLines,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                        elevation: 2,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
+                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 16),
                 child: AuthUserStreamWidget(
                   child: TextFormField(
                     controller: textController,

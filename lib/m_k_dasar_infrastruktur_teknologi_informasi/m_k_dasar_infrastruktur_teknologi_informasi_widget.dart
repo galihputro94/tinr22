@@ -1,19 +1,29 @@
+import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../backend/firebase_storage/storage.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/upload_media.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MKPancasilaWidget extends StatefulWidget {
-  const MKPancasilaWidget({Key? key}) : super(key: key);
+class MKDasarInfrastrukturTeknologiInformasiWidget extends StatefulWidget {
+  const MKDasarInfrastrukturTeknologiInformasiWidget({Key? key})
+      : super(key: key);
 
   @override
-  _MKPancasilaWidgetState createState() => _MKPancasilaWidgetState();
+  _MKDasarInfrastrukturTeknologiInformasiWidgetState createState() =>
+      _MKDasarInfrastrukturTeknologiInformasiWidgetState();
 }
 
-class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
+class _MKDasarInfrastrukturTeknologiInformasiWidgetState
+    extends State<MKDasarInfrastrukturTeknologiInformasiWidget> {
+  bool isMediaUploading = false;
+  String uploadedFileUrl = '';
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -42,15 +52,17 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
             size: 30,
           ),
           onPressed: () async {
-            context.pop();
+            context.pushNamed('home');
+
+            context.pushNamed('home');
           },
         ),
         title: Text(
-          'Pancasila',
-          style: FlutterFlowTheme.of(context).title2.override(
+          'Dasar Infrastruk TI',
+          style: FlutterFlowTheme.of(context).title3.override(
                 fontFamily: 'Overpass',
-                color: Colors.white,
-                fontSize: 22,
+                color: FlutterFlowTheme.of(context).white,
+                fontSize: 20,
               ),
         ),
         actions: [],
@@ -60,7 +72,6 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 5),
@@ -89,22 +100,74 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
                           color: Color(0xFFDBE2E7),
                           shape: BoxShape.circle,
                         ),
-                        child: Container(
-                          width: 120,
-                          height: 120,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.asset(
-                            'assets/images/00000000000000000000000000000000.png',
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
+                          child: AuthUserStreamWidget(
+                            child: InkWell(
+                              onTap: () async {
+                                final selectedMedia = await selectMedia(
+                                  mediaSource: MediaSource.photoGallery,
+                                  multiImage: false,
+                                );
+                                if (selectedMedia != null &&
+                                    selectedMedia.every((m) =>
+                                        validateFileFormat(
+                                            m.storagePath, context))) {
+                                  setState(() => isMediaUploading = true);
+                                  var downloadUrls = <String>[];
+                                  try {
+                                    showUploadMessage(
+                                      context,
+                                      'Mengunggah Berkas...',
+                                      showLoading: true,
+                                    );
+                                    downloadUrls = (await Future.wait(
+                                      selectedMedia.map(
+                                        (m) async => await uploadData(
+                                            m.storagePath, m.bytes),
+                                      ),
+                                    ))
+                                        .where((u) => u != null)
+                                        .map((u) => u!)
+                                        .toList();
+                                  } finally {
+                                    ScaffoldMessenger.of(context)
+                                        .hideCurrentSnackBar();
+                                    isMediaUploading = false;
+                                  }
+                                  if (downloadUrls.length ==
+                                      selectedMedia.length) {
+                                    setState(() =>
+                                        uploadedFileUrl = downloadUrls.first);
+                                    showUploadMessage(context, 'Berhasil!');
+                                  } else {
+                                    setState(() {});
+                                    showUploadMessage(
+                                        context, 'Gagal mengunggah media');
+                                    return;
+                                  }
+                                }
+                              },
+                              child: Container(
+                                width: 90,
+                                height: 90,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.asset(
+                                  'assets/images/00000000000000000000000000000000.png',
+                                  fit: BoxFit.fitWidth,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                         child: Text(
-                          'Dosen Pembimbing\nAhmad Rifai, SE. MM',
+                          'Dosen Pembimbing\nIrma Yunita, S.Si',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context).title3.override(
                                 fontFamily: 'Overpass',

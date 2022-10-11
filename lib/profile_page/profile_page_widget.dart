@@ -92,7 +92,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                   child: Image.network(
                                     valueOrDefault<String>(
                                       profilePageUsersRecord.photoUrl,
-                                      'https://images.unsplash.com/photo-1596831440741-238efd4619cc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQ1fHxiYXNrZXRiYWxsJTIwcGxheWVyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+                                      'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
                                     ),
                                     fit: BoxFit.fitHeight,
                                   ),
@@ -191,62 +191,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                   children: [
                     InkWell(
                       onTap: () async {
-                        context.pushNamed('completProfile');
-                      },
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(0),
-                          shape: BoxShape.rectangle,
-                          border: Border.all(
-                            width: 2,
-                          ),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
-                                child: Text(
-                                  'Lengkapi Profile Anda',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: FlutterFlowTheme.of(context)
-                                            .background,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                ),
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [],
-                              ),
-                              Expanded(
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.9, 0),
-                                  child: Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: Color(0xFF95A1AC),
-                                    size: 18,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () async {
                         context.pushNamed('editProfile');
                       },
                       child: Container(
@@ -278,11 +222,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [],
                             ),
                             Expanded(
                               child: Align(
@@ -331,11 +270,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [],
                             ),
                             Expanded(
                               child: Align(
