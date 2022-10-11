@@ -59,7 +59,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                         children: [
                           Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                                EdgeInsetsDirectional.fromSTEB(0, 8, 0, 20),
                             child: Text(
                               'Admin Area',
                               style: FlutterFlowTheme.of(context)
@@ -193,6 +193,50 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                     ),
                                     Text(
                                       'Tambah Materi',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Overpass',
+                                            color: FlutterFlowTheme.of(context)
+                                                .background,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              InkWell(
+                                onTap: () async {
+                                  context.pushNamed(
+                                    'adm_ListTugas',
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 600),
+                                      ),
+                                    },
+                                  );
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    FlutterFlowIconButton(
+                                      borderColor: Colors.transparent,
+                                      borderRadius: 30,
+                                      borderWidth: 1,
+                                      buttonSize: 60,
+                                      icon: FaIcon(
+                                        FontAwesomeIcons.solidLightbulb,
+                                        color: FlutterFlowTheme.of(context)
+                                            .background,
+                                        size: 30,
+                                      ),
+                                      onPressed: () {
+                                        print('IconButton pressed ...');
+                                      },
+                                    ),
+                                    Text(
+                                      'Tugas',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(

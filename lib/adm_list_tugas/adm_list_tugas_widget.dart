@@ -32,30 +32,34 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
-        leading: FlutterFlowIconButton(
-          borderColor: Colors.transparent,
-          borderRadius: 30,
-          borderWidth: 1,
-          buttonSize: 60,
-          icon: Icon(
-            Icons.arrow_back_rounded,
-            color: Color(0xFF010101),
-            size: 30,
-          ),
-          onPressed: () {
-            print('IconButton pressed ...');
-          },
-        ),
         title: Text(
-          'Semua Tugas',
+          'Page Title',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Overpass',
                 color: Colors.white,
                 fontSize: 22,
               ),
         ),
-        actions: [],
-        centerTitle: true,
+        actions: [
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+            child: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
+              icon: Icon(
+                Icons.add,
+                color: FlutterFlowTheme.of(context).white,
+                size: 30,
+              ),
+              onPressed: () async {
+                context.pushNamed('add_Tugas');
+              },
+            ),
+          ),
+        ],
+        centerTitle: false,
         elevation: 4,
       ),
       body: SafeArea(

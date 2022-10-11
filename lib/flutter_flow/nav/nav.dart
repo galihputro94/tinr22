@@ -118,6 +118,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   : HomeWidget(),
             ),
             FFRoute(
+              name: 'detailTugas',
+              path: 'detailTugas',
+              builder: (context, params) => DetailTugasWidget(
+                namaTugas: params.getParam('namaTugas', ParamType.String),
+                mkTugas: params.getParam('mkTugas', ParamType.String),
+                deadline: params.getParam('deadline', ParamType.DateTime),
+                isActive: params.getParam('isActive', ParamType.bool),
+                ketTugas: params.getParam('ketTugas', ParamType.String),
+              ),
+            ),
+            FFRoute(
               name: 'verifyPhone',
               path: 'verifyPhone',
               builder: (context, params) => VerifyPhoneWidget(),
