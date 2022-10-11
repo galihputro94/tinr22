@@ -59,6 +59,7 @@ class _AdmHapusTugasWidgetState extends State<AdmHapusTugasWidget> {
               child: FFButtonWidget(
                 onPressed: () async {
                   await widget.indexTgs!.delete();
+                  await Future.delayed(const Duration(milliseconds: 1000));
                   Navigator.pop(context);
                 },
                 text: 'Hapus Tugas',

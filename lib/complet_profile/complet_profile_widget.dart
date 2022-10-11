@@ -455,7 +455,7 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                           color: Colors.transparent,
                           width: 1,
                         ),
-                        borderRadius: BorderRadius.circular(50),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),

@@ -406,7 +406,18 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               GoRouter.of(context).prepareAuthEvent();
                               await signOut();
 
-                              context.goNamedAuth('login', mounted);
+                              context.pushNamedAuth(
+                                'login',
+                                mounted,
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType:
+                                        PageTransitionType.bottomToTop,
+                                    duration: Duration(milliseconds: 600),
+                                  ),
+                                },
+                              );
                             },
                             text: 'Log Out',
                             options: FFButtonOptions(

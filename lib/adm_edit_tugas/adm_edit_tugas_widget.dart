@@ -1,6 +1,7 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -67,6 +68,35 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      appBar: AppBar(
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        automaticallyImplyLeading: false,
+        leading: FlutterFlowIconButton(
+          borderColor: Colors.transparent,
+          borderRadius: 30,
+          borderWidth: 1,
+          buttonSize: 60,
+          icon: Icon(
+            Icons.arrow_back_rounded,
+            color: Color(0xFF010101),
+            size: 30,
+          ),
+          onPressed: () {
+            print('IconButton pressed ...');
+          },
+        ),
+        title: Text(
+          'Edit Tugas',
+          style: FlutterFlowTheme.of(context).title2.override(
+                fontFamily: 'Overpass',
+                color: Colors.white,
+                fontSize: 22,
+              ),
+        ),
+        actions: [],
+        centerTitle: true,
+        elevation: 4,
+      ),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -106,14 +136,14 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                         ),
                         errorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0x00000000),
+                            color: Color(0xFFC62828),
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         focusedErrorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0x00000000),
+                            color: Color(0xFFC62828),
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(10),
@@ -188,14 +218,14 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                         ),
                         errorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0x00000000),
+                            color: Color(0xFFC62828),
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         focusedErrorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0x00000000),
+                            color: Color(0xFFC62828),
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(10),
@@ -310,14 +340,14 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                         ),
                         errorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0x00000000),
+                            color: Color(0xFFC62828),
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         focusedErrorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0x00000000),
+                            color: Color(0xFFC62828),
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(10),

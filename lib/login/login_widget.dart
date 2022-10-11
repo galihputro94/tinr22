@@ -174,14 +174,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     ),
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0x00000000),
+                                        color: Color(0xFFC62828),
                                         width: 2,
                                       ),
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0x00000000),
+                                        color: Color(0xFFC62828),
                                         width: 2,
                                       ),
                                       borderRadius: BorderRadius.circular(8),
@@ -244,14 +244,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     ),
                                     errorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0x00000000),
+                                        color: Color(0xFFC62828),
                                         width: 2,
                                       ),
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                     focusedErrorBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0x00000000),
+                                        color: Color(0xFFC62828),
                                         width: 2,
                                       ),
                                       borderRadius: BorderRadius.circular(8),

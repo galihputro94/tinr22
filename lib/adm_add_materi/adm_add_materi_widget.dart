@@ -88,7 +88,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
               width: MediaQuery.of(context).size.width,
               child: Form(
                 key: formKey,
-                autovalidateMode: AutovalidateMode.disabled,
+                autovalidateMode: AutovalidateMode.always,
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -122,14 +122,14 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0x00000000),
+                              color: Color(0xFFC62828),
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0x00000000),
+                              color: Color(0xFFC62828),
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(10),
@@ -139,6 +139,13 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                               fontFamily: 'Overpass',
                               color: FlutterFlowTheme.of(context).white,
                             ),
+                        validator: (val) {
+                          if (val == null || val.isEmpty) {
+                            return 'Tidak Boleh Kosong';
+                          }
+
+                          return null;
+                        },
                       ),
                     ),
                     Padding(
@@ -171,14 +178,14 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0x00000000),
+                              color: Color(0xFFC62828),
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0x00000000),
+                              color: Color(0xFFC62828),
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(10),
@@ -188,6 +195,13 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                               fontFamily: 'Overpass',
                               color: FlutterFlowTheme.of(context).white,
                             ),
+                        validator: (val) {
+                          if (val == null || val.isEmpty) {
+                            return 'Tidak Boleh Kosong';
+                          }
+
+                          return null;
+                        },
                       ),
                     ),
                     Padding(
@@ -227,6 +241,31 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
+                          if (formKey.currentState == null ||
+                              !formKey.currentState!.validate()) {
+                            return;
+                          }
+
+                          if (mkfieldValue == null) {
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: Text('Kesalahan'),
+                                  content: Text('Silahkan Pilih Mata Kuliah'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                            return;
+                          }
+
                           final materiCreateData = createMateriRecordData(
                             nama: namaMateriController!.text,
                             link: linkFieldController!.text,

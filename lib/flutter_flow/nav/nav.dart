@@ -88,9 +88,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => CreateAccountWidget(),
             ),
             FFRoute(
+              name: 'completProfile',
+              path: 'completProfile',
+              builder: (context, params) => CompletProfileWidget(),
+            ),
+            FFRoute(
               name: 'phoneSignIn',
               path: 'phoneSignIn',
               builder: (context, params) => PhoneSignInWidget(),
+            ),
+            FFRoute(
+              name: 'verifyPhone',
+              path: 'verifyPhone',
+              builder: (context, params) => VerifyPhoneWidget(),
             ),
             FFRoute(
               name: 'profilePage',
@@ -129,19 +139,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'verifyPhone',
-              path: 'verifyPhone',
-              builder: (context, params) => VerifyPhoneWidget(),
-            ),
-            FFRoute(
               name: 'jadwal',
               path: 'jadwal',
               builder: (context, params) => JadwalWidget(),
-            ),
-            FFRoute(
-              name: 'completProfile',
-              path: 'completProfile',
-              builder: (context, params) => CompletProfileWidget(),
             ),
             FFRoute(
               name: 'MKAgama',
@@ -227,6 +227,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     params.getParam('deadlineTugasEdit', ParamType.DateTime),
                 ketTugasEdit: params.getParam('ketTugasEdit', ParamType.String),
               ),
+            ),
+            FFRoute(
+              name: 'admManageUser',
+              path: 'admManageUser',
+              builder: (context, params) => AdmManageUserWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

@@ -136,14 +136,14 @@ class _PhoneSignInWidgetState extends State<PhoneSignInWidget> {
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0x62FF2B2F),
+                              color: Color(0xFFC62828),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: Color(0x62FF2B2F),
+                              color: Color(0xFFC62828),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),

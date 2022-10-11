@@ -87,7 +87,7 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 4, 70, 0),
                         child: Text(
-                          'Please enter the code that you received via text message (SMS).',
+                          'Masukan Kode Verifikasi yang Kami Kirimkan Via SMS.',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Overpass',
@@ -111,7 +111,7 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
                           controller: smsCodeTextFieldController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelText: 'Enter Code ',
+                            labelText: 'Kode Verifikasi',
                             labelStyle:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Overpass',
@@ -194,7 +194,7 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
 
                         context.goNamedAuth('home', mounted);
                       },
-                      text: 'Verify',
+                      text: 'Verifikasi',
                       options: FFButtonOptions(
                         width: 140,
                         height: 50,

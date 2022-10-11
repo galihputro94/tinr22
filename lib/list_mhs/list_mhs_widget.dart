@@ -154,7 +154,8 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 8, 0, 0),
                                       child: Text(
-                                        listViewUsersRecord.displayName!,
+                                        listViewUsersRecord.displayName!
+                                            .maybeHandleOverflow(maxChars: 25),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -162,6 +163,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .white,
+                                              fontSize: 16,
                                             ),
                                       ),
                                     ),
@@ -189,7 +191,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(24, 10, 0, 0),
                   child: Text(
                     'Semua Mahasiswa',
                     style: FlutterFlowTheme.of(context).bodyText2.override(
@@ -232,12 +234,15 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                         itemBuilder: (context, listViewIndex) {
                           final listViewUsersRecord =
                               listViewUsersRecordList[listViewIndex];
-                          return Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 4, 16, 8),
+                          return Material(
+                            color: Colors.transparent,
+                            elevation: 4,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
                             child: Container(
                               width: double.infinity,
-                              height: 50,
+                              height: 60,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).black600,
                                 boxShadow: [
@@ -251,19 +256,27 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                               ),
                               child: Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                                    EdgeInsetsDirectional.fromSTEB(8, 5, 8, 5),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(26),
-                                      child: Image.network(
-                                        listViewUsersRecord.photoUrl!,
-                                        width: 36,
-                                        height: 36,
-                                        fit: BoxFit.cover,
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          5, 5, 5, 5),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(26),
+                                        child: Image.network(
+                                          valueOrDefault<String>(
+                                            listViewUsersRecord.photoUrl,
+                                            'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
+                                          ),
+                                          width: 40,
+                                          height: 40,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                     Expanded(
@@ -277,18 +290,25 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              listViewUsersRecord.displayName!,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Overpass',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .white,
-                                                      ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 0, 8),
+                                              child: Text(
+                                                listViewUsersRecord.displayName!
+                                                    .maybeHandleOverflow(
+                                                        maxChars: 25),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyText1
+                                                    .override(
+                                                      fontFamily: 'Overpass',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .white,
+                                                      fontSize: 16,
+                                                    ),
+                                              ),
                                             ),
                                             Row(
                                               mainAxisSize: MainAxisSize.max,

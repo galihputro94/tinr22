@@ -4,8 +4,10 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_toggle_icon.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdmListTugasWidget extends StatefulWidget {
@@ -33,8 +35,35 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
+        leading: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+          child: FFButtonWidget(
+            onPressed: () {
+              print('Button pressed ...');
+            },
+            text: '',
+            icon: FaIcon(
+              FontAwesomeIcons.arrowLeft,
+              size: 20,
+            ),
+            options: FFButtonOptions(
+              width: 130,
+              height: 40,
+              color: FlutterFlowTheme.of(context).primaryBackground,
+              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                    fontFamily: 'Overpass',
+                    color: Colors.white,
+                  ),
+              borderSide: BorderSide(
+                color: Colors.transparent,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
         title: Text(
-          'Page Title',
+          'Semua Tugas',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Overpass',
                 color: Colors.white,
