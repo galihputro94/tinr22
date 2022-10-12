@@ -47,7 +47,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
         title: Text(
           'Jadwal Kuliah',
           style: FlutterFlowTheme.of(context).subtitle2.override(
-                fontFamily: 'Overpass',
+                fontFamily: 'Inter',
                 color: Colors.white,
                 fontSize: 18,
               ),
@@ -111,7 +111,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .title1
                                               .override(
-                                                fontFamily: 'Overpass',
+                                                fontFamily: 'Outfit',
                                                 color: Colors.white,
                                               ),
                                         ),
@@ -192,8 +192,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                             context)
                                                         .bodyText1
                                                         .override(
-                                                          fontFamily:
-                                                              'Overpass',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .background,
@@ -206,8 +205,10 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                             context)
                                                         .bodyText1
                                                         .override(
-                                                          fontFamily:
-                                                              'Overpass',
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .white,
                                                           fontSize: 12,
                                                         ),
                                                   ),
@@ -222,8 +223,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                             context)
                                                         .bodyText1
                                                         .override(
-                                                          fontFamily:
-                                                              'Overpass',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .background,
@@ -233,7 +233,13 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                     'Ruang:  ${listViewJadwalRecord.ruang}',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1,
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .white,
+                                                        ),
                                                   ),
                                                 ],
                                               ),
@@ -261,7 +267,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                       width: MediaQuery.of(context).size.width,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryText,
+                        color: Color(0xFF178B7E),
                       ),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
@@ -278,7 +284,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Overpass',
+                                        fontFamily: 'Inter',
                                         color: Colors.black,
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -355,7 +361,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                         borderRadius: BorderRadius.circular(8),
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
+                                              .white,
                                           width: 1,
                                         ),
                                       ),
@@ -393,7 +399,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                               .subtitle1
                                                               .override(
                                                                 fontFamily:
-                                                                    'Overpass',
+                                                                    'Outfit',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .background,
@@ -409,7 +415,14 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                                 .dosen!,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1,
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .white,
+                                                                ),
                                                           ),
                                                         ),
                                                       ],
@@ -439,7 +452,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                                 .subtitle2
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Overpass',
+                                                                      'Inter',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .background,
@@ -460,7 +473,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                               .bodyText1
                                                               .override(
                                                                 fontFamily:
-                                                                    'Overpass',
+                                                                    'Inter',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .background,
@@ -489,7 +502,10 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                       width: MediaQuery.of(context).size.width,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryText,
+                        color: Color(0xFF178B7E),
+                        border: Border.all(
+                          color: Colors.black,
+                        ),
                       ),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
@@ -506,7 +522,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Overpass',
+                                        fontFamily: 'Inter',
                                         color: Colors.black,
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -578,8 +594,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                     ],
                                     borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
+                                      color: FlutterFlowTheme.of(context).white,
                                       width: 1,
                                     ),
                                   ),
@@ -613,7 +628,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                               .subtitle1
                                                               .override(
                                                                 fontFamily:
-                                                                    'Overpass',
+                                                                    'Outfit',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .background,
@@ -630,7 +645,14 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1,
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .white,
+                                                                ),
                                                       ),
                                                     ),
                                                   ],
@@ -655,8 +677,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                             context)
                                                         .subtitle2
                                                         .override(
-                                                          fontFamily:
-                                                              'Overpass',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .background,
@@ -677,7 +698,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                               .bodyText1
                                                               .override(
                                                                 fontFamily:
-                                                                    'Overpass',
+                                                                    'Inter',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .background,
@@ -721,7 +742,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Overpass',
+                                        fontFamily: 'Inter',
                                         color: Colors.black,
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -792,8 +813,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                     ],
                                     borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
+                                      color: FlutterFlowTheme.of(context).white,
                                       width: 1,
                                     ),
                                   ),
@@ -827,7 +847,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                               .subtitle1
                                                               .override(
                                                                 fontFamily:
-                                                                    'Overpass',
+                                                                    'Outfit',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .background,
@@ -844,7 +864,14 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1,
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .white,
+                                                                ),
                                                       ),
                                                     ),
                                                   ],
@@ -869,8 +896,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                             context)
                                                         .subtitle2
                                                         .override(
-                                                          fontFamily:
-                                                              'Overpass',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .background,
@@ -891,7 +917,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                               .bodyText1
                                                               .override(
                                                                 fontFamily:
-                                                                    'Overpass',
+                                                                    'Inter',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .background,
@@ -935,7 +961,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Overpass',
+                                        fontFamily: 'Inter',
                                         color: Colors.black,
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -1006,8 +1032,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                     ],
                                     borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
+                                      color: FlutterFlowTheme.of(context).white,
                                       width: 1,
                                     ),
                                   ),
@@ -1041,7 +1066,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                               .subtitle1
                                                               .override(
                                                                 fontFamily:
-                                                                    'Overpass',
+                                                                    'Outfit',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .background,
@@ -1058,7 +1083,14 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1,
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .white,
+                                                                ),
                                                       ),
                                                     ),
                                                   ],
@@ -1083,8 +1115,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                             context)
                                                         .subtitle2
                                                         .override(
-                                                          fontFamily:
-                                                              'Overpass',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .background,
@@ -1105,7 +1136,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                               .bodyText1
                                                               .override(
                                                                 fontFamily:
-                                                                    'Overpass',
+                                                                    'Inter',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .background,
@@ -1149,7 +1180,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Overpass',
+                                        fontFamily: 'Inter',
                                         color: Colors.black,
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -1220,8 +1251,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                     ],
                                     borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
+                                      color: FlutterFlowTheme.of(context).white,
                                       width: 1,
                                     ),
                                   ),
@@ -1255,7 +1285,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                               .subtitle1
                                                               .override(
                                                                 fontFamily:
-                                                                    'Overpass',
+                                                                    'Outfit',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .background,
@@ -1272,7 +1302,14 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1,
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .white,
+                                                                ),
                                                       ),
                                                     ),
                                                   ],
@@ -1297,8 +1334,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                             context)
                                                         .subtitle2
                                                         .override(
-                                                          fontFamily:
-                                                              'Overpass',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .background,
@@ -1319,7 +1355,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                               .bodyText1
                                                               .override(
                                                                 fontFamily:
-                                                                    'Overpass',
+                                                                    'Inter',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .background,

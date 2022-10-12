@@ -67,9 +67,9 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF263238),
+      backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: Color(0xFF263238),
+        backgroundColor: Color(0xFF178B7E),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -88,7 +88,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
         title: Text(
           'Edit Tugas',
           style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Overpass',
+                fontFamily: 'Outfit',
                 color: Colors.white,
                 fontSize: 22,
               ),
@@ -117,7 +117,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                         hintText: 'Nama Tugas...',
                         hintStyle:
                             FlutterFlowTheme.of(context).bodyText2.override(
-                                  fontFamily: 'Overpass',
+                                  fontFamily: 'Inter',
                                   color: FlutterFlowTheme.of(context).white,
                                 ),
                         enabledBorder: OutlineInputBorder(
@@ -150,7 +150,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Overpass',
+                            fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).white,
                           ),
                     ),
@@ -176,7 +176,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                       height: 50,
                       textStyle:
                           FlutterFlowTheme.of(context).bodyText1.override(
-                                fontFamily: 'Overpass',
+                                fontFamily: 'Inter',
                                 color: FlutterFlowTheme.of(context).white,
                               ),
                       hintText: 'Pilih Mata Kuliah',
@@ -199,7 +199,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                         labelText: 'Deadline Tugas',
                         hintStyle:
                             FlutterFlowTheme.of(context).bodyText2.override(
-                                  fontFamily: 'Overpass',
+                                  fontFamily: 'Inter',
                                   color: FlutterFlowTheme.of(context).white,
                                 ),
                         enabledBorder: OutlineInputBorder(
@@ -232,7 +232,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Overpass',
+                            fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).white,
                           ),
                     ),
@@ -299,7 +299,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                         color: Color(0x00EE8B60),
                         textStyle:
                             FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Overpass',
+                                  fontFamily: 'Inter',
                                   color: Colors.white,
                                 ),
                         borderSide: BorderSide(
@@ -321,7 +321,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                         hintText: 'Masukan Keterangan Tugas...',
                         hintStyle:
                             FlutterFlowTheme.of(context).bodyText2.override(
-                                  fontFamily: 'Overpass',
+                                  fontFamily: 'Inter',
                                   color: FlutterFlowTheme.of(context).white,
                                 ),
                         enabledBorder: OutlineInputBorder(
@@ -354,7 +354,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Overpass',
+                            fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).white,
                           ),
                       maxLines: 8,
@@ -382,7 +382,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                         color: FlutterFlowTheme.of(context).black600,
                         textStyle:
                             FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Overpass',
+                                  fontFamily: 'Inter',
                                   color: Colors.white,
                                 ),
                         borderSide: BorderSide(

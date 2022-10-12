@@ -31,7 +31,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF263238),
+      backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
         backgroundColor: Color(0xFF263238),
         automaticallyImplyLeading: false,
@@ -51,7 +51,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
               height: 40,
               color: FlutterFlowTheme.of(context).primaryBackground,
               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                    fontFamily: 'Overpass',
+                    fontFamily: 'Inter',
                     color: Colors.white,
                   ),
               borderSide: BorderSide(
@@ -65,7 +65,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
         title: Text(
           'Semua Tugas',
           style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Overpass',
+                fontFamily: 'Outfit',
                 color: Colors.white,
                 fontSize: 22,
               ),
@@ -114,7 +114,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                       Text(
                         'Tugas Aktif',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Overpass',
+                              fontFamily: 'Inter',
                               color: FlutterFlowTheme.of(context).white,
                               fontSize: 16,
                             ),
@@ -186,7 +186,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
-                                                fontFamily: 'Overpass',
+                                                fontFamily: 'Inter',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .white,
@@ -217,7 +217,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
                                                 .override(
-                                                  fontFamily: 'Overpass',
+                                                  fontFamily: 'Inter',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .white,
@@ -281,7 +281,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                           'Tugas Tidak Aktif',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Overpass',
+                                    fontFamily: 'Inter',
                                     color: FlutterFlowTheme.of(context).white,
                                     fontSize: 16,
                                   ),
@@ -427,17 +427,16 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                                             children: [
                                               Text(
                                                 listViewTugasRecord.namaTugas!,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyText1
-                                                    .override(
-                                                      fontFamily: 'Overpass',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
                                                               .white,
-                                                      fontSize: 16,
-                                                    ),
+                                                          fontSize: 16,
+                                                        ),
                                               ),
                                               Text(
                                                 listViewTugasRecord.mkTugas!,
@@ -467,7 +466,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                                                           context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily: 'Overpass',
+                                                        fontFamily: 'Inter',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)

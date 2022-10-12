@@ -29,9 +29,9 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF263238),
+      backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: Color(0xFF263238),
+        backgroundColor: Color(0xFF178B7E),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -52,7 +52,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
         title: Text(
           'Daftar Mahasiswa',
           style: FlutterFlowTheme.of(context).title3.override(
-                fontFamily: 'Overpass',
+                fontFamily: 'Outfit',
                 color: FlutterFlowTheme.of(context).white,
               ),
         ),
@@ -74,7 +74,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                   child: Text(
                     'Pejabat Kelas',
                     style: FlutterFlowTheme.of(context).bodyText2.override(
-                          fontFamily: 'Overpass',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).white,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -159,7 +159,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
-                                              fontFamily: 'Overpass',
+                                              fontFamily: 'Inter',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .white,
@@ -175,7 +175,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText2
                                             .override(
-                                              fontFamily: 'Overpass',
+                                              fontFamily: 'Inter',
                                               color: Color(0x97FFFFFF),
                                             ),
                                       ),
@@ -195,7 +195,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                   child: Text(
                     'Semua Mahasiswa',
                     style: FlutterFlowTheme.of(context).bodyText2.override(
-                          fontFamily: 'Overpass',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).white,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -307,7 +307,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                                           context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily: 'Overpass',
+                                                        fontFamily: 'Inter',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -326,8 +326,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                                             context)
                                                         .bodyText2
                                                         .override(
-                                                          fontFamily:
-                                                              'Overpass',
+                                                          fontFamily: 'Inter',
                                                           color:
                                                               Color(0x96FFFFFF),
                                                         ),

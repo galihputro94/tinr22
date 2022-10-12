@@ -34,7 +34,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF263238),
+      backgroundColor: FlutterFlowTheme.of(context).bg11,
       drawer: Container(
         width: 300,
         child: Drawer(
@@ -43,7 +43,7 @@ class _HomeWidgetState extends State<HomeWidget> {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 1,
             decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).primaryBackground,
+              color: FlutterFlowTheme.of(context).bg11,
             ),
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -58,10 +58,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         child: Container(
                           width: MediaQuery.of(context).size.width,
                           height: 100,
-                          decoration: BoxDecoration(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                          ),
+                          decoration: BoxDecoration(),
                           child: Image.asset(
                             'assets/images/TI_NR_22.png',
                             width: 100,
@@ -90,10 +87,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 child: Container(
                                   width: 100,
                                   height: 60,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                  ),
+                                  decoration: BoxDecoration(),
                                   child: InkWell(
                                     onTap: () async {
                                       context.pushNamed(
@@ -122,7 +116,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
                                                 .override(
-                                                  fontFamily: 'Overpass',
+                                                  fontFamily: 'Inter',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .grayLines,
@@ -173,10 +167,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 child: Container(
                                   width: 100,
                                   height: 60,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                  ),
+                                  decoration: BoxDecoration(),
                                   child: InkWell(
                                     onTap: () async {
                                       context.pushNamed(
@@ -222,7 +213,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily: 'Overpass',
+                                                        fontFamily: 'Inter',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -281,7 +272,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Overpass',
+                                        fontFamily: 'Inter',
                                         color: FlutterFlowTheme.of(context)
                                             .background,
                                         fontSize: 16,
@@ -309,7 +300,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Overpass',
+                                        fontFamily: 'Inter',
                                         color: FlutterFlowTheme.of(context)
                                             .grayLines,
                                         fontSize: 18,
@@ -358,7 +349,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Overpass',
+                                        fontFamily: 'Inter',
                                         color: FlutterFlowTheme.of(context)
                                             .grayLines,
                                         fontSize: 18,
@@ -407,7 +398,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Overpass',
+                                        fontFamily: 'Inter',
                                         color: FlutterFlowTheme.of(context)
                                             .grayLines,
                                         fontSize: 18,
@@ -456,7 +447,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Overpass',
+                                        fontFamily: 'Inter',
                                         color: FlutterFlowTheme.of(context)
                                             .grayLines,
                                         fontSize: 18,
@@ -505,7 +496,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Overpass',
+                                        fontFamily: 'Inter',
                                         color: FlutterFlowTheme.of(context)
                                             .grayLines,
                                         fontSize: 18,
@@ -558,7 +549,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
-                                          fontFamily: 'Overpass',
+                                          fontFamily: 'Inter',
                                           color: FlutterFlowTheme.of(context)
                                               .grayLines,
                                           fontSize: 18,
@@ -613,7 +604,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
-                                          fontFamily: 'Overpass',
+                                          fontFamily: 'Inter',
                                           color: FlutterFlowTheme.of(context)
                                               .grayLines,
                                           fontSize: 18,
@@ -668,7 +659,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
-                                          fontFamily: 'Overpass',
+                                          fontFamily: 'Inter',
                                           color: FlutterFlowTheme.of(context)
                                               .grayLines,
                                           fontSize: 18,
@@ -724,7 +715,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
-                                          fontFamily: 'Overpass',
+                                          fontFamily: 'Inter',
                                           color: FlutterFlowTheme.of(context)
                                               .grayLines,
                                           fontSize: 18,
@@ -767,7 +758,7 @@ class _HomeWidgetState extends State<HomeWidget> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: Color(0xFF263238),
+        backgroundColor: Color(0xFF178B7E),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -776,7 +767,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           buttonSize: 60,
           icon: FaIcon(
             FontAwesomeIcons.bars,
-            color: FlutterFlowTheme.of(context).grayLines,
+            color: FlutterFlowTheme.of(context).primaryText,
             size: 20,
           ),
           onPressed: () async {
@@ -789,8 +780,8 @@ class _HomeWidgetState extends State<HomeWidget> {
             child: Text(
               'Selamat Datang, ${currentUserDisplayName}',
               style: FlutterFlowTheme.of(context).title1.override(
-                    fontFamily: 'Overpass',
-                    color: FlutterFlowTheme.of(context).grayLines,
+                    fontFamily: 'Lobster',
+                    color: FlutterFlowTheme.of(context).primaryText,
                     fontSize: 18,
                   ),
             ),
@@ -809,7 +800,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Color(0xFF263238),
+                  color: FlutterFlowTheme.of(context).bg11,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 5,
@@ -819,8 +810,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                   ],
                 ),
                 child: FlutterFlowCalendar(
-                  color: FlutterFlowTheme.of(context).background,
-                  iconColor: FlutterFlowTheme.of(context).grayLines,
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  iconColor: FlutterFlowTheme.of(context).primaryText,
                   weekFormat: true,
                   weekStartsMonday: true,
                   initialDate: getCurrentTimestamp,
@@ -828,26 +819,26 @@ class _HomeWidgetState extends State<HomeWidget> {
                     setState(() => calendarSelectedDay = newSelectedDate);
                   },
                   titleStyle: FlutterFlowTheme.of(context).subtitle1.override(
-                        fontFamily: 'Overpass',
-                        color: FlutterFlowTheme.of(context).grayLines,
+                        fontFamily: 'Outfit',
+                        color: FlutterFlowTheme.of(context).primaryText,
                       ),
                   dayOfWeekStyle:
                       FlutterFlowTheme.of(context).bodyText2.override(
-                            fontFamily: 'Overpass',
-                            color: FlutterFlowTheme.of(context).grayLines,
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context).primaryText,
                           ),
                   dateStyle: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Overpass',
-                        color: FlutterFlowTheme.of(context).grayLines,
+                        fontFamily: 'Inter',
+                        color: FlutterFlowTheme.of(context).alternate,
                       ),
                   selectedDateStyle:
                       FlutterFlowTheme.of(context).subtitle2.override(
-                            fontFamily: 'Overpass',
-                            color: FlutterFlowTheme.of(context).darkBG,
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context).alternate,
                           ),
                   inactiveDateStyle:
                       FlutterFlowTheme.of(context).bodyText2.override(
-                            fontFamily: 'Overpass',
+                            fontFamily: 'Inter',
                             color: Colors.black,
                           ),
                   locale: FFLocalizations.of(context).languageCode,
@@ -868,7 +859,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
                             child: FaIcon(
                               FontAwesomeIcons.solidLightbulb,
-                              color: FlutterFlowTheme.of(context).white,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               size: 24,
                             ),
                           ),
@@ -881,8 +872,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .title1
                                     .override(
-                                      fontFamily: 'Overpass',
-                                      color: Colors.white,
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
                                       fontSize: 25,
                                     ),
                               ),
@@ -962,7 +954,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         height: 80,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
-                                              .darkBG,
+                                              .primaryBackground,
                                           borderRadius:
                                               BorderRadius.circular(10),
                                         ),
@@ -991,11 +983,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                             context)
                                                         .bodyText1
                                                         .override(
-                                                          fontFamily:
-                                                              'Overpass',
+                                                          fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .white,
+                                                              .primaryText,
                                                           fontSize: 16,
                                                         ),
                                                   ),
@@ -1004,7 +995,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         .mkTugas!,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1,
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
                                                   ),
                                                   Text(
                                                     listViewTugasRecord
@@ -1012,7 +1009,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         .toString(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1,
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
                                                   ),
                                                 ],
                                               ),
@@ -1030,7 +1033,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .white,
+                                                              .primaryText,
                                                       size: 30,
                                                     ),
                                                   ],

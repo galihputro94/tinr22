@@ -28,7 +28,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF263238),
+      backgroundColor: Color(0xFF178B7E),
       body: Visibility(
         visible: valueOrDefault(currentUserDocument?.role, '') == 'admin',
         child: AuthUserStreamWidget(
@@ -65,7 +65,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
-                                    fontFamily: 'Overpass',
+                                    fontFamily: 'Inter',
                                     color:
                                         FlutterFlowTheme.of(context).background,
                                     fontSize: 25,
@@ -93,7 +93,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Overpass',
+                                        fontFamily: 'Inter',
                                         color:
                                             FlutterFlowTheme.of(context).white,
                                         fontSize: 16,
@@ -105,7 +105,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
-                                      fontFamily: 'Overpass',
+                                      fontFamily: 'Inter',
                                       color: Color(0xA2FFFFFF),
                                     ),
                               ),
@@ -141,7 +141,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
-                                    fontFamily: 'Overpass',
+                                    fontFamily: 'Inter',
                                     color: FlutterFlowTheme.of(context).white,
                                     fontSize: 16,
                                   ),
@@ -196,7 +196,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
-                                            fontFamily: 'Overpass',
+                                            fontFamily: 'Inter',
                                             color: FlutterFlowTheme.of(context)
                                                 .background,
                                           ),
@@ -251,43 +251,13 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
-                                            fontFamily: 'Overpass',
+                                            fontFamily: 'Inter',
                                             color: FlutterFlowTheme.of(context)
                                                 .background,
                                           ),
                                     ),
                                   ],
                                 ),
-                              ),
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.auto_delete,
-                                      color: FlutterFlowTheme.of(context)
-                                          .background,
-                                      size: 30,
-                                    ),
-                                    onPressed: () async {
-                                      context.pushNamed('adm_addMateri');
-                                    },
-                                  ),
-                                  Text(
-                                    'Hapus Data',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Overpass',
-                                          color: FlutterFlowTheme.of(context)
-                                              .background,
-                                        ),
-                                  ),
-                                ],
                               ),
                               Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -323,7 +293,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
-                                          fontFamily: 'Overpass',
+                                          fontFamily: 'Inter',
                                           color: FlutterFlowTheme.of(context)
                                               .background,
                                         ),

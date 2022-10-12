@@ -45,7 +45,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
         final profilePageUsersRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: Color(0xFF263238),
+          backgroundColor: FlutterFlowTheme.of(context).bg11,
           body: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -112,14 +112,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 profilePageUsersRecord.displayName,
                                 'Balla #1',
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .title1
-                                  .override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: FlutterFlowTheme.of(context).white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                              style:
+                                  FlutterFlowTheme.of(context).title1.override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: Colors.white,
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                             ),
                           ),
                         ],
@@ -155,12 +154,12 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                     children: [
                       Material(
                         color: Colors.transparent,
-                        elevation: 4,
+                        elevation: 0,
                         child: Container(
                           width: MediaQuery.of(context).size.width,
                           height: 50,
                           decoration: BoxDecoration(
-                            color: Color(0xFF263238),
+                            color: Colors.black,
                           ),
                           child: Padding(
                             padding:
@@ -171,8 +170,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                   .bodyText1
                                   .override(
                                     fontFamily: 'Lexend Deca',
-                                    color:
-                                        FlutterFlowTheme.of(context).grayLines,
+                                    color: Colors.white,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -197,11 +195,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                         width: MediaQuery.of(context).size.width,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Colors.black,
+                          color: FlutterFlowTheme.of(context).alternate,
                           borderRadius: BorderRadius.circular(0),
                           shape: BoxShape.rectangle,
                           border: Border.all(
-                            width: 2,
+                            width: 0,
                           ),
                         ),
                         child: Row(
@@ -217,7 +215,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     .override(
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.of(context)
-                                          .grayLines,
+                                          .primaryText,
                                       fontSize: 14,
                                       fontWeight: FontWeight.normal,
                                     ),
@@ -228,7 +226,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 alignment: AlignmentDirectional(0.9, 0),
                                 child: Icon(
                                   Icons.arrow_forward_ios,
-                                  color: Color(0xFF95A1AC),
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
                                   size: 18,
                                 ),
                               ),
@@ -245,11 +244,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                         width: MediaQuery.of(context).size.width,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Colors.black,
+                          color: FlutterFlowTheme.of(context).alternate,
                           borderRadius: BorderRadius.circular(0),
                           shape: BoxShape.rectangle,
                           border: Border.all(
-                            width: 2,
+                            width: 0,
                           ),
                         ),
                         child: Row(
@@ -265,7 +264,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     .override(
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.of(context)
-                                          .background,
+                                          .primaryText,
                                       fontSize: 14,
                                       fontWeight: FontWeight.normal,
                                     ),
@@ -276,7 +275,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 alignment: AlignmentDirectional(0.9, 0),
                                 child: Icon(
                                   Icons.arrow_forward_ios,
-                                  color: Color(0xFF95A1AC),
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
                                   size: 18,
                                 ),
                               ),
@@ -306,11 +306,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                             width: MediaQuery.of(context).size.width,
                             height: 50,
                             decoration: BoxDecoration(
-                              color: Colors.black,
+                              color: FlutterFlowTheme.of(context).alternate,
                               borderRadius: BorderRadius.circular(0),
                               shape: BoxShape.rectangle,
                               border: Border.all(
-                                width: 2,
+                                width: 0,
                               ),
                             ),
                             child: Row(
@@ -326,7 +326,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                         .override(
                                           fontFamily: 'Lexend Deca',
                                           color: FlutterFlowTheme.of(context)
-                                              .background,
+                                              .primaryText,
                                           fontSize: 14,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -337,7 +337,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     alignment: AlignmentDirectional(0.9, 0),
                                     child: Icon(
                                       Icons.arrow_forward_ios,
-                                      color: Color(0xFF95A1AC),
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
                                       size: 18,
                                     ),
                                   ),
@@ -355,11 +356,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                         width: MediaQuery.of(context).size.width,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Colors.black,
+                          color: FlutterFlowTheme.of(context).alternate,
                           borderRadius: BorderRadius.circular(0),
                           shape: BoxShape.rectangle,
                           border: Border.all(
-                            width: 2,
+                            width: 0,
                           ),
                         ),
                         child: Row(
@@ -375,7 +376,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     .override(
                                       fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.of(context)
-                                          .background,
+                                          .primaryText,
                                       fontSize: 14,
                                       fontWeight: FontWeight.normal,
                                     ),
@@ -386,7 +387,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 alignment: AlignmentDirectional(0.9, 0),
                                 child: Icon(
                                   Icons.arrow_forward_ios,
-                                  color: Color(0xFF95A1AC),
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
                                   size: 18,
                                 ),
                               ),
@@ -423,13 +425,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                             options: FFButtonOptions(
                               width: 90,
                               height: 40,
-                              color: Colors.black,
+                              color: FlutterFlowTheme.of(context).alternate,
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyText2
                                   .override(
                                     fontFamily: 'Lexend Deca',
-                                    color:
-                                        FlutterFlowTheme.of(context).grayLines,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                     fontSize: 14,
                                     fontWeight: FontWeight.normal,
                                   ),

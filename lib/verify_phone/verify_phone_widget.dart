@@ -35,9 +35,9 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF263238),
+      backgroundColor: FlutterFlowTheme.of(context).bg11,
       appBar: AppBar(
-        backgroundColor: Color(0xFF263238),
+        backgroundColor: FlutterFlowTheme.of(context).bg11,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -46,7 +46,7 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
           buttonSize: 60,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.of(context).white,
+            color: FlutterFlowTheme.of(context).primaryText,
             size: 30,
           ),
           onPressed: () async {
@@ -71,8 +71,8 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
                     Text(
                       'Verifikasi Nomor',
                       style: FlutterFlowTheme.of(context).title1.override(
-                            fontFamily: 'Overpass',
-                            color: FlutterFlowTheme.of(context).white,
+                            fontFamily: 'Outfit',
+                            color: FlutterFlowTheme.of(context).primaryText,
                           ),
                     ),
                   ],
@@ -88,11 +88,12 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 4, 70, 0),
                         child: Text(
                           'Masukan Kode Verifikasi yang Kami Kirimkan Via SMS.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Overpass',
-                                    color: FlutterFlowTheme.of(context).white,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                              ),
                         ),
                       ),
                     ),
@@ -112,28 +113,30 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Kode Verifikasi',
-                            labelStyle:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Overpass',
-                                      color: FlutterFlowTheme.of(context).white,
-                                    ),
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                ),
                             hintText: '000000',
                             hintStyle:
                                 FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Overpass',
+                                      fontFamily: 'Inter',
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryColor,
+                                          .secondaryText,
                                     ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).white,
+                                color: FlutterFlowTheme.of(context).formBorder,
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).white,
+                                color: FlutterFlowTheme.of(context).formBorder,
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(8),
@@ -153,11 +156,12 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Overpass',
-                                    color: FlutterFlowTheme.of(context).white,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                              ),
                           keyboardType: TextInputType.number,
                         ),
                       ),
@@ -198,12 +202,12 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
                       options: FFButtonOptions(
                         width: 140,
                         height: 50,
-                        color: Color(0xFF010101),
+                        color: FlutterFlowTheme.of(context).alternate,
                         textStyle: FlutterFlowTheme.of(context)
                             .subtitle2
                             .override(
-                              fontFamily: 'Overpass',
-                              color: FlutterFlowTheme.of(context).background,
+                              fontFamily: 'Inter',
+                              color: FlutterFlowTheme.of(context).primaryText,
                               fontWeight: FontWeight.w500,
                             ),
                         elevation: 3,

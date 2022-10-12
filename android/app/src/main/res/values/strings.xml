@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
     <string name="app_name">TI NR 22</string>
-
+    <string name="facebook_app_id">472846278196325</string>
+               <string name="fb_login_protocol_scheme">fb472846278196325</string>
 </resources>

@@ -37,9 +37,9 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF263238),
+      backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).black600,
+        backgroundColor: Color(0xFF178B7E),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -60,7 +60,7 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
         title: Text(
           'Dasar Infrastruktur TI',
           style: FlutterFlowTheme.of(context).title3.override(
-                fontFamily: 'Overpass',
+                fontFamily: 'Outfit',
                 color: FlutterFlowTheme.of(context).white,
                 fontSize: 18,
               ),
@@ -170,7 +170,7 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
                           'Dosen Pembimbing\nIrma Yunita, S.Si',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context).title3.override(
-                                fontFamily: 'Overpass',
+                                fontFamily: 'Outfit',
                                 color: FlutterFlowTheme.of(context).white,
                                 fontSize: 25,
                                 fontWeight: FontWeight.w500,
@@ -246,7 +246,7 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
-                                            fontFamily: 'Overpass',
+                                            fontFamily: 'Inter',
                                             color: FlutterFlowTheme.of(context)
                                                 .background,
                                             fontSize: 18,

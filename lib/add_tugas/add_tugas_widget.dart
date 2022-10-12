@@ -48,14 +48,14 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF263238),
+      backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: Color(0xFF263238),
+        backgroundColor: Color(0xFF178B7E),
         automaticallyImplyLeading: false,
         title: Text(
           'Tambah Tugas',
           style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Overpass',
+                fontFamily: 'Outfit',
                 color: Colors.white,
                 fontSize: 22,
               ),
@@ -106,7 +106,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                             hintText: 'Nama Tugas...',
                             hintStyle:
                                 FlutterFlowTheme.of(context).bodyText2.override(
-                                      fontFamily: 'Overpass',
+                                      fontFamily: 'Inter',
                                       color: FlutterFlowTheme.of(context).white,
                                     ),
                             enabledBorder: OutlineInputBorder(
@@ -140,7 +140,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Overpass',
+                                    fontFamily: 'Inter',
                                     color: FlutterFlowTheme.of(context).white,
                                   ),
                           validator: (val) {
@@ -172,7 +172,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                           height: 50,
                           textStyle:
                               FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Overpass',
+                                    fontFamily: 'Inter',
                                     color: FlutterFlowTheme.of(context).white,
                                   ),
                           hintText: 'Pilih Mata Kuliah',
@@ -246,7 +246,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                             color: Color(0x00EE8B60),
                             textStyle:
                                 FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Overpass',
+                                      fontFamily: 'Inter',
                                       color: Colors.white,
                                     ),
                             borderSide: BorderSide(
@@ -268,7 +268,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                             hintText: 'Masukan Keterangan Tugas...',
                             hintStyle:
                                 FlutterFlowTheme.of(context).bodyText2.override(
-                                      fontFamily: 'Overpass',
+                                      fontFamily: 'Inter',
                                       color: FlutterFlowTheme.of(context).white,
                                     ),
                             enabledBorder: OutlineInputBorder(
@@ -302,7 +302,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Overpass',
+                                    fontFamily: 'Inter',
                                     color: FlutterFlowTheme.of(context).white,
                                   ),
                           maxLines: 8,
@@ -345,7 +345,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                             color: FlutterFlowTheme.of(context).black600,
                             textStyle:
                                 FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Overpass',
+                                      fontFamily: 'Inter',
                                       color: Colors.white,
                                     ),
                             borderSide: BorderSide(

@@ -55,9 +55,16 @@ abstract class FlutterFlowTheme {
   late Color platinum;
   late Color ashGray;
   late Color darkSeaGreen;
+  late Color backgroundComponents;
+  late Color bg11;
+  late Color formBorder;
   late Color primaryBtnText;
   late Color lineColor;
-  late Color backgroundComponents;
+  late Color richBlackFOGRA39;
+  late Color blue;
+  late Color turquoise;
+  late Color cultured;
+  late Color cerise;
 
   String get title1Family => typography.title1Family;
   TextStyle get title1 => typography.title1;
@@ -78,13 +85,13 @@ abstract class FlutterFlowTheme {
 }
 
 class LightModeTheme extends FlutterFlowTheme {
-  late Color primaryColor = const Color(0xFFEE8B60);
-  late Color secondaryColor = const Color(0xFF262D34);
-  late Color tertiaryColor = const Color(0xFF39D2C0);
-  late Color alternate = const Color(0xFFDBE2E7);
-  late Color primaryBackground = const Color(0xFF262D36);
+  late Color primaryColor = const Color(0xFF39D2C0);
+  late Color secondaryColor = const Color(0xFF249689);
+  late Color tertiaryColor = const Color(0xFFFFA077);
+  late Color alternate = const Color(0xFFF3F7FD);
+  late Color primaryBackground = const Color(0xFFEFF7F5);
   late Color secondaryBackground = const Color(0xFFFFFFFF);
-  late Color primaryText = const Color(0xFF000000);
+  late Color primaryText = const Color(0xFF111417);
   late Color secondaryText = const Color(0xFF57636C);
 
   late Color white = Color(0xFFFFFFFF);
@@ -104,9 +111,16 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color platinum = Color(0xFFEBEBEB);
   late Color ashGray = Color(0xFFCAD2C5);
   late Color darkSeaGreen = Color(0xFF84A98C);
-  late Color primaryBtnText = Color(0xFFFFFFFF);
-  late Color lineColor = Color(0xFFE0E3E7);
   late Color backgroundComponents = Color(0xFF1D2428);
+  late Color bg11 = Color(0xFF178B7E);
+  late Color formBorder = Color(0xFF178B7E);
+  late Color primaryBtnText = Color(0xFF0F1316);
+  late Color lineColor = Color(0xFFE0E3E7);
+  late Color richBlackFOGRA39 = Color(0xFF070707);
+  late Color blue = Color(0xFF3A28DE);
+  late Color turquoise = Color(0xFF34D1BF);
+  late Color cultured = Color(0xFFEFEFEF);
+  late Color cerise = Color(0xFFD1345B);
 }
 
 abstract class Typography {
@@ -131,64 +145,64 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get title1Family => 'Overpass';
+  String get title1Family => 'Outfit';
   TextStyle get title1 => GoogleFonts.getFont(
-        'Overpass',
-        color: theme.darkBG,
-        fontWeight: FontWeight.bold,
-        fontSize: 30,
+        'Outfit',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 34,
       );
-  String get title2Family => 'Overpass';
+  String get title2Family => 'Outfit';
   TextStyle get title2 => GoogleFonts.getFont(
-        'Overpass',
-        color: theme.darkBG,
-        fontWeight: FontWeight.bold,
-        fontSize: 24,
+        'Outfit',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w300,
+        fontSize: 28,
       );
-  String get title3Family => 'Overpass';
+  String get title3Family => 'Outfit';
   TextStyle get title3 => GoogleFonts.getFont(
-        'Overpass',
-        color: theme.darkBG,
-        fontWeight: FontWeight.w600,
+        'Outfit',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
         fontSize: 20,
       );
-  String get subtitle1Family => 'Overpass';
+  String get subtitle1Family => 'Outfit';
   TextStyle get subtitle1 => GoogleFonts.getFont(
-        'Overpass',
-        color: theme.primaryColor,
+        'Outfit',
+        color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 18,
       );
-  String get subtitle2Family => 'Overpass';
+  String get subtitle2Family => 'Inter';
   TextStyle get subtitle2 => GoogleFonts.getFont(
-        'Overpass',
-        color: theme.darkBG,
+        'Inter',
+        color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16,
       );
-  String get bodyText1Family => 'Overpass';
+  String get bodyText1Family => 'Inter';
   TextStyle get bodyText1 => GoogleFonts.getFont(
-        'Overpass',
-        color: theme.grayDark,
+        'Inter',
+        color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14,
       );
-  String get bodyText2Family => 'Overpass';
+  String get bodyText2Family => 'Inter';
   TextStyle get bodyText2 => GoogleFonts.getFont(
-        'Overpass',
-        color: theme.darkBG,
+        'Inter',
+        color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14,
       );
 }
 
 class DarkModeTheme extends FlutterFlowTheme {
-  late Color primaryColor = const Color(0xFFEE8B60);
-  late Color secondaryColor = const Color(0xFF262D34);
-  late Color tertiaryColor = const Color(0xFF39D2C0);
+  late Color primaryColor = const Color(0xFF39D2C0);
+  late Color secondaryColor = const Color(0xFF249689);
+  late Color tertiaryColor = const Color(0xFFFFA077);
   late Color alternate = const Color(0xFF262D34);
   late Color primaryBackground = const Color(0xFF1A1F24);
-  late Color secondaryBackground = const Color(0xFF0F1316);
+  late Color secondaryBackground = const Color(0xFF111417);
   late Color primaryText = const Color(0xFFFFFFFF);
   late Color secondaryText = const Color(0xFF95A1AC);
 
@@ -209,9 +223,16 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color platinum = Color(0xFFEBEBEB);
   late Color ashGray = Color(0xFFCAD2C5);
   late Color darkSeaGreen = Color(0xFF84A98C);
+  late Color backgroundComponents = Color(0xFF1D2428);
+  late Color bg11 = Color(0xFF178B7E);
+  late Color formBorder = Color(0xFFC5CAE9);
   late Color primaryBtnText = Color(0xFFFFFFFF);
   late Color lineColor = Color(0xFF22282F);
-  late Color backgroundComponents = Color(0xFF1D2428);
+  late Color richBlackFOGRA39 = Color(0xFF070707);
+  late Color blue = Color(0xFF3A28DE);
+  late Color turquoise = Color(0xFF34D1BF);
+  late Color cultured = Color(0xFFEFEFEF);
+  late Color cerise = Color(0xFFD1345B);
 }
 
 extension TextStyleHelper on TextStyle {

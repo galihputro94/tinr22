@@ -53,9 +53,9 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
         final changePasswordUsersRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: Color(0xFF263238),
+          backgroundColor: Color(0xFF178B7E),
           appBar: AppBar(
-            backgroundColor: Color(0xFF263238),
+            backgroundColor: Color(0xFF178B7E),
             automaticallyImplyLeading: false,
             leading: InkWell(
               onTap: () async {
@@ -63,7 +63,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
               },
               child: Icon(
                 Icons.arrow_back_rounded,
-                color: FlutterFlowTheme.of(context).white,
+                color: FlutterFlowTheme.of(context).primaryText,
                 size: 24,
               ),
             ),
@@ -71,7 +71,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
               'Atur Ulang Sandi',
               style: FlutterFlowTheme.of(context).bodyText1.override(
                     fontFamily: 'Lexend Deca',
-                    color: FlutterFlowTheme.of(context).white,
+                    color: FlutterFlowTheme.of(context).primaryText,
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
                   ),
@@ -94,31 +94,33 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Email',
-                        labelStyle:
-                            FlutterFlowTheme.of(context).bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.of(context).white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                ),
+                        labelStyle: FlutterFlowTheme.of(context)
+                            .bodyText1
+                            .override(
+                              fontFamily: 'Lexend Deca',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 14,
+                              fontWeight: FontWeight.normal,
+                            ),
                         hintText: 'Email Anda...',
-                        hintStyle:
-                            FlutterFlowTheme.of(context).bodyText1.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.of(context).white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                ),
+                        hintStyle: FlutterFlowTheme.of(context)
+                            .bodyText1
+                            .override(
+                              fontFamily: 'Lexend Deca',
+                              color: FlutterFlowTheme.of(context).formBorder,
+                              fontSize: 14,
+                              fontWeight: FontWeight.normal,
+                            ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).white,
+                            color: FlutterFlowTheme.of(context).formBorder,
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).white,
+                            color: FlutterFlowTheme.of(context).formBorder,
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(8),
@@ -142,7 +144,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Lexend Deca',
-                            color: FlutterFlowTheme.of(context).white,
+                            color: FlutterFlowTheme.of(context).primaryText,
                             fontSize: 14,
                             fontWeight: FontWeight.normal,
                           ),
@@ -164,11 +166,12 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       Expanded(
                         child: Text(
                           'Link untuk mengatur ulang sandi akan dikirim melalui alamat email yang terdaftar, silahkan periksa kotak masuk email kamu.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Overpass',
-                                    color: FlutterFlowTheme.of(context).white,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                              ),
                         ),
                       ),
                     ],
@@ -199,14 +202,14 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       options: FFButtonOptions(
                         width: 340,
                         height: 60,
-                        color: Color(0xFF010101),
+                        color: FlutterFlowTheme.of(context).alternate,
                         textStyle: FlutterFlowTheme.of(context)
                             .subtitle2
                             .override(
                               fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.of(context).background,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               fontSize: 16,
-                              fontWeight: FontWeight.normal,
+                              fontWeight: FontWeight.w500,
                             ),
                         elevation: 2,
                         borderSide: BorderSide(

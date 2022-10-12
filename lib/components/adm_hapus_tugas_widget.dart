@@ -68,7 +68,7 @@ class _AdmHapusTugasWidgetState extends State<AdmHapusTugasWidget> {
                   height: 60,
                   color: FlutterFlowTheme.of(context).black600,
                   textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                        fontFamily: 'Overpass',
+                        fontFamily: 'Inter',
                         color: FlutterFlowTheme.of(context).white,
                       ),
                   borderSide: BorderSide(

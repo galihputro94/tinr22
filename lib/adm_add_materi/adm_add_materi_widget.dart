@@ -43,9 +43,9 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF263238),
+      backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: Color(0xFF263238),
+        backgroundColor: Color(0xFF178B7E),
         automaticallyImplyLeading: false,
         title: Visibility(
           visible: valueOrDefault(currentUserDocument?.role, '') == 'admin',
@@ -53,7 +53,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
             child: Text(
               'Tambah Materi',
               style: FlutterFlowTheme.of(context).title2.override(
-                    fontFamily: 'Overpass',
+                    fontFamily: 'Outfit',
                     color: FlutterFlowTheme.of(context).background,
                   ),
             ),
@@ -103,7 +103,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                           hintText: 'Nama Materi...',
                           hintStyle:
                               FlutterFlowTheme.of(context).bodyText2.override(
-                                    fontFamily: 'Overpass',
+                                    fontFamily: 'Inter',
                                     color: FlutterFlowTheme.of(context).white,
                                   ),
                           enabledBorder: OutlineInputBorder(
@@ -136,7 +136,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Overpass',
+                              fontFamily: 'Inter',
                               color: FlutterFlowTheme.of(context).white,
                             ),
                         validator: (val) {
@@ -159,7 +159,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                           hintText: 'Masukan Link diawali http',
                           hintStyle:
                               FlutterFlowTheme.of(context).bodyText2.override(
-                                    fontFamily: 'Overpass',
+                                    fontFamily: 'Inter',
                                     color: FlutterFlowTheme.of(context).white,
                                   ),
                           enabledBorder: OutlineInputBorder(
@@ -192,7 +192,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Overpass',
+                              fontFamily: 'Inter',
                               color: FlutterFlowTheme.of(context).white,
                             ),
                         validator: (val) {
@@ -223,7 +223,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                         height: 50,
                         textStyle:
                             FlutterFlowTheme.of(context).bodyText1.override(
-                                  fontFamily: 'Overpass',
+                                  fontFamily: 'Inter',
                                   color: FlutterFlowTheme.of(context).white,
                                 ),
                         hintText: 'Pilih Mata Kuliah',
@@ -283,7 +283,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                           color: FlutterFlowTheme.of(context).black600,
                           textStyle:
                               FlutterFlowTheme.of(context).subtitle2.override(
-                                    fontFamily: 'Overpass',
+                                    fontFamily: 'Inter',
                                     color: Colors.white,
                                   ),
                           borderSide: BorderSide(

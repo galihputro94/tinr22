@@ -75,7 +75,7 @@ class _UbahJabatanWidgetState extends State<UbahJabatanWidget> {
                       width: 50,
                       height: 4,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).lineColor,
+                        color: Color(0xFFE0E3E7),
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
@@ -87,7 +87,7 @@ class _UbahJabatanWidgetState extends State<UbahJabatanWidget> {
                 child: Text(
                   'Ubah Jabatan',
                   style: FlutterFlowTheme.of(context).title2.override(
-                        fontFamily: 'Overpass',
+                        fontFamily: 'Outfit',
                         color: FlutterFlowTheme.of(context).white,
                       ),
                 ),
@@ -97,7 +97,7 @@ class _UbahJabatanWidgetState extends State<UbahJabatanWidget> {
                 child: Text(
                   widget.namaUser!,
                   style: FlutterFlowTheme.of(context).title2.override(
-                        fontFamily: 'Overpass',
+                        fontFamily: 'Outfit',
                         color: Color(0xC0FFFFFF),
                         fontSize: 14,
                       ),
@@ -121,7 +121,7 @@ class _UbahJabatanWidgetState extends State<UbahJabatanWidget> {
                   width: double.infinity,
                   height: 50,
                   textStyle: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Overpass',
+                        fontFamily: 'Inter',
                         color: FlutterFlowTheme.of(context).white,
                       ),
                   icon: Icon(
@@ -158,7 +158,7 @@ class _UbahJabatanWidgetState extends State<UbahJabatanWidget> {
                         color: FlutterFlowTheme.of(context).black600,
                         textStyle:
                             FlutterFlowTheme.of(context).subtitle1.override(
-                                  fontFamily: 'Overpass',
+                                  fontFamily: 'Outfit',
                                   color: Colors.white,
                                 ),
                         elevation: 3,

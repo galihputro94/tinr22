@@ -46,6 +46,11 @@ dependencies:
   firebase_storage_web: 3.2.19
   flutter_animate: 1.0.0
   flutter_datetime_picker: 1.5.1
+  flutter_facebook_auth:
+    git:
+      url: https://github.com/asmengistu/flutter-facebook-auth
+      ref: b65ffb049c9f1e2704adbeb1aa19c61693c946a5
+      path: facebook_auth
   flutter_spinkit: 5.1.0
   font_awesome_flutter: 10.1.0
   from_css_color: 2.0.0

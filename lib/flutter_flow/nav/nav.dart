@@ -78,11 +78,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
           routes: [
             FFRoute(
-              name: 'login',
-              path: 'login',
-              builder: (context, params) => LoginWidget(),
-            ),
-            FFRoute(
               name: 'createAccount',
               path: 'createAccount',
               builder: (context, params) => CreateAccountWidget(),
@@ -93,14 +88,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => CompletProfileWidget(),
             ),
             FFRoute(
+              name: 'login',
+              path: 'login',
+              builder: (context, params) => LoginWidget(),
+            ),
+            FFRoute(
               name: 'phoneSignIn',
               path: 'phoneSignIn',
               builder: (context, params) => PhoneSignInWidget(),
-            ),
-            FFRoute(
-              name: 'verifyPhone',
-              path: 'verifyPhone',
-              builder: (context, params) => VerifyPhoneWidget(),
             ),
             FFRoute(
               name: 'profilePage',
@@ -108,6 +103,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'profilePage')
                   : ProfilePageWidget(),
+            ),
+            FFRoute(
+              name: 'verifyPhone',
+              path: 'verifyPhone',
+              builder: (context, params) => VerifyPhoneWidget(),
             ),
             FFRoute(
               name: 'editProfile',

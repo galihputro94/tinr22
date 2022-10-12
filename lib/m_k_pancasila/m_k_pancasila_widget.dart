@@ -27,9 +27,9 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF263238),
+      backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).black600,
+        backgroundColor: Color(0xFF178B7E),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -48,7 +48,7 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
         title: Text(
           'Pancasila',
           style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Overpass',
+                fontFamily: 'Outfit',
                 color: Colors.white,
                 fontSize: 22,
               ),
@@ -107,7 +107,7 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
                           'Dosen Pembimbing\nAhmad Rifai, SE. MM',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context).title3.override(
-                                fontFamily: 'Overpass',
+                                fontFamily: 'Outfit',
                                 color: FlutterFlowTheme.of(context).white,
                                 fontSize: 25,
                                 fontWeight: FontWeight.w500,
@@ -183,7 +183,7 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
-                                            fontFamily: 'Overpass',
+                                            fontFamily: 'Inter',
                                             color: FlutterFlowTheme.of(context)
                                                 .background,
                                             fontSize: 18,

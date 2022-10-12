@@ -29,9 +29,9 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF263238),
+      backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: Color(0xFF263238),
+        backgroundColor: Color(0xFF178B7E),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -50,7 +50,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
         title: Text(
           'Kelola Mahasiswa',
           style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Overpass',
+                fontFamily: 'Outfit',
                 color: Colors.white,
                 fontSize: 18,
               ),
@@ -136,7 +136,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
-                                                fontFamily: 'Overpass',
+                                                fontFamily: 'Inter',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .white,
@@ -148,7 +148,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
-                                                fontFamily: 'Overpass',
+                                                fontFamily: 'Inter',
                                                 color: Color(0x80FFFFFF),
                                               ),
                                         ),
@@ -204,7 +204,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily: 'Overpass',
+                                                        fontFamily: 'Inter',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -259,7 +259,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily: 'Overpass',
+                                                        fontFamily: 'Inter',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -303,7 +303,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1
                                                       .override(
-                                                        fontFamily: 'Overpass',
+                                                        fontFamily: 'Inter',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)

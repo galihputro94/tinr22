@@ -40,9 +40,9 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF263238),
+      backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).black600,
+        backgroundColor: Color(0xFF178B7E),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -60,7 +60,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
         title: Text(
           'Detail Tugas',
           style: FlutterFlowTheme.of(context).subtitle2.override(
-                fontFamily: 'Overpass',
+                fontFamily: 'Inter',
                 color: Colors.white,
               ),
         ),
@@ -74,7 +74,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                padding: EdgeInsetsDirectional.fromSTEB(8, 16, 8, 12),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 140,
@@ -87,12 +87,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                         offset: Offset(0, 2),
                       )
                     ],
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(16),
-                      bottomRight: Radius.circular(16),
-                      topLeft: Radius.circular(0),
-                      topRight: Radius.circular(0),
-                    ),
+                    borderRadius: BorderRadius.circular(16),
                   ),
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
@@ -113,7 +108,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .title1
                                         .override(
-                                          fontFamily: 'Overpass',
+                                          fontFamily: 'Outfit',
                                           color: Colors.white,
                                         ),
                                   ),
@@ -136,7 +131,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Overpass',
+                                        fontFamily: 'Inter',
                                         color: Color(0xB3FFFFFF),
                                         fontSize: 18,
                                       ),
@@ -161,7 +156,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText2
                                     .override(
-                                      fontFamily: 'Overpass',
+                                      fontFamily: 'Inter',
                                       color: FlutterFlowTheme.of(context)
                                           .tertiaryColor,
                                       fontSize: 18,
@@ -217,7 +212,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
-                                                fontFamily: 'Overpass',
+                                                fontFamily: 'Inter',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .white,
@@ -256,7 +251,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
-                                              fontFamily: 'Overpass',
+                                              fontFamily: 'Inter',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .white,

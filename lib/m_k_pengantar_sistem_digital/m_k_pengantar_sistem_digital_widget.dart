@@ -36,9 +36,9 @@ class _MKPengantarSistemDigitalWidgetState
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF263238),
+      backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).black600,
+        backgroundColor: Color(0xFF178B7E),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -59,7 +59,7 @@ class _MKPengantarSistemDigitalWidgetState
         title: Text(
           'Pengantar Sistem Digital',
           style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Overpass',
+                fontFamily: 'Outfit',
                 color: Colors.white,
                 fontSize: 18,
               ),
@@ -169,7 +169,7 @@ class _MKPengantarSistemDigitalWidgetState
                           'Dosen Pembimbing\nAhmad Fatoni, ST',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context).title3.override(
-                                fontFamily: 'Overpass',
+                                fontFamily: 'Outfit',
                                 color: FlutterFlowTheme.of(context).white,
                                 fontSize: 25,
                                 fontWeight: FontWeight.w500,
@@ -245,7 +245,7 @@ class _MKPengantarSistemDigitalWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
-                                            fontFamily: 'Overpass',
+                                            fontFamily: 'Inter',
                                             color: FlutterFlowTheme.of(context)
                                                 .background,
                                             fontSize: 18,
