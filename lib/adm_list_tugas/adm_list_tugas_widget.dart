@@ -31,15 +31,15 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: Color(0xFF263238),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFF263238),
         automaticallyImplyLeading: false,
         leading: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
           child: FFButtonWidget(
-            onPressed: () {
-              print('Button pressed ...');
+            onPressed: () async {
+              context.pop();
             },
             text: '',
             icon: FaIcon(

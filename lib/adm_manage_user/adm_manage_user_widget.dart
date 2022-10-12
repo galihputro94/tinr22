@@ -29,9 +29,9 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: Color(0xFF263238),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFF263238),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -116,7 +116,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                                         shape: BoxShape.circle,
                                       ),
                                       child: Image.network(
-                                        'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
+                                        listViewUsersRecord.photoUrl!,
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -132,7 +132,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Hello World',
+                                          listViewUsersRecord.displayName!,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
@@ -144,7 +144,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                                               ),
                                         ),
                                         Text(
-                                          'Hello World',
+                                          listViewUsersRecord.jabatan!,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(

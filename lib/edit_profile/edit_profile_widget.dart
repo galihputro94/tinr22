@@ -6,6 +6,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -56,9 +57,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: Color(0xFF263238),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFF263238),
         automaticallyImplyLeading: false,
         leading: InkWell(
           onTap: () async {
@@ -162,8 +163,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                   ),
-                                  child: Image.network(
-                                    valueOrDefault<String>(
+                                  child: CachedNetworkImage(
+                                    imageUrl: valueOrDefault<String>(
                                       currentUserPhoto,
                                       'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
                                     ),

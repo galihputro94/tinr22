@@ -53,9 +53,9 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
         final changePasswordUsersRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: Color(0xFF263238),
           appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            backgroundColor: Color(0xFF263238),
             automaticallyImplyLeading: false,
             leading: InkWell(
               onTap: () async {

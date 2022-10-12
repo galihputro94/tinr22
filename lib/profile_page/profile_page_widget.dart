@@ -45,7 +45,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
         final profilePageUsersRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: Color(0xFF263238),
           body: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -160,7 +160,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                           width: MediaQuery.of(context).size.width,
                           height: 50,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).primaryText,
+                            color: Color(0xFF263238),
                           ),
                           child: Padding(
                             padding:
@@ -173,7 +173,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     fontFamily: 'Lexend Deca',
                                     color:
                                         FlutterFlowTheme.of(context).grayLines,
-                                    fontSize: 14,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
@@ -419,7 +419,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 },
                               );
                             },
-                            text: 'Log Out',
+                            text: 'Keluar',
                             options: FFButtonOptions(
                               width: 90,
                               height: 40,

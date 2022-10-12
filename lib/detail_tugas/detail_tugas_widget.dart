@@ -40,7 +40,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: Color(0xFF263238),
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).black600,
         automaticallyImplyLeading: false,
@@ -236,27 +236,33 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                             endIndent: 10,
                             color: FlutterFlowTheme.of(context).iconGray,
                           ),
-                          Expanded(
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                            child: Container(
+                              width: double.infinity,
+                              height: 220,
+                              decoration: BoxDecoration(),
                               child: SingleChildScrollView(
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      widget.ketTugas!,
-                                      textAlign: TextAlign.start,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Overpass',
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                            fontSize: 16,
-                                          ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8, 8, 8, 8),
+                                      child: Text(
+                                        widget.ketTugas!,
+                                        textAlign: TextAlign.start,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Overpass',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .white,
+                                              fontSize: 16,
+                                            ),
+                                      ),
                                     ),
                                   ],
                                 ),

@@ -34,7 +34,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: Color(0xFF263238),
       drawer: Container(
         width: 300,
         child: Drawer(
@@ -767,7 +767,7 @@ class _HomeWidgetState extends State<HomeWidget> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFF263238),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -809,7 +809,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  color: Color(0xFF263238),
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 5,

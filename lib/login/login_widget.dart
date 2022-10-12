@@ -41,12 +41,12 @@ class _LoginWidgetState extends State<LoginWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF455A64),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 1,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).primaryBackground,
+          color: Color(0xFF263238),
         ),
         child: Align(
           alignment: AlignmentDirectional(0, 1),
@@ -97,8 +97,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       .title1
                                       .override(
                                         fontFamily: 'Overpass',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
+                                        color: Colors.white,
                                         fontSize: 20,
                                       ),
                                 ),

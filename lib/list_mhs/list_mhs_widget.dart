@@ -29,9 +29,9 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: Color(0xFF263238),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFF263238),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -58,7 +58,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
         ),
         actions: [],
         centerTitle: false,
-        elevation: 0,
+        elevation: 4,
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -85,7 +85,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                   width: double.infinity,
                   height: 170,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
+                    color: Color(0xFF263238),
                   ),
                   child: StreamBuilder<List<UsersRecord>>(
                     stream: queryUsersRecord(
@@ -119,7 +119,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                               listViewUsersRecordList[listViewIndex];
                           return Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 12, 12, 12),
+                                EdgeInsetsDirectional.fromSTEB(10, 12, 0, 12),
                             child: Container(
                               width: 160,
                               height: 100,
@@ -234,127 +234,138 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                         itemBuilder: (context, listViewIndex) {
                           final listViewUsersRecord =
                               listViewUsersRecordList[listViewIndex];
-                          return Material(
-                            color: Colors.transparent,
-                            elevation: 4,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Container(
-                              width: double.infinity,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).black600,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 4,
-                                    color: Color(0x32000000),
-                                    offset: Offset(0, 2),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(8),
+                          return Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
+                            child: Material(
+                              color: Colors.transparent,
+                              elevation: 4,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0),
                               ),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(8, 5, 8, 5),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5, 5, 5, 5),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(26),
-                                        child: Image.network(
-                                          valueOrDefault<String>(
-                                            listViewUsersRecord.photoUrl,
-                                            'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
+                              child: Container(
+                                width: double.infinity,
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).black600,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4,
+                                      color: Color(0x32000000),
+                                      offset: Offset(0, 2),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8, 5, 8, 5),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5, 5, 5, 5),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(26),
+                                          child: Image.network(
+                                            valueOrDefault<String>(
+                                              listViewUsersRecord.photoUrl,
+                                              'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
+                                            ),
+                                            width: 40,
+                                            height: 40,
+                                            fit: BoxFit.cover,
                                           ),
-                                          width: 40,
-                                          height: 40,
-                                          fit: BoxFit.cover,
                                         ),
                                       ),
-                                    ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 0, 0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 8),
-                                              child: Text(
-                                                listViewUsersRecord.displayName!
-                                                    .maybeHandleOverflow(
-                                                        maxChars: 25),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyText1
-                                                    .override(
-                                                      fontFamily: 'Overpass',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .white,
-                                                      fontSize: 16,
-                                                    ),
-                                              ),
-                                            ),
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  listViewUsersRecord.jabatan!,
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12, 0, 0, 0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 0, 0, 8),
+                                                child: Text(
+                                                  listViewUsersRecord
+                                                      .displayName!
+                                                      .maybeHandleOverflow(
+                                                          maxChars: 25),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText2
+                                                      .bodyText1
                                                       .override(
                                                         fontFamily: 'Overpass',
                                                         color:
-                                                            Color(0x96FFFFFF),
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .white,
+                                                        fontSize: 16,
                                                       ),
                                                 ),
-                                              ],
-                                            ),
-                                          ],
+                                              ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    listViewUsersRecord
+                                                        .jabatan!,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText2
+                                                        .override(
+                                                          fontFamily:
+                                                              'Overpass',
+                                                          color:
+                                                              Color(0x96FFFFFF),
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    FFButtonWidget(
-                                      onPressed: () {
-                                        print('Button pressed ...');
-                                      },
-                                      text: 'Lihat',
-                                      options: FFButtonOptions(
-                                        width: 70,
-                                        height: 36,
-                                        color: FlutterFlowTheme.of(context)
-                                            .iconGray,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              color: Colors.white,
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1,
+                                      FFButtonWidget(
+                                        onPressed: () {
+                                          print('Button pressed ...');
+                                        },
+                                        text: 'Lihat',
+                                        options: FFButtonOptions(
+                                          width: 70,
+                                          height: 36,
+                                          color: FlutterFlowTheme.of(context)
+                                              .iconGray,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyText1
+                                                  .override(
+                                                    fontFamily: 'Outfit',
+                                                    color: Colors.white,
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                  ),
+                                          borderSide: BorderSide(
+                                            color: Colors.transparent,
+                                            width: 1,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),

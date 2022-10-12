@@ -48,9 +48,9 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: Color(0xFF263238),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFF263238),
         automaticallyImplyLeading: false,
         title: Text(
           'Tambah Tugas',
@@ -176,8 +176,6 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                                     color: FlutterFlowTheme.of(context).white,
                                   ),
                           hintText: 'Pilih Mata Kuliah',
-                          fillColor:
-                              FlutterFlowTheme.of(context).primaryBackground,
                           elevation: 2,
                           borderColor: FlutterFlowTheme.of(context).white,
                           borderWidth: 1,

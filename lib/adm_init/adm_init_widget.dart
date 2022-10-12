@@ -28,7 +28,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: Color(0xFF263238),
       body: Visibility(
         visible: valueOrDefault(currentUserDocument?.role, '') == 'admin',
         child: AuthUserStreamWidget(
@@ -121,7 +121,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 250,
+                  height: 300,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).black600,
                     borderRadius: BorderRadius.circular(10),
@@ -258,6 +258,77 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                     ),
                                   ],
                                 ),
+                              ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 30,
+                                    borderWidth: 1,
+                                    buttonSize: 60,
+                                    icon: Icon(
+                                      Icons.auto_delete,
+                                      color: FlutterFlowTheme.of(context)
+                                          .background,
+                                      size: 30,
+                                    ),
+                                    onPressed: () async {
+                                      context.pushNamed('adm_addMateri');
+                                    },
+                                  ),
+                                  Text(
+                                    'Hapus Data',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Overpass',
+                                          color: FlutterFlowTheme.of(context)
+                                              .background,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 30,
+                                    borderWidth: 1,
+                                    buttonSize: 60,
+                                    icon: Icon(
+                                      Icons.people,
+                                      color: FlutterFlowTheme.of(context)
+                                          .background,
+                                      size: 40,
+                                    ),
+                                    onPressed: () async {
+                                      context.pushNamed(
+                                        'admManageUser',
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                          ),
+                                        },
+                                      );
+                                    },
+                                  ),
+                                  Text(
+                                    'Mahasiswa',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Overpass',
+                                          color: FlutterFlowTheme.of(context)
+                                              .background,
+                                        ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),

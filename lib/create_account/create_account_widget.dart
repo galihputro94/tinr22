@@ -48,14 +48,14 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF262D34),
+      backgroundColor: Color(0xFF455A64),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 1,
           decoration: BoxDecoration(
-            color: Color(0xFF262D34),
+            color: Color(0xFF263238),
           ),
           child: Align(
             alignment: AlignmentDirectional(0, 1),

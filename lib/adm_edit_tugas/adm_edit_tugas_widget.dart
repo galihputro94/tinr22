@@ -67,9 +67,9 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: Color(0xFF263238),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFF263238),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -180,7 +180,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                                 color: FlutterFlowTheme.of(context).white,
                               ),
                       hintText: 'Pilih Mata Kuliah',
-                      fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                      fillColor: Color(0xFF263238),
                       elevation: 2,
                       borderColor: FlutterFlowTheme.of(context).white,
                       borderWidth: 1,
@@ -366,7 +366,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                     child: FFButtonWidget(
                       onPressed: () async {
                         final tugasUpdateData = createTugasRecordData(
-                          namaTugas: deadlineTugasEditController!.text,
+                          namaTugas: widget.namaTugasEdit,
                           mkTugas: widget.mkTugasEdit,
                           deadline: datePicked,
                           ketTugas: linkFieldController!.text,
