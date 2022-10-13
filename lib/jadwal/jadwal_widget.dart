@@ -27,9 +27,9 @@ class _JadwalWidgetState extends State<JadwalWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF263238),
+      backgroundColor: FlutterFlowTheme.of(context).bg11,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).black600,
+        backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -37,7 +37,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
           buttonSize: 46,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: Colors.white,
+            color: FlutterFlowTheme.of(context).primaryBtnText,
             size: 24,
           ),
           onPressed: () async {
@@ -48,7 +48,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
           'Jadwal Kuliah',
           style: FlutterFlowTheme.of(context).subtitle2.override(
                 fontFamily: 'Inter',
-                color: Colors.white,
+                color: FlutterFlowTheme.of(context).primaryBtnText,
                 fontSize: 18,
               ),
         ),
@@ -71,7 +71,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                         width: MediaQuery.of(context).size.width,
                         height: 160,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).black600,
+                          color: FlutterFlowTheme.of(context).darkBG,
                           boxShadow: [
                             BoxShadow(
                               blurRadius: 5,
@@ -112,7 +112,9 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                               .title1
                                               .override(
                                                 fontFamily: 'Outfit',
-                                                color: Colors.white,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBtnText,
                                               ),
                                         ),
                                       ),
@@ -195,7 +197,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                           fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .background,
+                                                              .primaryBtnText,
                                                           fontSize: 16,
                                                         ),
                                                   ),
@@ -208,7 +210,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                           fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .white,
+                                                              .primaryBtnText,
                                                           fontSize: 12,
                                                         ),
                                                   ),
@@ -226,7 +228,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                           fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .background,
+                                                              .primaryBtnText,
                                                         ),
                                                   ),
                                                   Text(
@@ -238,7 +240,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                           fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .white,
+                                                              .primaryBtnText,
                                                         ),
                                                   ),
                                                 ],
@@ -267,7 +269,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                       width: MediaQuery.of(context).size.width,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: Color(0xFF178B7E),
+                        color: FlutterFlowTheme.of(context).textColor,
                       ),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
@@ -285,7 +287,8 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: Colors.black,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -351,19 +354,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                       decoration: BoxDecoration(
                                         color:
                                             FlutterFlowTheme.of(context).darkBG,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 3,
-                                            color: Color(0x35000000),
-                                            offset: Offset(0, 1),
-                                          )
-                                        ],
                                         borderRadius: BorderRadius.circular(8),
-                                        border: Border.all(
-                                          color: FlutterFlowTheme.of(context)
-                                              .white,
-                                          width: 1,
-                                        ),
                                       ),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -455,7 +446,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                                       'Inter',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .background,
+                                                                      .primaryBtnText,
                                                                 ),
                                                       ),
                                                       Padding(
@@ -476,7 +467,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                                     'Inter',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .background,
+                                                                    .primaryBtnText,
                                                                 fontSize: 12,
                                                               ),
                                                         ),
@@ -502,10 +493,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                       width: MediaQuery.of(context).size.width,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: Color(0xFF178B7E),
-                        border: Border.all(
-                          color: Colors.black,
-                        ),
+                        color: FlutterFlowTheme.of(context).textColor,
                       ),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
@@ -523,7 +511,8 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: Colors.black,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -594,7 +583,6 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                     ],
                                     borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
-                                      color: FlutterFlowTheme.of(context).white,
                                       width: 1,
                                     ),
                                   ),
@@ -725,7 +713,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                       width: MediaQuery.of(context).size.width,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryText,
+                        color: FlutterFlowTheme.of(context).textColor,
                       ),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
@@ -743,7 +731,8 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: Colors.black,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -813,7 +802,6 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                     ],
                                     borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
-                                      color: FlutterFlowTheme.of(context).white,
                                       width: 1,
                                     ),
                                   ),
@@ -944,7 +932,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                       width: MediaQuery.of(context).size.width,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryText,
+                        color: FlutterFlowTheme.of(context).textColor,
                       ),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
@@ -962,7 +950,8 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: Colors.black,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -1020,7 +1009,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                 child: Container(
                                   width:
                                       MediaQuery.of(context).size.width * 0.92,
-                                  height: 80,
+                                  height: 70,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).darkBG,
                                     boxShadow: [
@@ -1032,7 +1021,6 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                     ],
                                     borderRadius: BorderRadius.circular(8),
                                     border: Border.all(
-                                      color: FlutterFlowTheme.of(context).white,
                                       width: 1,
                                     ),
                                   ),

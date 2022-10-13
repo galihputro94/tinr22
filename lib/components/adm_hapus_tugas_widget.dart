@@ -66,7 +66,7 @@ class _AdmHapusTugasWidgetState extends State<AdmHapusTugasWidget> {
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 60,
-                  color: FlutterFlowTheme.of(context).black600,
+                  color: Color(0xFF090F13),
                   textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                         fontFamily: 'Inter',
                         color: FlutterFlowTheme.of(context).white,

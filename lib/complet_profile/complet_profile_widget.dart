@@ -208,29 +208,29 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                             ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).formBorder,
-                            width: 2,
+                            color: FlutterFlowTheme.of(context).lineColor,
+                            width: 3,
                           ),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).formBorder,
-                            width: 2,
+                            color: FlutterFlowTheme.of(context).lineColor,
+                            width: 3,
                           ),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         errorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0xFFC62828),
-                            width: 2,
+                            width: 3,
                           ),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         focusedErrorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0xFFC62828),
-                            width: 2,
+                            width: 3,
                           ),
                           borderRadius: BorderRadius.circular(8),
                         ),
@@ -275,14 +275,14 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                             ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFFE0E3E7),
+                            color: FlutterFlowTheme.of(context).lineColor,
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFFE0E3E7),
+                            color: FlutterFlowTheme.of(context).lineColor,
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(8),
@@ -306,7 +306,7 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Inter',
-                            color: FlutterFlowTheme.of(context).primaryText,
+                            color: FlutterFlowTheme.of(context).secondaryText,
                           ),
                       validator: (val) {
                         if (val == null || val.isEmpty) {
@@ -336,11 +336,11 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                       hintText: 'Jenis Kelamin',
                       icon: FaIcon(
                         FontAwesomeIcons.caretDown,
-                        color: Color(0xFFE0E3E7),
+                        color: FlutterFlowTheme.of(context).lineColor,
                         size: 15,
                       ),
                       elevation: 2,
-                      borderColor: Color(0xFFE0E3E7),
+                      borderColor: FlutterFlowTheme.of(context).lineColor,
                       borderWidth: 2,
                       borderRadius: 8,
                       margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
@@ -354,11 +354,12 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Kota Domisili',
-                        labelStyle:
-                            FlutterFlowTheme.of(context).bodyText2.override(
-                                  fontFamily: 'Inter',
-                                  color: Color(0xFFE0E3E7),
-                                ),
+                        labelStyle: FlutterFlowTheme.of(context)
+                            .bodyText2
+                            .override(
+                              fontFamily: 'Inter',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
                         hintStyle: FlutterFlowTheme.of(context)
                             .bodyText2
                             .override(
@@ -367,14 +368,14 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                             ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFFE0E3E7),
+                            color: FlutterFlowTheme.of(context).lineColor,
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0xFFE0E3E7),
+                            color: FlutterFlowTheme.of(context).lineColor,
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(8),
@@ -398,7 +399,7 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Inter',
-                            color: FlutterFlowTheme.of(context).background,
+                            color: FlutterFlowTheme.of(context).primaryText,
                           ),
                       validator: (val) {
                         if (val == null || val.isEmpty) {
@@ -469,7 +470,7 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                         options: FFButtonOptions(
                           width: 270,
                           height: 50,
-                          color: Color(0xFFE0E3E7),
+                          color: FlutterFlowTheme.of(context).lineColor,
                           textStyle: FlutterFlowTheme.of(context)
                               .subtitle1
                               .override(

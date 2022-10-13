@@ -121,22 +121,23 @@ class _VerifyPhoneWidgetState extends State<VerifyPhoneWidget> {
                                       FlutterFlowTheme.of(context).primaryText,
                                 ),
                             hintText: '000000',
-                            hintStyle:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                    ),
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).formBorder,
+                                color: FlutterFlowTheme.of(context).lineColor,
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).formBorder,
+                                color: FlutterFlowTheme.of(context).lineColor,
                                 width: 2,
                               ),
                               borderRadius: BorderRadius.circular(8),

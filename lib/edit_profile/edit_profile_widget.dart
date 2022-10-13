@@ -58,7 +58,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF212121),
+      backgroundColor: FlutterFlowTheme.of(context).bg11,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).bg11,
         automaticallyImplyLeading: false,
@@ -207,14 +207,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).formBorder,
+                              color: FlutterFlowTheme.of(context).lineColor,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).formBorder,
+                              color: FlutterFlowTheme.of(context).lineColor,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
@@ -242,13 +242,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               fontSize: 14,
                               fontWeight: FontWeight.normal,
                             ),
-                        validator: (val) {
-                          if (val == null || val.isEmpty) {
-                            return 'Nama Lengkap Wajib Diisi';
-                          }
-
-                          return null;
-                        },
                       ),
                     ),
                   ),
@@ -277,14 +270,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).formBorder,
+                            color: FlutterFlowTheme.of(context).lineColor,
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).formBorder,
+                            color: FlutterFlowTheme.of(context).lineColor,
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(8),
@@ -312,13 +305,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             fontSize: 14,
                             fontWeight: FontWeight.normal,
                           ),
-                      validator: (val) {
-                        if (val == null || val.isEmpty) {
-                          return 'Email Wajib Diisi';
-                        }
-
-                        return null;
-                      },
                     ),
                   ),
                   Padding(
@@ -347,14 +333,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).formBorder,
+                              color: FlutterFlowTheme.of(context).lineColor,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).formBorder,
+                              color: FlutterFlowTheme.of(context).lineColor,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
@@ -382,13 +368,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               fontSize: 14,
                               fontWeight: FontWeight.normal,
                             ),
-                        validator: (val) {
-                          if (val == null || val.isEmpty) {
-                            return 'Nomor Wajib Diisi';
-                          }
-
-                          return null;
-                        },
                       ),
                     ),
                   ),
@@ -412,11 +391,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         hintText: 'Jenis Kelamin',
                         icon: FaIcon(
                           FontAwesomeIcons.caretDown,
-                          color: FlutterFlowTheme.of(context).primaryText,
+                          color: FlutterFlowTheme.of(context).lineColor,
                           size: 15,
                         ),
                         elevation: 2,
-                        borderColor: FlutterFlowTheme.of(context).formBorder,
+                        borderColor: FlutterFlowTheme.of(context).lineColor,
                         borderWidth: 2,
                         borderRadius: 8,
                         margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
@@ -450,14 +429,14 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).formBorder,
+                              color: FlutterFlowTheme.of(context).lineColor,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).formBorder,
+                              color: FlutterFlowTheme.of(context).lineColor,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
@@ -485,13 +464,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               fontSize: 14,
                               fontWeight: FontWeight.normal,
                             ),
-                        validator: (val) {
-                          if (val == null || val.isEmpty) {
-                            return 'Domisili Wajib Diisi';
-                          }
-
-                          return null;
-                        },
                       ),
                     ),
                   ),
@@ -501,16 +473,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          if (formKey.currentState == null ||
-                              !formKey.currentState!.validate()) {
-                            return;
-                          }
-
-                          if (uploadedFileUrl == null ||
-                              uploadedFileUrl.isEmpty) {
-                            return;
-                          }
-
                           final usersUpdateData = createUsersRecordData(
                             displayName: editProfileNamaController!.text,
                             photoUrl: uploadedFileUrl,
@@ -527,12 +489,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         options: FFButtonOptions(
                           width: 340,
                           height: 60,
-                          color: FlutterFlowTheme.of(context).alternate,
+                          color: FlutterFlowTheme.of(context).lineColor,
                           textStyle: FlutterFlowTheme.of(context)
                               .subtitle2
                               .override(
                                 fontFamily: 'Lexend Deca',
-                                color: FlutterFlowTheme.of(context).primaryText,
+                                color: FlutterFlowTheme.of(context).alternate,
                                 fontSize: 16,
                                 fontWeight: FontWeight.normal,
                               ),

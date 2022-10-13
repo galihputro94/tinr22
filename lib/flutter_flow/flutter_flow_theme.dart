@@ -43,28 +43,12 @@ abstract class FlutterFlowTheme {
   late Color grayDark;
   late Color darkBG;
   late Color background;
-  late Color grayLines;
   late Color grayIcon;
-  late Color gray200;
-  late Color gray600;
-  late Color black600;
-  late Color tertiary400;
   late Color textColor;
-  late Color maximumBlueGreen;
-  late Color plumpPurple;
-  late Color platinum;
-  late Color ashGray;
-  late Color darkSeaGreen;
-  late Color backgroundComponents;
   late Color bg11;
   late Color formBorder;
   late Color primaryBtnText;
   late Color lineColor;
-  late Color richBlackFOGRA39;
-  late Color blue;
-  late Color turquoise;
-  late Color cultured;
-  late Color cerise;
 
   String get title1Family => typography.title1Family;
   TextStyle get title1 => typography.title1;
@@ -99,28 +83,12 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color grayDark = Color(0xFF57636C);
   late Color darkBG = Color(0xFF111417);
   late Color background = Color(0xFFF1F4F8);
-  late Color grayLines = Color(0xFFDBE2E7);
   late Color grayIcon = Color(0xFF95A1AC);
-  late Color gray200 = Color(0xFFDBE2E7);
-  late Color gray600 = Color(0xFF262D34);
-  late Color black600 = Color(0xFF090F13);
-  late Color tertiary400 = Color(0xFF39D2C0);
   late Color textColor = Color(0xFF1E2429);
-  late Color maximumBlueGreen = Color(0xFF59C3C3);
-  late Color plumpPurple = Color(0xFF52489C);
-  late Color platinum = Color(0xFFEBEBEB);
-  late Color ashGray = Color(0xFFCAD2C5);
-  late Color darkSeaGreen = Color(0xFF84A98C);
-  late Color backgroundComponents = Color(0xFF1D2428);
   late Color bg11 = Color(0xFF178B7E);
   late Color formBorder = Color(0xFF178B7E);
-  late Color primaryBtnText = Color(0xFF0F1316);
-  late Color lineColor = Color(0xFFE0E3E7);
-  late Color richBlackFOGRA39 = Color(0xFF070707);
-  late Color blue = Color(0xFF3A28DE);
-  late Color turquoise = Color(0xFF34D1BF);
-  late Color cultured = Color(0xFFEFEFEF);
-  late Color cerise = Color(0xFFD1345B);
+  late Color primaryBtnText = Color(0xFFFFFFFF);
+  late Color lineColor = Color(0xFF2F3E46);
 }
 
 abstract class Typography {
@@ -211,28 +179,12 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color grayDark = Color(0xFF57636C);
   late Color darkBG = Color(0xFF111417);
   late Color background = Color(0xFFF1F4F8);
-  late Color grayLines = Color(0xFFDBE2E7);
   late Color grayIcon = Color(0xFF95A1AC);
-  late Color gray200 = Color(0xFFDBE2E7);
-  late Color gray600 = Color(0xFF262D34);
-  late Color black600 = Color(0xFF090F13);
-  late Color tertiary400 = Color(0xFF39D2C0);
   late Color textColor = Color(0xFF1E2429);
-  late Color maximumBlueGreen = Color(0xFF59C3C3);
-  late Color plumpPurple = Color(0xFF52489C);
-  late Color platinum = Color(0xFFEBEBEB);
-  late Color ashGray = Color(0xFFCAD2C5);
-  late Color darkSeaGreen = Color(0xFF84A98C);
-  late Color backgroundComponents = Color(0xFF1D2428);
   late Color bg11 = Color(0xFF178B7E);
   late Color formBorder = Color(0xFFC5CAE9);
   late Color primaryBtnText = Color(0xFFFFFFFF);
-  late Color lineColor = Color(0xFF22282F);
-  late Color richBlackFOGRA39 = Color(0xFF070707);
-  late Color blue = Color(0xFF3A28DE);
-  late Color turquoise = Color(0xFF34D1BF);
-  late Color cultured = Color(0xFFEFEFEF);
-  late Color cerise = Color(0xFFD1345B);
+  late Color lineColor = Color(0xFFC5CAE9);
 }
 
 extension TextStyleHelper on TextStyle {

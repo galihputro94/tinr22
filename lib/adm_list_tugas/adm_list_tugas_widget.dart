@@ -33,7 +33,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
       key: scaffoldKey,
       backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: Color(0xFF263238),
+        backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
         leading: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
@@ -49,7 +49,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
             options: FFButtonOptions(
               width: 130,
               height: 40,
-              color: FlutterFlowTheme.of(context).primaryBackground,
+              color: FlutterFlowTheme.of(context).darkBG,
               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                     fontFamily: 'Inter',
                     color: Colors.white,
@@ -102,7 +102,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                 width: MediaQuery.of(context).size.width,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).black600,
+                  color: Color(0xFF090F13),
                 ),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
@@ -268,7 +268,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                   width: MediaQuery.of(context).size.width,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).black600,
+                    color: Color(0xFF090F13),
                   ),
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),

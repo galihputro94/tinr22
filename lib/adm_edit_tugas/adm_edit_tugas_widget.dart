@@ -69,16 +69,17 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
       key: scaffoldKey,
       backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: Color(0xFF178B7E),
+        backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
-          borderColor: Colors.transparent,
+          borderColor: Colors.black,
           borderRadius: 30,
           borderWidth: 1,
           buttonSize: 60,
+          fillColor: FlutterFlowTheme.of(context).darkBG,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: Color(0xFF010101),
+            color: FlutterFlowTheme.of(context).white,
             size: 30,
           ),
           onPressed: () {
@@ -180,7 +181,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                                 color: FlutterFlowTheme.of(context).white,
                               ),
                       hintText: 'Pilih Mata Kuliah',
-                      fillColor: Color(0xFF263238),
+                      fillColor: Color(0xFF178B7E),
                       elevation: 2,
                       borderColor: FlutterFlowTheme.of(context).white,
                       borderWidth: 1,
@@ -379,7 +380,7 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                       options: FFButtonOptions(
                         width: 130,
                         height: 50,
-                        color: FlutterFlowTheme.of(context).black600,
+                        color: Color(0xFF090F13),
                         textStyle:
                             FlutterFlowTheme.of(context).subtitle2.override(
                                   fontFamily: 'Inter',

@@ -83,26 +83,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => CreateAccountWidget(),
             ),
             FFRoute(
-              name: 'completProfile',
-              path: 'completProfile',
-              builder: (context, params) => CompletProfileWidget(),
-            ),
-            FFRoute(
               name: 'login',
               path: 'login',
               builder: (context, params) => LoginWidget(),
             ),
             FFRoute(
+              name: 'completProfile',
+              path: 'completProfile',
+              builder: (context, params) => CompletProfileWidget(),
+            ),
+            FFRoute(
               name: 'phoneSignIn',
               path: 'phoneSignIn',
               builder: (context, params) => PhoneSignInWidget(),
-            ),
-            FFRoute(
-              name: 'profilePage',
-              path: 'profilePage',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'profilePage')
-                  : ProfilePageWidget(),
             ),
             FFRoute(
               name: 'verifyPhone',
@@ -113,6 +106,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'editProfile',
               path: 'editProfile',
               builder: (context, params) => EditProfileWidget(),
+            ),
+            FFRoute(
+              name: 'profilePage',
+              path: 'profilePage',
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'profilePage')
+                  : ProfilePageWidget(),
             ),
             FFRoute(
               name: 'changePassword',
@@ -128,6 +128,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   : HomeWidget(),
             ),
             FFRoute(
+              name: 'jadwal',
+              path: 'jadwal',
+              builder: (context, params) => JadwalWidget(),
+            ),
+            FFRoute(
               name: 'detailTugas',
               path: 'detailTugas',
               builder: (context, params) => DetailTugasWidget(
@@ -137,11 +142,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 isActive: params.getParam('isActive', ParamType.bool),
                 ketTugas: params.getParam('ketTugas', ParamType.String),
               ),
-            ),
-            FFRoute(
-              name: 'jadwal',
-              path: 'jadwal',
-              builder: (context, params) => JadwalWidget(),
             ),
             FFRoute(
               name: 'MKAgama',
@@ -195,8 +195,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => AdmAddMateriWidget(),
             ),
             FFRoute(
+              name: 'adm_editMateri',
+              path: 'admEditMateri',
+              builder: (context, params) => AdmEditMateriWidget(
+                namaMateriEdit:
+                    params.getParam('namaMateriEdit', ParamType.String),
+                namaLinkEdit: params.getParam('namaLinkEdit', ParamType.String),
+                mkMateriEdit: params.getParam('mkMateriEdit', ParamType.String),
+                editMateriRef: params.getParam('editMateriRef',
+                    ParamType.DocumentReference, false, 'materi'),
+              ),
+            ),
+            FFRoute(
+              name: 'adm_ListMateri',
+              path: 'admListMateri',
+              builder: (context, params) => AdmListMateriWidget(),
+            ),
+            FFRoute(
               name: 'adm_init',
               path: 'admInit',
+              requireAuth: true,
               builder: (context, params) => AdmInitWidget(),
             ),
             FFRoute(
@@ -208,11 +226,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'add_Tugas',
               path: 'addTugas',
               builder: (context, params) => AddTugasWidget(),
-            ),
-            FFRoute(
-              name: 'adm_ListTugas',
-              path: 'admListTugas',
-              builder: (context, params) => AdmListTugasWidget(),
             ),
             FFRoute(
               name: 'adm_editTugas',
@@ -227,6 +240,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     params.getParam('deadlineTugasEdit', ParamType.DateTime),
                 ketTugasEdit: params.getParam('ketTugasEdit', ParamType.String),
               ),
+            ),
+            FFRoute(
+              name: 'adm_ListTugas',
+              path: 'admListTugas',
+              builder: (context, params) => AdmListTugasWidget(),
             ),
             FFRoute(
               name: 'admManageUser',

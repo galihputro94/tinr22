@@ -107,20 +107,20 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                             .bodyText1
                             .override(
                               fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.of(context).formBorder,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               fontSize: 14,
                               fontWeight: FontWeight.normal,
                             ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).formBorder,
+                            color: FlutterFlowTheme.of(context).lineColor,
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).formBorder,
+                            color: FlutterFlowTheme.of(context).lineColor,
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(8),
@@ -202,15 +202,14 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       options: FFButtonOptions(
                         width: 340,
                         height: 60,
-                        color: FlutterFlowTheme.of(context).alternate,
-                        textStyle: FlutterFlowTheme.of(context)
-                            .subtitle2
-                            .override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
+                        color: FlutterFlowTheme.of(context).lineColor,
+                        textStyle:
+                            FlutterFlowTheme.of(context).subtitle2.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
                         elevation: 2,
                         borderSide: BorderSide(
                           color: Colors.transparent,

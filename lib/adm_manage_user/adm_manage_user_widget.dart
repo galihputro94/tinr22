@@ -31,7 +31,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
       key: scaffoldKey,
       backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: Color(0xFF178B7E),
+        backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -96,7 +96,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).black600,
+                            color: Color(0xFF090F13),
                           ),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -169,8 +169,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                                           0.25,
                                       height: 30,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .plumpPurple,
+                                        color: Color(0xFF52489C),
                                       ),
                                       child: InkWell(
                                         onTap: () async {
@@ -261,9 +260,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .black600,
+                                                            Color(0xFF090F13),
                                                         fontSize: 11,
                                                       ),
                                             ),
@@ -276,8 +273,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                                           0.25,
                                       height: 30,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .black600,
+                                        color: Color(0xFF090F13),
                                       ),
                                     ),
                                     Container(

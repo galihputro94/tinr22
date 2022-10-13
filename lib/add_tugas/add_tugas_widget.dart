@@ -50,7 +50,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
       key: scaffoldKey,
       backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: Color(0xFF178B7E),
+        backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
         title: Text(
           'Tambah Tugas',
@@ -342,7 +342,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                           options: FFButtonOptions(
                             width: 130,
                             height: 50,
-                            color: FlutterFlowTheme.of(context).black600,
+                            color: Color(0xFF090F13),
                             textStyle:
                                 FlutterFlowTheme.of(context).subtitle2.override(
                                       fontFamily: 'Inter',

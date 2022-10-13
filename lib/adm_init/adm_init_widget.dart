@@ -40,7 +40,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                 width: MediaQuery.of(context).size.width,
                 height: 150,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).black600,
+                  color: Color(0xFF090F13),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20),
@@ -123,7 +123,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                   width: MediaQuery.of(context).size.width,
                   height: 300,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).black600,
+                    color: Color(0xFF090F13),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
@@ -299,6 +299,52 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                         ),
                                   ),
                                 ],
+                              ),
+                              InkWell(
+                                onTap: () async {
+                                  context.pushNamed('adm_ListMateri');
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    FlutterFlowIconButton(
+                                      borderColor: Colors.transparent,
+                                      borderRadius: 30,
+                                      borderWidth: 1,
+                                      buttonSize: 60,
+                                      icon: Icon(
+                                        Icons.auto_delete,
+                                        color: FlutterFlowTheme.of(context)
+                                            .background,
+                                        size: 30,
+                                      ),
+                                      onPressed: () async {
+                                        context.pushNamed(
+                                          'adm_ListMateri',
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 600),
+                                            ),
+                                          },
+                                        );
+                                      },
+                                    ),
+                                    Text(
+                                      'Hapus Materi',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .background,
+                                          ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),

@@ -45,7 +45,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
       key: scaffoldKey,
       backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: Color(0xFF178B7E),
+        backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
         title: Visibility(
           visible: valueOrDefault(currentUserDocument?.role, '') == 'admin',
@@ -227,8 +227,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                                   color: FlutterFlowTheme.of(context).white,
                                 ),
                         hintText: 'Pilih Mata Kuliah',
-                        fillColor:
-                            FlutterFlowTheme.of(context).primaryBackground,
+                        fillColor: FlutterFlowTheme.of(context).bg11,
                         elevation: 2,
                         borderColor: FlutterFlowTheme.of(context).white,
                         borderWidth: 1,
@@ -280,7 +279,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                         options: FFButtonOptions(
                           width: 130,
                           height: 50,
-                          color: FlutterFlowTheme.of(context).black600,
+                          color: Color(0xFF090F13),
                           textStyle:
                               FlutterFlowTheme.of(context).subtitle2.override(
                                     fontFamily: 'Inter',

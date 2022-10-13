@@ -124,14 +124,14 @@ class _PhoneSignInWidgetState extends State<PhoneSignInWidget> {
                               ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).formBorder,
+                              color: FlutterFlowTheme.of(context).lineColor,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).formBorder,
+                              color: FlutterFlowTheme.of(context).lineColor,
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),

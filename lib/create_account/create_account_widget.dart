@@ -281,7 +281,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .formBorder,
+                                                              .lineColor,
                                                       width: 2,
                                                     ),
                                                     borderRadius:
@@ -294,7 +294,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .formBorder,
+                                                              .lineColor,
                                                       width: 2,
                                                     ),
                                                     borderRadius:
@@ -350,7 +350,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                           fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryText,
+                                                              .lineColor,
                                                         ),
                                               ),
                                             ),
@@ -400,7 +400,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .formBorder,
+                                                              .lineColor,
                                                       width: 2,
                                                     ),
                                                     borderRadius:
@@ -413,7 +413,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .formBorder,
+                                                              .lineColor,
                                                       width: 2,
                                                     ),
                                                     borderRadius:

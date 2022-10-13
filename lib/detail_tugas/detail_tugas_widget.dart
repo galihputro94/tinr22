@@ -42,7 +42,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
       key: scaffoldKey,
       backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: Color(0xFF178B7E),
+        backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -50,7 +50,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
           buttonSize: 46,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: Colors.white,
+            color: FlutterFlowTheme.of(context).primaryBtnText,
             size: 24,
           ),
           onPressed: () async {
@@ -61,12 +61,14 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
           'Detail Tugas',
           style: FlutterFlowTheme.of(context).subtitle2.override(
                 fontFamily: 'Inter',
-                color: Colors.white,
+                color: FlutterFlowTheme.of(context).primaryBtnText,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
               ),
         ),
         actions: [],
         centerTitle: false,
-        elevation: 0,
+        elevation: 4,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -74,12 +76,12 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8, 16, 8, 12),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 140,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).black600,
+                    color: FlutterFlowTheme.of(context).darkBG,
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 5,
@@ -87,7 +89,12 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                         offset: Offset(0, 2),
                       )
                     ],
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(16),
+                      bottomRight: Radius.circular(16),
+                      topLeft: Radius.circular(0),
+                      topRight: Radius.circular(0),
+                    ),
                   ),
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
@@ -109,7 +116,8 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                                         .title1
                                         .override(
                                           fontFamily: 'Outfit',
-                                          color: Colors.white,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
                                         ),
                                   ),
                                 ),
@@ -132,7 +140,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: Color(0xB3FFFFFF),
+                                        color: Color(0xFF999EA6),
                                         fontSize: 18,
                                       ),
                                 ),
@@ -157,8 +165,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                                     .bodyText2
                                     .override(
                                       fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                      color: Color(0xFFFF0000),
                                       fontSize: 18,
                                     ),
                               ),
@@ -179,7 +186,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                       width: MediaQuery.of(context).size.width,
                       height: 300,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).black600,
+                        color: FlutterFlowTheme.of(context).darkBG,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Column(
@@ -197,7 +204,8 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                                       8, 8, 0, 8),
                                   child: FaIcon(
                                     FontAwesomeIcons.infoCircle,
-                                    color: FlutterFlowTheme.of(context).white,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBtnText,
                                     size: 20,
                                   ),
                                 ),
@@ -215,7 +223,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                                                 fontFamily: 'Inter',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .white,
+                                                        .primaryBtnText,
                                                 fontSize: 16,
                                               ),
                                         ),
@@ -229,7 +237,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                             thickness: 2,
                             indent: 10,
                             endIndent: 10,
-                            color: FlutterFlowTheme.of(context).iconGray,
+                            color: FlutterFlowTheme.of(context).primaryBtnText,
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
@@ -254,7 +262,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
                                               fontFamily: 'Inter',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .white,
+                                                      .primaryBtnText,
                                               fontSize: 16,
                                             ),
                                       ),

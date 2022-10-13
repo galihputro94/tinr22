@@ -29,7 +29,7 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
       key: scaffoldKey,
       backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: Color(0xFF178B7E),
+        backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -68,7 +68,7 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
                 width: MediaQuery.of(context).size.width,
                 height: 150,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).black600,
+                  color: FlutterFlowTheme.of(context).darkBG,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20),
@@ -124,7 +124,7 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
               thickness: 5,
               indent: 5,
               endIndent: 5,
-              color: FlutterFlowTheme.of(context).black600,
+              color: FlutterFlowTheme.of(context).darkBG,
             ),
             StreamBuilder<List<MateriRecord>>(
               stream: queryMateriRecord(
@@ -164,7 +164,7 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
                           width: MediaQuery.of(context).size.width,
                           height: 50,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).black600,
+                            color: FlutterFlowTheme.of(context).darkBG,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Padding(

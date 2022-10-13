@@ -117,9 +117,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 .bodyText1
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .grayLines,
+                                                  color: Color(0xFFDBE2E7),
                                                   fontSize: 18,
                                                 ),
                                           ),
@@ -137,9 +135,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               buttonSize: 60,
                                               icon: Icon(
                                                 Icons.chevron_right,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .grayLines,
+                                                color: Color(0xFFDBE2E7),
                                                 size: 20,
                                               ),
                                               onPressed: () {
@@ -215,9 +211,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .grayLines,
+                                                            Color(0xFFDBE2E7),
                                                         fontSize: 18,
                                                       ),
                                             ),
@@ -236,9 +230,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               buttonSize: 60,
                                               icon: Icon(
                                                 Icons.chevron_right,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .grayLines,
+                                                color: Color(0xFFDBE2E7),
                                                 size: 20,
                                               ),
                                               onPressed: () {
@@ -301,8 +293,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .grayLines,
+                                        color: Color(0xFFDBE2E7),
                                         fontSize: 18,
                                       ),
                                 ),
@@ -319,8 +310,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     buttonSize: 60,
                                     icon: Icon(
                                       Icons.chevron_right,
-                                      color: FlutterFlowTheme.of(context)
-                                          .grayLines,
+                                      color: Color(0xFFDBE2E7),
                                       size: 20,
                                     ),
                                     onPressed: () {
@@ -350,8 +340,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .grayLines,
+                                        color: Color(0xFFDBE2E7),
                                         fontSize: 18,
                                       ),
                                 ),
@@ -368,8 +357,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     buttonSize: 60,
                                     icon: Icon(
                                       Icons.chevron_right,
-                                      color: FlutterFlowTheme.of(context)
-                                          .grayLines,
+                                      color: Color(0xFFDBE2E7),
                                       size: 20,
                                     ),
                                     onPressed: () {
@@ -399,8 +387,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .grayLines,
+                                        color: Color(0xFFDBE2E7),
                                         fontSize: 18,
                                       ),
                                 ),
@@ -417,8 +404,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     buttonSize: 60,
                                     icon: Icon(
                                       Icons.chevron_right,
-                                      color: FlutterFlowTheme.of(context)
-                                          .grayLines,
+                                      color: Color(0xFFDBE2E7),
                                       size: 20,
                                     ),
                                     onPressed: () {
@@ -448,8 +434,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .grayLines,
+                                        color: Color(0xFFDBE2E7),
                                         fontSize: 18,
                                       ),
                                 ),
@@ -466,8 +451,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     buttonSize: 60,
                                     icon: Icon(
                                       Icons.chevron_right,
-                                      color: FlutterFlowTheme.of(context)
-                                          .grayLines,
+                                      color: Color(0xFFDBE2E7),
                                       size: 20,
                                     ),
                                     onPressed: () {
@@ -497,8 +481,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .grayLines,
+                                        color: Color(0xFFDBE2E7),
                                         fontSize: 18,
                                       ),
                                 ),
@@ -515,8 +498,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     buttonSize: 60,
                                     icon: Icon(
                                       Icons.chevron_right,
-                                      color: FlutterFlowTheme.of(context)
-                                          .grayLines,
+                                      color: Color(0xFFDBE2E7),
                                       size: 20,
                                     ),
                                     onPressed: () {
@@ -550,8 +532,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         .bodyText1
                                         .override(
                                           fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .grayLines,
+                                          color: Color(0xFFDBE2E7),
                                           fontSize: 18,
                                         ),
                                   ),
@@ -569,8 +550,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     buttonSize: 60,
                                     icon: Icon(
                                       Icons.chevron_right,
-                                      color: FlutterFlowTheme.of(context)
-                                          .grayLines,
+                                      color: Color(0xFFDBE2E7),
                                       size: 20,
                                     ),
                                     onPressed: () {
@@ -605,8 +585,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         .bodyText1
                                         .override(
                                           fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .grayLines,
+                                          color: Color(0xFFDBE2E7),
                                           fontSize: 18,
                                         ),
                                   ),
@@ -624,8 +603,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     buttonSize: 60,
                                     icon: Icon(
                                       Icons.chevron_right,
-                                      color: FlutterFlowTheme.of(context)
-                                          .grayLines,
+                                      color: Color(0xFFDBE2E7),
                                       size: 20,
                                     ),
                                     onPressed: () {
@@ -660,8 +638,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         .bodyText1
                                         .override(
                                           fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .grayLines,
+                                          color: Color(0xFFDBE2E7),
                                           fontSize: 18,
                                         ),
                                   ),
@@ -679,8 +656,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     buttonSize: 60,
                                     icon: Icon(
                                       Icons.chevron_right,
-                                      color: FlutterFlowTheme.of(context)
-                                          .grayLines,
+                                      color: Color(0xFFDBE2E7),
                                       size: 20,
                                     ),
                                     onPressed: () {
@@ -716,8 +692,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         .bodyText1
                                         .override(
                                           fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .grayLines,
+                                          color: Color(0xFFDBE2E7),
                                           fontSize: 18,
                                         ),
                                   ),
@@ -735,8 +710,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     buttonSize: 60,
                                     icon: Icon(
                                       Icons.chevron_right,
-                                      color: FlutterFlowTheme.of(context)
-                                          .grayLines,
+                                      color: Color(0xFFDBE2E7),
                                       size: 20,
                                     ),
                                     onPressed: () {

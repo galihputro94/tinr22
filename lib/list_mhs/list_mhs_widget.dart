@@ -31,7 +31,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
       key: scaffoldKey,
       backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: Color(0xFF178B7E),
+        backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -124,7 +124,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                               width: 160,
                               height: 100,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).black600,
+                                color: Color(0xFF090F13),
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 4,
@@ -246,7 +246,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                 width: double.infinity,
                                 height: 60,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).black600,
+                                  color: Color(0xFF090F13),
                                   boxShadow: [
                                     BoxShadow(
                                       blurRadius: 4,

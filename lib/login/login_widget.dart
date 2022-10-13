@@ -298,7 +298,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                           .visibility_outlined
                                                       : Icons
                                                           .visibility_off_outlined,
-                                                  color: Color(0xFF95A1AC),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .lineColor,
                                                   size: 22,
                                                 ),
                                               ),
