@@ -82,8 +82,8 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
             color: FlutterFlowTheme.of(context).white,
             size: 30,
           ),
-          onPressed: () {
-            print('IconButton pressed ...');
+          onPressed: () async {
+            context.pushNamed('adm_ListTugas');
           },
         ),
         title: Text(

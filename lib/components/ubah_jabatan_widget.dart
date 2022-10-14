@@ -99,7 +99,7 @@ class _UbahJabatanWidgetState extends State<UbahJabatanWidget> {
                   style: FlutterFlowTheme.of(context).title2.override(
                         fontFamily: 'Outfit',
                         color: Color(0xC0FFFFFF),
-                        fontSize: 14,
+                        fontSize: 16,
                       ),
                 ),
               ),
@@ -150,6 +150,7 @@ class _UbahJabatanWidgetState extends State<UbahJabatanWidget> {
                           jabatan: dropDownValue,
                         );
                         await widget.refMhs!.update(usersUpdateData);
+                        Navigator.pop(context);
                       },
                       text: 'Simpan',
                       options: FFButtonOptions(

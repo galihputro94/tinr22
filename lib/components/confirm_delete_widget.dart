@@ -6,19 +6,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AdmHapusTugasWidget extends StatefulWidget {
-  const AdmHapusTugasWidget({
+class ConfirmDeleteWidget extends StatefulWidget {
+  const ConfirmDeleteWidget({
     Key? key,
-    this.indexTgs,
+    this.namaMateri,
+    this.materiRef,
   }) : super(key: key);
 
-  final DocumentReference? indexTgs;
+  final String? namaMateri;
+  final DocumentReference? materiRef;
 
   @override
-  _AdmHapusTugasWidgetState createState() => _AdmHapusTugasWidgetState();
+  _ConfirmDeleteWidgetState createState() => _ConfirmDeleteWidgetState();
 }
 
-class _AdmHapusTugasWidgetState extends State<AdmHapusTugasWidget> {
+class _ConfirmDeleteWidgetState extends State<ConfirmDeleteWidget> {
   @override
   void initState() {
     super.initState();
@@ -30,9 +32,9 @@ class _AdmHapusTugasWidgetState extends State<AdmHapusTugasWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 270,
+      height: 280,
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).primaryBackground,
+        color: FlutterFlowTheme.of(context).secondaryBackground,
         boxShadow: [
           BoxShadow(
             blurRadius: 5,
@@ -46,7 +48,6 @@ class _AdmHapusTugasWidgetState extends State<AdmHapusTugasWidget> {
           topLeft: Radius.circular(16),
           topRight: Radius.circular(16),
         ),
-        shape: BoxShape.rectangle,
       ),
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
@@ -54,22 +55,36 @@ class _AdmHapusTugasWidgetState extends State<AdmHapusTugasWidget> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(
+              'Yakin Ingin Menghapus',
+              style: FlutterFlowTheme.of(context).bodyText1.override(
+                    fontFamily: 'Inter',
+                    fontSize: 16,
+                  ),
+            ),
+            Text(
+              '${widget.namaMateri}?',
+              style: FlutterFlowTheme.of(context).bodyText1.override(
+                    fontFamily: 'Inter',
+                    fontSize: 16,
+                  ),
+            ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
                 onPressed: () async {
-                  await widget.indexTgs!.delete();
-                  await Future.delayed(const Duration(milliseconds: 1000));
-                  Navigator.pop(context);
+                  await widget.materiRef!.delete();
                 },
-                text: 'Hapus Tugas',
+                text: 'Hapus',
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 60,
-                  color: Color(0xFFFF3232),
+                  color: Color(0xFFFF5963),
                   textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                        fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).white,
+                        fontFamily: 'Lexend Deca',
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
                       ),
                   borderSide: BorderSide(
                     color: Colors.transparent,
@@ -88,13 +103,8 @@ class _AdmHapusTugasWidgetState extends State<AdmHapusTugasWidget> {
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 60,
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                        fontFamily: 'Lexend Deca',
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        fontSize: 16,
-                        fontWeight: FontWeight.normal,
-                      ),
+                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  textStyle: FlutterFlowTheme.of(context).subtitle2,
                   borderSide: BorderSide(
                     color: Colors.transparent,
                     width: 1,

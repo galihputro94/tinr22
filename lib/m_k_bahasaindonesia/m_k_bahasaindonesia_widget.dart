@@ -77,7 +77,7 @@ class _MKBahasaindonesiaWidgetState extends State<MKBahasaindonesiaWidget> {
                 width: MediaQuery.of(context).size.width,
                 height: 150,
                 decoration: BoxDecoration(
-                  color: Color(0xFF090F13),
+                  color: FlutterFlowTheme.of(context).darkBG,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20),
@@ -225,7 +225,7 @@ class _MKBahasaindonesiaWidgetState extends State<MKBahasaindonesiaWidget> {
                           width: MediaQuery.of(context).size.width,
                           height: 50,
                           decoration: BoxDecoration(
-                            color: Color(0xFF090F13),
+                            color: FlutterFlowTheme.of(context).darkBG,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Padding(

@@ -224,7 +224,7 @@ class _MKBahasainggrisWidgetState extends State<MKBahasainggrisWidget> {
                           width: MediaQuery.of(context).size.width,
                           height: 50,
                           decoration: BoxDecoration(
-                            color: Color(0xFF090F13),
+                            color: FlutterFlowTheme.of(context).darkBG,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Padding(

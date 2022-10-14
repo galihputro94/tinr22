@@ -84,9 +84,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                 Container(
                   width: double.infinity,
                   height: 170,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF263238),
-                  ),
+                  decoration: BoxDecoration(),
                   child: StreamBuilder<List<UsersRecord>>(
                     stream: queryUsersRecord(
                       queryBuilder: (usersRecord) =>
@@ -124,7 +122,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                               width: 160,
                               height: 100,
                               decoration: BoxDecoration(
-                                color: Color(0xFF090F13),
+                                color: FlutterFlowTheme.of(context).darkBG,
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 4,
@@ -246,7 +244,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                 width: double.infinity,
                                 height: 60,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF090F13),
+                                  color: FlutterFlowTheme.of(context).darkBG,
                                   boxShadow: [
                                     BoxShadow(
                                       blurRadius: 4,

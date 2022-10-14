@@ -179,20 +179,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => MKPengantarSistemDigitalWidget(),
             ),
             FFRoute(
-              name: 'MKAlogaritmaDanPemograman',
-              path: 'mKAlogaritmaDanPemograman',
-              builder: (context, params) => MKAlogaritmaDanPemogramanWidget(),
-            ),
-            FFRoute(
               name: 'MKDasarInfrastrukturTeknologiInformasi',
               path: 'mKDasarInfrastrukturTeknologiInformasi',
               builder: (context, params) =>
                   MKDasarInfrastrukturTeknologiInformasiWidget(),
             ),
             FFRoute(
-              name: 'adm_addMateri',
-              path: 'admAddMateri',
-              builder: (context, params) => AdmAddMateriWidget(),
+              name: 'MKAlogaritmaDanPemograman',
+              path: 'mKAlogaritmaDanPemograman',
+              builder: (context, params) => MKAlogaritmaDanPemogramanWidget(),
             ),
             FFRoute(
               name: 'adm_editMateri',
@@ -207,6 +202,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
+              name: 'adm_addMateri',
+              path: 'admAddMateri',
+              builder: (context, params) => AdmAddMateriWidget(),
+            ),
+            FFRoute(
               name: 'adm_ListMateri',
               path: 'admListMateri',
               builder: (context, params) => AdmListMateriWidget(),
@@ -218,14 +218,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => AdmInitWidget(),
             ),
             FFRoute(
-              name: 'listMhs',
-              path: 'listMhs',
-              builder: (context, params) => ListMhsWidget(),
-            ),
-            FFRoute(
               name: 'add_Tugas',
               path: 'addTugas',
               builder: (context, params) => AddTugasWidget(),
+            ),
+            FFRoute(
+              name: 'listMhs',
+              path: 'listMhs',
+              builder: (context, params) => ListMhsWidget(),
             ),
             FFRoute(
               name: 'adm_editTugas',
@@ -423,10 +423,10 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Colors.transparent,
+                  color: FlutterFlowTheme.of(context).white,
                   child: Image.asset(
-                    'assets/images/6926246.jpg',
-                    fit: BoxFit.cover,
+                    'assets/images/I__3_-removebg-preview.png',
+                    fit: BoxFit.contain,
                   ),
                 )
               : page;

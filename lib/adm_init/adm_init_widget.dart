@@ -171,7 +171,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                             children: [
                               InkWell(
                                 onTap: () async {
-                                  context.pushNamed('adm_addMateri');
+                                  context.pushNamed('adm_ListMateri');
                                 },
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -188,11 +188,11 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                         size: 30,
                                       ),
                                       onPressed: () async {
-                                        context.pushNamed('adm_addMateri');
+                                        context.pushNamed('adm_ListMateri');
                                       },
                                     ),
                                     Text(
-                                      'Tambah Materi',
+                                      'Materi',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
@@ -299,52 +299,6 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                         ),
                                   ),
                                 ],
-                              ),
-                              InkWell(
-                                onTap: () async {
-                                  context.pushNamed('adm_ListMateri');
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30,
-                                      borderWidth: 1,
-                                      buttonSize: 60,
-                                      icon: Icon(
-                                        Icons.auto_delete,
-                                        color: FlutterFlowTheme.of(context)
-                                            .background,
-                                        size: 30,
-                                      ),
-                                      onPressed: () async {
-                                        context.pushNamed(
-                                          'adm_ListMateri',
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType:
-                                                  PageTransitionType.fade,
-                                              duration:
-                                                  Duration(milliseconds: 600),
-                                            ),
-                                          },
-                                        );
-                                      },
-                                    ),
-                                    Text(
-                                      'Hapus Materi',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .background,
-                                          ),
-                                    ),
-                                  ],
-                                ),
                               ),
                             ],
                           ),
