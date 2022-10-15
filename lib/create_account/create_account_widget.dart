@@ -231,7 +231,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                           fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryText,
+                                                              .white,
                                                         ),
                                               ),
                                             ),

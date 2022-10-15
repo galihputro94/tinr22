@@ -5,7 +5,6 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginWidget extends StatefulWidget {
@@ -389,44 +388,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                           FontWeight.bold,
                                                     ),
                                             elevation: 2,
-                                            borderSide: BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20, 0, 20, 10),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        FFButtonWidget(
-                                          onPressed: () {
-                                            print('Button pressed ...');
-                                          },
-                                          text: 'Facebook Login',
-                                          icon: FaIcon(
-                                            FontAwesomeIcons.facebook,
-                                          ),
-                                          options: FFButtonOptions(
-                                            width: 200,
-                                            height: 40,
-                                            color: Color(0xFF4267B2),
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .subtitle2
-                                                    .override(
-                                                      fontFamily: 'Inter',
-                                                      color: Colors.white,
-                                                    ),
                                             borderSide: BorderSide(
                                               color: Colors.transparent,
                                               width: 1,

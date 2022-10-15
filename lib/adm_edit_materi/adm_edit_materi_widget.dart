@@ -8,6 +8,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdmEditMateriWidget extends StatefulWidget {
@@ -37,8 +38,9 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
   @override
   void initState() {
     super.initState();
-    namaLinkEditController = TextEditingController();
-    namaMateriEditController = TextEditingController(text: 'nama');
+    namaLinkEditController = TextEditingController(text: widget.namaLinkEdit);
+    namaMateriEditController =
+        TextEditingController(text: widget.namaMateriEdit);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -55,7 +57,7 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).bg11,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).bg11,
+        backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderRadius: 30,
@@ -187,6 +189,7 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
                 child: FlutterFlowDropDown(
+                  initialOption: mkMateriEditValue ??= widget.mkMateriEdit,
                   options: [
                     'Agama',
                     'Pancasila',
@@ -206,6 +209,11 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                         color: FlutterFlowTheme.of(context).white,
                       ),
                   hintText: 'Pilih Mata Kuliah',
+                  icon: FaIcon(
+                    FontAwesomeIcons.caretDown,
+                    color: FlutterFlowTheme.of(context).white,
+                    size: 15,
+                  ),
                   fillColor: Color(0xFF178B7E),
                   elevation: 2,
                   borderColor: FlutterFlowTheme.of(context).white,
@@ -219,7 +227,11 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    final materiUpdateData = createMateriRecordData();
+                    final materiUpdateData = createMateriRecordData(
+                      nama: namaMateriEditController!.text,
+                      link: namaLinkEditController!.text,
+                      mk: mkMateriEditValue,
+                    );
                     await widget.editMateriRef!.update(materiUpdateData);
                     context.pop();
                   },

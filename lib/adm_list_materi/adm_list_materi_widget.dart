@@ -32,7 +32,7 @@ class _AdmListMateriWidgetState extends State<AdmListMateriWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).bg11,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).bg11,
+        backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
         leading: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
@@ -48,7 +48,7 @@ class _AdmListMateriWidgetState extends State<AdmListMateriWidget> {
             options: FFButtonOptions(
               width: 130,
               height: 40,
-              color: FlutterFlowTheme.of(context).bg11,
+              color: FlutterFlowTheme.of(context).darkBG,
               textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                     fontFamily: 'Inter',
                     color: Colors.white,
@@ -217,8 +217,32 @@ class _AdmListMateriWidgetState extends State<AdmListMateriWidget> {
                                             ),
                                             showLoadingIndicator: true,
                                             onPressed: () async {
-                                              context
-                                                  .pushNamed('adm_editTugas');
+                                              context.pushNamed(
+                                                'adm_editMateri',
+                                                queryParams: {
+                                                  'namaMateriEdit':
+                                                      serializeParam(
+                                                    listViewMateriRecord.nama,
+                                                    ParamType.String,
+                                                  ),
+                                                  'namaLinkEdit':
+                                                      serializeParam(
+                                                    listViewMateriRecord.link,
+                                                    ParamType.String,
+                                                  ),
+                                                  'mkMateriEdit':
+                                                      serializeParam(
+                                                    listViewMateriRecord.mk,
+                                                    ParamType.String,
+                                                  ),
+                                                  'editMateriRef':
+                                                      serializeParam(
+                                                    listViewMateriRecord
+                                                        .reference,
+                                                    ParamType.DocumentReference,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
                                             },
                                           ),
                                           FlutterFlowIconButton(

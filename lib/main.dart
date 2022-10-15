@@ -18,6 +18,8 @@ void main() async {
   await Firebase.initializeApp();
   await FlutterFlowTheme.initialize();
 
+  FFAppState(); // Initialize FFAppState
+
   runApp(MyApp());
 }
 
@@ -129,8 +131,8 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPageName = tabs.keys.toList()[i];
         }),
         backgroundColor: FlutterFlowTheme.of(context).bg11,
-        selectedItemColor: FlutterFlowTheme.of(context).secondaryColor,
-        unselectedItemColor: FlutterFlowTheme.of(context).iconGray,
+        selectedItemColor: FlutterFlowTheme.of(context).tertiaryColor,
+        unselectedItemColor: Color(0xFF3E3E3E),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,

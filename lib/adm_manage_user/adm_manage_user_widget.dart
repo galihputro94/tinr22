@@ -187,6 +187,8 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                                                           .jabatan,
                                                   namaUser: listViewUsersRecord
                                                       .displayName,
+                                                  refMhs: listViewUsersRecord
+                                                      .reference,
                                                 ),
                                               );
                                             },

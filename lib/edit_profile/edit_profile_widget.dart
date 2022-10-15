@@ -481,7 +481,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         onPressed: () async {
                           final usersUpdateData = createUsersRecordData(
                             displayName: editProfileNamaController!.text,
-                            photoUrl: uploadedFileUrl,
                             email: editProfileEmailController!.text,
                             domisili: editProfileDomisiliController!.text,
                             uid: editProfileNomorController!.text,

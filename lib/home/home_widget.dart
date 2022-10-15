@@ -1,6 +1,5 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_calendar.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -17,16 +16,12 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
-  DateTimeRange? calendarSelectedDay;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    calendarSelectedDay = DateTimeRange(
-      start: DateTime.now().startOfDay,
-      end: DateTime.now().endOfDay,
-    );
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -48,27 +43,30 @@ class _HomeWidgetState extends State<HomeWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: Material(
-                        color: Colors.transparent,
-                        elevation: 4,
-                        child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: 100,
-                          decoration: BoxDecoration(),
-                          child: Image.asset(
-                            'assets/images/TI_NR_22.png',
-                            width: 100,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child: Material(
+                          color: Colors.transparent,
+                          elevation: 0,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
                             height: 100,
-                            fit: BoxFit.contain,
+                            decoration: BoxDecoration(),
+                            child: Image.asset(
+                              'assets/images/TI_NR_22.png',
+                              width: 100,
+                              height: 100,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
@@ -112,6 +110,84 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   20, 0, 0, 0),
                                           child: Text(
                                             'Jadwal',
+                                            textAlign: TextAlign.start,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: Color(0xFFDBE2E7),
+                                                  fontSize: 18,
+                                                ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: AlignmentDirectional(0, 0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 10, 0),
+                                            child: FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 30,
+                                              borderWidth: 1,
+                                              buttonSize: 60,
+                                              icon: Icon(
+                                                Icons.chevron_right,
+                                                color: Color(0xFFDBE2E7),
+                                                size: 20,
+                                              ),
+                                              onPressed: () {
+                                                print('IconButton pressed ...');
+                                              },
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: Material(
+                                color: Colors.transparent,
+                                elevation: 0,
+                                child: Container(
+                                  width: 100,
+                                  height: 60,
+                                  decoration: BoxDecoration(),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      context.pushNamed(
+                                        'Galery',
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                          ),
+                                        },
+                                      );
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  20, 0, 0, 0),
+                                          child: Text(
+                                            'Galeri',
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
@@ -782,40 +858,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                       offset: Offset(0, 4),
                     )
                   ],
-                ),
-                child: FlutterFlowCalendar(
-                  color: FlutterFlowTheme.of(context).primaryText,
-                  iconColor: FlutterFlowTheme.of(context).primaryText,
-                  weekFormat: true,
-                  weekStartsMonday: true,
-                  initialDate: getCurrentTimestamp,
-                  onChange: (DateTimeRange? newSelectedDate) {
-                    setState(() => calendarSelectedDay = newSelectedDate);
-                  },
-                  titleStyle: FlutterFlowTheme.of(context).subtitle1.override(
-                        fontFamily: 'Outfit',
-                        color: FlutterFlowTheme.of(context).primaryText,
-                      ),
-                  dayOfWeekStyle:
-                      FlutterFlowTheme.of(context).bodyText2.override(
-                            fontFamily: 'Inter',
-                            color: FlutterFlowTheme.of(context).primaryText,
-                          ),
-                  dateStyle: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).alternate,
-                      ),
-                  selectedDateStyle:
-                      FlutterFlowTheme.of(context).subtitle2.override(
-                            fontFamily: 'Inter',
-                            color: FlutterFlowTheme.of(context).alternate,
-                          ),
-                  inactiveDateStyle:
-                      FlutterFlowTheme.of(context).bodyText2.override(
-                            fontFamily: 'Inter',
-                            color: Colors.black,
-                          ),
-                  locale: FFLocalizations.of(context).languageCode,
                 ),
               ),
               Padding(

@@ -150,10 +150,11 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 8, 0, 0),
+                                          5, 8, 5, 0),
                                       child: Text(
                                         listViewUsersRecord.displayName!
-                                            .maybeHandleOverflow(maxChars: 25),
+                                            .maybeHandleOverflow(maxChars: 12),
+                                        maxLines: 1,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -161,7 +162,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .white,
-                                              fontSize: 16,
+                                              fontSize: 14,
                                             ),
                                       ),
                                     ),
@@ -175,6 +176,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                             .override(
                                               fontFamily: 'Inter',
                                               color: Color(0x97FFFFFF),
+                                              fontSize: 12,
                                             ),
                                       ),
                                     ),
@@ -336,8 +338,50 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                         ),
                                       ),
                                       FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
+                                        onPressed: () async {
+                                          context.pushNamed(
+                                            'profileMhs',
+                                            queryParams: {
+                                              'namaMhs': serializeParam(
+                                                listViewUsersRecord.displayName,
+                                                ParamType.String,
+                                              ),
+                                              'genderMhs': serializeParam(
+                                                listViewUsersRecord.gender,
+                                                ParamType.String,
+                                              ),
+                                              'phoneMhs': serializeParam(
+                                                listViewUsersRecord.phoneNumber,
+                                                ParamType.String,
+                                              ),
+                                              'avatarMhs': serializeParam(
+                                                listViewUsersRecord.photoUrl,
+                                                ParamType.String,
+                                              ),
+                                              'domisiliMhs': serializeParam(
+                                                listViewUsersRecord.domisili,
+                                                ParamType.String,
+                                              ),
+                                              'jabatanMhs': serializeParam(
+                                                listViewUsersRecord.jabatan,
+                                                ParamType.String,
+                                              ),
+                                              'emailMhs': serializeParam(
+                                                listViewUsersRecord.email,
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                              ),
+                                            },
+                                          );
                                         },
                                         text: 'Lihat',
                                         options: FFButtonOptions(

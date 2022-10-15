@@ -9,6 +9,7 @@ import 'schema/jadwal_record.dart';
 import 'schema/mata_kuliah_record.dart';
 import 'schema/materi_record.dart';
 import 'schema/tugas_record.dart';
+import 'schema/photo_collection_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -21,6 +22,7 @@ export 'schema/jadwal_record.dart';
 export 'schema/mata_kuliah_record.dart';
 export 'schema/materi_record.dart';
 export 'schema/tugas_record.dart';
+export 'schema/photo_collection_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Stream<List<UsersRecord>> queryUsersRecord({
@@ -226,6 +228,48 @@ Future<FFFirestorePage<TugasRecord>> queryTugasRecordPage({
     queryCollectionPage(
       TugasRecord.collection,
       TugasRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query PhotoCollectionRecords (as a Stream and as a Future).
+Stream<List<PhotoCollectionRecord>> queryPhotoCollectionRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      PhotoCollectionRecord.collection,
+      PhotoCollectionRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<PhotoCollectionRecord>> queryPhotoCollectionRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      PhotoCollectionRecord.collection,
+      PhotoCollectionRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<PhotoCollectionRecord>> queryPhotoCollectionRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      PhotoCollectionRecord.collection,
+      PhotoCollectionRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

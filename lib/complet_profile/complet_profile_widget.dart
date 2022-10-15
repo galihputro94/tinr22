@@ -36,7 +36,7 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
   void initState() {
     super.initState();
     domisiliController = TextEditingController();
-    phoneNumberController = TextEditingController();
+    phoneNumberController = TextEditingController(text: '62');
     yourNameController = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -168,7 +168,7 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                                     uploadedFileUrl,
                                     'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
                                   ),
-                                  fit: BoxFit.fitWidth,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),
@@ -239,7 +239,7 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Inter',
-                            color: Color(0xFF0E151B),
+                            color: FlutterFlowTheme.of(context).primaryColor,
                           ),
                       validator: (val) {
                         if (val == null || val.isEmpty) {
@@ -255,12 +255,12 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 5),
                     child: TextFormField(
                       controller: phoneNumberController,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Nomor Telepon...',
+                        labelText: 'Nomor Telepon',
                         labelStyle: FlutterFlowTheme.of(context)
                             .bodyText2
                             .override(
@@ -306,7 +306,7 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Inter',
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color: FlutterFlowTheme.of(context).white,
                           ),
                       validator: (val) {
                         if (val == null || val.isEmpty) {
@@ -317,8 +317,31 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                           return 'Minimal 4 karakter';
                         }
 
+                        if (!RegExp(r"^(\+62|62|0)8[1-9][0-9]{4,10}$")
+                            .hasMatch(val)) {
+                          return 'Harus Diawali Dengan 62';
+                        }
                         return null;
                       },
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 11),
+                          child: Text(
+                            'Nomor Telepon Harus diawali dengan 62xxx',
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Inter',
+                                      fontSize: 12,
+                                    ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Padding(
@@ -331,7 +354,7 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                       textStyle:
                           FlutterFlowTheme.of(context).bodyText1.override(
                                 fontFamily: 'Inter',
-                                color: FlutterFlowTheme.of(context).primaryText,
+                                color: FlutterFlowTheme.of(context).white,
                               ),
                       hintText: 'Jenis Kelamin',
                       icon: FaIcon(
@@ -382,14 +405,14 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                         ),
                         errorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0x00000000),
+                            color: Color(0xFFC62828),
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         focusedErrorBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0x00000000),
+                            color: Color(0xFFC62828),
                             width: 2,
                           ),
                           borderRadius: BorderRadius.circular(8),
@@ -416,36 +439,6 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          if (formKey.currentState == null ||
-                              !formKey.currentState!.validate()) {
-                            return;
-                          }
-
-                          if (dropDownValue == null) {
-                            await showDialog(
-                              context: context,
-                              builder: (alertDialogContext) {
-                                return AlertDialog(
-                                  title: Text('Kesalahan.'),
-                                  content: Text('Jenis Kelamin Wajib Diisi'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(alertDialogContext),
-                                      child: Text('Ok'),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
-                            return;
-                          }
-
-                          if (uploadedFileUrl == null ||
-                              uploadedFileUrl.isEmpty) {
-                            return;
-                          }
-
                           final usersUpdateData = createUsersRecordData(
                             photoUrl: uploadedFileUrl,
                             displayName: yourNameController!.text,

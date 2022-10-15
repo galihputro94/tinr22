@@ -45,7 +45,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
       key: scaffoldKey,
       backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).bg11,
+        backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
         title: Visibility(
           visible: valueOrDefault(currentUserDocument?.role, '') == 'admin',
