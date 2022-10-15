@@ -1,14 +1,14 @@
 // Export pages
-export 'create_account/create_account_widget.dart' show CreateAccountWidget;
 export 'complet_profile/complet_profile_widget.dart' show CompletProfileWidget;
+export 'create_account/create_account_widget.dart' show CreateAccountWidget;
 export 'login/login_widget.dart' show LoginWidget;
 export 'phone_sign_in/phone_sign_in_widget.dart' show PhoneSignInWidget;
 export 'verify_phone/verify_phone_widget.dart' show VerifyPhoneWidget;
 export 'edit_profile/edit_profile_widget.dart' show EditProfileWidget;
 export 'profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export 'change_password/change_password_widget.dart' show ChangePasswordWidget;
-export 'home/home_widget.dart' show HomeWidget;
 export 'jadwal/jadwal_widget.dart' show JadwalWidget;
+export 'home/home_widget.dart' show HomeWidget;
 export 'detail_tugas/detail_tugas_widget.dart' show DetailTugasWidget;
 export 'm_k_fisika/m_k_fisika_widget.dart' show MKFisikaWidget;
 export 'm_k_bahasaindonesia/m_k_bahasaindonesia_widget.dart'

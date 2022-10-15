@@ -78,14 +78,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
           routes: [
             FFRoute(
-              name: 'createAccount',
-              path: 'createAccount',
-              builder: (context, params) => CreateAccountWidget(),
-            ),
-            FFRoute(
               name: 'completProfile',
               path: 'completProfile',
               builder: (context, params) => CompletProfileWidget(),
+            ),
+            FFRoute(
+              name: 'createAccount',
+              path: 'createAccount',
+              builder: (context, params) => CreateAccountWidget(),
             ),
             FFRoute(
               name: 'login',
@@ -120,17 +120,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => ChangePasswordWidget(),
             ),
             FFRoute(
+              name: 'jadwal',
+              path: 'jadwal',
+              builder: (context, params) => JadwalWidget(),
+            ),
+            FFRoute(
               name: 'home',
               path: 'home',
               requireAuth: true,
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'home')
                   : HomeWidget(),
-            ),
-            FFRoute(
-              name: 'jadwal',
-              path: 'jadwal',
-              builder: (context, params) => JadwalWidget(),
             ),
             FFRoute(
               name: 'detailTugas',

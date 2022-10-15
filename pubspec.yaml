@@ -51,7 +51,6 @@ dependencies:
       url: https://github.com/asmengistu/flutter-facebook-auth
       ref: b65ffb049c9f1e2704adbeb1aa19c61693c946a5
       path: facebook_auth
-  flutter_html: 3.0.0-alpha.5
   flutter_spinkit: 5.1.0
   font_awesome_flutter: 10.1.0
   from_css_color: 2.0.0
@@ -77,6 +76,7 @@ dependencies:
   timeago: 3.2.2
   universal_io: 2.0.4
   url_launcher: 6.1.5
+  webviewx: 0.2.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -84,7 +84,6 @@ dependencies:
   cupertino_icons: ^1.0.0
 
 dependency_overrides:
-  provider: 6.0.0
   webview_flutter_android: 2.10.3
   webview_flutter_platform_interface: 1.9.5
   webview_flutter_wkwebview: 2.9.5

@@ -248,6 +248,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               fontSize: 14,
                               fontWeight: FontWeight.normal,
                             ),
+                        validator: (val) {
+                          if (val == null || val.isEmpty) {
+                            return 'Nama Lengkap Wajib Diisi';
+                          }
+
+                          return null;
+                        },
                       ),
                     ),
                   ),
@@ -311,6 +318,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             fontSize: 14,
                             fontWeight: FontWeight.normal,
                           ),
+                      validator: (val) {
+                        if (val == null || val.isEmpty) {
+                          return 'Email Wajib Diisi';
+                        }
+
+                        return null;
+                      },
                     ),
                   ),
                   Padding(
@@ -374,6 +388,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               fontSize: 14,
                               fontWeight: FontWeight.normal,
                             ),
+                        validator: (val) {
+                          if (val == null || val.isEmpty) {
+                            return 'Nomor Wajib Diisi';
+                          }
+
+                          return null;
+                        },
                       ),
                     ),
                   ),
@@ -470,6 +491,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               fontSize: 14,
                               fontWeight: FontWeight.normal,
                             ),
+                        validator: (val) {
+                          if (val == null || val.isEmpty) {
+                            return 'Domisili Wajib Diisi';
+                          }
+
+                          return null;
+                        },
                       ),
                     ),
                   ),
@@ -479,6 +507,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
+                          if (formKey.currentState == null ||
+                              !formKey.currentState!.validate()) {
+                            return;
+                          }
+
                           final usersUpdateData = createUsersRecordData(
                             displayName: editProfileNamaController!.text,
                             email: editProfileEmailController!.text,

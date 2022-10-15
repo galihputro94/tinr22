@@ -439,6 +439,11 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
+                          if (formKey.currentState == null ||
+                              !formKey.currentState!.validate()) {
+                            return;
+                          }
+
                           final usersUpdateData = createUsersRecordData(
                             photoUrl: uploadedFileUrl,
                             displayName: yourNameController!.text,
