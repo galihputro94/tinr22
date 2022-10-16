@@ -1,9 +1,12 @@
 import '../backend/backend.dart';
+import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_calendar.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,13 +17,75 @@ class JadwalWidget extends StatefulWidget {
   _JadwalWidgetState createState() => _JadwalWidgetState();
 }
 
-class _JadwalWidgetState extends State<JadwalWidget> {
+class _JadwalWidgetState extends State<JadwalWidget>
+    with TickerProviderStateMixin {
+  final animationsMap = {
+    'containerOnActionTriggerAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 270.ms,
+          duration: 600.ms,
+          begin: 2,
+          end: 1,
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 400.ms,
+          begin: Offset(70, 0),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 200.ms),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 400.ms,
+          begin: Offset(70, 0),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 400.ms),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 400.ms,
+          begin: Offset(70, 0),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+  };
   DateTimeRange? calScheduleSelectedDay;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
+
     calScheduleSelectedDay = DateTimeRange(
       start: DateTime.now().startOfDay,
       end: DateTime.now().endOfDay,
@@ -164,6 +229,9 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                             .primaryText,
                                         shape: BoxShape.circle,
                                       ),
+                                    ).animateOnActionTrigger(
+                                      animationsMap[
+                                          'containerOnActionTriggerAnimation']!,
                                     ),
                                     Container(
                                       width: 2,
@@ -205,7 +273,8 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
                                               ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'textOnPageLoadAnimation1']!),
                                       ),
                                     ],
                                   ),
@@ -223,7 +292,8 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                               fontFamily: 'Inter',
                                               color: Color(0xCDFFFFFF),
                                             ),
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'textOnPageLoadAnimation2']!),
                                     ],
                                   ),
                                   Padding(
@@ -247,7 +317,8 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                                   fontFamily: 'Inter',
                                                   color: Color(0xCDFFFFFF),
                                                 ),
-                                          ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'textOnPageLoadAnimation3']!),
                                         ),
                                       ],
                                     ),
