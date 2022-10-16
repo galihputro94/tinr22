@@ -161,7 +161,8 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                   width: 2,
                                   height: 60,
                                   decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context).white,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                   ),
                                 ),
                               ],
@@ -202,7 +203,11 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                                             .bodyText1
                                             .override(
                                               fontFamily: 'Inter',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryColor,
                                               fontSize: 16,
+                                              fontWeight: FontWeight.bold,
                                             ),
                                       ),
                                     ),
