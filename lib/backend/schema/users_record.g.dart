@@ -102,6 +102,12 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add('indexJabatan')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.npm;
+    if (value != null) {
+      result
+        ..add('npm')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -172,6 +178,10 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.indexJabatan = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'npm':
+          result.npm = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -211,6 +221,8 @@ class _$UsersRecord extends UsersRecord {
   @override
   final int? indexJabatan;
   @override
+  final int? npm;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -229,6 +241,7 @@ class _$UsersRecord extends UsersRecord {
       this.jabatan,
       this.pejabat,
       this.indexJabatan,
+      this.npm,
       this.ffRef})
       : super._();
 
@@ -255,6 +268,7 @@ class _$UsersRecord extends UsersRecord {
         jabatan == other.jabatan &&
         pejabat == other.pejabat &&
         indexJabatan == other.indexJabatan &&
+        npm == other.npm &&
         ffRef == other.ffRef;
   }
 
@@ -271,18 +285,20 @@ class _$UsersRecord extends UsersRecord {
                                     $jc(
                                         $jc(
                                             $jc(
-                                                $jc($jc(0, email.hashCode),
-                                                    displayName.hashCode),
-                                                photoUrl.hashCode),
-                                            uid.hashCode),
-                                        createdTime.hashCode),
-                                    phoneNumber.hashCode),
-                                domisili.hashCode),
-                            gender.hashCode),
-                        role.hashCode),
-                    jabatan.hashCode),
-                pejabat.hashCode),
-            indexJabatan.hashCode),
+                                                $jc(
+                                                    $jc($jc(0, email.hashCode),
+                                                        displayName.hashCode),
+                                                    photoUrl.hashCode),
+                                                uid.hashCode),
+                                            createdTime.hashCode),
+                                        phoneNumber.hashCode),
+                                    domisili.hashCode),
+                                gender.hashCode),
+                            role.hashCode),
+                        jabatan.hashCode),
+                    pejabat.hashCode),
+                indexJabatan.hashCode),
+            npm.hashCode),
         ffRef.hashCode));
   }
 
@@ -301,6 +317,7 @@ class _$UsersRecord extends UsersRecord {
           ..add('jabatan', jabatan)
           ..add('pejabat', pejabat)
           ..add('indexJabatan', indexJabatan)
+          ..add('npm', npm)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -357,6 +374,10 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   int? get indexJabatan => _$this._indexJabatan;
   set indexJabatan(int? indexJabatan) => _$this._indexJabatan = indexJabatan;
 
+  int? _npm;
+  int? get npm => _$this._npm;
+  set npm(int? npm) => _$this._npm = npm;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -380,6 +401,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _jabatan = $v.jabatan;
       _pejabat = $v.pejabat;
       _indexJabatan = $v.indexJabatan;
+      _npm = $v.npm;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -415,6 +437,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
             jabatan: jabatan,
             pejabat: pejabat,
             indexJabatan: indexJabatan,
+            npm: npm,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

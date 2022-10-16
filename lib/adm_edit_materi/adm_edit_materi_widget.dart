@@ -57,7 +57,7 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).bg11,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).darkBG,
+        backgroundColor: FlutterFlowTheme.of(context).bg11,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderRadius: 30,

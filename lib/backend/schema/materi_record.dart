@@ -16,6 +16,8 @@ abstract class MateriRecord
 
   String? get mk;
 
+  DocumentReference? get jadwalref;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -50,6 +52,7 @@ Map<String, dynamic> createMateriRecordData({
   String? nama,
   String? link,
   String? mk,
+  DocumentReference? jadwalref,
 }) {
   final firestoreData = serializers.toFirestore(
     MateriRecord.serializer,
@@ -57,7 +60,8 @@ Map<String, dynamic> createMateriRecordData({
       (m) => m
         ..nama = nama
         ..link = link
-        ..mk = mk,
+        ..mk = mk
+        ..jadwalref = jadwalref,
     ),
   );
 

@@ -69,14 +69,12 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
       key: scaffoldKey,
       backgroundColor: Color(0xFF178B7E),
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: FlutterFlowTheme.of(context).bg11,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
-          borderColor: Colors.black,
           borderRadius: 30,
           borderWidth: 1,
           buttonSize: 60,
-          fillColor: FlutterFlowTheme.of(context).darkBG,
           icon: Icon(
             Icons.arrow_back_rounded,
             color: FlutterFlowTheme.of(context).white,

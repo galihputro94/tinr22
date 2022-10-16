@@ -60,6 +60,14 @@ class _$TugasRecordSerializer implements StructuredSerializer<TugasRecord> {
         ..add('indexTugas')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.jadwalref;
+    if (value != null) {
+      result
+        ..add('jadwalref')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                DocumentReference, const [const FullType.nullable(Object)])));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -106,6 +114,12 @@ class _$TugasRecordSerializer implements StructuredSerializer<TugasRecord> {
           result.indexTugas = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'jadwalref':
+          result.jadwalref = serializers.deserialize(value,
+              specifiedType: const FullType(DocumentReference, const [
+                const FullType.nullable(Object)
+              ])) as DocumentReference<Object?>?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -133,6 +147,8 @@ class _$TugasRecord extends TugasRecord {
   @override
   final int? indexTugas;
   @override
+  final DocumentReference<Object?>? jadwalref;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$TugasRecord([void Function(TugasRecordBuilder)? updates]) =>
@@ -145,6 +161,7 @@ class _$TugasRecord extends TugasRecord {
       this.deadline,
       this.isActive,
       this.indexTugas,
+      this.jadwalref,
       this.ffRef})
       : super._();
 
@@ -165,6 +182,7 @@ class _$TugasRecord extends TugasRecord {
         deadline == other.deadline &&
         isActive == other.isActive &&
         indexTugas == other.indexTugas &&
+        jadwalref == other.jadwalref &&
         ffRef == other.ffRef;
   }
 
@@ -174,11 +192,13 @@ class _$TugasRecord extends TugasRecord {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, namaTugas.hashCode), mkTugas.hashCode),
-                        ketTugas.hashCode),
-                    deadline.hashCode),
-                isActive.hashCode),
-            indexTugas.hashCode),
+                    $jc(
+                        $jc($jc($jc(0, namaTugas.hashCode), mkTugas.hashCode),
+                            ketTugas.hashCode),
+                        deadline.hashCode),
+                    isActive.hashCode),
+                indexTugas.hashCode),
+            jadwalref.hashCode),
         ffRef.hashCode));
   }
 
@@ -191,6 +211,7 @@ class _$TugasRecord extends TugasRecord {
           ..add('deadline', deadline)
           ..add('isActive', isActive)
           ..add('indexTugas', indexTugas)
+          ..add('jadwalref', jadwalref)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -223,6 +244,11 @@ class TugasRecordBuilder implements Builder<TugasRecord, TugasRecordBuilder> {
   int? get indexTugas => _$this._indexTugas;
   set indexTugas(int? indexTugas) => _$this._indexTugas = indexTugas;
 
+  DocumentReference<Object?>? _jadwalref;
+  DocumentReference<Object?>? get jadwalref => _$this._jadwalref;
+  set jadwalref(DocumentReference<Object?>? jadwalref) =>
+      _$this._jadwalref = jadwalref;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -240,6 +266,7 @@ class TugasRecordBuilder implements Builder<TugasRecord, TugasRecordBuilder> {
       _deadline = $v.deadline;
       _isActive = $v.isActive;
       _indexTugas = $v.indexTugas;
+      _jadwalref = $v.jadwalref;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -269,6 +296,7 @@ class TugasRecordBuilder implements Builder<TugasRecord, TugasRecordBuilder> {
             deadline: deadline,
             isActive: isActive,
             indexTugas: indexTugas,
+            jadwalref: jadwalref,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

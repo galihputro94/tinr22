@@ -69,13 +69,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
+          appStateNotifier.loggedIn ? HomeWidget() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
+              appStateNotifier.loggedIn ? HomeWidget() : LoginWidget(),
           routes: [
             FFRoute(
               name: 'completProfile',
@@ -93,16 +93,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => LoginWidget(),
             ),
             FFRoute(
-              name: 'phoneSignIn',
-              path: 'phoneSignIn',
-              builder: (context, params) => PhoneSignInWidget(),
-            ),
-            FFRoute(
-              name: 'verifyPhone',
-              path: 'verifyPhone',
-              builder: (context, params) => VerifyPhoneWidget(),
-            ),
-            FFRoute(
               name: 'editProfile',
               path: 'editProfile',
               builder: (context, params) => EditProfileWidget(),
@@ -110,9 +100,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'profilePage',
               path: 'profilePage',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'profilePage')
-                  : ProfilePageWidget(),
+              builder: (context, params) => ProfilePageWidget(),
             ),
             FFRoute(
               name: 'changePassword',
@@ -125,14 +113,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => JadwalWidget(),
             ),
             FFRoute(
-              name: 'home',
-              path: 'home',
-              requireAuth: true,
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'home')
-                  : HomeWidget(),
-            ),
-            FFRoute(
               name: 'detailTugas',
               path: 'detailTugas',
               builder: (context, params) => DetailTugasWidget(
@@ -142,6 +122,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 isActive: params.getParam('isActive', ParamType.bool),
                 ketTugas: params.getParam('ketTugas', ParamType.String),
               ),
+            ),
+            FFRoute(
+              name: 'home',
+              path: 'home',
+              requireAuth: true,
+              builder: (context, params) => HomeWidget(),
             ),
             FFRoute(
               name: 'MKFisika',
@@ -169,6 +155,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => MKAlogaritmaDanPemogramanWidget(),
             ),
             FFRoute(
+              name: 'adm_addMateri',
+              path: 'admAddMateri',
+              builder: (context, params) => AdmAddMateriWidget(),
+            ),
+            FFRoute(
+              name: 'adm_ListMateri',
+              path: 'admListMateri',
+              builder: (context, params) => AdmListMateriWidget(),
+            ),
+            FFRoute(
               name: 'adm_editMateri',
               path: 'admEditMateri',
               builder: (context, params) => AdmEditMateriWidget(
@@ -181,14 +177,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'adm_addMateri',
-              path: 'admAddMateri',
-              builder: (context, params) => AdmAddMateriWidget(),
-            ),
-            FFRoute(
-              name: 'adm_ListMateri',
-              path: 'admListMateri',
-              builder: (context, params) => AdmListMateriWidget(),
+              name: 'add_Tugas',
+              path: 'addTugas',
+              builder: (context, params) => AddTugasWidget(),
             ),
             FFRoute(
               name: 'adm_init',
@@ -197,19 +188,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => AdmInitWidget(),
             ),
             FFRoute(
-              name: 'add_Tugas',
-              path: 'addTugas',
-              builder: (context, params) => AddTugasWidget(),
+              name: 'listMhs',
+              path: 'listMhs',
+              builder: (context, params) => ListMhsWidget(),
             ),
             FFRoute(
               name: 'adm_ListTugas',
               path: 'admListTugas',
               builder: (context, params) => AdmListTugasWidget(),
-            ),
-            FFRoute(
-              name: 'listMhs',
-              path: 'listMhs',
-              builder: (context, params) => ListMhsWidget(),
             ),
             FFRoute(
               name: 'MKAgama',
@@ -255,19 +241,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'MKKalkulus',
-              path: 'mKKalkulus',
-              builder: (context, params) => MKKalkulusWidget(),
-            ),
-            FFRoute(
               name: 'MKBahasainggris',
               path: 'mKBahasaInggris',
               builder: (context, params) => MKBahasainggrisWidget(),
             ),
             FFRoute(
+              name: 'MKKalkulus',
+              path: 'mKKalkulus',
+              builder: (context, params) => MKKalkulusWidget(),
+            ),
+            FFRoute(
+              name: 'GreatMatakuliah',
+              path: 'greatMatakuliah',
+              builder: (context, params) => GreatMatakuliahWidget(),
+            ),
+            FFRoute(
               name: 'MKPancasila',
               path: 'mKPancasila',
               builder: (context, params) => MKPancasilaWidget(),
+            ),
+            FFRoute(
+              name: 'listMK',
+              path: 'listMK',
+              builder: (context, params) => ListMKWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

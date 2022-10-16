@@ -53,6 +53,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                 fontFamily: 'Outfit',
                 color: Colors.white,
                 fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
         ),
         actions: [],

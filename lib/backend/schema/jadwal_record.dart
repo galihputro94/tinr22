@@ -24,6 +24,10 @@ abstract class JadwalRecord
 
   int? get index;
 
+  DocumentReference? get tugasMKref;
+
+  DocumentReference? get materiMKref;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -66,6 +70,8 @@ Map<String, dynamic> createJadwalRecordData({
   String? hari,
   String? sks,
   int? index,
+  DocumentReference? tugasMKref,
+  DocumentReference? materiMKref,
 }) {
   final firestoreData = serializers.toFirestore(
     JadwalRecord.serializer,
@@ -77,7 +83,9 @@ Map<String, dynamic> createJadwalRecordData({
         ..ruang = ruang
         ..hari = hari
         ..sks = sks
-        ..index = index,
+        ..index = index
+        ..tugasMKref = tugasMKref
+        ..materiMKref = materiMKref,
     ),
   );
 

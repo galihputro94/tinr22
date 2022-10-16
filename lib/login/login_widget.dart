@@ -41,7 +41,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).bg11,
+      backgroundColor: FlutterFlowTheme.of(context).white,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -49,7 +49,7 @@ class _LoginWidgetState extends State<LoginWidget> {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 1,
             decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).bg11,
+              color: FlutterFlowTheme.of(context).white,
             ),
             child: Align(
               alignment: AlignmentDirectional(0, 1),
@@ -66,11 +66,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height * 0.2,
                         decoration: BoxDecoration(),
-                        child: Image.asset(
-                          'assets/images/TI_NR_22.png',
-                          width: MediaQuery.of(context).size.width * 0.9,
-                          height: 150,
-                          fit: BoxFit.contain,
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                          child: Image.network(
+                            'https://github.com/tinr22/appasset/raw/main/applogo.png',
+                            width: MediaQuery.of(context).size.width * 0.9,
+                            height: 150,
+                            fit: BoxFit.fitWidth,
+                          ),
                         ),
                       ),
                     ],
@@ -85,9 +88,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                             width: MediaQuery.of(context).size.width,
                             height: MediaQuery.of(context).size.height * 0.8,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              borderRadius: BorderRadius.circular(16),
+                              color: FlutterFlowTheme.of(context).tertiaryColor,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(0),
+                                bottomRight: Radius.circular(0),
+                                topLeft: Radius.circular(50),
+                                topRight: Radius.circular(50),
+                              ),
                             ),
                             child: Padding(
                               padding:
@@ -159,7 +166,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .formBorder,
+                                                      .primaryText,
                                                   width: 2,
                                                 ),
                                                 borderRadius:
@@ -169,7 +176,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .formBorder,
+                                                      .primaryText,
                                                   width: 2,
                                                 ),
                                                 borderRadius:
@@ -248,7 +255,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .formBorder,
+                                                      .primaryText,
                                                   width: 2,
                                                 ),
                                                 borderRadius:
@@ -258,7 +265,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .formBorder,
+                                                      .primaryText,
                                                   width: 2,
                                                 ),
                                                 borderRadius:
@@ -333,8 +340,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           options: FFButtonOptions(
                                             width: 120,
                                             height: 40,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
+                                            color: Color(0x00FFF176),
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .subtitle2
@@ -343,7 +349,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryText,
+                                                              .secondaryColor,
                                                       fontSize: 12,
                                                     ),
                                             elevation: 0,
@@ -376,13 +382,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           options: FFButtonOptions(
                                             width: 130,
                                             height: 50,
-                                            color: Color(0xFF3535FF),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryColor,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .subtitle2
                                                     .override(
                                                       fontFamily: 'Inter',
-                                                      color: Colors.white,
+                                                      color: Colors.black,
                                                       fontSize: 18,
                                                       fontWeight:
                                                           FontWeight.bold,
@@ -397,55 +404,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           ),
                                         ),
                                       ],
-                                    ),
-                                  ),
-                                  Divider(
-                                    height: 2,
-                                    thickness: 2,
-                                    indent: 20,
-                                    endIndent: 20,
-                                    color:
-                                        FlutterFlowTheme.of(context).formBorder,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 12, 0, 12),
-                                    child: FFButtonWidget(
-                                      onPressed: () async {
-                                        context.pushNamed(
-                                          'createAccount',
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType:
-                                                  PageTransitionType.fade,
-                                              duration:
-                                                  Duration(milliseconds: 250),
-                                            ),
-                                          },
-                                        );
-                                      },
-                                      text: 'Daftar',
-                                      options: FFButtonOptions(
-                                        width: 170,
-                                        height: 40,
-                                        color: FlutterFlowTheme.of(context)
-                                            .tertiaryColor,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .subtitle2
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                            ),
-                                        elevation: 0,
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1,
-                                        ),
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
                                     ),
                                   ),
                                 ],

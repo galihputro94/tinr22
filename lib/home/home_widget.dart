@@ -29,818 +29,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).bg11,
-      drawer: Container(
-        width: 300,
-        child: Drawer(
-          elevation: 15,
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 1,
-            decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).bg11,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Material(
-                          color: Colors.transparent,
-                          elevation: 0,
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 100,
-                            decoration: BoxDecoration(),
-                            child: Image.asset(
-                              'assets/images/TI_NR_22.png',
-                              width: 100,
-                              height: 100,
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Material(
-                                color: Colors.transparent,
-                                elevation: 0,
-                                child: Container(
-                                  width: 100,
-                                  height: 60,
-                                  decoration: BoxDecoration(),
-                                  child: InkWell(
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        'jadwal',
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.fade,
-                                          ),
-                                        },
-                                      );
-                                    },
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20, 0, 0, 0),
-                                          child: Text(
-                                            'Jadwal',
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  color: Color(0xFFDBE2E7),
-                                                  fontSize: 18,
-                                                ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment: AlignmentDirectional(0, 0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 10, 0),
-                                            child: FlutterFlowIconButton(
-                                              borderColor: Colors.transparent,
-                                              borderRadius: 30,
-                                              borderWidth: 1,
-                                              buttonSize: 60,
-                                              icon: Icon(
-                                                Icons.chevron_right,
-                                                color: Color(0xFFDBE2E7),
-                                                size: 20,
-                                              ),
-                                              onPressed: () {
-                                                print('IconButton pressed ...');
-                                              },
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Material(
-                                color: Colors.transparent,
-                                elevation: 0,
-                                child: Container(
-                                  width: 100,
-                                  height: 60,
-                                  decoration: BoxDecoration(),
-                                  child: InkWell(
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        'Galery',
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.fade,
-                                            duration:
-                                                Duration(milliseconds: 500),
-                                          ),
-                                        },
-                                      );
-                                    },
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20, 0, 0, 0),
-                                          child: Text(
-                                            'Galeri',
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  color: Color(0xFFDBE2E7),
-                                                  fontSize: 18,
-                                                ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment: AlignmentDirectional(0, 0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 10, 0),
-                                            child: FlutterFlowIconButton(
-                                              borderColor: Colors.transparent,
-                                              borderRadius: 30,
-                                              borderWidth: 1,
-                                              buttonSize: 60,
-                                              icon: Icon(
-                                                Icons.chevron_right,
-                                                color: Color(0xFFDBE2E7),
-                                                size: 20,
-                                              ),
-                                              onPressed: () {
-                                                print('IconButton pressed ...');
-                                              },
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Material(
-                                color: Colors.transparent,
-                                elevation: 0,
-                                child: Container(
-                                  width: 100,
-                                  height: 60,
-                                  decoration: BoxDecoration(),
-                                  child: InkWell(
-                                    onTap: () async {
-                                      context.pushNamed(
-                                        'listMhs',
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.fade,
-                                          ),
-                                        },
-                                      );
-                                    },
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20, 0, 0, 0),
-                                          child: InkWell(
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'listMhs',
-                                                extra: <String, dynamic>{
-                                                  kTransitionInfoKey:
-                                                      TransitionInfo(
-                                                    hasTransition: true,
-                                                    transitionType:
-                                                        PageTransitionType.fade,
-                                                    duration: Duration(
-                                                        milliseconds: 600),
-                                                  ),
-                                                },
-                                              );
-                                            },
-                                            child: Text(
-                                              'Mahasiswa',
-                                              textAlign: TextAlign.start,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color:
-                                                            Color(0xFFDBE2E7),
-                                                        fontSize: 18,
-                                                      ),
-                                            ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment: AlignmentDirectional(0, 0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 10, 0),
-                                            child: FlutterFlowIconButton(
-                                              borderColor: Colors.transparent,
-                                              borderRadius: 30,
-                                              borderWidth: 1,
-                                              buttonSize: 60,
-                                              icon: Icon(
-                                                Icons.chevron_right,
-                                                color: Color(0xFFDBE2E7),
-                                                size: 20,
-                                              ),
-                                              onPressed: () {
-                                                print('IconButton pressed ...');
-                                              },
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: 35,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                                child: Text(
-                                  'Mata Kuliah',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .background,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () async {
-                            context.pushNamed('MKPancasila');
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
-                                child: Text(
-                                  'Pancasila',
-                                  textAlign: TextAlign.start,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: Color(0xFFDBE2E7),
-                                        fontSize: 18,
-                                      ),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
-                                  child: FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.chevron_right,
-                                      color: Color(0xFFDBE2E7),
-                                      size: 20,
-                                    ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () async {
-                            context.pushNamed('MKAgama');
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
-                                child: Text(
-                                  'Agama',
-                                  textAlign: TextAlign.start,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: Color(0xFFDBE2E7),
-                                        fontSize: 18,
-                                      ),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
-                                  child: FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.chevron_right,
-                                      color: Color(0xFFDBE2E7),
-                                      size: 20,
-                                    ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () async {
-                            context.pushNamed('MKBahasainggris');
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
-                                child: Text(
-                                  'Bahasa Inggris',
-                                  textAlign: TextAlign.start,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: Color(0xFFDBE2E7),
-                                        fontSize: 18,
-                                      ),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
-                                  child: FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.chevron_right,
-                                      color: Color(0xFFDBE2E7),
-                                      size: 20,
-                                    ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () async {
-                            context.pushNamed('MKKalkulus');
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
-                                child: Text(
-                                  'Kalkulus',
-                                  textAlign: TextAlign.start,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: Color(0xFFDBE2E7),
-                                        fontSize: 18,
-                                      ),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
-                                  child: FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.chevron_right,
-                                      color: Color(0xFFDBE2E7),
-                                      size: 20,
-                                    ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () async {
-                            context.pushNamed('MKFisika');
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
-                                child: Text(
-                                  'Fisika',
-                                  textAlign: TextAlign.start,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: Color(0xFFDBE2E7),
-                                        fontSize: 18,
-                                      ),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
-                                  child: FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.chevron_right,
-                                      color: Color(0xFFDBE2E7),
-                                      size: 20,
-                                    ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () async {
-                            context.pushNamed('MKBahasaindonesia');
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
-                                child: InkWell(
-                                  onTap: () async {
-                                    context.pushNamed('MKBahasaindonesia');
-                                  },
-                                  child: Text(
-                                    'Bahasa Indonesia',
-                                    textAlign: TextAlign.start,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: Color(0xFFDBE2E7),
-                                          fontSize: 18,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
-                                  child: FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.chevron_right,
-                                      color: Color(0xFFDBE2E7),
-                                      size: 20,
-                                    ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () async {
-                            context.pushNamed('MKPengantarSistemDigital');
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
-                                child: InkWell(
-                                  onTap: () async {
-                                    context
-                                        .pushNamed('MKPengantarSistemDigital');
-                                  },
-                                  child: Text(
-                                    'Pengantar Sistem Digital',
-                                    textAlign: TextAlign.start,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: Color(0xFFDBE2E7),
-                                          fontSize: 18,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
-                                  child: FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.chevron_right,
-                                      color: Color(0xFFDBE2E7),
-                                      size: 20,
-                                    ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () async {
-                            context.pushNamed('MKAlogaritmaDanPemograman');
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
-                                child: InkWell(
-                                  onTap: () async {
-                                    context
-                                        .pushNamed('MKAlogaritmaDanPemograman');
-                                  },
-                                  child: Text(
-                                    'Alogaritma Pemograman',
-                                    textAlign: TextAlign.start,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: Color(0xFFDBE2E7),
-                                          fontSize: 18,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
-                                  child: FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.chevron_right,
-                                      color: Color(0xFFDBE2E7),
-                                      size: 20,
-                                    ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () async {
-                            context.pushNamed(
-                                'MKDasarInfrastrukturTeknologiInformasi');
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(25, 0, 0, 0),
-                                child: InkWell(
-                                  onTap: () async {
-                                    context.pushNamed(
-                                        'MKDasarInfrastrukturTeknologiInformasi');
-                                  },
-                                  child: Text(
-                                    'Dasar Infrastruktur\nTeknologi Informasi',
-                                    textAlign: TextAlign.start,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: Color(0xFFDBE2E7),
-                                          fontSize: 18,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0, 0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
-                                  child: FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30,
-                                    borderWidth: 1,
-                                    buttonSize: 60,
-                                    icon: Icon(
-                                      Icons.chevron_right,
-                                      color: Color(0xFFDBE2E7),
-                                      size: 20,
-                                    ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-      appBar: AppBar(
-        backgroundColor: Color(0xFF178B7E),
-        automaticallyImplyLeading: false,
-        leading: FlutterFlowIconButton(
-          borderColor: Colors.transparent,
-          borderRadius: 30,
-          borderWidth: 1,
-          buttonSize: 60,
-          icon: FaIcon(
-            FontAwesomeIcons.bars,
-            color: FlutterFlowTheme.of(context).primaryText,
-            size: 20,
-          ),
-          onPressed: () async {
-            scaffoldKey.currentState!.openDrawer();
-          },
-        ),
-        title: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
-          child: AuthUserStreamWidget(
-            child: Text(
-              'Selamat Datang, ${currentUserDisplayName}',
-              style: FlutterFlowTheme.of(context).title1.override(
-                    fontFamily: 'Lobster',
-                    color: FlutterFlowTheme.of(context).primaryText,
-                    fontSize: 18,
-                  ),
-            ),
-          ),
-        ),
-        actions: [],
-        centerTitle: false,
-        elevation: 4,
-      ),
+      backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -860,215 +49,527 @@ class _HomeWidgetState extends State<HomeWidget> {
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 12),
+              Container(
+                width: double.infinity,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Color(0xFF01A8C9),
+                  borderRadius: BorderRadius.circular(0),
+                ),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
-                            child: FaIcon(
-                              FontAwesomeIcons.solidLightbulb,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 24,
-                            ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
-                              child: Text(
-                                'Tugas Aktif',
-                                style: FlutterFlowTheme.of(context)
-                                    .title1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      fontSize: 25,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    StreamBuilder<List<TugasRecord>>(
-                      stream: queryTugasRecord(
-                        queryBuilder: (tugasRecord) => tugasRecord
-                            .where('isActive', isEqualTo: true)
-                            .orderBy('deadline'),
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50,
-                              height: 50,
-                              child: SpinKitDualRing(
-                                color: FlutterFlowTheme.of(context).white,
-                                size: 50,
-                              ),
-                            ),
-                          );
-                        }
-                        List<TugasRecord> listViewTugasRecordList =
-                            snapshot.data!;
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: listViewTugasRecordList.length,
-                          itemBuilder: (context, listViewIndex) {
-                            final listViewTugasRecord =
-                                listViewTugasRecordList[listViewIndex];
-                            return SingleChildScrollView(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20, 0, 10, 0),
+                                child: Container(
+                                  width: 40,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context).white,
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
+                                  child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10, 20, 10, 0),
-                                    child: InkWell(
-                                      onTap: () async {
-                                        context.pushNamed(
-                                          'detailTugas',
-                                          queryParams: {
-                                            'namaTugas': serializeParam(
-                                              listViewTugasRecord.namaTugas,
-                                              ParamType.String,
+                                        2, 2, 2, 2),
+                                    child: AuthUserStreamWidget(
+                                      child: InkWell(
+                                        onTap: () async {
+                                          scaffoldKey.currentState!
+                                              .openDrawer();
+                                        },
+                                        child: Container(
+                                          width: 40,
+                                          height: 40,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.network(
+                                            valueOrDefault<String>(
+                                              currentUserPhoto,
+                                              'https://github.com/tinr22/appasset/raw/main/00000000000000000000000000000000.png',
                                             ),
-                                            'mkTugas': serializeParam(
-                                              listViewTugasRecord.mkTugas,
-                                              ParamType.String,
-                                            ),
-                                            'deadline': serializeParam(
-                                              listViewTugasRecord.deadline,
-                                              ParamType.DateTime,
-                                            ),
-                                            'isActive': serializeParam(
-                                              listViewTugasRecord.isActive,
-                                              ParamType.bool,
-                                            ),
-                                            'ketTugas': serializeParam(
-                                              listViewTugasRecord.ketTugas,
-                                              ParamType.String,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      },
-                                      child: Container(
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        height: 80,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20, 0, 20, 0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    listViewTugasRecord
-                                                        .namaTugas!,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          fontSize: 16,
-                                                        ),
-                                                  ),
-                                                  Text(
-                                                    listViewTugasRecord
-                                                        .mkTugas!,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                        ),
-                                                  ),
-                                                  Text(
-                                                    listViewTugasRecord
-                                                        .deadline!
-                                                        .toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                        ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(10, 10, 10, 10),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Icon(
-                                                      Icons.book,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
-                                                      size: 30,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
+                                            fit: BoxFit.cover,
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ],
+                                ),
                               ),
-                            );
-                          },
-                        );
-                      },
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
+                                child: AuthUserStreamWidget(
+                                  child: Text(
+                                    currentUserDisplayName,
+                                    style: FlutterFlowTheme.of(context)
+                                        .title1
+                                        .override(
+                                          fontFamily: 'Outfit',
+                                          color: FlutterFlowTheme.of(context)
+                                              .white,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                            child: FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 30,
+                              borderWidth: 1,
+                              buttonSize: 40,
+                              icon: FaIcon(
+                                FontAwesomeIcons.solidBell,
+                                color: FlutterFlowTheme.of(context).white,
+                                size: 20,
+                              ),
+                              onPressed: () {
+                                print('IconButton pressed ...');
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height * 1,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(0),
+                    bottomRight: Radius.circular(0),
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 12),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          height: 200,
+                          decoration: BoxDecoration(),
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                            child: GridView(
+                              padding: EdgeInsets.zero,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 4,
+                                crossAxisSpacing: 5,
+                                mainAxisSpacing: 5,
+                                childAspectRatio: 1,
+                              ),
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              children: [
+                                Container(
+                                  width: 50,
+                                  height: 50,
+                                  decoration: BoxDecoration(),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.users,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        size: 30,
+                                      ),
+                                      Text(
+                                        'Mahasiswa',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              fontSize: 11,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8, 8, 8, 8),
+                                  child: Container(
+                                    width: 50,
+                                    height: 50,
+                                    decoration: BoxDecoration(),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.calendarDay,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 30,
+                                        ),
+                                        Text(
+                                          'Jadwal',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 11,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8, 8, 8, 8),
+                                  child: Container(
+                                    width: 50,
+                                    height: 50,
+                                    decoration: BoxDecoration(),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.book,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 30,
+                                        ),
+                                        Text(
+                                          'Materi',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 11,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8, 8, 8, 8),
+                                  child: Container(
+                                    width: 50,
+                                    height: 50,
+                                    decoration: BoxDecoration(),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.tasks,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 30,
+                                        ),
+                                        Text(
+                                          'Tugas',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 11,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8, 8, 8, 8),
+                                  child: Container(
+                                    width: 50,
+                                    height: 50,
+                                    decoration: BoxDecoration(),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.photoVideo,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 30,
+                                        ),
+                                        Text(
+                                          'Dokumentasi',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 11,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 16, 0),
+                                    child: FaIcon(
+                                      FontAwesomeIcons.solidBell,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      size: 24,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Text(
+                                      'Tugas Aktif',
+                                      style: FlutterFlowTheme.of(context)
+                                          .title1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            fontSize: 20,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            StreamBuilder<List<TugasRecord>>(
+                              stream: queryTugasRecord(
+                                queryBuilder: (tugasRecord) => tugasRecord
+                                    .where('isActive', isEqualTo: true)
+                                    .orderBy('deadline'),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50,
+                                      height: 50,
+                                      child: SpinKitDualRing(
+                                        color:
+                                            FlutterFlowTheme.of(context).white,
+                                        size: 50,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<TugasRecord> listViewTugasRecordList =
+                                    snapshot.data!;
+                                return ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: listViewTugasRecordList.length,
+                                  itemBuilder: (context, listViewIndex) {
+                                    final listViewTugasRecord =
+                                        listViewTugasRecordList[listViewIndex];
+                                    return SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10, 20, 10, 0),
+                                            child: InkWell(
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'detailTugas',
+                                                  queryParams: {
+                                                    'namaTugas': serializeParam(
+                                                      listViewTugasRecord
+                                                          .namaTugas,
+                                                      ParamType.String,
+                                                    ),
+                                                    'mkTugas': serializeParam(
+                                                      listViewTugasRecord
+                                                          .mkTugas,
+                                                      ParamType.String,
+                                                    ),
+                                                    'deadline': serializeParam(
+                                                      listViewTugasRecord
+                                                          .deadline,
+                                                      ParamType.DateTime,
+                                                    ),
+                                                    'isActive': serializeParam(
+                                                      listViewTugasRecord
+                                                          .isActive,
+                                                      ParamType.bool,
+                                                    ),
+                                                    'ketTugas': serializeParam(
+                                                      listViewTugasRecord
+                                                          .ketTugas,
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: Container(
+                                                width: MediaQuery.of(context)
+                                                    .size
+                                                    .width,
+                                                height: 80,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFF7FE2FE),
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(20, 0, 20, 0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            listViewTugasRecord
+                                                                .namaTugas!,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .darkBG,
+                                                                  fontSize: 16,
+                                                                ),
+                                                          ),
+                                                          Text(
+                                                            listViewTugasRecord
+                                                                .mkTugas!,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .darkBG,
+                                                                ),
+                                                          ),
+                                                          Text(
+                                                            listViewTugasRecord
+                                                                .deadline!
+                                                                .toString(),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .darkBG,
+                                                                ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(10,
+                                                                    10, 10, 10),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Icon(
+                                                              Icons.book,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .darkBG,
+                                                              size: 30,
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ],

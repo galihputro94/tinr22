@@ -11,15 +11,29 @@ abstract class MataKuliahRecord
   static Serializer<MataKuliahRecord> get serializer =>
       _$mataKuliahRecordSerializer;
 
-  @BuiltValueField(wireName: 'Nama')
-  String? get nama;
+  String? get namaMK;
+
+  String? get dosenMK;
+
+  String? get jamMK;
+
+  String? get ruangMK;
+
+  String? get sksMK;
+
+  String? get hariMK;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
-  static void _initializeBuilder(MataKuliahRecordBuilder builder) =>
-      builder..nama = '';
+  static void _initializeBuilder(MataKuliahRecordBuilder builder) => builder
+    ..namaMK = ''
+    ..dosenMK = ''
+    ..jamMK = ''
+    ..ruangMK = ''
+    ..sksMK = ''
+    ..hariMK = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('MataKuliah');
@@ -43,12 +57,23 @@ abstract class MataKuliahRecord
 }
 
 Map<String, dynamic> createMataKuliahRecordData({
-  String? nama,
+  String? namaMK,
+  String? dosenMK,
+  String? jamMK,
+  String? ruangMK,
+  String? sksMK,
+  String? hariMK,
 }) {
   final firestoreData = serializers.toFirestore(
     MataKuliahRecord.serializer,
     MataKuliahRecord(
-      (m) => m..nama = nama,
+      (m) => m
+        ..namaMK = namaMK
+        ..dosenMK = dosenMK
+        ..jamMK = jamMK
+        ..ruangMK = ruangMK
+        ..sksMK = sksMK
+        ..hariMK = hariMK,
     ),
   );
 

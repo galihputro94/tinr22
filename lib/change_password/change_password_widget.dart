@@ -53,9 +53,9 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
         final changePasswordUsersRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: Color(0xFF178B7E),
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           appBar: AppBar(
-            backgroundColor: Color(0xFF178B7E),
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             automaticallyImplyLeading: false,
             leading: InkWell(
               onTap: () async {
@@ -78,149 +78,140 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             ),
             actions: [],
             centerTitle: true,
-            elevation: 4,
+            elevation: 0,
           ),
           body: SafeArea(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Form(
-                  key: formKey,
-                  autovalidateMode: AutovalidateMode.always,
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 12),
-                    child: TextFormField(
-                      controller: emailAddressController,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        labelText: 'Email',
-                        labelStyle: FlutterFlowTheme.of(context)
-                            .bodyText1
-                            .override(
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(0),
+                  bottomRight: Radius.circular(0),
+                  topLeft: Radius.circular(50),
+                  topRight: Radius.circular(50),
+                ),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Form(
+                    key: formKey,
+                    autovalidateMode: AutovalidateMode.always,
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 12),
+                      child: TextFormField(
+                        controller: emailAddressController,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'Email',
+                          hintText: 'Email Anda...',
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).tertiaryColor,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).tertiaryColor,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFC62828),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0xFFC62828),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          contentPadding:
+                              EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.of(context).primaryText,
+                              color: FlutterFlowTheme.of(context).tertiaryColor,
                               fontSize: 14,
                               fontWeight: FontWeight.normal,
                             ),
-                        hintText: 'Email Anda...',
-                        hintStyle: FlutterFlowTheme.of(context)
-                            .bodyText1
-                            .override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              fontSize: 14,
-                              fontWeight: FontWeight.normal,
-                            ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).lineColor,
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).lineColor,
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFFC62828),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        focusedErrorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFFC62828),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        contentPadding:
-                            EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Lexend Deca',
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                          ),
-                      validator: (val) {
-                        if (val == null || val.isEmpty) {
-                          return 'Email Wajib Diisi';
-                        }
-
-                        return null;
-                      },
                     ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Text(
-                          'Link untuk mengatur ulang sandi akan dikirim melalui alamat email yang terdaftar, silahkan periksa kotak masuk email kamu.',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyText1
-                              .override(
-                                fontFamily: 'Inter',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                              ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            'Link untuk mengatur ulang sandi akan dikirim melalui alamat email yang terdaftar, silahkan periksa kotak masuk email kamu.',
+                            textAlign: TextAlign.center,
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                    ),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0, 0.05),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        if (emailAddressController!.text.isEmpty) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                'Email diperlukan!',
-                              ),
-                            ),
-                          );
-                          return;
-                        }
-                        await resetPassword(
-                          email: emailAddressController!.text,
-                          context: context,
-                        );
-                      },
-                      text: 'Atur Ulang',
-                      options: FFButtonOptions(
-                        width: 340,
-                        height: 60,
-                        color: FlutterFlowTheme.of(context).lineColor,
-                        textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
+                  Align(
+                    alignment: AlignmentDirectional(0, 0.05),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          if (emailAddressController!.text.isEmpty) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Email diperlukan!',
                                 ),
-                        elevation: 2,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1,
+                              ),
+                            );
+                            return;
+                          }
+                          await resetPassword(
+                            email: emailAddressController!.text,
+                            context: context,
+                          );
+                        },
+                        text: 'Atur Ulang',
+                        options: FFButtonOptions(
+                          width: 340,
+                          height: 60,
+                          color: FlutterFlowTheme.of(context).tertiaryColor,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .subtitle2
+                              .override(
+                                fontFamily: 'Lexend Deca',
+                                color: FlutterFlowTheme.of(context).alternate,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                          elevation: 2,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
-                        borderRadius: BorderRadius.circular(8),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );

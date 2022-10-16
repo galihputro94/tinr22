@@ -21,6 +21,8 @@ abstract class TugasRecord implements Built<TugasRecord, TugasRecordBuilder> {
 
   int? get indexTugas;
 
+  DocumentReference? get jadwalref;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -60,6 +62,7 @@ Map<String, dynamic> createTugasRecordData({
   DateTime? deadline,
   bool? isActive,
   int? indexTugas,
+  DocumentReference? jadwalref,
 }) {
   final firestoreData = serializers.toFirestore(
     TugasRecord.serializer,
@@ -70,7 +73,8 @@ Map<String, dynamic> createTugasRecordData({
         ..ketTugas = ketTugas
         ..deadline = deadline
         ..isActive = isActive
-        ..indexTugas = indexTugas,
+        ..indexTugas = indexTugas
+        ..jadwalref = jadwalref,
     ),
   );
 
