@@ -143,6 +143,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                             listViewJadwalRecordList[listViewIndex];
                         return Row(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Column(
                               mainAxisSize: MainAxisSize.max,
@@ -167,6 +168,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                             ),
                             Column(
                               mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
