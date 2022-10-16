@@ -145,75 +145,121 @@ class _JadwalWidgetState extends State<JadwalWidget> {
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Container(
-                                  width: 16,
-                                  height: 16,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    shape: BoxShape.circle,
-                                  ),
-                                ),
-                                Container(
-                                  width: 2,
-                                  height: 60,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                              child: Container(
+                                width: 16,
+                                height: 62,
+                                decoration: BoxDecoration(),
+                                child: Column(
                                   mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      valueOrDefault<String>(
-                                        listViewJadwalRecord.jam,
-                                        'Jadwal Kosong',
+                                    Container(
+                                      width: 16,
+                                      height: 16,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        shape: BoxShape.circle,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: Color(0xCDFFFFFF),
-                                          ),
+                                    ),
+                                    Container(
+                                      width: 2,
+                                      height: 70,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
                                     ),
                                   ],
                                 ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 10, 0, 0),
-                                      child: Text(
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 0, 5),
+                                        child: Text(
+                                          valueOrDefault<String>(
+                                            listViewJadwalRecord.mk,
+                                            'Libur !',
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryColor,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Text(
                                         valueOrDefault<String>(
-                                          listViewJadwalRecord.mk,
-                                          'Libur !',
+                                          listViewJadwalRecord.jam,
+                                          'Jadwal Kosong',
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
                                               fontFamily: 'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryColor,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
+                                              color: Color(0xCDFFFFFF),
                                             ),
                                       ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 5),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 5, 0, 0),
+                                          child: Text(
+                                            valueOrDefault<String>(
+                                              listViewJadwalRecord.ruang,
+                                              'Jadwal Kosong',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: Color(0xCDFFFFFF),
+                                                ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
-                              ],
+                                  ),
+                                  Divider(
+                                    height: 1,
+                                    thickness: 1,
+                                    endIndent: 10,
+                                    color: FlutterFlowTheme.of(context).white,
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         );

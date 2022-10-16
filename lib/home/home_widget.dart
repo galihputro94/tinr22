@@ -193,26 +193,32 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   width: 50,
                                   height: 50,
                                   decoration: BoxDecoration(),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      FaIcon(
-                                        FontAwesomeIcons.users,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        size: 30,
-                                      ),
-                                      Text(
-                                        'Mahasiswa',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              fontSize: 11,
-                                            ),
-                                      ),
-                                    ],
+                                  child: InkWell(
+                                    onTap: () async {
+                                      context.pushNamed('listMhs');
+                                    },
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        FaIcon(
+                                          FontAwesomeIcons.users,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 30,
+                                        ),
+                                        Text(
+                                          'Mahasiswa',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                fontSize: 11,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 Padding(
