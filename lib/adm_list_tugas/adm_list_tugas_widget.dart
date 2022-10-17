@@ -31,7 +31,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF178B7E),
+      backgroundColor: Color(0xFF01A8C9),
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
@@ -102,7 +102,10 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                 width: MediaQuery.of(context).size.width,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: Color(0xFF090F13),
+                  color: FlutterFlowTheme.of(context).darkBG,
+                  border: Border.all(
+                    color: FlutterFlowTheme.of(context).darkBG,
+                  ),
                 ),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
@@ -162,8 +165,11 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                               width: MediaQuery.of(context).size.width,
                               height: 80,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).darkBG,
+                                color: Color(0xFF01A8C9),
                                 borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: FlutterFlowTheme.of(context).white,
+                                ),
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -189,7 +195,7 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                                                 fontFamily: 'Inter',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .white,
+                                                        .darkBG,
                                                 fontSize: 16,
                                               ),
                                         ),
@@ -360,8 +366,11 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                                   width: MediaQuery.of(context).size.width,
                                   height: 80,
                                   decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context).darkBG,
+                                    color: Color(0xFF01A8C9),
                                     borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context).white,
+                                    ),
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(

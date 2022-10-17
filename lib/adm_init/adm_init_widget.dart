@@ -2,6 +2,7 @@ import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -28,7 +29,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF178B7E),
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: Visibility(
         visible: valueOrDefault(currentUserDocument?.role, '') == 'admin',
         child: AuthUserStreamWidget(
@@ -40,7 +41,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                 width: MediaQuery.of(context).size.width,
                 height: 150,
                 decoration: BoxDecoration(
-                  color: Color(0xFF090F13),
+                  color: FlutterFlowTheme.of(context).tertiaryColor,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20),
@@ -77,10 +78,37 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(10, 0, 10, 20),
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                          child: Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
+                              child: Container(
+                                width: 60,
+                                height: 60,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.network(
+                                  'https://picsum.photos/seed/790/600',
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,14 +128,27 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                       ),
                                 ),
                               ),
-                              Text(
-                                'Role: ${valueOrDefault(currentUserDocument?.role, '')}',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: Color(0xA2FFFFFF),
-                                    ),
+                              Card(
+                                clipBehavior: Clip.antiAliasWithSaveLayer,
+                                color: Color(0xFFF5F5F5),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5, 5, 5, 5),
+                                  child: Text(
+                                    'Role: ${valueOrDefault(currentUserDocument?.role, '')}',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .tertiaryColor,
+                                          fontSize: 10,
+                                        ),
+                                  ),
+                                ),
                               ),
                             ],
                           ),
@@ -118,12 +159,80 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                 ),
               ),
               Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    FFButtonWidget(
+                      onPressed: () {
+                        print('Button pressed ...');
+                      },
+                      text: 'Beranda',
+                      icon: Icon(
+                        Icons.home_rounded,
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
+                        size: 20,
+                      ),
+                      options: FFButtonOptions(
+                        width: 140,
+                        height: 40,
+                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        textStyle: FlutterFlowTheme.of(context)
+                            .subtitle2
+                            .override(
+                              fontFamily: 'Poppins',
+                              color: FlutterFlowTheme.of(context).tertiaryColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    FFButtonWidget(
+                      onPressed: () async {
+                        await launchURL(
+                            'https://teams.live.com/l/invite/FEAKFbRnRHOj5PPaQM');
+                      },
+                      text: 'Basecamp',
+                      icon: Icon(
+                        Icons.bubble_chart,
+                        size: 20,
+                      ),
+                      options: FFButtonOptions(
+                        width: 140,
+                        height: 40,
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
+                        textStyle: FlutterFlowTheme.of(context)
+                            .subtitle2
+                            .override(
+                              fontFamily: 'Poppins',
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 300,
                   decoration: BoxDecoration(
-                    color: Color(0xFF090F13),
+                    color: FlutterFlowTheme.of(context).tertiaryColor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(

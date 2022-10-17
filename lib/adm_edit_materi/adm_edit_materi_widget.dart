@@ -55,14 +55,16 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).bg11,
+      backgroundColor: Color(0xFF01A8C9),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).bg11,
+        backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
+          borderColor: FlutterFlowTheme.of(context).darkBG,
           borderRadius: 30,
           borderWidth: 1,
           buttonSize: 60,
+          fillColor: FlutterFlowTheme.of(context).darkBG,
           icon: Icon(
             Icons.arrow_back_rounded,
             color: FlutterFlowTheme.of(context).white,
@@ -76,7 +78,7 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
           'Edit Materi',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Outfit',
-                color: Colors.white,
+                color: FlutterFlowTheme.of(context).white,
                 fontSize: 22,
               ),
         ),
@@ -105,14 +107,14 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                         ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).white,
+                        color: FlutterFlowTheme.of(context).secondaryColor,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).white,
+                        color: FlutterFlowTheme.of(context).secondaryColor,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(10),
@@ -131,6 +133,8 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
+                    filled: true,
+                    fillColor: FlutterFlowTheme.of(context).darkBG,
                   ),
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Inter',
@@ -153,14 +157,14 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                         ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).white,
+                        color: FlutterFlowTheme.of(context).secondaryColor,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).white,
+                        color: FlutterFlowTheme.of(context).secondaryColor,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(10),
@@ -179,6 +183,8 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
+                    filled: true,
+                    fillColor: FlutterFlowTheme.of(context).darkBG,
                   ),
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Inter',
@@ -214,9 +220,9 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                     color: FlutterFlowTheme.of(context).white,
                     size: 15,
                   ),
-                  fillColor: Color(0xFF178B7E),
+                  fillColor: FlutterFlowTheme.of(context).darkBG,
                   elevation: 2,
-                  borderColor: FlutterFlowTheme.of(context).white,
+                  borderColor: FlutterFlowTheme.of(context).secondaryColor,
                   borderWidth: 1,
                   borderRadius: 10,
                   margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
@@ -239,13 +245,13 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                   options: FFButtonOptions(
                     width: 130,
                     height: 50,
-                    color: Color(0xFF090F13),
+                    color: Color(0xFFFFF176),
                     textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                           fontFamily: 'Inter',
-                          color: Colors.white,
+                          color: FlutterFlowTheme.of(context).darkBG,
                         ),
                     borderSide: BorderSide(
-                      color: Colors.transparent,
+                      color: Color(0xFFFFF176),
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(8),

@@ -30,7 +30,7 @@ class _AdmListMateriWidgetState extends State<AdmListMateriWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).bg11,
+      backgroundColor: Color(0xFF01A8C9),
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
@@ -102,6 +102,12 @@ class _AdmListMateriWidgetState extends State<AdmListMateriWidget> {
                 height: 40,
                 decoration: BoxDecoration(
                   color: Color(0xFF090F13),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(30),
+                    bottomRight: Radius.circular(30),
+                    topLeft: Radius.circular(0),
+                    topRight: Radius.circular(0),
+                  ),
                 ),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
@@ -161,8 +167,11 @@ class _AdmListMateriWidgetState extends State<AdmListMateriWidget> {
                                 width: MediaQuery.of(context).size.width,
                                 height: 80,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).darkBG,
+                                  color: Color(0xFF01A8C9),
                                   borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context).darkBG,
+                                  ),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -196,7 +205,13 @@ class _AdmListMateriWidgetState extends State<AdmListMateriWidget> {
                                           Text(
                                             listViewMateriRecord.mk!,
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1,
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .white,
+                                                ),
                                           ),
                                         ],
                                       ),
@@ -204,15 +219,16 @@ class _AdmListMateriWidgetState extends State<AdmListMateriWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           FlutterFlowIconButton(
-                                            borderColor: Colors.transparent,
+                                            borderColor: Color(0xFF01A8C9),
                                             borderRadius: 30,
                                             borderWidth: 1,
                                             buttonSize: 40,
+                                            fillColor: Color(0xFF01A8C9),
                                             icon: FaIcon(
                                               FontAwesomeIcons.solidEdit,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                                      .white,
                                               size: 20,
                                             ),
                                             showLoadingIndicator: true,

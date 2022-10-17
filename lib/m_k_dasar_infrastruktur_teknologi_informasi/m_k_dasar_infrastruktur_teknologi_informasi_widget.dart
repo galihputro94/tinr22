@@ -37,9 +37,9 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF178B7E),
+      backgroundColor: Color(0xFF01A8C9),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).darkBG,
+        backgroundColor: Color(0xFF01A8C9),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -48,7 +48,7 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
           buttonSize: 60,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.of(context).background,
+            color: FlutterFlowTheme.of(context).darkBG,
             size: 30,
           ),
           onPressed: () async {
@@ -61,7 +61,7 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
           'Dasar Infrastruktur TI',
           style: FlutterFlowTheme.of(context).title3.override(
                 fontFamily: 'Outfit',
-                color: FlutterFlowTheme.of(context).white,
+                color: FlutterFlowTheme.of(context).darkBG,
                 fontSize: 18,
               ),
         ),
@@ -79,12 +79,15 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
                 width: MediaQuery.of(context).size.width,
                 height: 150,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).darkBG,
+                  color: Color(0xFF01A8C9),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20),
                     topLeft: Radius.circular(0),
                     topRight: Radius.circular(0),
+                  ),
+                  border: Border.all(
+                    color: Color(0xFF01A8C9),
                   ),
                 ),
                 child: Padding(
@@ -97,8 +100,11 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
                         width: 60,
                         height: 60,
                         decoration: BoxDecoration(
-                          color: Color(0xFFDBE2E7),
+                          color: FlutterFlowTheme.of(context).white,
                           shape: BoxShape.circle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).white,
+                          ),
                         ),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
@@ -187,7 +193,7 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
               thickness: 5,
               indent: 5,
               endIndent: 5,
-              color: Color(0xFF090F13),
+              color: FlutterFlowTheme.of(context).white,
             ),
             StreamBuilder<List<MateriRecord>>(
               stream: queryMateriRecord(
@@ -227,8 +233,12 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
                           width: MediaQuery.of(context).size.width,
                           height: 50,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).darkBG,
+                            color: FlutterFlowTheme.of(context).white,
                             borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryColor,
+                            ),
                           ),
                           child: Padding(
                             padding:
@@ -248,7 +258,7 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
                                           .override(
                                             fontFamily: 'Inter',
                                             color: FlutterFlowTheme.of(context)
-                                                .background,
+                                                .darkBG,
                                             fontSize: 18,
                                           ),
                                     ),
@@ -258,13 +268,17 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 0, 2),
                                   child: FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
+                                    borderColor:
+                                        FlutterFlowTheme.of(context).white,
                                     borderRadius: 30,
                                     borderWidth: 1,
                                     buttonSize: 60,
+                                    fillColor:
+                                        FlutterFlowTheme.of(context).white,
                                     icon: Icon(
                                       Icons.book,
-                                      color: FlutterFlowTheme.of(context).white,
+                                      color:
+                                          FlutterFlowTheme.of(context).darkBG,
                                       size: 30,
                                     ),
                                     onPressed: () {

@@ -34,9 +34,9 @@ class _MKAgamaWidgetState extends State<MKAgamaWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF178B7E),
+      backgroundColor: Color(0xFF01A8C9),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).darkBG,
+        backgroundColor: Color(0xFF01A8C9),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -45,7 +45,7 @@ class _MKAgamaWidgetState extends State<MKAgamaWidget> {
           buttonSize: 60,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.of(context).background,
+            color: FlutterFlowTheme.of(context).darkBG,
             size: 30,
           ),
           onPressed: () async {
@@ -58,7 +58,7 @@ class _MKAgamaWidgetState extends State<MKAgamaWidget> {
           'Agama',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Outfit',
-                color: Colors.white,
+                color: FlutterFlowTheme.of(context).darkBG,
                 fontSize: 18,
               ),
         ),
@@ -76,12 +76,15 @@ class _MKAgamaWidgetState extends State<MKAgamaWidget> {
                 width: MediaQuery.of(context).size.width,
                 height: 150,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).darkBG,
+                  color: Color(0xFF01A8C9),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20),
                     topLeft: Radius.circular(0),
                     topRight: Radius.circular(0),
+                  ),
+                  border: Border.all(
+                    color: Color(0xFF01A8C9),
                   ),
                 ),
                 child: Padding(
@@ -184,7 +187,7 @@ class _MKAgamaWidgetState extends State<MKAgamaWidget> {
               thickness: 5,
               indent: 5,
               endIndent: 5,
-              color: FlutterFlowTheme.of(context).darkBG,
+              color: FlutterFlowTheme.of(context).white,
             ),
             StreamBuilder<List<MateriRecord>>(
               stream: queryMateriRecord(
@@ -224,8 +227,12 @@ class _MKAgamaWidgetState extends State<MKAgamaWidget> {
                           width: MediaQuery.of(context).size.width,
                           height: 50,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).darkBG,
+                            color: FlutterFlowTheme.of(context).white,
                             borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryColor,
+                            ),
                           ),
                           child: Padding(
                             padding:
@@ -245,7 +252,7 @@ class _MKAgamaWidgetState extends State<MKAgamaWidget> {
                                           .override(
                                             fontFamily: 'Inter',
                                             color: FlutterFlowTheme.of(context)
-                                                .background,
+                                                .darkBG,
                                             fontSize: 18,
                                           ),
                                     ),
@@ -261,7 +268,8 @@ class _MKAgamaWidgetState extends State<MKAgamaWidget> {
                                     buttonSize: 60,
                                     icon: Icon(
                                       Icons.book,
-                                      color: FlutterFlowTheme.of(context).white,
+                                      color:
+                                          FlutterFlowTheme.of(context).darkBG,
                                       size: 30,
                                     ),
                                     onPressed: () {

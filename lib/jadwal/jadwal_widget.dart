@@ -1,12 +1,9 @@
 import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_calendar.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,75 +14,13 @@ class JadwalWidget extends StatefulWidget {
   _JadwalWidgetState createState() => _JadwalWidgetState();
 }
 
-class _JadwalWidgetState extends State<JadwalWidget>
-    with TickerProviderStateMixin {
-  final animationsMap = {
-    'containerOnActionTriggerAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onActionTrigger,
-      applyInitialState: true,
-      effects: [
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 270.ms,
-          duration: 600.ms,
-          begin: 2,
-          end: 1,
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 400.ms,
-          begin: Offset(70, 0),
-          end: Offset(0, 0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 200.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
-          duration: 400.ms,
-          begin: Offset(70, 0),
-          end: Offset(0, 0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 400.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 400.ms,
-          duration: 400.ms,
-          begin: Offset(70, 0),
-          end: Offset(0, 0),
-        ),
-      ],
-    ),
-  };
+class _JadwalWidgetState extends State<JadwalWidget> {
   DateTimeRange? calScheduleSelectedDay;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
-
     calScheduleSelectedDay = DateTimeRange(
       start: DateTime.now().startOfDay,
       end: DateTime.now().endOfDay,
@@ -120,6 +55,7 @@ class _JadwalWidgetState extends State<JadwalWidget>
                 fontFamily: 'Inter',
                 color: FlutterFlowTheme.of(context).tertiaryColor,
                 fontSize: 18,
+                fontWeight: FontWeight.bold,
               ),
         ),
         actions: [],
@@ -144,12 +80,15 @@ class _JadwalWidgetState extends State<JadwalWidget>
                 },
                 titleStyle: TextStyle(
                   color: FlutterFlowTheme.of(context).tertiaryColor,
+                  fontWeight: FontWeight.bold,
                 ),
                 dayOfWeekStyle: TextStyle(
                   color: FlutterFlowTheme.of(context).tertiaryColor,
+                  fontWeight: FontWeight.bold,
                 ),
                 dateStyle: TextStyle(
                   color: FlutterFlowTheme.of(context).tertiaryColor,
+                  fontWeight: FontWeight.bold,
                 ),
                 selectedDateStyle: TextStyle(
                   color: FlutterFlowTheme.of(context).white,
@@ -171,172 +110,297 @@ class _JadwalWidgetState extends State<JadwalWidget>
                 ),
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 30, 20, 0),
-                child: StreamBuilder<List<JadwalRecord>>(
-                  stream: queryJadwalRecord(
-                    queryBuilder: (jadwalRecord) => jadwalRecord
-                        .where('hari',
-                            isEqualTo: dateTimeFormat(
-                              'EEEE',
-                              calScheduleSelectedDay?.start,
-                              locale: FFLocalizations.of(context).languageCode,
-                            ))
-                        .orderBy('index'),
-                  ),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 50,
-                          height: 50,
-                          child: SpinKitDualRing(
-                            color: FlutterFlowTheme.of(context).white,
-                            size: 50,
+                padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: 100,
+                            height: 16,
+                            decoration: BoxDecoration(
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryColor,
+                              borderRadius: BorderRadius.circular(30),
+                              shape: BoxShape.rectangle,
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      18, 0, 0, 0),
+                                  child: Text(
+                                    'Jadwal Kelas',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: Colors.black,
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    }
-                    List<JadwalRecord> listViewJadwalRecordList =
-                        snapshot.data!;
-                    return ListView.builder(
-                      padding: EdgeInsets.zero,
-                      scrollDirection: Axis.vertical,
-                      itemCount: listViewJadwalRecordList.length,
-                      itemBuilder: (context, listViewIndex) {
-                        final listViewJadwalRecord =
-                            listViewJadwalRecordList[listViewIndex];
-                        return Row(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
+                          Container(
+                            height: 16,
+                            decoration: BoxDecoration(
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryColor,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
-                              child: Container(
-                                width: 16,
-                                height: 62,
-                                decoration: BoxDecoration(),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: 16,
-                                      height: 16,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        shape: BoxShape.circle,
-                                      ),
-                                    ).animateOnActionTrigger(
-                                      animationsMap[
-                                          'containerOnActionTriggerAnimation']!,
+                                  EdgeInsetsDirectional.fromSTEB(5, 1, 5, 1),
+                              child: Text(
+                                dateTimeFormat(
+                                  'MMMMEEEEd',
+                                  calScheduleSelectedDay!.start,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color:
+                                          FlutterFlowTheme.of(context).darkBG,
+                                      fontSize: 10,
                                     ),
-                                    Container(
-                                      width: 2,
-                                      height: 70,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                      ),
-                                    ),
-                                  ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                      child: StreamBuilder<List<JadwalRecord>>(
+                        stream: queryJadwalRecord(
+                          queryBuilder: (jadwalRecord) => jadwalRecord
+                              .where('hari',
+                                  isEqualTo: dateTimeFormat(
+                                    'EEEE',
+                                    calScheduleSelectedDay?.start,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ))
+                              .orderBy('index'),
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50,
+                                height: 50,
+                                child: SpinKitDualRing(
+                                  color: FlutterFlowTheme.of(context).white,
+                                  size: 50,
                                 ),
                               ),
-                            ),
-                            Expanded(
-                              child: Column(
+                            );
+                          }
+                          List<JadwalRecord> listViewJadwalRecordList =
+                              snapshot.data!;
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listViewJadwalRecordList.length,
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewJadwalRecord =
+                                  listViewJadwalRecordList[listViewIndex];
+                              return Row(
                                 mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 5),
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            listViewJadwalRecord.mk,
-                                            'Libur !',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryColor,
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'textOnPageLoadAnimation1']!),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Text(
-                                        valueOrDefault<String>(
-                                          listViewJadwalRecord.jam,
-                                          'Jadwal Kosong',
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color: Color(0xCDFFFFFF),
-                                            ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'textOnPageLoadAnimation2']!),
-                                    ],
-                                  ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 5),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0, 5, 0, 0),
-                                          child: Text(
-                                            valueOrDefault<String>(
-                                              listViewJadwalRecord.ruang,
-                                              'Jadwal Kosong',
+                                        0, 0, 10, 0),
+                                    child: Container(
+                                      width: 16,
+                                      height: 70,
+                                      decoration: BoxDecoration(),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                            width: 2,
+                                            height: 60,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .white,
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  color: Color(0xCDFFFFFF),
-                                                ),
-                                          ).animateOnPageLoad(animationsMap[
-                                              'textOnPageLoadAnimation3']!),
-                                        ),
-                                      ],
+                                          ),
+                                          Container(
+                                            width: 16,
+                                            height: 16,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .white,
+                                              shape: BoxShape.circle,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                  Divider(
-                                    height: 1,
-                                    thickness: 1,
-                                    endIndent: 10,
-                                    color: FlutterFlowTheme.of(context).white,
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.8,
+                                    height: 70,
+                                    decoration: BoxDecoration(),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 0, 1),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 10, 0, 0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 7, 5, 0),
+                                                  child: Icon(
+                                                    Icons.watch_later,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .white,
+                                                    size: 16,
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 7, 0, 0),
+                                                  child: Text(
+                                                    valueOrDefault<String>(
+                                                      listViewJadwalRecord.jam,
+                                                      'Jadwal Kosong',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xCDFFFFFF),
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 0, 5, 0),
+                                                child: Icon(
+                                                  Icons.location_on,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .white,
+                                                  size: 16,
+                                                ),
+                                              ),
+                                              Text(
+                                                valueOrDefault<String>(
+                                                  listViewJadwalRecord.ruang,
+                                                  'Jadwal Kosong',
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xCDFFFFFF),
+                                                          fontSize: 12,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 4, 0, 0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 0, 5, 0),
+                                                  child: Icon(
+                                                    Icons.ballot,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryColor,
+                                                    size: 16,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  valueOrDefault<String>(
+                                                    listViewJadwalRecord.mk,
+                                                    'Libur !',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryColor,
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                 ],
-                              ),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  },
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

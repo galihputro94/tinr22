@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ProfilePageWidget extends StatefulWidget {
-  const ProfilePageWidget({Key? key}) : super(key: key);
+class ProfilePageOldWidget extends StatefulWidget {
+  const ProfilePageOldWidget({Key? key}) : super(key: key);
 
   @override
-  _ProfilePageWidgetState createState() => _ProfilePageWidgetState();
+  _ProfilePageOldWidgetState createState() => _ProfilePageOldWidgetState();
 }
 
-class _ProfilePageWidgetState extends State<ProfilePageWidget> {
+class _ProfilePageOldWidgetState extends State<ProfilePageOldWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -42,7 +42,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
             ),
           );
         }
-        final profilePageUsersRecord = snapshot.data!;
+        final profilePageOldUsersRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
@@ -97,7 +97,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     ),
                                     child: Image.network(
                                       valueOrDefault<String>(
-                                        profilePageUsersRecord.photoUrl,
+                                        profilePageOldUsersRecord.photoUrl,
                                         'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
                                       ),
                                       fit: BoxFit.cover,
@@ -117,7 +117,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                               child: Text(
                                 valueOrDefault<String>(
-                                  profilePageUsersRecord.displayName,
+                                  profilePageOldUsersRecord.displayName,
                                   'Balla #1',
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -140,7 +140,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                               child: Text(
-                                profilePageUsersRecord.email!,
+                                profilePageOldUsersRecord.email!,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(

@@ -27,15 +27,15 @@ class _ListMKWidgetState extends State<ListMKWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).bg11,
+      backgroundColor: Color(0xFF01A8C9),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).bg11,
+        backgroundColor: Color(0xFF01A8C9),
         automaticallyImplyLeading: false,
         title: Text(
           'Mata Kuliah',
           style: FlutterFlowTheme.of(context).title1.override(
                 fontFamily: 'Outfit',
-                color: FlutterFlowTheme.of(context).white,
+                color: FlutterFlowTheme.of(context).darkBG,
                 fontSize: 20,
               ),
         ),
@@ -86,7 +86,7 @@ class _ListMKWidgetState extends State<ListMKWidget> {
                           child: Container(
                             width: double.infinity,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).darkBG,
+                              color: FlutterFlowTheme.of(context).white,
                               boxShadow: [
                                 BoxShadow(
                                   blurRadius: 3,
@@ -95,6 +95,9 @@ class _ListMKWidgetState extends State<ListMKWidget> {
                                 )
                               ],
                               borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).white,
+                              ),
                             ),
                             child: Padding(
                               padding:
@@ -122,7 +125,7 @@ class _ListMKWidgetState extends State<ListMKWidget> {
                                                   fontFamily: 'Outfit',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .white,
+                                                      .darkBG,
                                                 ),
                                           ),
                                           Padding(
@@ -142,7 +145,9 @@ class _ListMKWidgetState extends State<ListMKWidget> {
                                                       .override(
                                                         fontFamily: 'Inter',
                                                         color:
-                                                            Color(0xBEFFFFFF),
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .darkBG,
                                                       ),
                                             ),
                                           ),
@@ -161,7 +166,8 @@ class _ListMKWidgetState extends State<ListMKWidget> {
                                             0, 4, 0, 0),
                                         child: Icon(
                                           Icons.chevron_right_rounded,
-                                          color: Color(0xBEFFFFFF),
+                                          color: FlutterFlowTheme.of(context)
+                                              .darkBG,
                                           size: 24,
                                         ),
                                       ),
@@ -175,7 +181,9 @@ class _ListMKWidgetState extends State<ListMKWidget> {
                                               .bodyText1
                                               .override(
                                                 fontFamily: 'Inter',
-                                                color: Color(0xBEFFFFFF),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .darkBG,
                                               ),
                                         ),
                                       ),

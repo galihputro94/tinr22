@@ -29,7 +29,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF178B7E),
+      backgroundColor: Color(0xFF01A8C9),
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,

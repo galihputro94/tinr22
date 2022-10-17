@@ -76,7 +76,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   width: 40,
                                   height: 40,
                                   decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context).white,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                     borderRadius: BorderRadius.circular(50),
                                   ),
                                   child: Padding(
@@ -85,8 +86,19 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     child: AuthUserStreamWidget(
                                       child: InkWell(
                                         onTap: () async {
-                                          scaffoldKey.currentState!
-                                              .openDrawer();
+                                          context.pushNamed(
+                                            'UserProfile',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                              ),
+                                            },
+                                          );
                                         },
                                         child: Container(
                                           width: 40,
@@ -113,13 +125,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
                                 child: AuthUserStreamWidget(
                                   child: Text(
-                                    currentUserDisplayName,
+                                    currentUserDisplayName.maybeHandleOverflow(
+                                        maxChars: 25),
                                     style: FlutterFlowTheme.of(context)
                                         .title1
                                         .override(
                                           fontFamily: 'Outfit',
                                           color: FlutterFlowTheme.of(context)
-                                              .white,
+                                              .primaryText,
                                           fontSize: 20,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -133,16 +146,25 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                             child: FlutterFlowIconButton(
                               borderColor: Colors.transparent,
-                              borderRadius: 30,
+                              borderRadius: 50,
                               borderWidth: 1,
-                              buttonSize: 40,
-                              icon: FaIcon(
-                                FontAwesomeIcons.solidBell,
-                                color: FlutterFlowTheme.of(context).white,
-                                size: 20,
+                              buttonSize: 60,
+                              icon: Icon(
+                                Icons.info_sharp,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                size: 30,
                               ),
-                              onPressed: () {
-                                print('IconButton pressed ...');
+                              onPressed: () async {
+                                context.pushNamed(
+                                  'infoPage',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 500),
+                                    ),
+                                  },
+                                );
                               },
                             ),
                           ),
@@ -264,27 +286,32 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     width: 50,
                                     height: 50,
                                     decoration: BoxDecoration(),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        FaIcon(
-                                          FontAwesomeIcons.book,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          size: 30,
-                                        ),
-                                        Text(
-                                          'Materi',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                fontSize: 11,
-                                              ),
-                                        ),
-                                      ],
+                                    child: InkWell(
+                                      onTap: () async {
+                                        context.pushNamed('listMK');
+                                      },
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          FaIcon(
+                                            FontAwesomeIcons.book,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 30,
+                                          ),
+                                          Text(
+                                            'Materi',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 11,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -326,27 +353,32 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     width: 50,
                                     height: 50,
                                     decoration: BoxDecoration(),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        FaIcon(
-                                          FontAwesomeIcons.photoVideo,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          size: 30,
-                                        ),
-                                        Text(
-                                          'Dokumentasi',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                fontSize: 11,
-                                              ),
-                                        ),
-                                      ],
+                                    child: InkWell(
+                                      onTap: () async {
+                                        context.pushNamed('Galery');
+                                      },
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          FaIcon(
+                                            FontAwesomeIcons.photoVideo,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 30,
+                                          ),
+                                          Text(
+                                            'Dokumentasi',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 11,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),

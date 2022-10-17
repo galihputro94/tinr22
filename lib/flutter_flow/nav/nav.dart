@@ -69,13 +69,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? HomeWidget() : LoginWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomeWidget() : LoginWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
           routes: [
             FFRoute(
               name: 'completProfile',
@@ -88,19 +88,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => CreateAccountWidget(),
             ),
             FFRoute(
-              name: 'login',
-              path: 'login',
-              builder: (context, params) => LoginWidget(),
-            ),
-            FFRoute(
               name: 'editProfile',
               path: 'editProfile',
               builder: (context, params) => EditProfileWidget(),
             ),
             FFRoute(
-              name: 'profilePage',
-              path: 'profilePage',
-              builder: (context, params) => ProfilePageWidget(),
+              name: 'login',
+              path: 'login',
+              builder: (context, params) => LoginWidget(),
+            ),
+            FFRoute(
+              name: 'profilePageOld',
+              path: 'profilePageOld',
+              requireAuth: true,
+              builder: (context, params) => ProfilePageOldWidget(),
             ),
             FFRoute(
               name: 'changePassword',
@@ -127,7 +128,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'home',
               path: 'home',
               requireAuth: true,
-              builder: (context, params) => HomeWidget(),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'home')
+                  : HomeWidget(),
             ),
             FFRoute(
               name: 'MKFisika',
@@ -148,11 +151,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Galery',
               path: 'galery',
               builder: (context, params) => GaleryWidget(),
-            ),
-            FFRoute(
-              name: 'MKAlogaritmaDanPemograman',
-              path: 'mKAlogaritmaDanPemograman',
-              builder: (context, params) => MKAlogaritmaDanPemogramanWidget(),
             ),
             FFRoute(
               name: 'adm_addMateri',
@@ -203,6 +201,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => MKAgamaWidget(),
             ),
             FFRoute(
+              name: 'MKAlogaritmaDanPemograman',
+              path: 'mKAlogaritmaDanPemograman',
+              builder: (context, params) => MKAlogaritmaDanPemogramanWidget(),
+            ),
+            FFRoute(
               name: 'MKDasarInfrastrukturTeknologiInformasi',
               path: 'mKDasarInfrastrukturTeknologiInformasi',
               builder: (context, params) =>
@@ -251,11 +254,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => MKKalkulusWidget(),
             ),
             FFRoute(
-              name: 'GreatMatakuliah',
-              path: 'greatMatakuliah',
-              builder: (context, params) => GreatMatakuliahWidget(),
-            ),
-            FFRoute(
               name: 'MKPancasila',
               path: 'mKPancasila',
               builder: (context, params) => MKPancasilaWidget(),
@@ -264,6 +262,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'listMK',
               path: 'listMK',
               builder: (context, params) => ListMKWidget(),
+            ),
+            FFRoute(
+              name: 'UserProfile',
+              path: 'userProfile',
+              requireAuth: true,
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'UserProfile')
+                  : UserProfileWidget(),
+            ),
+            FFRoute(
+              name: 'infoPage',
+              path: 'infoPage',
+              builder: (context, params) => InfoPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

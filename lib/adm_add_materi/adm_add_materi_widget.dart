@@ -43,9 +43,9 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF178B7E),
+      backgroundColor: Color(0xFF01A8C9),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).bg11,
+        backgroundColor: FlutterFlowTheme.of(context).darkBG,
         automaticallyImplyLeading: false,
         title: Visibility(
           visible: valueOrDefault(currentUserDocument?.role, '') == 'admin',
@@ -54,7 +54,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
               'Tambah Materi',
               style: FlutterFlowTheme.of(context).title2.override(
                     fontFamily: 'Outfit',
-                    color: FlutterFlowTheme.of(context).background,
+                    color: FlutterFlowTheme.of(context).white,
                   ),
             ),
           ),
@@ -68,7 +68,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
               buttonSize: 48,
               icon: Icon(
                 Icons.close_rounded,
-                color: FlutterFlowTheme.of(context).background,
+                color: FlutterFlowTheme.of(context).white,
                 size: 30,
               ),
               onPressed: () async {
@@ -91,6 +91,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                 autovalidateMode: AutovalidateMode.always,
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
@@ -108,14 +109,16 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                                   ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).white,
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryColor,
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).white,
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryColor,
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(10),
@@ -134,6 +137,8 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
+                          filled: true,
+                          fillColor: FlutterFlowTheme.of(context).darkBG,
                         ),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Inter',
@@ -164,14 +169,16 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                                   ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).white,
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryColor,
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).white,
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryColor,
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(10),
@@ -190,6 +197,8 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
+                          filled: true,
+                          fillColor: FlutterFlowTheme.of(context).darkBG,
                         ),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Inter',
@@ -227,9 +236,10 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                                   color: FlutterFlowTheme.of(context).white,
                                 ),
                         hintText: 'Pilih Mata Kuliah',
-                        fillColor: FlutterFlowTheme.of(context).bg11,
+                        fillColor: FlutterFlowTheme.of(context).darkBG,
                         elevation: 2,
-                        borderColor: FlutterFlowTheme.of(context).white,
+                        borderColor:
+                            FlutterFlowTheme.of(context).secondaryColor,
                         borderWidth: 1,
                         borderRadius: 10,
                         margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
@@ -279,14 +289,14 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                         options: FFButtonOptions(
                           width: 130,
                           height: 50,
-                          color: Color(0xFF090F13),
+                          color: FlutterFlowTheme.of(context).secondaryColor,
                           textStyle:
                               FlutterFlowTheme.of(context).subtitle2.override(
                                     fontFamily: 'Inter',
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context).darkBG,
                                   ),
                           borderSide: BorderSide(
-                            color: Colors.transparent,
+                            color: Color(0xFFFFF176),
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(8),
