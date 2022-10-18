@@ -27,6 +27,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     emailAddressController = TextEditingController();
     passwordController = TextEditingController();
     passwordVisibility = false;
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'login'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -334,6 +335,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       children: [
                                         FFButtonWidget(
                                           onPressed: () async {
+                                            logFirebaseEvent(
+                                                'LOGIN_PAGE_ButtonForgotPassword_ON_TAP');
+                                            logFirebaseEvent(
+                                                'ButtonForgotPassword_navigate_to');
+
                                             context.pushNamed('changePassword');
                                           },
                                           text: 'Lupa Sandi?',
@@ -363,6 +369,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         ),
                                         FFButtonWidget(
                                           onPressed: () async {
+                                            logFirebaseEvent(
+                                                'LOGIN_PAGE_ButtonLogin_ON_TAP');
+                                            logFirebaseEvent(
+                                                'ButtonLogin_auth');
                                             GoRouter.of(context)
                                                 .prepareAuthEvent();
 

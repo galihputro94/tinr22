@@ -26,7 +26,7 @@ class _MKKalkulusWidgetState extends State<MKKalkulusWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'MKKalkulus'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -49,7 +49,12 @@ class _MKKalkulusWidgetState extends State<MKKalkulusWidget> {
             size: 30,
           ),
           onPressed: () async {
+            logFirebaseEvent('M_K_KALKULUS_arrow_back_rounded_ICN_ON_T');
+            logFirebaseEvent('IconButton_navigate_to');
+
             context.pushNamed('home');
+
+            logFirebaseEvent('IconButton_navigate_to');
 
             context.pushNamed('home');
           },
@@ -105,6 +110,10 @@ class _MKKalkulusWidgetState extends State<MKKalkulusWidget> {
                           child: AuthUserStreamWidget(
                             child: InkWell(
                               onTap: () async {
+                                logFirebaseEvent(
+                                    'M_K_KALKULUS_CircleImage_nvem8f27_ON_TAP');
+                                logFirebaseEvent(
+                                    'CircleImage_upload_photo_video');
                                 final selectedMedia = await selectMedia(
                                   mediaSource: MediaSource.photoGallery,
                                   multiImage: false,
@@ -221,6 +230,9 @@ class _MKKalkulusWidgetState extends State<MKKalkulusWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(10, 4, 10, 5),
                       child: InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'M_K_KALKULUS_Container_k4vkle6t_ON_TAP');
+                          logFirebaseEvent('Container_launch_u_r_l');
                           await launchURL(listViewMateriRecord.link!);
                         },
                         child: Container(

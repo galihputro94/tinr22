@@ -19,7 +19,7 @@ class _InfoPageWidgetState extends State<InfoPageWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'infoPage'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -349,8 +349,12 @@ class _InfoPageWidgetState extends State<InfoPageWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'INFO_SUPPORT_PROJECT_BTN_ON_TAP');
+                                      logFirebaseEvent('Button_launch_u_r_l');
+                                      await launchURL(
+                                          'https://saweria.co/tinr22');
                                     },
                                     text: 'Support Project',
                                     icon: FaIcon(

@@ -20,7 +20,8 @@ class _ProfilePageOldWidgetState extends State<ProfilePageOldWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'profilePageOld'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -214,6 +215,10 @@ class _ProfilePageOldWidgetState extends State<ProfilePageOldWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                           child: InkWell(
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'PROFILE_OLD_Container_mg8r63wq_ON_TAP');
+                              logFirebaseEvent('Container_navigate_to');
+
                               context.pushNamed('editProfile');
                             },
                             child: Container(
@@ -267,6 +272,10 @@ class _ProfilePageOldWidgetState extends State<ProfilePageOldWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                           child: InkWell(
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'PROFILE_OLD_Container_d15vlf62_ON_TAP');
+                              logFirebaseEvent('Container_navigate_to');
+
                               context.pushNamed('changePassword');
                             },
                             child: Material(
@@ -332,6 +341,10 @@ class _ProfilePageOldWidgetState extends State<ProfilePageOldWidget> {
                             child: AuthUserStreamWidget(
                               child: InkWell(
                                 onTap: () async {
+                                  logFirebaseEvent(
+                                      'PROFILE_OLD_Container_6luepq4s_ON_TAP');
+                                  logFirebaseEvent('Container_navigate_to');
+
                                   context.pushNamed(
                                     'adm_init',
                                     extra: <String, dynamic>{
@@ -400,6 +413,9 @@ class _ProfilePageOldWidgetState extends State<ProfilePageOldWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                           child: InkWell(
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'PROFILE_OLD_Container_y2yatpdp_ON_TAP');
+                              logFirebaseEvent('Container_launch_u_r_l');
                               await launchURL(
                                   'https://forms.gle/1J1pPZK67BPBTYMK9');
                             },
@@ -460,8 +476,12 @@ class _ProfilePageOldWidgetState extends State<ProfilePageOldWidget> {
                             children: [
                               FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'PROFILE_PAGE_OLD_PAGE_KELUAR_BTN_ON_TAP');
+                                  logFirebaseEvent('Button_auth');
                                   GoRouter.of(context).prepareAuthEvent();
                                   await signOut();
+                                  logFirebaseEvent('Button_navigate_to');
 
                                   context.pushNamedAuth(
                                     'login',

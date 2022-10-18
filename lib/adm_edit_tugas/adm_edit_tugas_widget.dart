@@ -52,6 +52,8 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
     ));
     namaTugasEditController = TextEditingController(text: widget.namaTugasEdit);
     linkFieldController = TextEditingController(text: widget.ketTugasEdit);
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'adm_editTugas'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -67,9 +69,9 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF01A8C9),
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).darkBG,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderRadius: 30,
@@ -77,10 +79,14 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
           buttonSize: 60,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.of(context).white,
+            color: FlutterFlowTheme.of(context).tertiaryColor,
             size: 30,
           ),
+          showLoadingIndicator: true,
           onPressed: () async {
+            logFirebaseEvent('ADM_EDIT_TUGAS_arrow_back_rounded_ICN_ON');
+            logFirebaseEvent('IconButton_navigate_to');
+
             context.pushNamed('adm_ListTugas');
           },
         ),
@@ -88,8 +94,9 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
           'Edit Tugas',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Outfit',
-                color: Colors.white,
+                color: FlutterFlowTheme.of(context).tertiaryColor,
                 fontSize: 22,
+                fontWeight: FontWeight.w600,
               ),
         ),
         actions: [],
@@ -121,14 +128,14 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                                 ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).secondaryColor,
+                            color: FlutterFlowTheme.of(context).tertiaryColor,
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).secondaryColor,
+                            color: FlutterFlowTheme.of(context).tertiaryColor,
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(10),
@@ -147,12 +154,10 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        filled: true,
-                        fillColor: FlutterFlowTheme.of(context).darkBG,
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Inter',
-                            color: FlutterFlowTheme.of(context).white,
+                            color: FlutterFlowTheme.of(context).tertiaryColor,
                           ),
                     ),
                   ),
@@ -175,15 +180,20 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                           setState(() => mkTugasEditValue = val),
                       width: MediaQuery.of(context).size.width,
                       height: 50,
-                      textStyle:
-                          FlutterFlowTheme.of(context).bodyText1.override(
-                                fontFamily: 'Inter',
-                                color: FlutterFlowTheme.of(context).white,
-                              ),
+                      textStyle: FlutterFlowTheme.of(context)
+                          .bodyText1
+                          .override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context).tertiaryColor,
+                          ),
                       hintText: 'Pilih Mata Kuliah',
-                      fillColor: FlutterFlowTheme.of(context).darkBG,
+                      icon: FaIcon(
+                        FontAwesomeIcons.caretDown,
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
+                        size: 15,
+                      ),
                       elevation: 2,
-                      borderColor: FlutterFlowTheme.of(context).secondaryColor,
+                      borderColor: FlutterFlowTheme.of(context).tertiaryColor,
                       borderWidth: 1,
                       borderRadius: 10,
                       margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
@@ -198,21 +208,16 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: 'Deadline Tugas',
-                        hintStyle:
-                            FlutterFlowTheme.of(context).bodyText2.override(
-                                  fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context).white,
-                                ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).white,
+                            color: FlutterFlowTheme.of(context).tertiaryColor,
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).white,
+                            color: FlutterFlowTheme.of(context).tertiaryColor,
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(10),
@@ -231,12 +236,10 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        filled: true,
-                        fillColor: FlutterFlowTheme.of(context).darkBG,
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Inter',
-                            color: FlutterFlowTheme.of(context).white,
+                            color: FlutterFlowTheme.of(context).tertiaryColor,
                           ),
                     ),
                   ),
@@ -244,6 +247,9 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'ADM_EDIT_TUGAS_PAGE_deadlineEdit_ON_TAP');
+                        logFirebaseEvent('deadlineEdit_date_time_picker');
                         if (kIsWeb) {
                           final _datePickedDate = await showDatePicker(
                             context: context,
@@ -294,19 +300,21 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                       text: 'Ubah Deadline',
                       icon: FaIcon(
                         FontAwesomeIcons.calendar,
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
                         size: 20,
                       ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 50,
-                        color: FlutterFlowTheme.of(context).darkBG,
-                        textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context).white,
-                                ),
+                        color: Color(0x00111417),
+                        textStyle: FlutterFlowTheme.of(context)
+                            .subtitle2
+                            .override(
+                              fontFamily: 'Inter',
+                              color: FlutterFlowTheme.of(context).tertiaryColor,
+                            ),
                         borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).secondaryColor,
+                          color: FlutterFlowTheme.of(context).tertiaryColor,
                           width: 1,
                         ),
                         borderRadius: BorderRadius.circular(8),
@@ -329,14 +337,14 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                                 ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).secondaryColor,
+                            color: FlutterFlowTheme.of(context).tertiaryColor,
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).secondaryColor,
+                            color: FlutterFlowTheme.of(context).tertiaryColor,
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(10),
@@ -355,12 +363,10 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        filled: true,
-                        fillColor: FlutterFlowTheme.of(context).darkBG,
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Inter',
-                            color: FlutterFlowTheme.of(context).white,
+                            color: FlutterFlowTheme.of(context).tertiaryColor,
                           ),
                       maxLines: 8,
                       keyboardType: TextInputType.multiline,
@@ -370,6 +376,10 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent(
+                            'ADM_EDIT_TUGAS_PAGE_subMateri_ON_TAP');
+                        logFirebaseEvent('subMateri_backend_call');
+
                         final tugasUpdateData = createTugasRecordData(
                           namaTugas: widget.namaTugasEdit,
                           mkTugas: widget.mkTugasEdit,
@@ -378,20 +388,20 @@ class _AdmEditTugasWidgetState extends State<AdmEditTugasWidget> {
                           isActive: true,
                         );
                         await widget.editTugasRef!.update(tugasUpdateData);
+                        logFirebaseEvent('subMateri_navigate_back');
                         context.pop();
                       },
                       text: 'Simpan',
                       options: FFButtonOptions(
                         width: 130,
                         height: 50,
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
                         textStyle:
                             FlutterFlowTheme.of(context).subtitle2.override(
                                   fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context).darkBG,
+                                  color: FlutterFlowTheme.of(context).white,
                                 ),
                         borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).secondaryColor,
                           width: 1,
                         ),
                         borderRadius: BorderRadius.circular(8),

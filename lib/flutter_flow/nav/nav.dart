@@ -78,11 +78,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
           routes: [
             FFRoute(
-              name: 'completProfile',
-              path: 'completProfile',
-              builder: (context, params) => CompletProfileWidget(),
-            ),
-            FFRoute(
               name: 'createAccount',
               path: 'createAccount',
               builder: (context, params) => CreateAccountWidget(),
@@ -158,6 +153,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => AdmAddMateriWidget(),
             ),
             FFRoute(
+              name: 'completProfile',
+              path: 'completProfile',
+              builder: (context, params) => CompletProfileWidget(),
+            ),
+            FFRoute(
               name: 'adm_ListMateri',
               path: 'admListMateri',
               builder: (context, params) => AdmListMateriWidget(),
@@ -175,15 +175,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'add_Tugas',
-              path: 'addTugas',
-              builder: (context, params) => AddTugasWidget(),
-            ),
-            FFRoute(
               name: 'adm_init',
               path: 'admInit',
               requireAuth: true,
               builder: (context, params) => AdmInitWidget(),
+            ),
+            FFRoute(
+              name: 'add_Tugas',
+              path: 'addTugas',
+              builder: (context, params) => AddTugasWidget(),
             ),
             FFRoute(
               name: 'listMhs',
@@ -201,15 +201,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => MKAgamaWidget(),
             ),
             FFRoute(
-              name: 'MKAlogaritmaDanPemograman',
-              path: 'mKAlogaritmaDanPemograman',
-              builder: (context, params) => MKAlogaritmaDanPemogramanWidget(),
-            ),
-            FFRoute(
               name: 'MKDasarInfrastrukturTeknologiInformasi',
               path: 'mKDasarInfrastrukturTeknologiInformasi',
               builder: (context, params) =>
                   MKDasarInfrastrukturTeknologiInformasiWidget(),
+            ),
+            FFRoute(
+              name: 'MKAlogaritmaDanPemograman',
+              path: 'mKAlogaritmaDanPemograman',
+              builder: (context, params) => MKAlogaritmaDanPemogramanWidget(),
             ),
             FFRoute(
               name: 'adm_editTugas',
@@ -259,11 +259,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => MKPancasilaWidget(),
             ),
             FFRoute(
-              name: 'listMK',
-              path: 'listMK',
-              builder: (context, params) => ListMKWidget(),
-            ),
-            FFRoute(
               name: 'UserProfile',
               path: 'userProfile',
               requireAuth: true,
@@ -275,6 +270,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'infoPage',
               path: 'infoPage',
               builder: (context, params) => InfoPageWidget(),
+            ),
+            FFRoute(
+              name: 'listMK',
+              path: 'listMK',
+              builder: (context, params) => ListMKWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

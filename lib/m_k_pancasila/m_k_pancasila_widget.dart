@@ -19,7 +19,7 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'MKPancasila'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -42,6 +42,8 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
             size: 30,
           ),
           onPressed: () async {
+            logFirebaseEvent('M_K_PANCASILA_arrow_back_rounded_ICN_ON_');
+            logFirebaseEvent('IconButton_navigate_back');
             context.pop();
           },
         ),
@@ -161,6 +163,9 @@ class _MKPancasilaWidgetState extends State<MKPancasilaWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(10, 4, 10, 5),
                       child: InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'M_K_PANCASILA_Container_5lmjmiam_ON_TAP');
+                          logFirebaseEvent('Container_launch_u_r_l');
                           await launchURL(listViewMateriRecord.link!);
                         },
                         child: Container(

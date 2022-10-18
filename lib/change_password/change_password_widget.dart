@@ -23,6 +23,8 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
   void initState() {
     super.initState();
     emailAddressController = TextEditingController(text: currentUserEmail);
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'changePassword'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -59,6 +61,8 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             automaticallyImplyLeading: false,
             leading: InkWell(
               onTap: () async {
+                logFirebaseEvent('CHANGE_PASSWORD_Icon_3jv016cz_ON_TAP');
+                logFirebaseEvent('Icon_navigate_back');
                 context.pop();
               },
               child: Icon(
@@ -78,7 +82,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             ),
             actions: [],
             centerTitle: true,
-            elevation: 0,
+            elevation: 4,
           ),
           body: SafeArea(
             child: Container(
@@ -172,6 +176,9 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
+                          logFirebaseEvent(
+                              'CHANGE_PASSWORD_ATUR_ULANG_BTN_ON_TAP');
+                          logFirebaseEvent('Button_auth');
                           if (emailAddressController!.text.isEmpty) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(

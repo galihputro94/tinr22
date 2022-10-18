@@ -34,6 +34,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
     super.initState();
     linkFieldController = TextEditingController();
     namaTugasController = TextEditingController();
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'add_Tugas'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -48,15 +49,15 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF01A8C9),
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).darkBG,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
         title: Text(
           'Tambah Tugas',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Outfit',
-                color: Colors.white,
+                color: FlutterFlowTheme.of(context).tertiaryColor,
                 fontSize: 22,
               ),
         ),
@@ -70,10 +71,13 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
               buttonSize: 48,
               icon: Icon(
                 Icons.close,
-                color: Colors.white,
+                color: FlutterFlowTheme.of(context).tertiaryColor,
                 size: 30,
               ),
               onPressed: () async {
+                logFirebaseEvent('ADD_TUGAS_PAGE_close_ICN_ON_TAP');
+                logFirebaseEvent('IconButton_navigate_to');
+
                 context.pushNamed('adm_ListTugas');
               },
             ),
@@ -129,16 +133,10 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                               decoration: InputDecoration(
                                 labelText: 'Nama Tugas',
                                 hintText: 'Nama Tugas...',
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyText2
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context).white,
-                                    ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
-                                        .secondaryColor,
+                                        .tertiaryColor,
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(10),
@@ -146,7 +144,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
-                                        .secondaryColor,
+                                        .tertiaryColor,
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(10),
@@ -165,14 +163,13 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                                   ),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
-                                filled: true,
-                                fillColor: FlutterFlowTheme.of(context).darkBG,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context).white,
+                                    color: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
                                   ),
                               validator: (val) {
                                 if (val == null || val.isEmpty) {
@@ -218,15 +215,19 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                                       .bodyText1
                                       .override(
                                         fontFamily: 'Inter',
-                                        color:
-                                            FlutterFlowTheme.of(context).white,
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiaryColor,
                                       ),
                                   hintText: 'Pilih Mata Kuliah',
-                                  fillColor:
-                                      FlutterFlowTheme.of(context).darkBG,
-                                  elevation: 2,
+                                  icon: FaIcon(
+                                    FontAwesomeIcons.caretDown,
+                                    color: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
+                                    size: 15,
+                                  ),
+                                  elevation: 5,
                                   borderColor: FlutterFlowTheme.of(context)
-                                      .secondaryColor,
+                                      .tertiaryColor,
                                   borderWidth: 1,
                                   borderRadius: 10,
                                   margin: EdgeInsetsDirectional.fromSTEB(
@@ -241,6 +242,9 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                                 EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
                             child: FFButtonWidget(
                               onPressed: () async {
+                                logFirebaseEvent(
+                                    'ADD_TUGAS_PAGE_DEADLINE_TUGAS_BTN_ON_TAP');
+                                logFirebaseEvent('Button_date_time_picker');
                                 if (kIsWeb) {
                                   final _datePickedDate = await showDatePicker(
                                     context: context,
@@ -297,16 +301,17 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 50,
-                                color: FlutterFlowTheme.of(context).darkBG,
+                                color: Color(0x0001A8C9),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .subtitle2
                                     .override(
                                       fontFamily: 'Inter',
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
                                     ),
                                 borderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context)
-                                      .secondaryColor,
+                                      .tertiaryColor,
                                   width: 1,
                                 ),
                                 borderRadius: BorderRadius.circular(8),
@@ -332,7 +337,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
-                                        .secondaryColor,
+                                        .tertiaryColor,
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(10),
@@ -340,7 +345,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context)
-                                        .secondaryColor,
+                                        .tertiaryColor,
                                     width: 1,
                                   ),
                                   borderRadius: BorderRadius.circular(10),
@@ -359,14 +364,13 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                                   ),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
-                                filled: true,
-                                fillColor: FlutterFlowTheme.of(context).darkBG,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context).white,
+                                    color: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
                                   ),
                               maxLines: 8,
                               keyboardType: TextInputType.multiline,
@@ -384,10 +388,15 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                                 EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             child: FFButtonWidget(
                               onPressed: () async {
+                                logFirebaseEvent(
+                                    'ADD_TUGAS_PAGE_subMateri_ON_TAP');
+                                logFirebaseEvent('subMateri_validate_form');
                                 if (formKey.currentState == null ||
                                     !formKey.currentState!.validate()) {
                                   return;
                                 }
+
+                                logFirebaseEvent('subMateri_backend_call');
 
                                 final tugasCreateData = createTugasRecordData(
                                   namaTugas: namaTugasController!.text,
@@ -403,6 +412,7 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                                 await TugasRecord.collection
                                     .doc()
                                     .set(tugasCreateData);
+                                logFirebaseEvent('subMateri_navigate_back');
                                 context.pop();
                               },
                               text: 'Simpan',
@@ -410,17 +420,16 @@ class _AddTugasWidgetState extends State<AddTugasWidget> {
                                 width: 130,
                                 height: 50,
                                 color:
-                                    FlutterFlowTheme.of(context).secondaryColor,
+                                    FlutterFlowTheme.of(context).tertiaryColor,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .subtitle2
                                     .override(
                                       fontFamily: 'Inter',
-                                      color:
-                                          FlutterFlowTheme.of(context).darkBG,
+                                      color: FlutterFlowTheme.of(context).white,
                                     ),
                                 borderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context)
-                                      .secondaryColor,
+                                      .tertiaryColor,
                                   width: 1,
                                 ),
                                 borderRadius: BorderRadius.circular(8),

@@ -41,10 +41,10 @@ class _$MateriRecordSerializer implements StructuredSerializer<MateriRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.jadwalref;
+    value = object.jadwalRef;
     if (value != null) {
       result
-        ..add('jadwalref')
+        ..add('jadwalRef')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(
                 DocumentReference, const [const FullType.nullable(Object)])));
@@ -84,8 +84,8 @@ class _$MateriRecordSerializer implements StructuredSerializer<MateriRecord> {
           result.mk = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'jadwalref':
-          result.jadwalref = serializers.deserialize(value,
+        case 'jadwalRef':
+          result.jadwalRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
                 const FullType.nullable(Object)
               ])) as DocumentReference<Object?>?;
@@ -111,14 +111,14 @@ class _$MateriRecord extends MateriRecord {
   @override
   final String? mk;
   @override
-  final DocumentReference<Object?>? jadwalref;
+  final DocumentReference<Object?>? jadwalRef;
   @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$MateriRecord([void Function(MateriRecordBuilder)? updates]) =>
       (new MateriRecordBuilder()..update(updates))._build();
 
-  _$MateriRecord._({this.nama, this.link, this.mk, this.jadwalref, this.ffRef})
+  _$MateriRecord._({this.nama, this.link, this.mk, this.jadwalRef, this.ffRef})
       : super._();
 
   @override
@@ -135,7 +135,7 @@ class _$MateriRecord extends MateriRecord {
         nama == other.nama &&
         link == other.link &&
         mk == other.mk &&
-        jadwalref == other.jadwalref &&
+        jadwalRef == other.jadwalRef &&
         ffRef == other.ffRef;
   }
 
@@ -143,7 +143,7 @@ class _$MateriRecord extends MateriRecord {
   int get hashCode {
     return $jf($jc(
         $jc($jc($jc($jc(0, nama.hashCode), link.hashCode), mk.hashCode),
-            jadwalref.hashCode),
+            jadwalRef.hashCode),
         ffRef.hashCode));
   }
 
@@ -153,7 +153,7 @@ class _$MateriRecord extends MateriRecord {
           ..add('nama', nama)
           ..add('link', link)
           ..add('mk', mk)
-          ..add('jadwalref', jadwalref)
+          ..add('jadwalRef', jadwalRef)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -175,10 +175,10 @@ class MateriRecordBuilder
   String? get mk => _$this._mk;
   set mk(String? mk) => _$this._mk = mk;
 
-  DocumentReference<Object?>? _jadwalref;
-  DocumentReference<Object?>? get jadwalref => _$this._jadwalref;
-  set jadwalref(DocumentReference<Object?>? jadwalref) =>
-      _$this._jadwalref = jadwalref;
+  DocumentReference<Object?>? _jadwalRef;
+  DocumentReference<Object?>? get jadwalRef => _$this._jadwalRef;
+  set jadwalRef(DocumentReference<Object?>? jadwalRef) =>
+      _$this._jadwalRef = jadwalRef;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -194,7 +194,7 @@ class MateriRecordBuilder
       _nama = $v.nama;
       _link = $v.link;
       _mk = $v.mk;
-      _jadwalref = $v.jadwalref;
+      _jadwalRef = $v.jadwalRef;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -218,7 +218,7 @@ class MateriRecordBuilder
   _$MateriRecord _build() {
     final _$result = _$v ??
         new _$MateriRecord._(
-            nama: nama, link: link, mk: mk, jadwalref: jadwalref, ffRef: ffRef);
+            nama: nama, link: link, mk: mk, jadwalRef: jadwalRef, ffRef: ffRef);
     replace(_$result);
     return _$result;
   }

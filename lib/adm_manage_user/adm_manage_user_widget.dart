@@ -21,7 +21,8 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'admManageUser'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -44,6 +45,8 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
             size: 30,
           ),
           onPressed: () async {
+            logFirebaseEvent('ADM_MANAGE_USER_arrow_back_rounded_ICN_O');
+            logFirebaseEvent('IconButton_navigate_back');
             context.pop();
           },
         ),
@@ -174,6 +177,10 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                                       ),
                                       child: InkWell(
                                         onTap: () async {
+                                          logFirebaseEvent(
+                                              'ADM_MANAGE_USER_Column_c14aq1wz_ON_TAP');
+                                          logFirebaseEvent(
+                                              'Column_bottom_sheet');
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
                                             backgroundColor: Colors.transparent,
@@ -288,6 +295,9 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
                                       ),
                                       child: InkWell(
                                         onTap: () async {
+                                          logFirebaseEvent(
+                                              'ADM_MANAGE_USER_PAGE_Row_omqphp6p_ON_TAP');
+                                          logFirebaseEvent('Row_backend_call');
                                           await listViewUsersRecord.reference
                                               .delete();
                                         },

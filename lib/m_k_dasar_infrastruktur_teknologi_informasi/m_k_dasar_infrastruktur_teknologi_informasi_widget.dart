@@ -29,7 +29,8 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'MKDasarInfrastrukturTeknologiInformasi'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -52,7 +53,12 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
             size: 30,
           ),
           onPressed: () async {
+            logFirebaseEvent('M_K_DASAR_INFRASTRUKTUR_TEKNOLOGI_INFORM');
+            logFirebaseEvent('IconButton_navigate_to');
+
             context.pushNamed('home');
+
+            logFirebaseEvent('IconButton_navigate_to');
 
             context.pushNamed('home');
           },
@@ -111,6 +117,10 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
                           child: AuthUserStreamWidget(
                             child: InkWell(
                               onTap: () async {
+                                logFirebaseEvent(
+                                    'M_K_DASAR_INFRASTRUKTUR_TEKNOLOGI_INFORM');
+                                logFirebaseEvent(
+                                    'CircleImage_upload_photo_video');
                                 final selectedMedia = await selectMedia(
                                   mediaSource: MediaSource.photoGallery,
                                   multiImage: false,
@@ -227,6 +237,9 @@ class _MKDasarInfrastrukturTeknologiInformasiWidgetState
                       padding: EdgeInsetsDirectional.fromSTEB(10, 4, 10, 5),
                       child: InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'M_K_DASAR_INFRASTRUKTUR_TEKNOLOGI_INFORM');
+                          logFirebaseEvent('Container_launch_u_r_l');
                           await launchURL(listViewMateriRecord.link!);
                         },
                         child: Container(

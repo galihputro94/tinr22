@@ -19,7 +19,7 @@ class _GaleryWidgetState extends State<GaleryWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Galery'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

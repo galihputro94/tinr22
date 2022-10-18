@@ -25,6 +25,7 @@ class _JadwalWidgetState extends State<JadwalWidget> {
       start: DateTime.now().startOfDay,
       end: DateTime.now().endOfDay,
     );
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'jadwal'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -46,6 +47,8 @@ class _JadwalWidgetState extends State<JadwalWidget> {
             size: 24,
           ),
           onPressed: () async {
+            logFirebaseEvent('JADWAL_arrow_back_rounded_ICN_ON_TAP');
+            logFirebaseEvent('IconButton_navigate_back');
             context.pop();
           },
         ),

@@ -21,7 +21,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'adm_init'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -67,9 +67,9 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                   .bodyText1
                                   .override(
                                     fontFamily: 'Inter',
-                                    color:
-                                        FlutterFlowTheme.of(context).background,
-                                    fontSize: 25,
+                                    color: FlutterFlowTheme.of(context).white,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
                                   ),
                             ),
                           ),
@@ -111,6 +111,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
@@ -130,7 +131,8 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                               ),
                               Card(
                                 clipBehavior: Clip.antiAliasWithSaveLayer,
-                                color: Color(0xFFF5F5F5),
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryColor,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30),
                                 ),
@@ -159,7 +161,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(10, 15, 10, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -171,30 +173,32 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                       text: 'Beranda',
                       icon: Icon(
                         Icons.home_rounded,
-                        color: FlutterFlowTheme.of(context).tertiaryColor,
+                        color: FlutterFlowTheme.of(context).secondaryColor,
                         size: 20,
                       ),
                       options: FFButtonOptions(
                         width: 140,
                         height: 40,
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
                         textStyle: FlutterFlowTheme.of(context)
                             .subtitle2
                             .override(
                               fontFamily: 'Poppins',
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryColor,
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
                             ),
                         borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          width: 1,
+                          width: 0,
                         ),
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
                     FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent('ADM_INIT_PAGE_BASECAMP_BTN_ON_TAP');
+                        logFirebaseEvent('Button_launch_u_r_l');
                         await launchURL(
                             'https://teams.live.com/l/invite/FEAKFbRnRHOj5PPaQM');
                       },
@@ -217,7 +221,6 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                               fontWeight: FontWeight.bold,
                             ),
                         borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primaryText,
                           width: 1,
                         ),
                         borderRadius: BorderRadius.circular(8),
@@ -227,7 +230,7 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(10, 15, 10, 0),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 300,
@@ -280,6 +283,10 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                             children: [
                               InkWell(
                                 onTap: () async {
+                                  logFirebaseEvent(
+                                      'ADM_INIT_PAGE_Column_z0lxtu7p_ON_TAP');
+                                  logFirebaseEvent('Column_navigate_to');
+
                                   context.pushNamed('adm_ListMateri');
                                 },
                                 child: Column(
@@ -297,6 +304,11 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                         size: 30,
                                       ),
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'ADM_INIT_PAGE_book_ICN_ON_TAP');
+                                        logFirebaseEvent(
+                                            'IconButton_navigate_to');
+
                                         context.pushNamed('adm_ListMateri');
                                       },
                                     ),
@@ -315,6 +327,10 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                               ),
                               InkWell(
                                 onTap: () async {
+                                  logFirebaseEvent(
+                                      'ADM_INIT_PAGE_Column_48anhzpb_ON_TAP');
+                                  logFirebaseEvent('Column_navigate_to');
+
                                   context.pushNamed(
                                     'adm_ListTugas',
                                     extra: <String, dynamic>{
@@ -341,6 +357,11 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                         size: 30,
                                       ),
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'ADM_INIT_PAGE_solidLightbulb_ICN_ON_TAP');
+                                        logFirebaseEvent(
+                                            'IconButton_navigate_to');
+
                                         context.pushNamed(
                                           'adm_ListTugas',
                                           extra: <String, dynamic>{
@@ -383,6 +404,11 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                                       size: 40,
                                     ),
                                     onPressed: () async {
+                                      logFirebaseEvent(
+                                          'ADM_INIT_PAGE_people_ICN_ON_TAP');
+                                      logFirebaseEvent(
+                                          'IconButton_navigate_to');
+
                                       context.pushNamed(
                                         'admManageUser',
                                         extra: <String, dynamic>{

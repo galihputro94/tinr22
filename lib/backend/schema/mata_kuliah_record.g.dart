@@ -49,19 +49,26 @@ class _$MataKuliahRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.sksMK;
-    if (value != null) {
-      result
-        ..add('sksMK')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.hariMK;
     if (value != null) {
       result
         ..add('hariMK')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
+    }
+    value = object.sksMK;
+    if (value != null) {
+      result
+        ..add('sksMK')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.materiRef;
+    if (value != null) {
+      result
+        ..add('materiRef')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                DocumentReference, const [const FullType.nullable(Object)])));
     }
     value = object.ffRef;
     if (value != null) {
@@ -102,13 +109,19 @@ class _$MataKuliahRecordSerializer
           result.ruangMK = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'sksMK':
-          result.sksMK = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'hariMK':
           result.hariMK = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
+          break;
+        case 'sksMK':
+          result.sksMK = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'materiRef':
+          result.materiRef = serializers.deserialize(value,
+              specifiedType: const FullType(DocumentReference, const [
+                const FullType.nullable(Object)
+              ])) as DocumentReference<Object?>?;
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -133,9 +146,11 @@ class _$MataKuliahRecord extends MataKuliahRecord {
   @override
   final String? ruangMK;
   @override
-  final String? sksMK;
-  @override
   final String? hariMK;
+  @override
+  final int? sksMK;
+  @override
+  final DocumentReference<Object?>? materiRef;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -148,8 +163,9 @@ class _$MataKuliahRecord extends MataKuliahRecord {
       this.dosenMK,
       this.jamMK,
       this.ruangMK,
-      this.sksMK,
       this.hariMK,
+      this.sksMK,
+      this.materiRef,
       this.ffRef})
       : super._();
 
@@ -169,8 +185,9 @@ class _$MataKuliahRecord extends MataKuliahRecord {
         dosenMK == other.dosenMK &&
         jamMK == other.jamMK &&
         ruangMK == other.ruangMK &&
-        sksMK == other.sksMK &&
         hariMK == other.hariMK &&
+        sksMK == other.sksMK &&
+        materiRef == other.materiRef &&
         ffRef == other.ffRef;
   }
 
@@ -180,11 +197,13 @@ class _$MataKuliahRecord extends MataKuliahRecord {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, namaMK.hashCode), dosenMK.hashCode),
-                        jamMK.hashCode),
-                    ruangMK.hashCode),
+                    $jc(
+                        $jc($jc($jc(0, namaMK.hashCode), dosenMK.hashCode),
+                            jamMK.hashCode),
+                        ruangMK.hashCode),
+                    hariMK.hashCode),
                 sksMK.hashCode),
-            hariMK.hashCode),
+            materiRef.hashCode),
         ffRef.hashCode));
   }
 
@@ -195,8 +214,9 @@ class _$MataKuliahRecord extends MataKuliahRecord {
           ..add('dosenMK', dosenMK)
           ..add('jamMK', jamMK)
           ..add('ruangMK', ruangMK)
-          ..add('sksMK', sksMK)
           ..add('hariMK', hariMK)
+          ..add('sksMK', sksMK)
+          ..add('materiRef', materiRef)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -222,13 +242,18 @@ class MataKuliahRecordBuilder
   String? get ruangMK => _$this._ruangMK;
   set ruangMK(String? ruangMK) => _$this._ruangMK = ruangMK;
 
-  String? _sksMK;
-  String? get sksMK => _$this._sksMK;
-  set sksMK(String? sksMK) => _$this._sksMK = sksMK;
-
   String? _hariMK;
   String? get hariMK => _$this._hariMK;
   set hariMK(String? hariMK) => _$this._hariMK = hariMK;
+
+  int? _sksMK;
+  int? get sksMK => _$this._sksMK;
+  set sksMK(int? sksMK) => _$this._sksMK = sksMK;
+
+  DocumentReference<Object?>? _materiRef;
+  DocumentReference<Object?>? get materiRef => _$this._materiRef;
+  set materiRef(DocumentReference<Object?>? materiRef) =>
+      _$this._materiRef = materiRef;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -245,8 +270,9 @@ class MataKuliahRecordBuilder
       _dosenMK = $v.dosenMK;
       _jamMK = $v.jamMK;
       _ruangMK = $v.ruangMK;
-      _sksMK = $v.sksMK;
       _hariMK = $v.hariMK;
+      _sksMK = $v.sksMK;
+      _materiRef = $v.materiRef;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -274,8 +300,9 @@ class MataKuliahRecordBuilder
             dosenMK: dosenMK,
             jamMK: jamMK,
             ruangMK: ruangMK,
-            sksMK: sksMK,
             hariMK: hariMK,
+            sksMK: sksMK,
+            materiRef: materiRef,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

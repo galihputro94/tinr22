@@ -38,6 +38,8 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
     domisiliController = TextEditingController();
     phoneNumberController = TextEditingController(text: '62');
     yourNameController = TextEditingController();
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'completProfile'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -68,7 +70,12 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
             size: 30,
           ),
           onPressed: () async {
+            logFirebaseEvent('COMPLET_PROFILE_arrow_back_rounded_ICN_O');
+            logFirebaseEvent('IconButton_navigate_to');
+
             context.pushNamed('home');
+
+            logFirebaseEvent('IconButton_navigate_to');
 
             context.pushNamed('home');
           },
@@ -130,6 +137,10 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                                       2, 2, 2, 2),
                                   child: InkWell(
                                     onTap: () async {
+                                      logFirebaseEvent(
+                                          'COMPLET_PROFILE_CircleImage_vfthe26o_ON_');
+                                      logFirebaseEvent(
+                                          'CircleImage_upload_photo_video');
                                       final selectedMedia = await selectMedia(
                                         mediaSource: MediaSource.photoGallery,
                                         multiImage: false,
@@ -420,10 +431,15 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                                 EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                             child: FFButtonWidget(
                               onPressed: () async {
+                                logFirebaseEvent(
+                                    'COMPLET_PROFILE_PAGE_SIMPAN_BTN_ON_TAP');
+                                logFirebaseEvent('Button_validate_form');
                                 if (formKey.currentState == null ||
                                     !formKey.currentState!.validate()) {
                                   return;
                                 }
+
+                                logFirebaseEvent('Button_backend_call');
 
                                 final usersUpdateData = createUsersRecordData(
                                   photoUrl: uploadedFileUrl,
@@ -435,6 +451,7 @@ class _CompletProfileWidgetState extends State<CompletProfileWidget> {
                                 );
                                 await currentUserReference!
                                     .update(usersUpdateData);
+                                logFirebaseEvent('Button_navigate_to');
 
                                 context.pushNamed(
                                   'home',

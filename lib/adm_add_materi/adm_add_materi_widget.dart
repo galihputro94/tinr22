@@ -8,6 +8,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdmAddMateriWidget extends StatefulWidget {
@@ -29,6 +30,8 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
     super.initState();
     linkFieldController = TextEditingController();
     namaMateriController = TextEditingController();
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'adm_addMateri'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -43,9 +46,9 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF01A8C9),
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).darkBG,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
         title: Visibility(
           visible: valueOrDefault(currentUserDocument?.role, '') == 'admin',
@@ -54,7 +57,7 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
               'Tambah Materi',
               style: FlutterFlowTheme.of(context).title2.override(
                     fontFamily: 'Outfit',
-                    color: FlutterFlowTheme.of(context).white,
+                    color: FlutterFlowTheme.of(context).tertiaryColor,
                   ),
             ),
           ),
@@ -68,17 +71,19 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
               buttonSize: 48,
               icon: Icon(
                 Icons.close_rounded,
-                color: FlutterFlowTheme.of(context).white,
+                color: FlutterFlowTheme.of(context).tertiaryColor,
                 size: 30,
               ),
               onPressed: () async {
+                logFirebaseEvent('ADM_ADD_MATERI_close_rounded_ICN_ON_TAP');
+                logFirebaseEvent('IconButton_navigate_back');
                 context.pop();
               },
             ),
           ),
         ],
         centerTitle: false,
-        elevation: 4,
+        elevation: 0,
       ),
       body: SafeArea(
         child: Column(
@@ -101,24 +106,16 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Nama Materi',
-                          hintText: 'Nama Materi...',
-                          hintStyle:
-                              FlutterFlowTheme.of(context).bodyText2.override(
-                                    fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context).white,
-                                  ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
+                              color: FlutterFlowTheme.of(context).tertiaryColor,
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
+                              color: FlutterFlowTheme.of(context).tertiaryColor,
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(10),
@@ -137,12 +134,10 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          filled: true,
-                          fillColor: FlutterFlowTheme.of(context).darkBG,
                         ),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context).white,
+                              color: FlutterFlowTheme.of(context).tertiaryColor,
                             ),
                         validator: (val) {
                           if (val == null || val.isEmpty) {
@@ -162,23 +157,16 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                         decoration: InputDecoration(
                           labelText: 'Link Materi',
                           hintText: 'Masukan Link diawali http',
-                          hintStyle:
-                              FlutterFlowTheme.of(context).bodyText2.override(
-                                    fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context).white,
-                                  ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
+                              color: FlutterFlowTheme.of(context).tertiaryColor,
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
+                              color: FlutterFlowTheme.of(context).tertiaryColor,
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(10),
@@ -197,12 +185,10 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          filled: true,
-                          fillColor: FlutterFlowTheme.of(context).darkBG,
                         ),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context).white,
+                              color: Color(0xC001A8C9),
                             ),
                         validator: (val) {
                           if (val == null || val.isEmpty) {
@@ -230,16 +216,21 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                         onChanged: (val) => setState(() => mkfieldValue = val),
                         width: MediaQuery.of(context).size.width,
                         height: 50,
-                        textStyle:
-                            FlutterFlowTheme.of(context).bodyText1.override(
-                                  fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context).white,
-                                ),
+                        textStyle: FlutterFlowTheme.of(context)
+                            .bodyText1
+                            .override(
+                              fontFamily: 'Inter',
+                              color: FlutterFlowTheme.of(context).tertiaryColor,
+                            ),
                         hintText: 'Pilih Mata Kuliah',
-                        fillColor: FlutterFlowTheme.of(context).darkBG,
+                        icon: FaIcon(
+                          FontAwesomeIcons.caretDown,
+                          color: FlutterFlowTheme.of(context).tertiaryColor,
+                          size: 15,
+                        ),
+                        fillColor: Color(0x00111417),
                         elevation: 2,
-                        borderColor:
-                            FlutterFlowTheme.of(context).secondaryColor,
+                        borderColor: FlutterFlowTheme.of(context).tertiaryColor,
                         borderWidth: 1,
                         borderRadius: 10,
                         margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
@@ -250,6 +241,9 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
+                          logFirebaseEvent(
+                              'ADM_ADD_MATERI_PAGE_subMateri_ON_TAP');
+                          logFirebaseEvent('subMateri_validate_form');
                           if (formKey.currentState == null ||
                               !formKey.currentState!.validate()) {
                             return;
@@ -275,6 +269,8 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                             return;
                           }
 
+                          logFirebaseEvent('subMateri_backend_call');
+
                           final materiCreateData = createMateriRecordData(
                             nama: namaMateriController!.text,
                             link: linkFieldController!.text,
@@ -283,20 +279,20 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
                           await MateriRecord.collection
                               .doc()
                               .set(materiCreateData);
+                          logFirebaseEvent('subMateri_navigate_back');
                           context.pop();
                         },
                         text: 'Simpan',
                         options: FFButtonOptions(
                           width: 130,
                           height: 50,
-                          color: FlutterFlowTheme.of(context).secondaryColor,
+                          color: FlutterFlowTheme.of(context).tertiaryColor,
                           textStyle:
                               FlutterFlowTheme.of(context).subtitle2.override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context).darkBG,
+                                    color: FlutterFlowTheme.of(context).white,
                                   ),
                           borderSide: BorderSide(
-                            color: Color(0xFFFFF176),
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(8),

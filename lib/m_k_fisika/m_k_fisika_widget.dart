@@ -26,7 +26,7 @@ class _MKFisikaWidgetState extends State<MKFisikaWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'MKFisika'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -49,7 +49,12 @@ class _MKFisikaWidgetState extends State<MKFisikaWidget> {
             size: 30,
           ),
           onPressed: () async {
+            logFirebaseEvent('M_K_FISIKA_arrow_back_rounded_ICN_ON_TAP');
+            logFirebaseEvent('IconButton_navigate_to');
+
             context.pushNamed('home');
+
+            logFirebaseEvent('IconButton_navigate_to');
 
             context.pushNamed('home');
           },
@@ -105,6 +110,10 @@ class _MKFisikaWidgetState extends State<MKFisikaWidget> {
                           child: AuthUserStreamWidget(
                             child: InkWell(
                               onTap: () async {
+                                logFirebaseEvent(
+                                    'M_K_FISIKA_CircleImage_jsrdwdkc_ON_TAP');
+                                logFirebaseEvent(
+                                    'CircleImage_upload_photo_video');
                                 final selectedMedia = await selectMedia(
                                   mediaSource: MediaSource.photoGallery,
                                   multiImage: false,
@@ -221,6 +230,9 @@ class _MKFisikaWidgetState extends State<MKFisikaWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(10, 4, 10, 5),
                       child: InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'M_K_FISIKA_Container_6ijkykia_ON_TAP');
+                          logFirebaseEvent('Container_launch_u_r_l');
                           await launchURL(listViewMateriRecord.link!);
                         },
                         child: Container(

@@ -32,7 +32,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'detailTugas'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -54,6 +54,8 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
             size: 24,
           ),
           onPressed: () async {
+            logFirebaseEvent('DETAIL_TUGAS_arrow_back_rounded_ICN_ON_T');
+            logFirebaseEvent('IconButton_navigate_back');
             context.pop();
           },
         ),

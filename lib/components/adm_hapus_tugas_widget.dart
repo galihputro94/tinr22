@@ -58,8 +58,12 @@ class _AdmHapusTugasWidgetState extends State<AdmHapusTugasWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
                 onPressed: () async {
+                  logFirebaseEvent('ADM_HAPUS_TUGAS_HAPUS_TUGAS_BTN_ON_TAP');
+                  logFirebaseEvent('Button_backend_call');
                   await widget.indexTgs!.delete();
+                  logFirebaseEvent('Button_wait__delay');
                   await Future.delayed(const Duration(milliseconds: 1000));
+                  logFirebaseEvent('Button_close_dialog,_drawer,_etc');
                   Navigator.pop(context);
                 },
                 text: 'Hapus Tugas',
@@ -82,6 +86,8 @@ class _AdmHapusTugasWidgetState extends State<AdmHapusTugasWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
                 onPressed: () async {
+                  logFirebaseEvent('ADM_HAPUS_TUGAS_COMP_BATAL_BTN_ON_TAP');
+                  logFirebaseEvent('Button_close_dialog,_drawer,_etc');
                   Navigator.pop(context);
                 },
                 text: 'Batal',

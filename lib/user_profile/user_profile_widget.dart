@@ -58,6 +58,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
       this,
     );
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'UserProfile'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -212,7 +213,12 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                       if (Theme.of(context).brightness == Brightness.light)
                         InkWell(
                           onTap: () async {
+                            logFirebaseEvent(
+                                'USER_PROFILE_PAGE_isLightMode_ON_TAP');
+                            logFirebaseEvent(
+                                'isLightMode_set_dark_mode_settings');
                             setDarkModeSetting(context, ThemeMode.dark);
+                            logFirebaseEvent('isLightMode_widget_animation');
                             if (animationsMap[
                                     'containerOnActionTriggerAnimation1'] !=
                                 null) {
@@ -316,7 +322,12 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                       if (Theme.of(context).brightness == Brightness.dark)
                         InkWell(
                           onTap: () async {
+                            logFirebaseEvent(
+                                'USER_PROFILE_PAGE_isDarkMode_ON_TAP');
+                            logFirebaseEvent(
+                                'isDarkMode_set_dark_mode_settings');
                             setDarkModeSetting(context, ThemeMode.light);
+                            logFirebaseEvent('isDarkMode_widget_animation');
                             if (animationsMap[
                                     'containerOnActionTriggerAnimation2'] !=
                                 null) {
@@ -434,6 +445,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                       ),
                       child: InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'USER_PROFILE_PAGE_Row_cedws7to_ON_TAP');
+                          logFirebaseEvent('Row_navigate_to');
+
                           context.pushNamed(
                             'editProfile',
                             extra: <String, dynamic>{
@@ -489,6 +504,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                       ),
                       child: InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'USER_PROFILE_PAGE_Row_8i224ch6_ON_TAP');
+                          logFirebaseEvent('Row_navigate_to');
+
                           context.pushNamed('changePassword');
                         },
                         child: Row(
@@ -537,6 +556,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                           ),
                           child: InkWell(
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'USER_PROFILE_PAGE_Row_rmwyrt34_ON_TAP');
+                              logFirebaseEvent('Row_navigate_to');
+
                               context.pushNamed('adm_init');
                             },
                             child: Row(
@@ -585,6 +608,10 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                       ),
                       child: InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'USER_PROFILE_PAGE_Row_d9wzobsn_ON_TAP');
+                          logFirebaseEvent('Row_navigate_to');
+
                           context.pushNamed(
                             'infoPage',
                             extra: <String, dynamic>{
@@ -638,8 +665,11 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                 children: [
                   FFButtonWidget(
                     onPressed: () async {
+                      logFirebaseEvent('USER_PROFILE_PAGE_LOG_OUT_BTN_ON_TAP');
+                      logFirebaseEvent('Button_auth');
                       GoRouter.of(context).prepareAuthEvent();
                       await signOut();
+                      logFirebaseEvent('Button_navigate_to');
 
                       context.goNamedAuth(
                         'login',

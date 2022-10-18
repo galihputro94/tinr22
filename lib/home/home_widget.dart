@@ -21,7 +21,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'home'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -86,6 +86,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     child: AuthUserStreamWidget(
                                       child: InkWell(
                                         onTap: () async {
+                                          logFirebaseEvent(
+                                              'HOME_PAGE_userAvatar_ON_TAP');
+                                          logFirebaseEvent(
+                                              'userAvatar_navigate_to');
+
                                           context.pushNamed(
                                             'UserProfile',
                                             extra: <String, dynamic>{
@@ -155,6 +160,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 size: 30,
                               ),
                               onPressed: () async {
+                                logFirebaseEvent(
+                                    'HOME_PAGE_info_sharp_ICN_ON_TAP');
+                                logFirebaseEvent('IconButton_navigate_to');
+
                                 context.pushNamed(
                                   'infoPage',
                                   extra: <String, dynamic>{
@@ -217,6 +226,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   decoration: BoxDecoration(),
                                   child: InkWell(
                                     onTap: () async {
+                                      logFirebaseEvent(
+                                          'HOME_PAGE_Column_y2nom5wb_ON_TAP');
+                                      logFirebaseEvent('Column_navigate_to');
+
                                       context.pushNamed('listMhs');
                                     },
                                     child: Column(
@@ -252,6 +265,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     decoration: BoxDecoration(),
                                     child: InkWell(
                                       onTap: () async {
+                                        logFirebaseEvent(
+                                            'HOME_PAGE_Column_66grns23_ON_TAP');
+                                        logFirebaseEvent('Column_navigate_to');
+
                                         context.pushNamed('jadwal');
                                       },
                                       child: Column(
@@ -288,6 +305,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     decoration: BoxDecoration(),
                                     child: InkWell(
                                       onTap: () async {
+                                        logFirebaseEvent(
+                                            'HOME_PAGE_Column_wnc3fa4t_ON_TAP');
+                                        logFirebaseEvent('Column_navigate_to');
+
                                         context.pushNamed('listMK');
                                       },
                                       child: Column(
@@ -355,6 +376,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     decoration: BoxDecoration(),
                                     child: InkWell(
                                       onTap: () async {
+                                        logFirebaseEvent(
+                                            'HOME_PAGE_Column_c6qlvxjt_ON_TAP');
+                                        logFirebaseEvent('Column_navigate_to');
+
                                         context.pushNamed('Galery');
                                       },
                                       child: Column(
@@ -463,6 +488,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     10, 20, 10, 0),
                                             child: InkWell(
                                               onTap: () async {
+                                                logFirebaseEvent(
+                                                    'HOME_PAGE_Container_kz48d6dv_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'Container_navigate_to');
+
                                                 context.pushNamed(
                                                   'detailTugas',
                                                   queryParams: {

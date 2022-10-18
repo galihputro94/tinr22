@@ -26,6 +26,7 @@ Future<User?> signInOrCreateAccount(
 ) async {
   try {
     final userCredential = await signInFunc();
+    logFirebaseAuthEvent(userCredential?.user, authProvider);
     if (userCredential?.user != null) {
       await maybeCreateUser(userCredential!.user!);
     }
@@ -41,6 +42,7 @@ Future<User?> signInOrCreateAccount(
 }
 
 Future signOut() {
+  logFirebaseEvent("SIGN_OUT");
   updateUserJwtTimer();
   return FirebaseAuth.instance.signOut();
 }
@@ -51,6 +53,7 @@ Future deleteUser(BuildContext context) async {
       print('Error: delete user attempted with no logged in user!');
       return;
     }
+    logFirebaseEvent("DELETE_USER");
     await currentUser?.user?.delete();
   } on FirebaseAuthException catch (e) {
     if (e.code == 'requires-recent-login') {

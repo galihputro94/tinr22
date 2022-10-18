@@ -21,7 +21,7 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'listMhs'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -44,7 +44,12 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
             size: 24,
           ),
           onPressed: () async {
+            logFirebaseEvent('LIST_MHS_arrow_back_rounded_ICN_ON_TAP');
+            logFirebaseEvent('IconButton_navigate_to');
+
             context.pushNamed('home');
+
+            logFirebaseEvent('IconButton_navigate_to');
 
             context.pushNamed('home');
           },
@@ -387,6 +392,11 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                             ),
                                             FFButtonWidget(
                                               onPressed: () async {
+                                                logFirebaseEvent(
+                                                    'LIST_MHS_PAGE_LIHAT_BTN_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'Button_navigate_to');
+
                                                 context.pushNamed(
                                                   'profileMhs',
                                                   queryParams: {

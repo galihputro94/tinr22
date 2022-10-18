@@ -38,6 +38,8 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
   @override
   void initState() {
     super.initState();
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'adm_editMateri'});
     namaLinkEditController = TextEditingController(text: widget.namaLinkEdit);
     namaMateriEditController =
         TextEditingController(text: widget.namaMateriEdit);
@@ -55,22 +57,23 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF01A8C9),
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).darkBG,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
-          borderColor: FlutterFlowTheme.of(context).darkBG,
           borderRadius: 30,
           borderWidth: 1,
           buttonSize: 60,
-          fillColor: FlutterFlowTheme.of(context).darkBG,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.of(context).white,
+            color: FlutterFlowTheme.of(context).tertiaryColor,
             size: 30,
           ),
           onPressed: () async {
+            logFirebaseEvent('ADM_EDIT_MATERI_arrow_back_rounded_ICN_O');
+            logFirebaseEvent('IconButton_navigate_to');
+
             context.pushNamed('adm_ListMateri');
           },
         ),
@@ -78,8 +81,9 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
           'Edit Materi',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Outfit',
-                color: FlutterFlowTheme.of(context).white,
-                fontSize: 22,
+                color: FlutterFlowTheme.of(context).tertiaryColor,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
               ),
         ),
         actions: [],
@@ -101,20 +105,16 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                   decoration: InputDecoration(
                     labelText: 'Nama Materi',
                     hintText: 'Nama Materi...',
-                    hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
-                          fontFamily: 'Inter',
-                          color: FlutterFlowTheme.of(context).white,
-                        ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(10),
@@ -133,12 +133,10 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    filled: true,
-                    fillColor: FlutterFlowTheme.of(context).darkBG,
                   ),
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).white,
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
                       ),
                 ),
               ),
@@ -151,20 +149,16 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                   decoration: InputDecoration(
                     labelText: 'Link Materi',
                     hintText: 'Masukan Link diawali http',
-                    hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
-                          fontFamily: 'Inter',
-                          color: FlutterFlowTheme.of(context).white,
-                        ),
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(10),
@@ -183,12 +177,10 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    filled: true,
-                    fillColor: FlutterFlowTheme.of(context).darkBG,
                   ),
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).white,
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
                       ),
                 ),
               ),
@@ -212,7 +204,7 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                   height: 50,
                   textStyle: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).white,
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
                       ),
                   hintText: 'Pilih Mata Kuliah',
                   icon: FaIcon(
@@ -220,9 +212,8 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                     color: FlutterFlowTheme.of(context).white,
                     size: 15,
                   ),
-                  fillColor: FlutterFlowTheme.of(context).darkBG,
-                  elevation: 2,
-                  borderColor: FlutterFlowTheme.of(context).secondaryColor,
+                  elevation: 5,
+                  borderColor: FlutterFlowTheme.of(context).tertiaryColor,
                   borderWidth: 1,
                   borderRadius: 10,
                   margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
@@ -233,25 +224,28 @@ class _AdmEditMateriWidgetState extends State<AdmEditMateriWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                 child: FFButtonWidget(
                   onPressed: () async {
+                    logFirebaseEvent('ADM_EDIT_MATERI_PAGE_subMateri_ON_TAP');
+                    logFirebaseEvent('subMateri_backend_call');
+
                     final materiUpdateData = createMateriRecordData(
                       nama: namaMateriEditController!.text,
                       link: namaLinkEditController!.text,
                       mk: mkMateriEditValue,
                     );
                     await widget.editMateriRef!.update(materiUpdateData);
+                    logFirebaseEvent('subMateri_navigate_back');
                     context.pop();
                   },
                   text: 'Simpan',
                   options: FFButtonOptions(
                     width: 130,
                     height: 50,
-                    color: Color(0xFFFFF176),
+                    color: FlutterFlowTheme.of(context).tertiaryColor,
                     textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                           fontFamily: 'Inter',
-                          color: FlutterFlowTheme.of(context).darkBG,
+                          color: FlutterFlowTheme.of(context).white,
                         ),
                     borderSide: BorderSide(
-                      color: Color(0xFFFFF176),
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(8),

@@ -23,7 +23,8 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'adm_ListTugas'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -39,6 +40,8 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
           padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
           child: FFButtonWidget(
             onPressed: () async {
+              logFirebaseEvent('ADM_LIST_TUGAS_PAGE__BTN_ON_TAP');
+              logFirebaseEvent('Button_navigate_back');
               context.pop();
             },
             text: '',
@@ -84,6 +87,9 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                 size: 30,
               ),
               onPressed: () async {
+                logFirebaseEvent('ADM_LIST_TUGAS_PAGE_add_ICN_ON_TAP');
+                logFirebaseEvent('IconButton_navigate_to');
+
                 context.pushNamed('add_Tugas');
               },
             ),
@@ -335,6 +341,10 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                                   EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
                               child: InkWell(
                                 onTap: () async {
+                                  logFirebaseEvent(
+                                      'ADM_LIST_TUGAS_Container_6am1vkg5_ON_TAP');
+                                  logFirebaseEvent('Container_navigate_to');
+
                                   context.pushNamed(
                                     'adm_editTugas',
                                     queryParams: {
@@ -346,6 +356,9 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                                   );
                                 },
                                 onLongPress: () async {
+                                  logFirebaseEvent(
+                                      'ADM_LIST_TUGAS_Container_6am1vkg5_ON_LON');
+                                  logFirebaseEvent('Container_bottom_sheet');
                                   await showModalBottomSheet(
                                     isScrollControlled: true,
                                     backgroundColor: Colors.transparent,
@@ -377,6 +390,10 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                                         20, 0, 20, 0),
                                     child: InkWell(
                                       onTap: () async {
+                                        logFirebaseEvent(
+                                            'ADM_LIST_TUGAS_PAGE_Row_1xqo0h6w_ON_TAP');
+                                        logFirebaseEvent('Row_navigate_to');
+
                                         context.pushNamed(
                                           'adm_editTugas',
                                           queryParams: {
@@ -404,6 +421,9 @@ class _AdmListTugasWidgetState extends State<AdmListTugasWidget> {
                                         );
                                       },
                                       onLongPress: () async {
+                                        logFirebaseEvent(
+                                            'ADM_LIST_TUGAS_Row_1xqo0h6w_ON_LONG_PRES');
+                                        logFirebaseEvent('Row_bottom_sheet');
                                         await showModalBottomSheet(
                                           isScrollControlled: true,
                                           backgroundColor: Colors.transparent,

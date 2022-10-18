@@ -28,7 +28,8 @@ class _MKPengantarSistemDigitalWidgetState
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'MKPengantarSistemDigital'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -47,11 +48,16 @@ class _MKPengantarSistemDigitalWidgetState
           buttonSize: 60,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.of(context).darkBG,
+            color: FlutterFlowTheme.of(context).white,
             size: 30,
           ),
           onPressed: () async {
+            logFirebaseEvent('M_K_PENGANTAR_SISTEM_DIGITAL_arrow_back_');
+            logFirebaseEvent('IconButton_navigate_to');
+
             context.pushNamed('home');
+
+            logFirebaseEvent('IconButton_navigate_to');
 
             context.pushNamed('home');
           },
@@ -60,8 +66,9 @@ class _MKPengantarSistemDigitalWidgetState
           'Pengantar Sistem Digital',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Outfit',
-                color: FlutterFlowTheme.of(context).darkBG,
+                color: FlutterFlowTheme.of(context).white,
                 fontSize: 18,
+                fontWeight: FontWeight.w600,
               ),
         ),
         actions: [],
@@ -101,15 +108,16 @@ class _MKPengantarSistemDigitalWidgetState
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).white,
                           shape: BoxShape.circle,
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).white,
-                          ),
                         ),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
                           child: AuthUserStreamWidget(
                             child: InkWell(
                               onTap: () async {
+                                logFirebaseEvent(
+                                    'M_K_PENGANTAR_SISTEM_DIGITAL_CircleImage');
+                                logFirebaseEvent(
+                                    'CircleImage_upload_photo_video');
                                 final selectedMedia = await selectMedia(
                                   mediaSource: MediaSource.photoGallery,
                                   multiImage: false,
@@ -226,6 +234,9 @@ class _MKPengantarSistemDigitalWidgetState
                       padding: EdgeInsetsDirectional.fromSTEB(10, 4, 10, 5),
                       child: InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'M_K_PENGANTAR_SISTEM_DIGITAL_Container_r');
+                          logFirebaseEvent('Container_launch_u_r_l');
                           await launchURL(listViewMateriRecord.link!);
                         },
                         child: Container(

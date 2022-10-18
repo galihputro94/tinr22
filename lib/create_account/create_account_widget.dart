@@ -33,6 +33,8 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
     passwordVisibility = false;
     password2Controller = TextEditingController();
     password2Visibility = false;
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'createAccount'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -442,6 +444,10 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                         children: [
                                           FFButtonWidget(
                                             onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'CREATE_ACCOUNT_PAGE_ButtonLogin_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'ButtonLogin_validate_form');
                                               if (formKey.currentState ==
                                                       null ||
                                                   !formKey.currentState!
@@ -449,6 +455,8 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                 return;
                                               }
 
+                                              logFirebaseEvent(
+                                                  'ButtonLogin_auth');
                                               GoRouter.of(context)
                                                   .prepareAuthEvent();
                                               if (passwordController?.text !=
@@ -473,6 +481,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                               if (user == null) {
                                                 return;
                                               }
+
+                                              logFirebaseEvent(
+                                                  'ButtonLogin_navigate_to');
 
                                               context.pushNamedAuth(
                                                   'completProfile', mounted);
@@ -519,6 +530,11 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                           0, 12, 0, 24),
                                       child: FFButtonWidget(
                                         onPressed: () async {
+                                          logFirebaseEvent(
+                                              'CREATE_ACCOUNT_ButtonCreateAccount_ON_TA');
+                                          logFirebaseEvent(
+                                              'ButtonCreateAccount_navigate_to');
+
                                           context.pushNamed(
                                             'login',
                                             extra: <String, dynamic>{

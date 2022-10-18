@@ -146,10 +146,14 @@ class _UbahJabatanWidgetState extends State<UbahJabatanWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 44),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        logFirebaseEvent('UBAH_JABATAN_COMP_SIMPAN_BTN_ON_TAP');
+                        logFirebaseEvent('Button_backend_call');
+
                         final usersUpdateData = createUsersRecordData(
                           jabatan: dropDownValue,
                         );
                         await widget.refMhs!.update(usersUpdateData);
+                        logFirebaseEvent('Button_close_dialog,_drawer,_etc');
                         Navigator.pop(context);
                       },
                       text: 'Simpan',

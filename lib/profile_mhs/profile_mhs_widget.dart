@@ -38,7 +38,7 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'profileMhs'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -105,6 +105,9 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                                   size: 20,
                                 ),
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'PROFILE_MHS_arrow_back_rounded_ICN_ON_TA');
+                                  logFirebaseEvent('IconButton_navigate_back');
                                   context.pop();
                                 },
                               ),
@@ -197,6 +200,10 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                                               size: 24,
                                             ),
                                             onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'PROFILE_MHS_PAGE_whatsapp_ICN_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'IconButton_launch_u_r_l');
                                               await launchURL(
                                                   'https://wa.me/${widget.phoneMhs}');
                                             },
@@ -219,6 +226,10 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                                               size: 24,
                                             ),
                                             onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'PROFILE_MHS_email_outlined_ICN_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'IconButton_send_email');
                                               await launchUrl(Uri(
                                                   scheme: 'mailto',
                                                   path: widget.emailMhs!,

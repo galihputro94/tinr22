@@ -26,7 +26,8 @@ class _MKBahasainggrisWidgetState extends State<MKBahasainggrisWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'MKBahasainggris'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -49,7 +50,12 @@ class _MKBahasainggrisWidgetState extends State<MKBahasainggrisWidget> {
             size: 30,
           ),
           onPressed: () async {
+            logFirebaseEvent('M_K_BAHASAINGGRIS_arrow_back_rounded_ICN');
+            logFirebaseEvent('IconButton_navigate_to');
+
             context.pushNamed('home');
+
+            logFirebaseEvent('IconButton_navigate_to');
 
             context.pushNamed('home');
           },
@@ -105,6 +111,10 @@ class _MKBahasainggrisWidgetState extends State<MKBahasainggrisWidget> {
                           child: AuthUserStreamWidget(
                             child: InkWell(
                               onTap: () async {
+                                logFirebaseEvent(
+                                    'M_K_BAHASAINGGRIS_CircleImage_nwyd0nul_O');
+                                logFirebaseEvent(
+                                    'CircleImage_upload_photo_video');
                                 final selectedMedia = await selectMedia(
                                   mediaSource: MediaSource.photoGallery,
                                   multiImage: false,
@@ -221,6 +231,9 @@ class _MKBahasainggrisWidgetState extends State<MKBahasainggrisWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(10, 4, 10, 5),
                       child: InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'M_K_BAHASAINGGRIS_Container_joqhd84k_ON_');
+                          logFirebaseEvent('Container_launch_u_r_l');
                           await launchURL(listViewMateriRecord.link!);
                         },
                         child: Container(

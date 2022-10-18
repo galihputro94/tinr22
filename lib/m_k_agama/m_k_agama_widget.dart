@@ -26,7 +26,7 @@ class _MKAgamaWidgetState extends State<MKAgamaWidget> {
   @override
   void initState() {
     super.initState();
-
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'MKAgama'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -49,7 +49,12 @@ class _MKAgamaWidgetState extends State<MKAgamaWidget> {
             size: 30,
           ),
           onPressed: () async {
+            logFirebaseEvent('M_K_AGAMA_arrow_back_rounded_ICN_ON_TAP');
+            logFirebaseEvent('IconButton_navigate_to');
+
             context.pushNamed('home');
+
+            logFirebaseEvent('IconButton_navigate_to');
 
             context.pushNamed('home');
           },
@@ -105,6 +110,10 @@ class _MKAgamaWidgetState extends State<MKAgamaWidget> {
                           child: AuthUserStreamWidget(
                             child: InkWell(
                               onTap: () async {
+                                logFirebaseEvent(
+                                    'M_K_AGAMA_CircleImage_yno6npm2_ON_TAP');
+                                logFirebaseEvent(
+                                    'CircleImage_upload_photo_video');
                                 final selectedMedia = await selectMedia(
                                   mediaSource: MediaSource.photoGallery,
                                   multiImage: false,
@@ -221,6 +230,9 @@ class _MKAgamaWidgetState extends State<MKAgamaWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(10, 4, 10, 5),
                       child: InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'M_K_AGAMA_PAGE_Container_ublkzgod_ON_TAP');
+                          logFirebaseEvent('Container_launch_u_r_l');
                           await launchURL(listViewMateriRecord.link!);
                         },
                         child: Container(

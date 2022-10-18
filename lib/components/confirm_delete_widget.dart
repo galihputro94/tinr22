@@ -73,6 +73,8 @@ class _ConfirmDeleteWidgetState extends State<ConfirmDeleteWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
                 onPressed: () async {
+                  logFirebaseEvent('CONFIRM_DELETE_COMP_HAPUS_BTN_ON_TAP');
+                  logFirebaseEvent('Button_backend_call');
                   await widget.materiRef!.delete();
                 },
                 text: 'Hapus',
@@ -97,6 +99,8 @@ class _ConfirmDeleteWidgetState extends State<ConfirmDeleteWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
                 onPressed: () async {
+                  logFirebaseEvent('CONFIRM_DELETE_COMP_BATAL_BTN_ON_TAP');
+                  logFirebaseEvent('Button_close_dialog,_drawer,_etc');
                   Navigator.pop(context);
                 },
                 text: 'Batal',
