@@ -128,6 +128,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget>
                                                 currentUserPhoto,
                                                 'https://github.com/tinr22/appasset/raw/main/00000000000000000000000000000000.png',
                                               ),
+                                              fit: BoxFit.cover,
                                             ),
                                           ),
                                         ),

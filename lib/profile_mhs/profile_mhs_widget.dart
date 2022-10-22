@@ -130,7 +130,7 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                             width: double.infinity,
                             height: 144,
                             decoration: BoxDecoration(
-                              color: Color(0x3F000000),
+                              color: Color(0x74000000),
                             ),
                             child: Padding(
                               padding:

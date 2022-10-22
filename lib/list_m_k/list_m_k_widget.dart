@@ -120,7 +120,10 @@ class _ListMKWidgetState extends State<ListMKWidget>
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(8, 20, 8, 0),
                           child: StreamBuilder<List<JadwalRecord>>(
-                            stream: queryJadwalRecord(),
+                            stream: queryJadwalRecord(
+                              queryBuilder: (jadwalRecord) =>
+                                  jadwalRecord.orderBy('mk'),
+                            ),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
@@ -249,7 +252,30 @@ class _ListMKWidgetState extends State<ListMKWidget>
                                                                   .dosen,
                                                               ParamType.String,
                                                             ),
+                                                            'jamMK':
+                                                                serializeParam(
+                                                              listViewJadwalRecord
+                                                                  .jam,
+                                                              ParamType.String,
+                                                            ),
+                                                            'ruangMK':
+                                                                serializeParam(
+                                                              listViewJadwalRecord
+                                                                  .ruang,
+                                                              ParamType.String,
+                                                            ),
                                                           }.withoutNulls,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                            ),
+                                                          },
                                                         );
                                                       },
                                                       text: 'Buka',

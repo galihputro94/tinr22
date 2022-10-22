@@ -64,7 +64,7 @@ class _DetailMKWidgetState extends State<DetailMKWidget> {
           },
         ),
         title: Text(
-          'Kalkulus',
+          widget.namaMK!,
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Outfit',
                 color: FlutterFlowTheme.of(context).tertiaryColor,
@@ -214,7 +214,7 @@ class _DetailMKWidgetState extends State<DetailMKWidget> {
               child: StreamBuilder<List<MateriRecord>>(
                 stream: queryMateriRecord(
                   queryBuilder: (materiRecord) =>
-                      materiRecord.where('nama', isEqualTo: widget.namaMK),
+                      materiRecord.where('mk', isEqualTo: widget.namaMK),
                 ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
