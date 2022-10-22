@@ -41,10 +41,17 @@ class _$MateriRecordSerializer implements StructuredSerializer<MateriRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.jadwalRef;
+    value = object.createdAt;
     if (value != null) {
       result
-        ..add('jadwalRef')
+        ..add('createdAt')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.mataKuliah;
+    if (value != null) {
+      result
+        ..add('mataKuliah')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(
                 DocumentReference, const [const FullType.nullable(Object)])));
@@ -84,8 +91,12 @@ class _$MateriRecordSerializer implements StructuredSerializer<MateriRecord> {
           result.mk = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'jadwalRef':
-          result.jadwalRef = serializers.deserialize(value,
+        case 'createdAt':
+          result.createdAt = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'mataKuliah':
+          result.mataKuliah = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
                 const FullType.nullable(Object)
               ])) as DocumentReference<Object?>?;
@@ -111,14 +122,22 @@ class _$MateriRecord extends MateriRecord {
   @override
   final String? mk;
   @override
-  final DocumentReference<Object?>? jadwalRef;
+  final DateTime? createdAt;
+  @override
+  final DocumentReference<Object?>? mataKuliah;
   @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$MateriRecord([void Function(MateriRecordBuilder)? updates]) =>
       (new MateriRecordBuilder()..update(updates))._build();
 
-  _$MateriRecord._({this.nama, this.link, this.mk, this.jadwalRef, this.ffRef})
+  _$MateriRecord._(
+      {this.nama,
+      this.link,
+      this.mk,
+      this.createdAt,
+      this.mataKuliah,
+      this.ffRef})
       : super._();
 
   @override
@@ -135,15 +154,18 @@ class _$MateriRecord extends MateriRecord {
         nama == other.nama &&
         link == other.link &&
         mk == other.mk &&
-        jadwalRef == other.jadwalRef &&
+        createdAt == other.createdAt &&
+        mataKuliah == other.mataKuliah &&
         ffRef == other.ffRef;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc($jc(0, nama.hashCode), link.hashCode), mk.hashCode),
-            jadwalRef.hashCode),
+        $jc(
+            $jc($jc($jc($jc(0, nama.hashCode), link.hashCode), mk.hashCode),
+                createdAt.hashCode),
+            mataKuliah.hashCode),
         ffRef.hashCode));
   }
 
@@ -153,7 +175,8 @@ class _$MateriRecord extends MateriRecord {
           ..add('nama', nama)
           ..add('link', link)
           ..add('mk', mk)
-          ..add('jadwalRef', jadwalRef)
+          ..add('createdAt', createdAt)
+          ..add('mataKuliah', mataKuliah)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -175,10 +198,14 @@ class MateriRecordBuilder
   String? get mk => _$this._mk;
   set mk(String? mk) => _$this._mk = mk;
 
-  DocumentReference<Object?>? _jadwalRef;
-  DocumentReference<Object?>? get jadwalRef => _$this._jadwalRef;
-  set jadwalRef(DocumentReference<Object?>? jadwalRef) =>
-      _$this._jadwalRef = jadwalRef;
+  DateTime? _createdAt;
+  DateTime? get createdAt => _$this._createdAt;
+  set createdAt(DateTime? createdAt) => _$this._createdAt = createdAt;
+
+  DocumentReference<Object?>? _mataKuliah;
+  DocumentReference<Object?>? get mataKuliah => _$this._mataKuliah;
+  set mataKuliah(DocumentReference<Object?>? mataKuliah) =>
+      _$this._mataKuliah = mataKuliah;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -194,7 +221,8 @@ class MateriRecordBuilder
       _nama = $v.nama;
       _link = $v.link;
       _mk = $v.mk;
-      _jadwalRef = $v.jadwalRef;
+      _createdAt = $v.createdAt;
+      _mataKuliah = $v.mataKuliah;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -218,7 +246,12 @@ class MateriRecordBuilder
   _$MateriRecord _build() {
     final _$result = _$v ??
         new _$MateriRecord._(
-            nama: nama, link: link, mk: mk, jadwalRef: jadwalRef, ffRef: ffRef);
+            nama: nama,
+            link: link,
+            mk: mk,
+            createdAt: createdAt,
+            mataKuliah: mataKuliah,
+            ffRef: ffRef);
     replace(_$result);
     return _$result;
   }

@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:rxdart/rxdart.dart';
 
-import 'auth_util.dart';
-
 class TiNr22FirebaseUser {
   TiNr22FirebaseUser(this.user);
   User? user;
@@ -19,7 +17,6 @@ Stream<TiNr22FirebaseUser> tiNr22FirebaseUserStream() => FirebaseAuth.instance
         .map<TiNr22FirebaseUser>(
       (user) {
         currentUser = TiNr22FirebaseUser(user);
-        updateUserJwtTimer(user);
         return currentUser!;
       },
     );

@@ -201,6 +201,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => MKAgamaWidget(),
             ),
             FFRoute(
+              name: 'MKKalkulus',
+              path: 'mKKalkulus',
+              builder: (context, params) => MKKalkulusWidget(),
+            ),
+            FFRoute(
               name: 'MKDasarInfrastrukturTeknologiInformasi',
               path: 'mKDasarInfrastrukturTeknologiInformasi',
               builder: (context, params) =>
@@ -241,17 +246,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 domisiliMhs: params.getParam('domisiliMhs', ParamType.String),
                 jabatanMhs: params.getParam('jabatanMhs', ParamType.String),
                 emailMhs: params.getParam('emailMhs', ParamType.String),
+                npmMHS: params.getParam('npmMHS', ParamType.String),
               ),
             ),
             FFRoute(
               name: 'MKBahasainggris',
               path: 'mKBahasaInggris',
               builder: (context, params) => MKBahasainggrisWidget(),
-            ),
-            FFRoute(
-              name: 'MKKalkulus',
-              path: 'mKKalkulus',
-              builder: (context, params) => MKKalkulusWidget(),
             ),
             FFRoute(
               name: 'MKPancasila',
@@ -275,6 +276,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'listMK',
               path: 'listMK',
               builder: (context, params) => ListMKWidget(),
+            ),
+            FFRoute(
+              name: 'DetailMK',
+              path: 'detailMK',
+              builder: (context, params) => DetailMKWidget(
+                namaMK: params.getParam('namaMK', ParamType.String),
+                dosenMK: params.getParam('dosenMK', ParamType.String),
+                jamMK: params.getParam('jamMK', ParamType.String),
+                ruangMK: params.getParam('ruangMK', ParamType.String),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

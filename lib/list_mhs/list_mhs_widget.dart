@@ -109,8 +109,9 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                         decoration: BoxDecoration(),
                         child: StreamBuilder<List<UsersRecord>>(
                           stream: queryUsersRecord(
-                            queryBuilder: (usersRecord) =>
-                                usersRecord.where('pejabat', isEqualTo: true),
+                            queryBuilder: (usersRecord) => usersRecord
+                                .where('pejabat', isEqualTo: true)
+                                .orderBy('indexJabatan'),
                           ),
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
@@ -140,78 +141,129 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                 return Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       10, 12, 0, 12),
-                                  child: Container(
-                                    width: 160,
-                                    height: 100,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFF7FE2FE),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4,
-                                          color: Color(0x34090F13),
-                                          offset: Offset(0, 2),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 12, 12, 12),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(50),
-                                            child: Image.network(
-                                              listViewUsersRecord.photoUrl!,
-                                              width: 60,
-                                              height: 60,
-                                              fit: BoxFit.cover,
-                                            ),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      logFirebaseEvent(
+                                          'LIST_MHS_PAGE_Container_ewva4blk_ON_TAP');
+                                      logFirebaseEvent('Container_navigate_to');
+
+                                      context.pushNamed(
+                                        'profileMhs',
+                                        queryParams: {
+                                          'namaMhs': serializeParam(
+                                            listViewUsersRecord.displayName,
+                                            ParamType.String,
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    5, 8, 5, 0),
-                                            child: Text(
-                                              listViewUsersRecord.displayName!
-                                                  .maybeHandleOverflow(
-                                                      maxChars: 12),
-                                              maxLines: 1,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .darkBG,
-                                                        fontSize: 14,
-                                                      ),
-                                            ),
+                                          'genderMhs': serializeParam(
+                                            listViewUsersRecord.gender,
+                                            ParamType.String,
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 4, 0, 0),
-                                            child: Text(
-                                              listViewUsersRecord.jabatan!,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText2
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color:
-                                                            Color(0xB2111417),
-                                                        fontSize: 12,
-                                                      ),
-                                            ),
+                                          'phoneMhs': serializeParam(
+                                            listViewUsersRecord.phoneNumber,
+                                            ParamType.String,
                                           ),
+                                          'avatarMhs': serializeParam(
+                                            listViewUsersRecord.photoUrl,
+                                            ParamType.String,
+                                          ),
+                                          'domisiliMhs': serializeParam(
+                                            listViewUsersRecord.domisili,
+                                            ParamType.String,
+                                          ),
+                                          'jabatanMhs': serializeParam(
+                                            listViewUsersRecord.jabatan,
+                                            ParamType.String,
+                                          ),
+                                          'emailMhs': serializeParam(
+                                            listViewUsersRecord.email,
+                                            ParamType.String,
+                                          ),
+                                          'npmMHS': serializeParam(
+                                            listViewUsersRecord.npm?.toString(),
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                            duration:
+                                                Duration(milliseconds: 500),
+                                          ),
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      width: 160,
+                                      height: 100,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFF7FE2FE),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 4,
+                                            color: Color(0x34090F13),
+                                            offset: Offset(0, 2),
+                                          )
                                         ],
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12, 12, 12, 12),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              child: Image.network(
+                                                listViewUsersRecord.photoUrl!,
+                                                width: 60,
+                                                height: 60,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5, 8, 5, 0),
+                                              child: Text(
+                                                listViewUsersRecord.displayName!
+                                                    .maybeHandleOverflow(
+                                                        maxChars: 12),
+                                                maxLines: 1,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .darkBG,
+                                                          fontSize: 14,
+                                                        ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 4, 0, 0),
+                                              child: Text(
+                                                listViewUsersRecord.jabatan!,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText2
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color:
+                                                              Color(0xB2111417),
+                                                          fontSize: 12,
+                                                        ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -434,6 +486,11 @@ class _ListMhsWidgetState extends State<ListMhsWidget> {
                                                     ),
                                                     'emailMhs': serializeParam(
                                                       listViewUsersRecord.email,
+                                                      ParamType.String,
+                                                    ),
+                                                    'npmMHS': serializeParam(
+                                                      listViewUsersRecord.npm
+                                                          ?.toString(),
                                                       ParamType.String,
                                                     ),
                                                   }.withoutNulls,

@@ -99,54 +99,62 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Form(
-                    key: formKey,
-                    autovalidateMode: AutovalidateMode.always,
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 12),
-                      child: TextFormField(
-                        controller: emailAddressController,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelText: 'Email',
-                          hintText: 'Email Anda...',
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
-                              width: 2,
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                    child: Form(
+                      key: formKey,
+                      autovalidateMode: AutovalidateMode.always,
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 12),
+                        child: TextFormField(
+                          controller: emailAddressController,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelText: 'Email',
+                            hintText: 'Email Anda...',
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color:
+                                    FlutterFlowTheme.of(context).tertiaryColor,
+                                width: 2,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
                             ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
-                              width: 2,
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color:
+                                    FlutterFlowTheme.of(context).tertiaryColor,
+                                width: 2,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
                             ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFC62828),
-                              width: 2,
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFFC62828),
+                                width: 2,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
                             ),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFC62828),
-                              width: 2,
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFFC62828),
+                                width: 2,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            contentPadding:
+                                EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
                           ),
-                          contentPadding:
-                              EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: 'Lexend Deca',
+                                color:
+                                    FlutterFlowTheme.of(context).tertiaryColor,
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                              ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.normal,
-                            ),
                       ),
                     ),
                   ),

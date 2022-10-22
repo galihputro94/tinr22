@@ -32,7 +32,6 @@ dependencies:
   cloud_firestore: 3.2.1
   cloud_firestore_platform_interface: 5.5.10
   cloud_firestore_web: 2.6.19
-  easy_debounce: 2.0.1
   file_picker: 4.5.1
   firebase_analytics: 9.1.12
   firebase_analytics_platform_interface: 3.1.10
@@ -76,7 +75,6 @@ dependencies:
   sign_in_with_apple_platform_interface: 1.0.0
   sign_in_with_apple_web: 1.0.1
   table_calendar: 3.0.6
-  text_search: 0.0.2
   timeago: 3.2.2
   url_launcher: 6.1.5
   webviewx: 0.2.1

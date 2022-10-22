@@ -89,219 +89,248 @@ class _AdmAddMateriWidgetState extends State<AdmAddMateriWidget> {
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              child: Form(
-                key: formKey,
-                autovalidateMode: AutovalidateMode.always,
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                      child: TextFormField(
-                        controller: namaMateriController,
-                        autofocus: true,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelText: 'Nama Materi',
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFC62828),
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFC62828),
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
-                            ),
-                        validator: (val) {
-                          if (val == null || val.isEmpty) {
-                            return 'Tidak Boleh Kosong';
-                          }
-
-                          return null;
-                        },
+            StreamBuilder<List<JadwalRecord>>(
+              stream: queryJadwalRecord(),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: SpinKitDualRing(
+                        color: FlutterFlowTheme.of(context).white,
+                        size: 50,
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                      child: TextFormField(
-                        controller: linkFieldController,
-                        autofocus: true,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelText: 'Link Materi',
-                          hintText: 'Masukan Link diawali http',
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
-                              width: 1,
+                  );
+                }
+                List<JadwalRecord> formTambahMateriJadwalRecordList =
+                    snapshot.data!;
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Form(
+                    key: formKey,
+                    autovalidateMode: AutovalidateMode.always,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                          child: TextFormField(
+                            controller: namaMateriController,
+                            autofocus: true,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              labelText: 'Nama Materi',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context)
+                                      .tertiaryColor,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context)
+                                      .tertiaryColor,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFC62828),
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFC62828),
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
                             ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFC62828),
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFC62828),
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Inter',
-                              color: Color(0xC001A8C9),
-                            ),
-                        validator: (val) {
-                          if (val == null || val.isEmpty) {
-                            return 'Tidak Boleh Kosong';
-                          }
-
-                          return null;
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
-                      child: FlutterFlowDropDown(
-                        options: [
-                          'Agama',
-                          'Pancasila',
-                          'Bahasa Inggris',
-                          'Algo dan Pemrograman',
-                          'Pengantar Sistem Digital',
-                          'Fisika',
-                          'DITI',
-                          'Bahasa Indonesia',
-                          'Kalkulus'
-                        ],
-                        onChanged: (val) => setState(() => mkfieldValue = val),
-                        width: MediaQuery.of(context).size.width,
-                        height: 50,
-                        textStyle: FlutterFlowTheme.of(context)
-                            .bodyText1
-                            .override(
-                              fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
-                            ),
-                        hintText: 'Pilih Mata Kuliah',
-                        icon: FaIcon(
-                          FontAwesomeIcons.caretDown,
-                          color: FlutterFlowTheme.of(context).tertiaryColor,
-                          size: 15,
-                        ),
-                        fillColor: Color(0x00111417),
-                        elevation: 2,
-                        borderColor: FlutterFlowTheme.of(context).tertiaryColor,
-                        borderWidth: 1,
-                        borderRadius: 10,
-                        margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
-                        hidesUnderline: true,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          logFirebaseEvent(
-                              'ADM_ADD_MATERI_PAGE_subMateri_ON_TAP');
-                          logFirebaseEvent('subMateri_validate_form');
-                          if (formKey.currentState == null ||
-                              !formKey.currentState!.validate()) {
-                            return;
-                          }
-
-                          if (mkfieldValue == null) {
-                            await showDialog(
-                              context: context,
-                              builder: (alertDialogContext) {
-                                return AlertDialog(
-                                  title: Text('Kesalahan'),
-                                  content: Text('Silahkan Pilih Mata Kuliah'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(alertDialogContext),
-                                      child: Text('Ok'),
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
                                     ),
-                                  ],
+                            validator: (val) {
+                              if (val == null || val.isEmpty) {
+                                return 'Tidak Boleh Kosong';
+                              }
+
+                              return null;
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                          child: TextFormField(
+                            controller: linkFieldController,
+                            autofocus: true,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              labelText: 'Link Materi',
+                              hintText: 'Masukan Link diawali http',
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context)
+                                      .tertiaryColor,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context)
+                                      .tertiaryColor,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFC62828),
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFC62828),
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Inter',
+                                      color: Color(0xC001A8C9),
+                                    ),
+                            validator: (val) {
+                              if (val == null || val.isEmpty) {
+                                return 'Tidak Boleh Kosong';
+                              }
+
+                              return null;
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(20, 20, 20, 0),
+                          child: FlutterFlowDropDown(
+                            options: formTambahMateriJadwalRecordList
+                                .map((e) => e.mk!)
+                                .toList()
+                                .toList(),
+                            onChanged: (val) =>
+                                setState(() => mkfieldValue = val),
+                            width: MediaQuery.of(context).size.width,
+                            height: 50,
+                            textStyle:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                    ),
+                            hintText: 'Pilih Mata Kuliah',
+                            icon: FaIcon(
+                              FontAwesomeIcons.caretDown,
+                              color: FlutterFlowTheme.of(context).tertiaryColor,
+                              size: 15,
+                            ),
+                            fillColor: Color(0x00111417),
+                            elevation: 2,
+                            borderColor:
+                                FlutterFlowTheme.of(context).tertiaryColor,
+                            borderWidth: 1,
+                            borderRadius: 10,
+                            margin:
+                                EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                            hidesUnderline: true,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'ADM_ADD_MATERI_PAGE_subMateri_ON_TAP');
+                              logFirebaseEvent('subMateri_validate_form');
+                              if (formKey.currentState == null ||
+                                  !formKey.currentState!.validate()) {
+                                return;
+                              }
+
+                              if (mkfieldValue == null) {
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      title: Text('Kesalahan'),
+                                      content:
+                                          Text('Silahkan Pilih Mata Kuliah'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    );
+                                  },
                                 );
-                              },
-                            );
-                            return;
-                          }
+                                return;
+                              }
 
-                          logFirebaseEvent('subMateri_backend_call');
+                              logFirebaseEvent('subMateri_backend_call');
 
-                          final materiCreateData = createMateriRecordData(
-                            nama: namaMateriController!.text,
-                            link: linkFieldController!.text,
-                            mk: mkfieldValue,
-                          );
-                          await MateriRecord.collection
-                              .doc()
-                              .set(materiCreateData);
-                          logFirebaseEvent('subMateri_navigate_back');
-                          context.pop();
-                        },
-                        text: 'Simpan',
-                        options: FFButtonOptions(
-                          width: 130,
-                          height: 50,
-                          color: FlutterFlowTheme.of(context).tertiaryColor,
-                          textStyle:
-                              FlutterFlowTheme.of(context).subtitle2.override(
+                              final materiCreateData = createMateriRecordData(
+                                nama: namaMateriController!.text,
+                                link: linkFieldController!.text,
+                                createdAt: getCurrentTimestamp,
+                                mk: mkfieldValue,
+                              );
+                              await MateriRecord.collection
+                                  .doc()
+                                  .set(materiCreateData);
+                              logFirebaseEvent('subMateri_navigate_back');
+                              context.pop();
+                            },
+                            text: 'Simpan',
+                            options: FFButtonOptions(
+                              width: 130,
+                              height: 50,
+                              color: FlutterFlowTheme.of(context).tertiaryColor,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
                                     fontFamily: 'Inter',
                                     color: FlutterFlowTheme.of(context).white,
                                   ),
-                          borderSide: BorderSide(
-                            width: 1,
+                              borderSide: BorderSide(
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
                           ),
-                          borderRadius: BorderRadius.circular(8),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
+                  ),
+                );
+              },
             ),
           ],
         ),

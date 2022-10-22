@@ -23,6 +23,7 @@ export 'add_tugas/add_tugas_widget.dart' show AddTugasWidget;
 export 'list_mhs/list_mhs_widget.dart' show ListMhsWidget;
 export 'adm_list_tugas/adm_list_tugas_widget.dart' show AdmListTugasWidget;
 export 'm_k_agama/m_k_agama_widget.dart' show MKAgamaWidget;
+export 'm_k_kalkulus/m_k_kalkulus_widget.dart' show MKKalkulusWidget;
 export 'm_k_dasar_infrastruktur_teknologi_informasi/m_k_dasar_infrastruktur_teknologi_informasi_widget.dart'
     show MKDasarInfrastrukturTeknologiInformasiWidget;
 export 'm_k_alogaritma_dan_pemograman/m_k_alogaritma_dan_pemograman_widget.dart'
@@ -32,8 +33,8 @@ export 'adm_manage_user/adm_manage_user_widget.dart' show AdmManageUserWidget;
 export 'profile_mhs/profile_mhs_widget.dart' show ProfileMhsWidget;
 export 'm_k_bahasainggris/m_k_bahasainggris_widget.dart'
     show MKBahasainggrisWidget;
-export 'm_k_kalkulus/m_k_kalkulus_widget.dart' show MKKalkulusWidget;
 export 'm_k_pancasila/m_k_pancasila_widget.dart' show MKPancasilaWidget;
 export 'user_profile/user_profile_widget.dart' show UserProfileWidget;
 export 'info_page/info_page_widget.dart' show InfoPageWidget;
 export 'list_m_k/list_m_k_widget.dart' show ListMKWidget;
+export 'detail_m_k/detail_m_k_widget.dart' show DetailMKWidget;

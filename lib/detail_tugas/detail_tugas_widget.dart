@@ -70,7 +70,7 @@ class _DetailTugasWidgetState extends State<DetailTugasWidget> {
         ),
         actions: [],
         centerTitle: false,
-        elevation: 0,
+        elevation: 4,
       ),
       body: SafeArea(
         child: Column(

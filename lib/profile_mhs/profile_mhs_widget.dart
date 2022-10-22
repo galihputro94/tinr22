@@ -18,6 +18,7 @@ class ProfileMhsWidget extends StatefulWidget {
     this.domisiliMhs,
     this.jabatanMhs,
     this.emailMhs,
+    this.npmMHS,
   }) : super(key: key);
 
   final String? namaMhs;
@@ -27,6 +28,7 @@ class ProfileMhsWidget extends StatefulWidget {
   final String? domisiliMhs;
   final String? jabatanMhs;
   final String? emailMhs;
+  final String? npmMHS;
 
   @override
   _ProfileMhsWidgetState createState() => _ProfileMhsWidgetState();
@@ -46,7 +48,7 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).darkBG,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: SingleChildScrollView(
@@ -98,7 +100,7 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                                 borderWidth: 1,
                                 buttonSize: 40,
                                 fillColor:
-                                    FlutterFlowTheme.of(context).textColor,
+                                    FlutterFlowTheme.of(context).tertiaryColor,
                                 icon: Icon(
                                   Icons.arrow_back_rounded,
                                   color: FlutterFlowTheme.of(context).white,
@@ -128,7 +130,7 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                             width: double.infinity,
                             height: 144,
                             decoration: BoxDecoration(
-                              color: Color(0x801D2429),
+                              color: Color(0x3F000000),
                             ),
                             child: Padding(
                               padding:
@@ -151,7 +153,7 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                                                 fontFamily: 'Outfit',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryBtnText,
+                                                        .tertiaryColor,
                                                 fontSize: 26,
                                                 fontWeight: FontWeight.normal,
                                               ),
@@ -166,12 +168,36 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Text(
+                                          widget.npmMHS!,
+                                          style: FlutterFlowTheme.of(context)
+                                              .subtitle2
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryColor,
+                                              ),
+                                        ),
+                                        Text(
+                                          ' - ',
+                                          style: FlutterFlowTheme.of(context)
+                                              .subtitle2
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiaryColor,
+                                              ),
+                                        ),
+                                        Text(
                                           widget.jabatanMhs!,
                                           style: FlutterFlowTheme.of(context)
                                               .subtitle2
                                               .override(
                                                 fontFamily: 'Inter',
-                                                color: Color(0xFF6A7176),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiaryColor,
                                               ),
                                         ),
                                       ],
@@ -196,7 +222,7 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                                               FontAwesomeIcons.whatsapp,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryBtnText,
+                                                      .tertiaryColor,
                                               size: 24,
                                             ),
                                             onPressed: () async {
@@ -222,7 +248,7 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                                               Icons.email_outlined,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryBtnText,
+                                                      .tertiaryColor,
                                               size: 24,
                                             ),
                                             onPressed: () async {
@@ -278,7 +304,8 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context).white,
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -294,7 +321,7 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                 thickness: 1,
                 indent: 8,
                 endIndent: 8,
-                color: FlutterFlowTheme.of(context).white,
+                color: FlutterFlowTheme.of(context).tertiaryColor,
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 44),
@@ -312,7 +339,7 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                             maxHeight: 600,
                           ),
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).textColor,
+                            color: FlutterFlowTheme.of(context).tertiaryColor,
                             boxShadow: [
                               BoxShadow(
                                 blurRadius: 4,
@@ -330,7 +357,7 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 5, 0, 0),
+                                      0, 10, 0, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -339,7 +366,7 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 5, 0),
+                                            10, 0, 5, 0),
                                         child: FaIcon(
                                           FontAwesomeIcons.venusMars,
                                           color: FlutterFlowTheme.of(context)
@@ -364,7 +391,7 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 16, 0, 0),
+                                      0, 15, 0, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -373,9 +400,9 @@ class _ProfileMhsWidgetState extends State<ProfileMhsWidget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 5, 0),
-                                        child: Icon(
-                                          Icons.location_on,
+                                            10, 0, 10, 0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.locationArrow,
                                           color: FlutterFlowTheme.of(context)
                                               .white,
                                           size: 20,
