@@ -53,7 +53,25 @@ class _GaleryWidgetState extends State<GaleryWidget> {
                 fontSize: 22,
               ),
         ),
-        actions: [],
+        actions: [
+          FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 60,
+            icon: Icon(
+              Icons.replay_outlined,
+              color: FlutterFlowTheme.of(context).primaryText,
+              size: 30,
+            ),
+            onPressed: () async {
+              logFirebaseEvent('GALERY_PAGE_replay_outlined_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_to');
+
+              context.pushNamed('Galery');
+            },
+          ),
+        ],
         centerTitle: true,
         elevation: 2,
       ),

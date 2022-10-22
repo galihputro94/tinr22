@@ -138,6 +138,38 @@ class _InfoPageWidgetState extends State<InfoPageWidget> {
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
+                            FFButtonWidget(
+                              onPressed: () async {
+                                logFirebaseEvent(
+                                    'INFO_SUPPORT_PROJECT_BTN_ON_TAP');
+                                logFirebaseEvent('Button_launch_u_r_l');
+                                await launchURL('https://saweria.co/tinr22');
+                              },
+                              text: 'Support Project',
+                              icon: FaIcon(
+                                FontAwesomeIcons.handHoldingUsd,
+                                color: FlutterFlowTheme.of(context).darkBG,
+                                size: 20,
+                              ),
+                              options: FFButtonOptions(
+                                width: 200,
+                                height: 40,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryColor,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .subtitle2
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color:
+                                          FlutterFlowTheme.of(context).darkBG,
+                                    ),
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
@@ -347,42 +379,7 @@ class _InfoPageWidgetState extends State<InfoPageWidget> {
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  FFButtonWidget(
-                                    onPressed: () async {
-                                      logFirebaseEvent(
-                                          'INFO_SUPPORT_PROJECT_BTN_ON_TAP');
-                                      logFirebaseEvent('Button_launch_u_r_l');
-                                      await launchURL(
-                                          'https://saweria.co/tinr22');
-                                    },
-                                    text: 'Support Project',
-                                    icon: FaIcon(
-                                      FontAwesomeIcons.handHoldingUsd,
-                                      color:
-                                          FlutterFlowTheme.of(context).darkBG,
-                                      size: 20,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: 200,
-                                      height: 40,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryColor,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .subtitle2
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .darkBG,
-                                          ),
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                  ),
-                                ],
+                                children: [],
                               ),
                             ),
                           ],
