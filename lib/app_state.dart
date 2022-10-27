@@ -19,6 +19,8 @@ class FFAppState {
   late SharedPreferences prefs;
 
   String appLogo = '';
+
+  String defaultProfile = '';
 }
 
 LatLng? _latLngFromString(String? val) {

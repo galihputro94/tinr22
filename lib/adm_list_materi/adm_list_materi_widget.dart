@@ -43,8 +43,10 @@ class _AdmListMateriWidgetState extends State<AdmListMateriWidget> {
             color: FlutterFlowTheme.of(context).tertiaryColor,
             size: 25,
           ),
-          onPressed: () {
-            print('IconButton pressed ...');
+          onPressed: () async {
+            logFirebaseEvent('ADM_LIST_MATERI_arrow_back_ICN_ON_TAP');
+            logFirebaseEvent('IconButton_navigate_back');
+            context.pop();
           },
         ),
         title: Text(

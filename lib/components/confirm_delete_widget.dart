@@ -84,7 +84,7 @@ class _ConfirmDeleteWidgetState extends State<ConfirmDeleteWidget> {
                   color: Color(0xFFFF5963),
                   textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                         fontFamily: 'Lexend Deca',
-                        color: Colors.white,
+                        color: FlutterFlowTheme.of(context).primaryText,
                         fontSize: 16,
                         fontWeight: FontWeight.normal,
                       ),
@@ -107,8 +107,11 @@ class _ConfirmDeleteWidgetState extends State<ConfirmDeleteWidget> {
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 60,
-                  color: FlutterFlowTheme.of(context).primaryBackground,
-                  textStyle: FlutterFlowTheme.of(context).subtitle2,
+                  color: FlutterFlowTheme.of(context).primaryColor,
+                  textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                        fontFamily: 'Inter',
+                        color: FlutterFlowTheme.of(context).primaryText,
+                      ),
                   borderSide: BorderSide(
                     color: Colors.transparent,
                     width: 1,

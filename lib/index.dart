@@ -38,3 +38,4 @@ export 'user_profile/user_profile_widget.dart' show UserProfileWidget;
 export 'info_page/info_page_widget.dart' show InfoPageWidget;
 export 'list_m_k/list_m_k_widget.dart' show ListMKWidget;
 export 'detail_m_k/detail_m_k_widget.dart' show DetailMKWidget;
+export 'adm_add_mhs/adm_add_mhs_widget.dart' show AdmAddMhsWidget;

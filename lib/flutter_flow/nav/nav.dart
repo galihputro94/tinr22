@@ -286,6 +286,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 jamMK: params.getParam('jamMK', ParamType.String),
                 ruangMK: params.getParam('ruangMK', ParamType.String),
               ),
+            ),
+            FFRoute(
+              name: 'adm_addMhs',
+              path: 'admAddMhs',
+              builder: (context, params) => AdmAddMhsWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

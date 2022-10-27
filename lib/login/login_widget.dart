@@ -69,11 +69,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                         decoration: BoxDecoration(),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                          child: Image.network(
-                            'https://github.com/tinr22/appasset/raw/main/applogo.png',
+                          child: Image.asset(
+                            'assets/images/I__3_-removebg-preview.png',
                             width: MediaQuery.of(context).size.width * 0.9,
                             height: 150,
-                            fit: BoxFit.fitWidth,
+                            fit: BoxFit.contain,
                           ),
                         ),
                       ),

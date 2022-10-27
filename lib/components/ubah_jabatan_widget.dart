@@ -88,7 +88,7 @@ class _UbahJabatanWidgetState extends State<UbahJabatanWidget> {
                   'Ubah Jabatan',
                   style: FlutterFlowTheme.of(context).title2.override(
                         fontFamily: 'Outfit',
-                        color: FlutterFlowTheme.of(context).white,
+                        color: FlutterFlowTheme.of(context).primaryText,
                       ),
                 ),
               ),
@@ -98,7 +98,7 @@ class _UbahJabatanWidgetState extends State<UbahJabatanWidget> {
                   widget.namaUser!,
                   style: FlutterFlowTheme.of(context).title2.override(
                         fontFamily: 'Outfit',
-                        color: Color(0xC0FFFFFF),
+                        color: FlutterFlowTheme.of(context).primaryText,
                         fontSize: 16,
                       ),
                 ),
@@ -122,15 +122,15 @@ class _UbahJabatanWidgetState extends State<UbahJabatanWidget> {
                   height: 50,
                   textStyle: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).white,
+                        color: FlutterFlowTheme.of(context).primaryText,
                       ),
                   icon: Icon(
                     Icons.arrow_drop_down,
-                    color: FlutterFlowTheme.of(context).white,
+                    color: FlutterFlowTheme.of(context).tertiaryColor,
                     size: 15,
                   ),
                   elevation: 2,
-                  borderColor: FlutterFlowTheme.of(context).white,
+                  borderColor: FlutterFlowTheme.of(context).tertiaryColor,
                   borderWidth: 1,
                   borderRadius: 10,
                   margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
@@ -160,7 +160,7 @@ class _UbahJabatanWidgetState extends State<UbahJabatanWidget> {
                       options: FFButtonOptions(
                         width: 270,
                         height: 50,
-                        color: Color(0xFF090F13),
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
                         textStyle:
                             FlutterFlowTheme.of(context).subtitle1.override(
                                   fontFamily: 'Outfit',

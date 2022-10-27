@@ -167,8 +167,11 @@ class _AdmInitWidgetState extends State<AdmInitWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        logFirebaseEvent('ADM_INIT_PAGE_BERANDA_BTN_ON_TAP');
+                        logFirebaseEvent('Button_navigate_to');
+
+                        context.pushNamed('home');
                       },
                       text: 'Beranda',
                       icon: Icon(

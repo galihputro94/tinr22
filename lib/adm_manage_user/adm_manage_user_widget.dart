@@ -30,9 +30,9 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF01A8C9),
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).darkBG,
+        backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -41,7 +41,7 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
           buttonSize: 60,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.of(context).white,
+            color: FlutterFlowTheme.of(context).primaryText,
             size: 30,
           ),
           onPressed: () async {
@@ -54,12 +54,33 @@ class _AdmManageUserWidgetState extends State<AdmManageUserWidget> {
           'Kelola Mahasiswa',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Outfit',
-                color: Colors.white,
+                color: FlutterFlowTheme.of(context).primaryText,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
         ),
-        actions: [],
+        actions: [
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+            child: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
+              icon: Icon(
+                Icons.add,
+                color: FlutterFlowTheme.of(context).primaryText,
+                size: 30,
+              ),
+              onPressed: () async {
+                logFirebaseEvent('ADM_MANAGE_USER_PAGE_add_ICN_ON_TAP');
+                logFirebaseEvent('IconButton_navigate_to');
+
+                context.pushNamed('adm_addMhs');
+              },
+            ),
+          ),
+        ],
         centerTitle: true,
         elevation: 4,
       ),
